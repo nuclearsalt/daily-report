@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John's Daily Briefing — June 16, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f0f0f;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+    header { border-bottom: 1px solid #333; padding-bottom: 0.75rem; margin-bottom: 1.5rem; }
+    header h1 { font-size: 1.5rem; color: #fff; }
+    header .meta { color: #888; font-size: 0.85rem; margin-top: 0.25rem; }
+    section { margin-bottom: 2rem; border: 1px solid #222; border-radius: 8px; padding: 1rem 1.25rem; }
+    section h2 {
+      font-size: 1.05rem; color: #ccc; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 1rem;
+      border-bottom: 1px solid #222; padding-bottom: 0.5rem;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+    .stat-card { background: #1a1a1a; border-radius: 6px; padding: 0.75rem; }
+    .stat-card .label { color: #888; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat-card .value { font-size: 1.15rem; font-weight: 600; color: #fff; margin-top: 0.1rem; }
+    .stat-card .sub { color: #aaa; font-size: 0.8rem; margin-top: 0.1rem; }
+    .good { color: #4caf50; }
+    .warn { color: #ff9800; }
+    .bad { color: #f44336; }
+    .neutral { color: #90caf9; }
+    .notes-box {
+      background: #1a1a1a; border-left: 3px solid #555;
+      padding: 0.75rem 1rem; border-radius: 0 6px 6px 0;
+      font-size: 0.87rem; color: #ccc; margin-top: 0.75rem; font-style: italic;
+    }
+    .nudge-box {
+      background: #1a1f2e; border-left: 3px solid #4a90d9;
+      padding: 0.85rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0;
+    }
+    .nudge-box .nudge-label {
+      color: #4a90d9; font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.06em; font-weight: 700; margin-bottom: 0.35rem;
+    }
+    .nudge-box p { color: #d0e4ff; font-size: 0.9rem; }
+    h3 { font-size: 0.95rem; color: #bbb; margin: 1rem 0 0.5rem; }
+    p { margin-bottom: 0.5rem; font-size: 0.88rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.5rem; font-size: 0.87rem; }
+    a { color: #5b9bd5; text-decoration: none; }
+    a:hover { text-decoration: underline; color: #79b4e0; }
+    .job-card {
+      background: #161616; border: 1px solid #2a2a2a;
+      border-radius: 6px; padding: 0.75rem; margin-bottom: 0.6rem;
+    }
+    .job-card .title { font-weight: 600; color: #e0e0e0; font-size: 0.9rem; }
+    .job-card .meta { color: #888; font-size: 0.78rem; margin-top: 0.15rem; }
+    .job-card .pay { color: #4caf50; font-size: 0.82rem; margin-top: 0.1rem; font-weight: 600; }
+    .job-card .desc { font-size: 0.82rem; color: #aaa; margin-top: 0.4rem; }
+    .job-card .catch { font-size: 0.82rem; color: #888; margin-top: 0.3rem; }
+    .fallback { color: #666; font-style: italic; font-size: 0.85rem; padding: 0.5rem 0; }
+    .med-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap; }
+    .med-label { min-width: 90px; font-size: 0.85rem; }
+    .compliance-bar { display: flex; gap: 3px; align-items: center; }
+    .compliance-bar span { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+    .compliance-bar span.fill { background: #4caf50; }
+    .compliance-bar span.empty { background: #2a2a2a; }
+    .pct { font-size: 0.82rem; margin-left: 0.25rem; }
+    .divider { height: 1px; background: #222; margin: 0.75rem 0; }
+    footer { text-align: center; color: #444; font-size: 0.75rem; padding: 1rem 0 2rem; }
+    @media (max-width: 540px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>&#x1F4CB; John's Daily Briefing</h1>
+  <div class="meta">Tuesday, June 16, 2026 &nbsp;&middot;&nbsp; Last updated: 5:28 PM ET</div>
+</header>
+
+<section>
+  <h2>&#167;1 &#8212; John's Tracker: Goal Progress</h2>
+  <h3>Today's Check-In</h3>
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="label">Mood</div>
+      <div class="value">&#x1F610; 7 / 10</div>
+      <div class="sub">Neutral &#8212; holding steady</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Sobriety</div>
+      <div class="value neutral">Not logged</div>
+      <div class="sub">&#8212;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Meds Today</div>
+      <div class="value" style="font-size:0.95rem;line-height:1.8;">
+        <span class="good">Fluoxetine &#x2713;</span><br>
+        <span class="bad">Ritalin &#x2717;</span><br>
+        <span class="bad">Seroquel &#x2717;</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Activity</div>
+      <div class="value good">&#x1F941; 45 min</div>
+      <div class="sub">Drums practice &#x2713; &nbsp;&middot;&nbsp; &#x1F6B2; Bicycle &#x2717;</div>
+    </div>
+  </div>
+  <div class="notes-box">
+    &#x201C;COFFEE GO BZZZZZT. Ok, I have to be in bed in like four hours. I feel like I will not be tired enough by then. I sat in front of Claude for a while figuring out my finances again. I'm not sure I have any kind of meaningful plan in place.<br><br>
+    I did clean a little bit. That's always good. Went to the store and picked up a few things. Did not unpack anything yet. Maybe I should do that.&#x201D;
+  </div>
+  <div class="divider"></div>
+  <h3>7-Day Summary (Jun 9&#8211;16)</h3>
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="label">Avg Mood</div>
+      <div class="value">7.0 / 10 &nbsp;&#x2192;</div>
+      <div class="sub">Stable (26 logged entries)</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Episodes / Cravings</div>
+      <div class="value good">0 / 0</div>
+      <div class="sub">Clean week &#x1F44F;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Drum Days</div>
+      <div class="value good">7 / 7 &#x1F525;</div>
+      <div class="sub">Perfect streak</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Bicycle Days</div>
+      <div class="value good">7 / 7 &#x1F525;</div>
+      <div class="sub">Perfect streak</div>
+    </div>
+  </div>
+  <h3>Med Compliance (7-day)</h3>
+  <div class="stat-card">
+    <div class="med-row">
+      <span class="med-label">Fluoxetine</span>
+      <div class="compliance-bar">
+        <span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span>
+      </div>
+      <span class="pct good">100%</span>
+    </div>
+    <div class="med-row">
+      <span class="med-label">Ritalin</span>
+      <div class="compliance-bar">
+        <span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+      </div>
+      <span class="pct warn">57%</span>
+    </div>
+    <div class="med-row">
+      <span class="med-label">Seroquel</span>
+      <div class="compliance-bar">
+        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+      </div>
+      <span class="pct bad">0%</span>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <h3>Latest Insight</h3>
+  <p class="fallback">No insights available &#8212; DB schema error (column insights.generated_at does not exist). Schema fix needed.</p>
+  <div class="divider"></div>
+  <h3>Today's Schedule &amp; Tasks</h3>
+  <p class="fallback">&#x26A0; Calendar/Trello unavailable &#8212; Google OAuth token expired. Re-authorize in Supabase dashboard to restore.</p>
+</section>
+
+<section>
+  <h2>&#167;2 &#8212; ADHD Strategies: Exercise &amp; Mindful Eating</h2>
+  <h3>Exercise: Starting When You Really Don't Want To</h3>
+  <ul>
+    <li><strong>The Stupid-Simple Backup Rule.</strong> Define a floor workout that always counts &#8212; even 10 minutes of walking. ADHD brains stall on the gap between planned vs. possible. Close that gap to zero. Action creates motivation; waiting for it first doesn't work. <a href="https://www.getinflow.io/post/tips-for-exercise-motivation-adhd-adults" target="_blank" rel="noopener noreferrer">Inflow</a></li>
+    <li><strong>Immediate Concrete Reward.</strong> Pair exercise with something specific you enjoy right after &#8212; a specific coffee, episode, or snack. ADHD dopamine runs on near-future rewards. "Future health" is invisible to the system. Make the payoff real and now. <a href="https://neurolaunch.com/adhd-exercise-motivation/" target="_blank" rel="noopener noreferrer">NeuroLaunch</a></li>
+    <li><strong>Body Doubling for Workouts.</strong> A Focusmate session, group class, or a walking phone call provides external accountability that compensates for the internal executive function deficit. External structure reliably beats willpower for ADHD brains. <a href="https://www.shimmer.care/blog/adhd-motivation-overcoming-executive-dysfunction" target="_blank" rel="noopener noreferrer">Shimmer</a></li>
+  </ul>
+  <h3>Mindful Eating: Working With the Dopamine-Seeking Brain</h3>
+  <ul>
+    <li><strong>The 20-Second Pause.</strong> Before eating anything, take 3&#8211;5 deep breaths. Interrupts the automatic boredom-eating/stimulation-seeking loop. ADHD eating is often hijacked by dopamine hunger, not actual hunger &#8212; a tiny pause exposes which one it is. <a href="https://www.additudemag.com/healthy-eating-habits-adhd-adults/" target="_blank" rel="noopener noreferrer">ADDitude</a></li>
+    <li><strong>Protein + Fiber + Fat Combos.</strong> Meals with all three slow the dopamine crash cycle. Ultra-processed spike/crash loops amplify ADHD symptom swings &#8212; the food dysregulation and brain dysregulation feed each other. <a href="https://jackiesilvernutrition.com/articles/how-to-increase-dopamine-naturally-for-adhd/" target="_blank" rel="noopener noreferrer">Jackie Silver Nutrition</a></li>
+  </ul>
+  <div class="nudge-box">
+    <div class="nudge-label">&#x26A1; Today's Nudge</div>
+    <p>You're running on late coffee energy and you know it. 7/7 on drums and bicycle this week &#8212; that streak is genuinely impressive and says something real about your capacity for discipline when you care about the thing. Here's the ask: before your next meal, put the food down for 20 seconds. Three slow breaths. Ask yourself: hungry, or just buzzing? That's the entire experiment. One pause. You've already proven you can build streaks &#8212; apply 5% of that energy here.</p>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;3 &#8212; Music: Income Opportunities (NYC + Remote)</h2>
+  <div class="job-card">
+    <div class="title">Sync Licensing &#8212; Submit to Open Briefs</div>
+    <div class="meta">Remote &#183; Ongoing &#183; Drums, beats, originals</div>
+    <div class="pay">$500&#8211;$50,000/placement &#183; National TV ad: $5k&#8211;$50k &#183; Streaming show: $500&#8211;$5k/episode</div>
+    <div class="desc">Global sync market: $650M (2024), growing 7.4%/yr. Indie-friendly platforms place music without label backing. Active June 2026 brief: Indycar 2026 video game (Alt Country/Americana). Percussion and rhythmic tracks have consistent demand.</div>
+    <div class="catch"><a href="https://artistportal.studio/music-sync-opportunities" target="_blank" rel="noopener noreferrer">ArtistPortal.Studio (free briefs)</a> &#183; <a href="https://www.musicgateway.com/blog/sync-licensing/sync-licensing-in-2026-your-golden-ticket-to-actually-getting-paid-and-heard" target="_blank" rel="noopener noreferrer">Music Gateway</a> &#183; <a href="https://www.chartlex.com/blog/money/music-sync-licensing-guide-independent-artists-2026" target="_blank" rel="noopener noreferrer">Chartlex 2026 guide</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Cruise Ship Drummer &#8212; Multiple Lines</div>
+    <div class="meta">Travel-comped &#183; 3&#8211;6 month contracts &#183; Video auditions open through Jan 2027</div>
+    <div class="pay">Room + board + salary &#183; Net pay varies by line &#183; Active submissions now</div>
+    <div class="desc">Multiple lines currently accepting drummer video submissions. Nashville-based: open through July 2026. Worldwide submissions: through Jan 2027. Good option if you want structure + a travel reset.</div>
+    <div class="catch"><a href="https://www.entertainersworldwidejobs.com/drummer-jobs/cruise-ship" target="_blank" rel="noopener noreferrer">Entertainers Worldwide &#8212; Cruise Drummer Listings</a> &#183; <a href="https://www.musiciansforcruises.com/search/jobs_for_drummers.html" target="_blank" rel="noopener noreferrer">Musicians for Cruises</a> &#183; <a href="https://thedrumninja.com/how-to-become-a-cruise-ship-drummer/" target="_blank" rel="noopener noreferrer">TheDrumNinja guide</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Session Drummer &#8212; SoundBetter / GigSalad / Craigslist</div>
+    <div class="meta">NYC + Remote &#183; Self-booked &#183; Ongoing</div>
+    <div class="pay">$100&#8211;$500+/gig &#183; Studio sessions avg $200&#8211;$400</div>
+    <div class="desc">Platform listings for live drum tracks, event hire, recording sessions. SoundBetter reaches remote clients globally; GigSalad for local NYC events; Craigslist has active NYC musician calls.</div>
+    <div class="catch"><a href="https://soundbetter.com/s/live-drum-tracks" target="_blank" rel="noopener noreferrer">SoundBetter</a> &#183; <a href="https://www.gigsalad.com/Solo-Musicians/Drummer/NY/New+York+City" target="_blank" rel="noopener noreferrer">GigSalad NYC Drummers</a> &#183; <a href="https://newyork.craigslist.org/search/muc?query=drummer" target="_blank" rel="noopener noreferrer">Craigslist Musicians NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;4 &#8212; Music: Events &amp; Networking (NYC)</h2>
+  <h3>Open Mics with Backline</h3>
+  <div class="job-card">
+    <div class="title">Otto's Shrunken Head &#8212; Open Jam</div>
+    <div class="meta">538 E 14th St, Manhattan &#183; 7:30 PM &#183; Host: Ira Zadikow</div>
+    <div class="pay">Full backline confirmed &#183; Free</div>
+    <div class="catch">Verify current June schedule: <a href="https://www.ottosshrunkenhead.com" target="_blank" rel="noopener noreferrer">ottosshrunkenhead.com</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Brooklyn Music Kitchen &#8212; Wednesday House Band Open Mic</div>
+    <div class="meta">Brooklyn &#183; Every Wednesday &#183; Live funk band = full backline</div>
+    <div class="pay">Backline confirmed &#183; Typically free</div>
+    <div class="catch"><a href="https://www.brooklynmusickitchen.com" target="_blank" rel="noopener noreferrer">brooklynmusickitchen.com</a></div>
+  </div>
+  <h3>Networking</h3>
+  <div class="job-card">
+    <div class="title">Entertainment Industry Networking &#8212; Rooftop NYC</div>
+    <div class="meta">Ongoing &#183; 7&#8211;9 PM &#183; Actors, musicians, producers</div>
+    <div class="pay">Ticketed &#8212; check Fever for current price</div>
+    <div class="catch"><a href="https://feverup.com/m/126396" target="_blank" rel="noopener noreferrer">Fever &#8212; Entertainment Networking NYC</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">NY Music Month 2026 &#8212; Remaining Events</div>
+    <div class="meta">Various NYC venues &#183; Through June &#183; Some free</div>
+    <div class="desc">LGBTQ+ industry mixer, songwriter circles, gala brunch still active mid-month.</div>
+    <div class="catch"><a href="https://www.nymusicmonth.nyc/talks/2026/" target="_blank" rel="noopener noreferrer">nymusicmonth.nyc &#8212; 2026 Events</a> &#183; <a href="https://dittomusic.com/en/x/newyork" target="_blank" rel="noopener noreferrer">Ditto X NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;5 &#8212; Tech Jobs: IT + AI / Modern Stack</h2>
+  <p style="color:#888;font-size:0.82rem;margin-bottom:0.75rem;">Excludes pure Microsoft/AD/MCSE shops. Indexed June 2026.</p>
+  <div class="job-card">
+    <div class="title">AI-Forward IT Support Engineer</div>
+    <div class="meta">SaaS companies &#183; NYC / Hybrid</div>
+    <div class="pay">$70k&#8211;$110k &#183; Leads support using AI tools + SaaS environments</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/cybersecurity-it/it" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; IT Jobs</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">AI/Automation Operations Specialist</div>
+    <div class="meta">NYC &#183; Hybrid / Remote</div>
+    <div class="pay">$58&#8211;$77/hr ($120k&#8211;$160k range) per ZipRecruiter</div>
+    <div class="desc">Automating workflows with AI tools, bridging IT and AI strategy. Your Apps Script + React Native background is relevant. Strong systems-thinking fit for ADHD brains.</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/operations/artificial-intelligence" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; AI Ops</a> &#183; <a href="https://www.ziprecruiter.com/Jobs/Ai-And-Automation/--in-New-York" target="_blank" rel="noopener noreferrer">ZipRecruiter &#8212; AI &amp; Automation NY</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">IT Automation Engineer (UiPath / RPA)</div>
+    <div class="meta">NYC area &#183; Hybrid</div>
+    <div class="pay">$70k&#8211;$120k &#183; Builds intelligent process automation</div>
+    <div class="desc">Develops automation solutions, bridges PM + engineering. Your scripting background (Apps Script, React Native) is a real on-ramp here.</div>
+    <div class="catch"><a href="https://www.glassdoor.com/Job/new-york-artificial-intelligence-jobs-SRCH_IL.0,8_IC1132348_KO9,32.htm" target="_blank" rel="noopener noreferrer">Glassdoor &#8212; AI Jobs NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;6 &#8212; Tech Jobs: Beyond IT Support</h2>
+  <p style="color:#888;font-size:0.82rem;margin-bottom:0.75rem;">Uses 12 years of enterprise IT without putting you back on the helpdesk.</p>
+  <div class="job-card">
+    <div class="title">Technical Account Manager (TAM)</div>
+    <div class="meta">NYC SaaS &#183; 1,755+ open roles (Glassdoor, June 2026)</div>
+    <div class="pay">$68k&#8211;$110k avg &#183; Top SaaS: $130k+</div>
+    <div class="desc">Client-facing technical relationship management. Most list "degree or equivalent experience" &#8212; 12 years of enterprise IT is that equivalent. Target roles emphasizing troubleshooting, SaaS onboarding, client communication.</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/sales/search/technical-account-manager" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; TAM</a> &#183; <a href="https://wellfound.com/role/l/technical-account-manager/new-york" target="_blank" rel="noopener noreferrer">Wellfound (Startups)</a> &#183; <a href="https://www.glassdoor.com/Job/new-york-technical-account-manager-jobs-SRCH_IL.0,8_IC1132348_KO9,34.htm" target="_blank" rel="noopener noreferrer">Glassdoor</a></div>
+  </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John's Daily Briefing — June 16, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f0f0f;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+    header { border-bottom: 1px solid #333; padding-bottom: 0.75rem; margin-bottom: 1.5rem; }
+    header h1 { font-size: 1.5rem; color: #fff; }
+    header .meta { color: #888; font-size: 0.85rem; margin-top: 0.25rem; }
+    section { margin-bottom: 2rem; border: 1px solid #222; border-radius: 8px; padding: 1rem 1.25rem; }
+    section h2 {
+      font-size: 1.05rem; color: #ccc; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 1rem;
+      border-bottom: 1px solid #222; padding-bottom: 0.5rem;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+    .stat-card { background: #1a1a1a; border-radius: 6px; padding: 0.75rem; }
+    .stat-card .label { color: #888; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat-card .value { font-size: 1.15rem; font-weight: 600; color: #fff; margin-top: 0.1rem; }
+    .stat-card .sub { color: #aaa; font-size: 0.8rem; margin-top: 0.1rem; }
+    .good { color: #4caf50; }
+    .warn { color: #ff9800; }
+    .bad { color: #f44336; }
+    .neutral { color: #90caf9; }
+    .notes-box {
+      background: #1a1a1a; border-left: 3px solid #555;
+      padding: 0.75rem 1rem; border-radius: 0 6px 6px 0;
+      font-size: 0.87rem; color: #ccc; margin-top: 0.75rem; font-style: italic;
+    }
+    .nudge-box {
+      background: #1a1f2e; border-left: 3px solid #4a90d9;
+      padding: 0.85rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0;
+    }
+    .nudge-box .nudge-label {
+      color: #4a90d9; font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.06em; font-weight: 700; margin-bottom: 0.35rem;
+    }
+    .nudge-box p { color: #d0e4ff; font-size: 0.9rem; }
+    h3 { font-size: 0.95rem; color: #bbb; margin: 1rem 0 0.5rem; }
+    p { margin-bottom: 0.5rem; font-size: 0.88rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.5rem; font-size: 0.87rem; }
+    a { color: #5b9bd5; text-decoration: none; }
+    a:hover { text-decoration: underline; color: #79b4e0; }
+    .job-card {
+      background: #161616; border: 1px solid #2a2a2a;
+      border-radius: 6px; padding: 0.75rem; margin-bottom: 0.6rem;
+    }
+    .job-card .title { font-weight: 600; color: #e0e0e0; font-size: 0.9rem; }
+    .job-card .meta { color: #888; font-size: 0.78rem; margin-top: 0.15rem; }
+    .job-card .pay { color: #4caf50; font-size: 0.82rem; margin-top: 0.1rem; font-weight: 600; }
+    .job-card .desc { font-size: 0.82rem; color: #aaa; margin-top: 0.4rem; }
+    .job-card .catch { font-size: 0.82rem; color: #888; margin-top: 0.3rem; }
+    .fallback { color: #666; font-style: italic; font-size: 0.85rem; padding: 0.5rem 0; }
+    .med-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap; }
+    .med-label { min-width: 90px; font-size: 0.85rem; }
+    .compliance-bar { display: flex; gap: 3px; align-items: center; }
+    .compliance-bar span { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+    .compliance-bar span.fill { background: #4caf50; }
+    .compliance-bar span.empty { background: #2a2a2a; }
+    .pct { font-size: 0.82rem; margin-left: 0.25rem; }
+    .divider { height: 1px; background: #222; margin: 0.75rem 0; }
+    footer { text-align: center; color: #444; font-size: 0.75rem; padding: 1rem 0 2rem; }
+    @media (max-width: 540px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>&#x1F4CB; John's Daily Briefing</h1>
+  <div class="meta">Tuesday, June 16, 2026 &nbsp;&middot;&nbsp; Last updated: 5:28 PM ET</div>
+</header>
+
+<section>
+  <h2>&#167;1 &#8212; John's Tracker: Goal Progress</h2>
+  <h3>Today's Check-In</h3>
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="label">Mood</div>
+      <div class="value">&#x1F610; 7 / 10</div>
+      <div class="sub">Neutral &#8212; holding steady</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Sobriety</div>
+      <div class="value neutral">Not logged</div>
+      <div class="sub">&#8212;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Meds Today</div>
+      <div class="value" style="font-size:0.95rem;line-height:1.8;">
+        <span class="good">Fluoxetine &#x2713;</span><br>
+        <span class="bad">Ritalin &#x2717;</span><br>
+        <span class="bad">Seroquel &#x2717;</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Activity</div>
+      <div class="value good">&#x1F941; 45 min</div>
+      <div class="sub">Drums practice &#x2713; &nbsp;&middot;&nbsp; &#x1F6B2; Bicycle &#x2717;</div>
+    </div>
+  </div>
+  <div class="notes-box">
+    &#x201C;COFFEE GO BZZZZZT. Ok, I have to be in bed in like four hours. I feel like I will not be tired enough by then. I sat in front of Claude for a while figuring out my finances again. I'm not sure I have any kind of meaningful plan in place.<br><br>
+    I did clean a little bit. That's always good. Went to the store and picked up a few things. Did not unpack anything yet. Maybe I should do that.&#x201D;
+  </div>
+  <div class="divider"></div>
+  <h3>7-Day Summary (Jun 9&#8211;16)</h3>
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="label">Avg Mood</div>
+      <div class="value">7.0 / 10 &nbsp;&#x2192;</div>
+      <div class="sub">Stable (26 logged entries)</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Episodes / Cravings</div>
+      <div class="value good">0 / 0</div>
+      <div class="sub">Clean week &#x1F44F;</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Drum Days</div>
+      <div class="value good">7 / 7 &#x1F525;</div>
+      <div class="sub">Perfect streak</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Bicycle Days</div>
+      <div class="value good">7 / 7 &#x1F525;</div>
+      <div class="sub">Perfect streak</div>
+    </div>
+  </div>
+  <h3>Med Compliance (7-day)</h3>
+  <div class="stat-card">
+    <div class="med-row">
+      <span class="med-label">Fluoxetine</span>
+      <div class="compliance-bar">
+        <span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span>
+      </div>
+      <span class="pct good">100%</span>
+    </div>
+    <div class="med-row">
+      <span class="med-label">Ritalin</span>
+      <div class="compliance-bar">
+        <span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+      </div>
+      <span class="pct warn">57%</span>
+    </div>
+    <div class="med-row">
+      <span class="med-label">Seroquel</span>
+      <div class="compliance-bar">
+        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
+      </div>
+      <span class="pct bad">0%</span>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <h3>Latest Insight</h3>
+  <p class="fallback">No insights available &#8212; DB schema error (column insights.generated_at does not exist). Schema fix needed.</p>
+  <div class="divider"></div>
+  <h3>Today's Schedule &amp; Tasks</h3>
+  <p class="fallback">&#x26A0; Calendar/Trello unavailable &#8212; Google OAuth token expired. Re-authorize in Supabase dashboard to restore.</p>
+</section>
+
+<section>
+  <h2>&#167;2 &#8212; ADHD Strategies: Exercise &amp; Mindful Eating</h2>
+  <h3>Exercise: Starting When You Really Don't Want To</h3>
+  <ul>
+    <li><strong>The Stupid-Simple Backup Rule.</strong> Define a floor workout that always counts &#8212; even 10 minutes of walking. ADHD brains stall on the gap between planned vs. possible. Close that gap to zero. Action creates motivation; waiting for it first doesn't work. <a href="https://www.getinflow.io/post/tips-for-exercise-motivation-adhd-adults" target="_blank" rel="noopener noreferrer">Inflow</a></li>
+    <li><strong>Immediate Concrete Reward.</strong> Pair exercise with something specific you enjoy right after &#8212; a specific coffee, episode, or snack. ADHD dopamine runs on near-future rewards. "Future health" is invisible to the system. Make the payoff real and now. <a href="https://neurolaunch.com/adhd-exercise-motivation/" target="_blank" rel="noopener noreferrer">NeuroLaunch</a></li>
+    <li><strong>Body Doubling for Workouts.</strong> A Focusmate session, group class, or a walking phone call provides external accountability that compensates for the internal executive function deficit. External structure reliably beats willpower for ADHD brains. <a href="https://www.shimmer.care/blog/adhd-motivation-overcoming-executive-dysfunction" target="_blank" rel="noopener noreferrer">Shimmer</a></li>
+  </ul>
+  <h3>Mindful Eating: Working With the Dopamine-Seeking Brain</h3>
+  <ul>
+    <li><strong>The 20-Second Pause.</strong> Before eating anything, take 3&#8211;5 deep breaths. Interrupts the automatic boredom-eating/stimulation-seeking loop. ADHD eating is often hijacked by dopamine hunger, not actual hunger &#8212; a tiny pause exposes which one it is. <a href="https://www.additudemag.com/healthy-eating-habits-adhd-adults/" target="_blank" rel="noopener noreferrer">ADDitude</a></li>
+    <li><strong>Protein + Fiber + Fat Combos.</strong> Meals with all three slow the dopamine crash cycle. Ultra-processed spike/crash loops amplify ADHD symptom swings &#8212; the food dysregulation and brain dysregulation feed each other. <a href="https://jackiesilvernutrition.com/articles/how-to-increase-dopamine-naturally-for-adhd/" target="_blank" rel="noopener noreferrer">Jackie Silver Nutrition</a></li>
+  </ul>
+  <div class="nudge-box">
+    <div class="nudge-label">&#x26A1; Today's Nudge</div>
+    <p>You're running on late coffee energy and you know it. 7/7 on drums and bicycle this week &#8212; that streak is genuinely impressive and says something real about your capacity for discipline when you care about the thing. Here's the ask: before your next meal, put the food down for 20 seconds. Three slow breaths. Ask yourself: hungry, or just buzzing? That's the entire experiment. One pause. You've already proven you can build streaks &#8212; apply 5% of that energy here.</p>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;3 &#8212; Music: Income Opportunities (NYC + Remote)</h2>
+  <div class="job-card">
+    <div class="title">Sync Licensing &#8212; Submit to Open Briefs</div>
+    <div class="meta">Remote &#183; Ongoing &#183; Drums, beats, originals</div>
+    <div class="pay">$500&#8211;$50,000/placement &#183; National TV ad: $5k&#8211;$50k &#183; Streaming show: $500&#8211;$5k/episode</div>
+    <div class="desc">Global sync market: $650M (2024), growing 7.4%/yr. Indie-friendly platforms place music without label backing. Active June 2026 brief: Indycar 2026 video game (Alt Country/Americana). Percussion and rhythmic tracks have consistent demand.</div>
+    <div class="catch"><a href="https://artistportal.studio/music-sync-opportunities" target="_blank" rel="noopener noreferrer">ArtistPortal.Studio (free briefs)</a> &#183; <a href="https://www.musicgateway.com/blog/sync-licensing/sync-licensing-in-2026-your-golden-ticket-to-actually-getting-paid-and-heard" target="_blank" rel="noopener noreferrer">Music Gateway</a> &#183; <a href="https://www.chartlex.com/blog/money/music-sync-licensing-guide-independent-artists-2026" target="_blank" rel="noopener noreferrer">Chartlex 2026 guide</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Cruise Ship Drummer &#8212; Multiple Lines</div>
+    <div class="meta">Travel-comped &#183; 3&#8211;6 month contracts &#183; Video auditions open through Jan 2027</div>
+    <div class="pay">Room + board + salary &#183; Net pay varies by line &#183; Active submissions now</div>
+    <div class="desc">Multiple lines currently accepting drummer video submissions. Nashville-based: open through July 2026. Worldwide submissions: through Jan 2027. Good option if you want structure + a travel reset.</div>
+    <div class="catch"><a href="https://www.entertainersworldwidejobs.com/drummer-jobs/cruise-ship" target="_blank" rel="noopener noreferrer">Entertainers Worldwide &#8212; Cruise Drummer Listings</a> &#183; <a href="https://www.musiciansforcruises.com/search/jobs_for_drummers.html" target="_blank" rel="noopener noreferrer">Musicians for Cruises</a> &#183; <a href="https://thedrumninja.com/how-to-become-a-cruise-ship-drummer/" target="_blank" rel="noopener noreferrer">TheDrumNinja guide</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Session Drummer &#8212; SoundBetter / GigSalad / Craigslist</div>
+    <div class="meta">NYC + Remote &#183; Self-booked &#183; Ongoing</div>
+    <div class="pay">$100&#8211;$500+/gig &#183; Studio sessions avg $200&#8211;$400</div>
+    <div class="desc">Platform listings for live drum tracks, event hire, recording sessions. SoundBetter reaches remote clients globally; GigSalad for local NYC events; Craigslist has active NYC musician calls.</div>
+    <div class="catch"><a href="https://soundbetter.com/s/live-drum-tracks" target="_blank" rel="noopener noreferrer">SoundBetter</a> &#183; <a href="https://www.gigsalad.com/Solo-Musicians/Drummer/NY/New+York+City" target="_blank" rel="noopener noreferrer">GigSalad NYC Drummers</a> &#183; <a href="https://newyork.craigslist.org/search/muc?query=drummer" target="_blank" rel="noopener noreferrer">Craigslist Musicians NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;4 &#8212; Music: Events &amp; Networking (NYC)</h2>
+  <h3>Open Mics with Backline</h3>
+  <div class="job-card">
+    <div class="title">Otto's Shrunken Head &#8212; Open Jam</div>
+    <div class="meta">538 E 14th St, Manhattan &#183; 7:30 PM &#183; Host: Ira Zadikow</div>
+    <div class="pay">Full backline confirmed &#183; Free</div>
+    <div class="catch">Verify current June schedule: <a href="https://www.ottosshrunkenhead.com" target="_blank" rel="noopener noreferrer">ottosshrunkenhead.com</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Brooklyn Music Kitchen &#8212; Wednesday House Band Open Mic</div>
+    <div class="meta">Brooklyn &#183; Every Wednesday &#183; Live funk band = full backline</div>
+    <div class="pay">Backline confirmed &#183; Typically free</div>
+    <div class="catch"><a href="https://www.brooklynmusickitchen.com" target="_blank" rel="noopener noreferrer">brooklynmusickitchen.com</a></div>
+  </div>
+  <h3>Networking</h3>
+  <div class="job-card">
+    <div class="title">Entertainment Industry Networking &#8212; Rooftop NYC</div>
+    <div class="meta">Ongoing &#183; 7&#8211;9 PM &#183; Actors, musicians, producers</div>
+    <div class="pay">Ticketed &#8212; check Fever for current price</div>
+    <div class="catch"><a href="https://feverup.com/m/126396" target="_blank" rel="noopener noreferrer">Fever &#8212; Entertainment Networking NYC</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">NY Music Month 2026 &#8212; Remaining Events</div>
+    <div class="meta">Various NYC venues &#183; Through June &#183; Some free</div>
+    <div class="desc">LGBTQ+ industry mixer, songwriter circles, gala brunch still active mid-month.</div>
+    <div class="catch"><a href="https://www.nymusicmonth.nyc/talks/2026/" target="_blank" rel="noopener noreferrer">nymusicmonth.nyc &#8212; 2026 Events</a> &#183; <a href="https://dittomusic.com/en/x/newyork" target="_blank" rel="noopener noreferrer">Ditto X NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;5 &#8212; Tech Jobs: IT + AI / Modern Stack</h2>
+  <p style="color:#888;font-size:0.82rem;margin-bottom:0.75rem;">Excludes pure Microsoft/AD/MCSE shops. Indexed June 2026.</p>
+  <div class="job-card">
+    <div class="title">AI-Forward IT Support Engineer</div>
+    <div class="meta">SaaS companies &#183; NYC / Hybrid</div>
+    <div class="pay">$70k&#8211;$110k &#183; Leads support using AI tools + SaaS environments</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/cybersecurity-it/it" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; IT Jobs</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">AI/Automation Operations Specialist</div>
+    <div class="meta">NYC &#183; Hybrid / Remote</div>
+    <div class="pay">$58&#8211;$77/hr ($120k&#8211;$160k range) per ZipRecruiter</div>
+    <div class="desc">Automating workflows with AI tools, bridging IT and AI strategy. Your Apps Script + React Native background is relevant. Strong systems-thinking fit for ADHD brains.</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/operations/artificial-intelligence" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; AI Ops</a> &#183; <a href="https://www.ziprecruiter.com/Jobs/Ai-And-Automation/--in-New-York" target="_blank" rel="noopener noreferrer">ZipRecruiter &#8212; AI &amp; Automation NY</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">IT Automation Engineer (UiPath / RPA)</div>
+    <div class="meta">NYC area &#183; Hybrid</div>
+    <div class="pay">$70k&#8211;$120k &#183; Builds intelligent process automation</div>
+    <div class="desc">Develops automation solutions, bridges PM + engineering. Your scripting background (Apps Script, React Native) is a real on-ramp here.</div>
+    <div class="catch"><a href="https://www.glassdoor.com/Job/new-york-artificial-intelligence-jobs-SRCH_IL.0,8_IC1132348_KO9,32.htm" target="_blank" rel="noopener noreferrer">Glassdoor &#8212; AI Jobs NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;6 &#8212; Tech Jobs: Beyond IT Support</h2>
+  <p style="color:#888;font-size:0.82rem;margin-bottom:0.75rem;">Uses 12 years of enterprise IT without putting you back on the helpdesk.</p>
+  <div class="job-card">
+    <div class="title">Technical Account Manager (TAM)</div>
+    <div class="meta">NYC SaaS &#183; 1,755+ open roles (Glassdoor, June 2026)</div>
+    <div class="pay">$68k&#8211;$110k avg &#183; Top SaaS: $130k+</div>
+    <div class="desc">Client-facing technical relationship management. Most list "degree or equivalent experience" &#8212; 12 years of enterprise IT is that equivalent. Target roles emphasizing troubleshooting, SaaS onboarding, client communication.</div>
+    <div class="catch"><a href="https://www.builtinnyc.com/jobs/sales/search/technical-account-manager" target="_blank" rel="noopener noreferrer">Built In NYC &#8212; TAM</a> &#183; <a href="https://wellfound.com/role/l/technical-account-manager/new-york" target="_blank" rel="noopener noreferrer">Wellfound (Startups)</a> &#183; <a href="https://www.glassdoor.com/Job/new-york-technical-account-manager-jobs-SRCH_IL.0,8_IC1132348_KO9,34.htm" target="_blank" rel="noopener noreferrer">Glassdoor</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Solutions Engineer</div>
+    <div class="meta">NYC &#183; SaaS / enterprise software &#183; Pre-sales technical</div>
+    <div class="pay">$134k&#8211;$182k avg NYC &#183; High ceiling</div>
+    <div class="desc">You demo products, answer enterprise IT questions, troubleshoot integrations in pre-sales. Your background is exactly what clients are buying. Certifications (AWS, Okta, GCP) outweigh a CS degree at most companies here.</div>
+    <div class="catch"><a href="https://www.indeed.com/career/solutions-engineer/salaries/New-York--NY" target="_blank" rel="noopener noreferrer">Indeed &#8212; SE Salaries NYC</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Implementation Specialist / SaaS Onboarding</div>
+    <div class="meta">NYC + Remote &#183; Mid-market and enterprise SaaS</div>
+    <div class="pay">$60k&#8211;$95k &#183; Often remote-friendly</div>
+    <div class="desc">Deploy software to enterprise clients, train end users, troubleshoot integrations. Direct translation of IT support + communication skills. React Native + Apps Script experience differentiates you from other IT candidates.</div>
+    <div class="catch"><a href="https://www.ziprecruiter.com/Jobs/Technical-Account-Manager/-in-New-York-City,NY" target="_blank" rel="noopener noreferrer">ZipRecruiter &#8212; Implementation/TAM NYC</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;7 &#8212; High-Pay Entry-Level ($35+/hr, Any Industry)</h2>
+  <div class="job-card">
+    <div class="title">Electrician Apprentice &#8212; IBEW Local 3 (NYC)</div>
+    <div class="meta">NYC &#183; 4-year program &#183; &#x1F3DB; Union</div>
+    <div class="pay">$22/hr base &#x2192; $35&#8211;$48/hr on prevailing wage jobs &#183; Full health + pension</div>
+    <div class="desc">Requirements: 18+, 1 year algebra, 2 years NYC area residence. Application windows open 1&#8211;2x per year for only 2&#8211;4 weeks. Highly competitive; long waitlist but career earnings are excellent.</div>
+    <div class="catch"><a href="https://www.jibei.org/education-training/apprentice-program/" target="_blank" rel="noopener noreferrer">JIBEI &#8212; Local 3 Apprentice Program</a> &#183; <a href="https://dol.ny.gov/apprenticeship/apprenticeship-announcements" target="_blank" rel="noopener noreferrer">NY DOL Announcements</a> &#183; <a href="https://hardhat.careers/apprenticeships-new-york" target="_blank" rel="noopener noreferrer">Hardhat.careers &#8212; NY 2026</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Other NYC Union Apprenticeships</div>
+    <div class="meta">NYC &#183; Plumbing, HVAC, Ironworkers, Carpenters, Laborers &#183; &#x1F3DB; Union</div>
+    <div class="pay">$18&#8211;$45/hr depending on trade + year &#183; Benefits included</div>
+    <div class="desc">UA Local 1 (plumbing/steamfitting), DC9 (painters), Ironworkers 40/361, Carpenters 157, Laborers 79. Same structure as IBEW &#8212; start at 50&#8211;60% of journeyman rate, rise with experience.</div>
+    <div class="catch"><a href="https://bandana.com/c-NYC-Union-Apprenticeships.html" target="_blank" rel="noopener noreferrer">Bandana &#8212; NYC Union Apprenticeships 2026</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">Film/TV Crew &#8212; Production PA / Set Work</div>
+    <div class="meta">NYC &#183; IATSE pipeline &#183; Active production market</div>
+    <div class="pay">Non-union PA: $18&#8211;$25/hr &#x2192; IATSE Local 52 union rate: $35&#8211;$50/hr</div>
+    <div class="desc">NYC is a top-3 production market. Entry via non-union PA work &#x2192; union hours &#x2192; IATSE membership. Your audio/music background is relevant for boom op, playback, and music-adjacent production roles.</div>
+    <div class="catch">Search "production PA NYC" on <a href="https://www.builtinnyc.com" target="_blank" rel="noopener noreferrer">Built In NYC</a> and Mandy.com.</div>
+  </div>
+</section>
+
+<section>
+  <h2>&#167;8 &#8212; Passive Income: Vetted for Real People</h2>
+  <div class="job-card">
+    <div class="title">&#x1F4C0; Stock Music Licensing</div>
+    <div class="meta">Remote &#183; Long-game &#183; Drums, beats, originals</div>
+    <div class="pay">$200&#8211;$400/mo after 2&#8211;3 years (50&#8211;100 tracks) &#183; $1k+/mo at 200+ tracks</div>
+    <div class="desc">Upload originals to Musicbed, Artlist, Pond5, Audiojungle. Percussion and rhythmic tracks have consistent demand (sports, corporate, action). The passive part only comes after active catalog-building.</div>
+    <div class="catch"><strong>Honest assessment:</strong> Years 1&#8211;2 are a grind. Niche functional music outperforms artistic output on licensing platforms. It compounds slowly but it compounds. <a href="https://www.stockmusicmusician.com/blog/how-to-make-money-licensing-stock-music-the-complete-guide-2026" target="_blank" rel="noopener noreferrer">2026 complete guide</a> &#183; <a href="https://orphiq.com/resources/stock-music-licensing-guide" target="_blank" rel="noopener noreferrer">Orphiq guide</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">&#x1F5C2; IT Notion / Workflow Templates</div>
+    <div class="meta">Gumroad / Etsy &#183; Uses your IT background directly</div>
+    <div class="pay">$19&#8211;$39/template &#183; $200&#8211;$2k/mo realistic after 6&#8211;12 months</div>
+    <div class="desc">IT runbooks, incident response playbooks, onboarding checklists, home lab dashboards. Your 12 years of enterprise IT is the product &#8212; small businesses that can't afford consultants are the customer.</div>
+    <div class="catch"><strong>Honest assessment:</strong> Templates build fast; distribution is the hard part. Start on Gumroad (free) to test demand before investing time in SEO or a site. <a href="https://ezycourse.com/blog/platforms-to-sell-notion-templates" target="_blank" rel="noopener noreferrer">Where to sell templates</a> &#183; <a href="https://fungies.io/digital-products-passive-income-2026/" target="_blank" rel="noopener noreferrer">Digital products guide 2026</a></div>
+  </div>
+  <div class="job-card">
+    <div class="title">&#x1F3A4; VO Audiobook Royalty Share (ACX)</div>
+    <div class="meta">Remote &#183; ACX / Voices.com &#183; Builds over time</div>
+    <div class="pay">Royalty share: $25&#8211;$200/mo per book (varies widely) &#183; Upfront VO: $50&#8211;$200/hr</div>
+    <div class="desc">Narrate audiobooks on ACX with royalty share &#8212; no upfront pay but earn a cut of every sale indefinitely. Active VO is better short-term cash; royalty share catalog is the passive play.</div>
+    <div class="catch"><strong>Honest assessment:</strong> Royalty share books vary wildly. Some earn $5/mo, some $500/mo. You won't know until after recording. Be selective &#8212; only take royalty share on books with demonstrated sales history or strong marketing.</div>
+  </div>
+  <div class="job-card">
+    <div class="title">&#x1F4E6; Bundled Drum Practice Packs / ADHD Content</div>
+    <div class="meta">Gumroad &#183; Crossover niche &#183; Low overhead</div>
+    <div class="pay">$9&#8211;$49/product &#183; Highly variable &#183; Treat as a test, not a plan</div>
+    <div class="desc">Drum practice loops, click tracks, charts, or ADHD-drummer productivity PDFs. Drumming + ADHD + IT is a genuinely differentiated stack. Potential to serve a real underserved niche.</div>
+    <div class="catch"><strong>Honest assessment:</strong> Without an audience, this earns nothing. Build a list or social presence first, then sell to it. Don't invest creation time without a distribution plan.</div>
+  </div>
+</section>
+
+<footer>Generated automatically &middot; John's Daily Briefing &middot; June 16, 2026</footer>
+</body>
+</html>
