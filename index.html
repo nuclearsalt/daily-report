@@ -1,581 +1,343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John's Daily Briefing — June 17, 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>John's Daily Briefing — Thursday, June 18, 2026</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0f0f0f;
-    color: #e0e0e0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
+  :root {
+    --bg: #0f0f0f;
+    --bg-card: #161616;
+    --text: #e0e0e0;
+    --muted: #8a8a8a;
+    --accent: #f0a857;
+    --accent-dim: #c98a48;
+    --link: #9ecbff;
+    --border: #2a2a2a;
   }
-  .container {
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 24px 16px 60px;
-  }
-  header {
-    border-bottom: 1px solid #2a2a2a;
-    padding-bottom: 16px;
-    margin-bottom: 32px;
-  }
-  header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.3px;
-  }
-  header p {
-    color: #666;
-    font-size: 13px;
-    margin-top: 4px;
-  }
-  .toc, .archive-nav {
-    background: #161616;
-    border: 1px solid #2a2a2a;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-bottom: 32px;
-  }
-  .toc-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 10px;
-  }
-  .toc ol, .archive-nav ul {
-    margin: 0;
-    padding-left: 20px;
-  }
-  .toc li, .archive-nav li {
-    margin-bottom: 4px;
-  }
-  .toc a, .archive-nav a {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .toc a:hover, .archive-nav a:hover {
-    color: #fff;
-  }
-  .section {
-    margin-bottom: 40px;
-  }
-  .section-header {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #1e1e1e;
-  }
-  .section-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #f0f0f0;
-    margin-bottom: 16px;
-  }
-  .card {
-    background: #161616;
-    border: 1px solid #222;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: #e8e8e8;
-    margin-bottom: 6px;
-  }
-  .card p {
-    color: #aaa;
-    font-size: 14px;
-  }
-  .card .meta {
-    font-size: 12px;
-    color: #555;
-    margin-top: 8px;
-  }
-  .card .pay {
-    display: inline-block;
-    background: #1a2a1a;
-    color: #5cb85c;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-top: 8px;
-    margin-right: 6px;
-  }
-  .card .tag {
-    display: inline-block;
-    background: #1e1e2e;
-    color: #7b7bdf;
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-top: 8px;
-    margin-right: 4px;
-  }
-  .nudge-box {
-    background: #141a14;
-    border-left: 3px solid #5cb85c;
-    border-radius: 0 8px 8px 0;
-    padding: 16px;
-    margin-top: 16px;
-  }
-  .nudge-box .nudge-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #5cb85c;
-    margin-bottom: 8px;
-  }
-  .nudge-box p {
-    color: #c8e6c9;
-    font-size: 14px;
+    padding: 2rem 1.25rem 4rem;
     line-height: 1.6;
   }
-  a {
-    color: #7bb3f0;
-    text-decoration: none;
+  header { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
+  header h1 { margin: 0 0 .25rem; font-size: 1.7rem; letter-spacing: -.02em; }
+  header .date { color: var(--muted); margin: 0; font-size: .95rem; }
+  header .updated { color: var(--muted); margin: .25rem 0 0; font-size: .8rem; }
+  section { margin: 2.5rem 0; }
+  section h2 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: .65rem;
+    margin: 0 0 1rem;
   }
-  a:hover {
-    text-decoration: underline;
-    color: #a8ccf5;
-  }
-  .strategy-item {
-    margin-bottom: 14px;
-    padding-left: 12px;
-    border-left: 2px solid #333;
-  }
-  .strategy-item strong {
-    color: #d0d0d0;
-    display: block;
-    font-size: 14px;
-  }
-  .strategy-item span {
-    color: #999;
-    font-size: 13px;
-  }
-  .news-item {
-    background: #161616;
-    border: 1px solid #222;
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-  }
-  .news-item .news-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #e8a84d;
-    margin-bottom: 4px;
-  }
-  .news-item p {
-    color: #bbb;
-    font-size: 13.5px;
-  }
-  .honest-box {
-    background: #1a1612;
-    border-left: 3px solid #e8a84d;
-    border-radius: 0 8px 8px 0;
-    padding: 10px 14px;
-    margin-top: 8px;
-  }
-  .honest-box .honest-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #e8a84d;
-    margin-bottom: 4px;
-  }
-  .honest-box p {
-    color: #ccc;
-    font-size: 13px;
-  }
-  .flag-union {
-    display: inline-block;
-    background: #1a1520;
-    color: #b07bdf;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 7px;
+  section h3 { font-size: 1.02rem; margin: 1.5rem 0 .5rem; color: #f3d4a8; }
+  section h4 { font-size: .95rem; margin: 1.25rem 0 .35rem; color: #e0e0e0; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  p { margin: .5rem 0 .9rem; }
+  ul { padding-left: 1.25rem; margin: .5rem 0 1rem; }
+  li { margin: .35rem 0; }
+  .callout {
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0;
     border-radius: 4px;
-    margin-left: 6px;
   }
-  .thin-results {
-    color: #666;
-    font-size: 13px;
-    font-style: italic;
-    padding: 12px;
-    background: #131313;
-    border-radius: 6px;
-    border: 1px dashed #2a2a2a;
-  }
-  .urgent-card {
-    border-color: #3a2a1a;
-  }
-  .urgent-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
+  .callout .label {
+    font-size: .75rem;
     text-transform: uppercase;
-    color: #e8a84d;
-    margin-bottom: 6px;
+    letter-spacing: .08em;
+    color: var(--accent);
+    margin: 0 0 .35rem;
+    font-weight: 600;
   }
+  .callout p { margin: .25rem 0; }
+  .mantra {
+    border-left-color: #b58cf0;
+  }
+  .mantra .label { color: #b58cf0; }
+  .mantra p.q {
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: .5rem 0 0;
+    color: #f0e5ff;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    margin: .9rem 0;
+  }
+  .card h4 { margin-top: 0; }
+  .meta {
+    color: var(--muted);
+    font-size: .85rem;
+    margin: .15rem 0 .5rem;
+  }
+  .tag {
+    display: inline-block;
+    background: #222;
+    color: #ccc;
+    padding: .12rem .55rem;
+    border-radius: 12px;
+    font-size: .72rem;
+    margin-right: .35rem;
+  }
+  blockquote {
+    border-left: 3px solid var(--accent-dim);
+    margin: .75rem 0;
+    padding: .25rem 0 .25rem .9rem;
+    color: #d8d8d8;
+    font-style: italic;
+  }
+  blockquote cite { display: block; font-style: normal; color: var(--muted); font-size: .85rem; margin-top: .35rem; }
+  .archive-nav {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+  .archive-nav h2 { font-size: 1rem; color: var(--muted); border: none; padding: 0; margin: 0 0 .5rem; }
+  .archive-nav ul { padding-left: 0; list-style: none; }
+  .archive-nav li { display: inline-block; margin: 0 .85rem .35rem 0; font-size: .9rem; }
+  .archive-nav .all { display: block; margin-top: .75rem; font-size: .9rem; }
+  footer { margin-top: 3rem; color: var(--muted); font-size: .8rem; text-align: center; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 </style>
 </head>
 <body>
-<div class="container">
 
-  <header>
-    <h1>John's Daily Briefing</h1>
-    <p>Wednesday, June 17, 2026 &nbsp;&middot;&nbsp; Last updated: 8:00 AM ET</p>
-  </header>
+<header>
+  <h1>John's Daily Briefing</h1>
+  <p class="date">Thursday, June 18, 2026</p>
+  <p class="updated">Last updated: 10:45 ET</p>
+</header>
 
-  <nav class="toc">
-    <p class="toc-label">CONTENTS</p>
-    <ol>
-      <li><a href="#s2">ADHD: Exercise &amp; Eating</a></li>
-      <li><a href="#s3">Music: Income Opportunities</a></li>
-      <li><a href="#s4">Music: Events &amp; Networking</a></li>
-      <li><a href="#s5">Tech Jobs: IT + AI</a></li>
-      <li><a href="#s6">Tech Jobs: Beyond IT Support</a></li>
-      <li><a href="#s7">High-Pay Entry-Level Jobs</a></li>
-      <li><a href="#s8">Passive Income</a></li>
-    </ol>
-  </nav>
+<!-- THU-1 · ADHD: Exercise & Mindful Eating -->
+<section id="adhd">
+  <h2>1 · ADHD: Exercise &amp; Mindful Eating</h2>
 
-  <nav class="archive-nav">
-    <p class="toc-label">PAST DIGESTS</p>
-    <ul>
-      <li><a href="archive/2026-06-17.html">2026-06-17</a></li>
-      <li><a href="archive/2026-06-16.html">2026-06-16</a></li>
-    </ul>
-  </nav>
+  <p>Three angles to try this week, all built around the way ADHD brains actually work — low baseline dopamine, weak future-reward pull, weak self-cueing.</p>
 
-  <!-- SECTION 2: ADHD Exercise & Eating -->
-  <div class="section" id="s2">
-    <div class="section-header">Section 2</div>
-    <div class="section-title">&#x1F9E0; ADHD: Exercise &amp; Mindful Eating</div>
+  <h3>Strategy 1 — Stack the cue, not the willpower</h3>
+  <p>Executive dysfunction isn't fixed by deciding harder. It's fixed by making the next action absurdly visible. Leave the gym shorts on the floor next to the bed. Put the water bottle on the laptop. The ADHD brain follows whatever's most obvious in the visual field, so put the right thing there before tomorrow's you has to choose. (<a href="https://www.additudemag.com/adhd-executive-dysfunction-how-to-be-more-productive-consistent/" target="_blank" rel="noopener noreferrer">ADDitude</a>)</p>
 
-    <div class="strategy-item">
-      <strong>72-Hour Session Spacing (New 2026 Research)</strong>
-      <span>A 2026 meta-analysis in <em>Frontiers in Psychiatry</em> found that spacing exercise sessions roughly 72 hours apart — not daily — yields the greatest gains in inhibitory control and cognitive flexibility for ADHD brains. That interval lets neurons repair and prime for the next session. Practically: 3x/week hits the sweet spot. Every day isn't better; it's counterproductive for executive function gains.</span>
-    </div>
+  <h3>Strategy 2 — Eat for dopamine, not for restriction</h3>
+  <p>Restrictive eating fails fast on ADHD brains because it removes a primary self-soothing input without replacing the reward. Lean into tyrosine-rich foods (eggs, salmon, chicken, tofu, pumpkin seeds, beans, almonds) which support dopamine synthesis directly — your body gets the chemistry it's already chasing, just from food instead of from chaos. Pair with a 20-second breath pause before the first bite to introduce the "pause" that mindful eating depends on. (<a href="https://www.additudemag.com/healthy-eating-habits-adhd-adults/" target="_blank" rel="noopener noreferrer">ADDitude — Healthy Eating Habits</a>, <a href="https://www.additudemag.com/proper-nutrition-adhd-relationship-with-food/" target="_blank" rel="noopener noreferrer">ADDitude — Nutrition</a>)</p>
 
-    <div class="strategy-item">
-      <strong>Body Doubling for Movement</strong>
-      <span>ADHD brains respond to present-tense accountability, not future promises. Working out alongside someone — a class, a YouTube workout-with-me video, a friend texting "I'm going for a walk" at the same time — compensates for executive function gaps that self-regulation can't bridge. Social exercise formats work precisely because your brain isn't managing initiation alone. Even a livestream counts.</span>
-    </div>
+  <h3>Strategy 3 — Body-double + 5-minute rule for the start</h3>
+  <p>Body doubling — working or moving with another person present (in person, on a video call, or via apps like Flow Club) — externalises the focus your prefrontal cortex isn't supplying. Combine with the 5-minute rule: commit to five minutes only. Research from the Center for ADHD Awareness shows 72% of ADHD users who start at five minutes extend into longer blocks. Five minutes of bike pedaling is easier to start than "a workout." (<a href="https://health.clevelandclinic.org/body-doubling-for-adhd" target="_blank" rel="noopener noreferrer">Cleveland Clinic</a>, <a href="https://adhdwisdomtools.substack.com/p/2-minute-vs-5-minute-rule-adhds-tiny" target="_blank" rel="noopener noreferrer">ADHD Wisdom Tools</a>)</p>
 
-    <div class="strategy-item">
-      <strong>Build a Dopa-Menu Beyond Food</strong>
-      <span>ADHD-driven impulsive eating is often dopamine-seeking — your brain wants a hit, and food is fast. The fix isn't willpower, it's competition: build a "dopa-menu" of quick dopamine sources (a specific playlist, 5 minutes of drumming, a fidget, a short walk) and reach for those before eating. Protein early in the day stabilizes dopamine and reduces carb cravings later. Put trigger foods out of direct sight — distance alone reduces consumption without any willpower required.</span>
-    </div>
-
-    <div class="nudge-box">
-      <div class="nudge-label">&#x1F7E2; Today's Nudge</div>
-      <p>You don't have to go hard today. Based on the 72-hour rule, if you moved Monday or Tuesday, Wednesday is actually a rest-and-recover day that's doing neurological work. If you haven't moved yet this week: pick one thing that sounds like <em>fun</em> rather than exercise — drumming counts, a walk to get coffee counts. Dopamine-first, not discipline-first.</p>
-    </div>
-
-    <div class="meta" style="margin-top:12px; color:#555; font-size:12px;">
-      Sources: <a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2026.1716578/full" target="_blank" rel="noopener noreferrer">Frontiers in Psychiatry — ADHD Exercise 2026</a> &middot;
-      <a href="https://www.additudemag.com/healthy-eating-habits-adhd-adults/" target="_blank" rel="noopener noreferrer">ADDitude — Healthy Eating for ADHD</a> &middot;
-      <a href="https://www.ascendwithaviva.com/mindful-eating-with-adhdnavigating-food-choices-and-impulsivity/" target="_blank" rel="noopener noreferrer">Ascend with Aviva — Mindful Eating &amp; ADHD</a> &middot;
-      <a href="https://neurolaunch.com/adhd-exercise-motivation/" target="_blank" rel="noopener noreferrer">Neurolaunch — ADHD Exercise Motivation</a>
-    </div>
+  <div class="callout">
+    <p class="label">Today's nudge</p>
+    <p>Pick one cue to pre-stage tonight before you sleep. Put your bike helmet on the doorknob, or your sticks on top of the laptop. Don't promise yourself anything about tomorrow — just stage the cue. Your morning brain will do what's easy to see.</p>
   </div>
 
-  <!-- SECTION 3: Music Income -->
-  <div class="section" id="s3">
-    <div class="section-header">Section 3</div>
-    <div class="section-title">&#x1F941; Music: Income Opportunities</div>
+  <div class="callout mantra">
+    <p class="label">Mantra (carry this through Thursday)</p>
+    <p class="q">"Start the five. The five decides."</p>
+  </div>
+</section>
 
-    <div class="card urgent-card">
-      <div class="urgent-label">&#x23F0; ACTIVE WINDOW — Closes Aug 1</div>
-      <h3>Cruise Ship Musician Open Call (Pre-Reg: May 21 – Aug 1, 2026)</h3>
-      <p>Multiple cruise lines seeking band musicians including drummers. One confirmed open call runs May 21 – August 1, 2026 — you're in the active window right now. A Nashville/Cruise Ship audition also runs through July 13. All-expenses-paid travel + accommodation + salary. Typically 3–6 month contracts. Submit through Entertainers Worldwide Jobs or direct with the lines.</p>
-      <span class="pay">Travel-comped + salary</span>
-      <span class="tag">Performance &middot; Touring</span>
-      <p class="meta">
-        <a href="https://www.entertainersworldwidejobs.com/drummer-jobs/cruise-ship" target="_blank" rel="noopener noreferrer">Entertainers Worldwide — Cruise Drummer Jobs</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.celebritycruisesentertainment.com/audition-live" target="_blank" rel="noopener noreferrer">Celebrity Cruises Entertainment — Live Auditions</a>
-        &nbsp;&middot;&nbsp; <a href="https://thedrumninja.com/how-to-become-a-cruise-ship-drummer/" target="_blank" rel="noopener noreferrer">The Drum Ninja — Getting Started</a>
-      </p>
-    </div>
+<!-- THU-2 · Music Production: Home Studio Techniques -->
+<section id="production">
+  <h2>2 · Music Production: Home Studio Techniques</h2>
 
-    <div class="card">
-      <h3>Session / Studio Drummer — NYC Active Boards</h3>
-      <p>Craigslist NYC musicians board and Bandmix have active drummer listings. Typical session rates: $100–$500/gig. ZipRecruiter lists NYC musician drummer roles at $11–$64/hr depending on type. Worth building a GigSalad profile for event gigs ($200–$500 range). Network through the Groovehub NYC jam scene for organic referrals.</p>
-      <span class="pay">$100–$500/gig</span>
-      <span class="tag">Session &middot; NYC</span>
-      <p class="meta">
-        <a href="https://newyork.craigslist.org/search/muc?query=drummer" target="_blank" rel="noopener noreferrer">Craigslist NYC Musicians</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.bandmix.com/new-york/new-york/drums/" target="_blank" rel="noopener noreferrer">Bandmix NYC Drums</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.gigsalad.com/Solo-Musicians/Drummer/NY/New+York+City" target="_blank" rel="noopener noreferrer">GigSalad NYC Drummers</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.ziprecruiter.com/Jobs/Musician-Drummer/-in-New-York-City,NY" target="_blank" rel="noopener noreferrer">ZipRecruiter — Drummer NYC</a>
-      </p>
-    </div>
+  <p>Tips matched to your actual rig — TD-11, Scarlett 2i2, SM58, guitar/bass DI, Logic Pro, Ample Metal Hellrazer, GGD Modern &amp; Massive 2, SSD5, Splice, NI.</p>
 
-    <div class="card">
-      <h3>Sync Licensing — Active June 2026 Submissions</h3>
-      <p>ArtistPortal.Studio has active June 2026 open calls right now, including: a filmmaker seeking lighthearted punk rock for horror film credits; an ad agency seeking emotional folk for a restaurant chain commercial; a music supervisor for an international singing show seeking celebratory songs. Submit original tracks, cleared samples, good metadata. Free to submit on ArtistPortal.</p>
-      <span class="pay">$50–$5,000+/placement</span>
-      <span class="tag">Remote &middot; Ongoing</span>
-      <div class="honest-box">
-        <div class="honest-label">Heads Up</div>
-        <p>Scam alert circulating in June 2026: fake emails impersonating Position Music, Marmoset Music, and Massive Music. Any unsolicited "sync opportunity" email should be verified directly with the company before sharing tracks or signing anything.</p>
-      </div>
-      <p class="meta" style="margin-top:10px;">
-        <a href="https://artistportal.studio/music-sync-opportunities" target="_blank" rel="noopener noreferrer">ArtistPortal.Studio — Active Sync Calls</a>
-        &nbsp;&middot;&nbsp; <a href="https://ctrlcamp.com/sync-licensing-scam-fake-emails-2026/" target="_blank" rel="noopener noreferrer">CTRL Camp — Sync Scam Warning 2026</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.chartlex.com/blog/business/how-to-submit-music-for-sync-licensing-2026" target="_blank" rel="noopener noreferrer">Chartlex — How to Submit 2026</a>
-      </p>
-    </div>
+  <h4>1 · Velocity is the difference between programmed and played</h4>
+  <p>Even with a TD-11 firing real MIDI velocities, a quick pass through programmed fills will reveal grid-locked snare hits. The single biggest realism upgrade in GGD Modern &amp; Massive 2 or SSD5 is varying ghost-note velocities by ±15 from the main backbeat and nudging the timing of 16th-note ghosts by ±10 ticks. Don't humanise the downbeats — humanise the ornaments. (<a href="https://mastering.com/program-realistic-midi-drums/" target="_blank" rel="noopener noreferrer">Mastering.com</a>, <a href="https://splice.com/blog/humanize-your-drums/" target="_blank" rel="noopener noreferrer">Splice blog</a>)</p>
 
-    <div class="card urgent-card">
-      <div class="urgent-label">&#x26A0;&#xFE0F; DEADLINE — 6 Days Left</div>
-      <h3>Caf&eacute; Royal Cultural Foundation — Music Grant (Due June 23)</h3>
-      <p>NYC-based musician production grant. Music must release no earlier than August 2, 2026. Must be NYC resident 1+ year. Six days remaining. Apply directly on their site.</p>
-      <span class="pay">Grant (production support)</span>
-      <p class="meta"><a href="https://caferoyalculturalfoundation.org/music-page" target="_blank" rel="noopener noreferrer">Caf&eacute; Royal Cultural Foundation — Music Grants</a></p>
-    </div>
+  <h4>2 · The Logic Pro "select all, gain -10 dB" reset</h4>
+  <p>When tracks from Hellrazer or SSD5 print hot, don't fight it with the fader. Select all drum regions, open the Region Inspector, set Gain to -10 dB. Faders sit at zero, headroom returns, and the rest of the mix doesn't have to dive. Standard pro-engineer workflow, criminally underused in home setups. (<a href="https://www.soundonsound.com/techniques/logic-pro-multitrack-drum-recording" target="_blank" rel="noopener noreferrer">Sound On Sound</a>)</p>
+
+  <h4>3 · Parallel-compress your drum bus inside Logic</h4>
+  <p>Send the drum stack to a new aux, drop Logic's Studio FET Compressor on it (10:1 ratio, fast attack, fast release, 10–15 dB of gain reduction). Blend at 30–40%. Hellrazer kits especially come alive with this — the parallel comp keeps the transients pristine on the dry bus while the squashed bus adds body and weight underneath. (<a href="https://logicstudiotraining.com/drum-mix-logic-pro/" target="_blank" rel="noopener noreferrer">Logic Studio Training</a>)</p>
+
+  <h4>4 · Vocal chain on the SM58: gain → EQ → comp → de-ess</h4>
+  <p>For voiceover work specifically, this order matters. Set input gain so peaks hit -6 dBFS on the 2i2. Channel EQ: roll off below 80 Hz, gentle 2 kHz boost for intelligibility. Compressor (Studio FET, 3:1, slow attack ~10 ms, fast release). DeEsser 2 last to tame any post-comp sibilance the SM58's presence peak introduces. Then send to a separate bus for reverb so the dry track stays clean. (<a href="https://baywoodaudio.com/guides/how-to-mix-vocals-logic-pro" target="_blank" rel="noopener noreferrer">Baywood Audio</a>, <a href="https://www.sageaudio.com/articles/how-to-mix-vocals-in-logic-pro-x" target="_blank" rel="noopener noreferrer">Sage Audio</a>)</p>
+
+  <h4>5 · Arrange "subtractively" — kill, don't add</h4>
+  <p>The instinct with Splice + NI + virtual drums is to keep layering until the verse has 14 tracks. The pro move is the inverse: write the chorus full, then for the verses, mute tracks until just the spine remains. Most modern arrangements live or die on the contrast between empty verses and full choruses. Mark/color-code sections in Logic before you arrange — "if it looks clear, it sounds clear." (<a href="https://www.musicradar.com/how-to/song-arrangement-tips" target="_blank" rel="noopener noreferrer">MusicRadar</a>, <a href="https://www.thesongwriter.it/song-arrangement-fundamentals/" target="_blank" rel="noopener noreferrer">The Songwriter</a>)</p>
+
+  <h4>6 · Worth exploring: stem-separation as a writing tool</h4>
+  <p>Moises (mobile + desktop) lets you upload a track and pull the drum stem out cleanly. Drop a song you love into it, mute the drums, then play along on the TD-11 — instant play-along practice for sight-reading <em>and</em> for studying arrangements. Also useful when transcribing a part you can't quite hear. (<a href="https://moises.ai/" target="_blank" rel="noopener noreferrer">Moises</a>)</p>
+</section>
+
+<!-- THU-3 · Music Sight-Reading for Drummers -->
+<section id="sight-reading">
+  <h2>3 · Sight-Reading for Drummers</h2>
+
+  <p>For an experienced drummer whose reading lags the playing. The goal: convert what your hands already do into chart-readable shorthand, fast.</p>
+
+  <h3>Books</h3>
+
+  <div class="card">
+    <h4>Syncopation — Ted Reed</h4>
+    <p class="meta">$10–14 · the standard since 1958</p>
+    <p>The book every studio drummer uses. Designed as a sight-reading exercise but applicable to anything — interpret the snare line on the ride, on the bass drum, as a samba, as a jazz comp. Lifetime book.</p>
+    <p><a href="https://www.alfred.com/syncopation-for-the-modern-drummer/p/00-EL00250/" target="_blank" rel="noopener noreferrer">Alfred Music — Syncopation</a></p>
   </div>
 
-  <!-- SECTION 4: NYC Music Events & Networking -->
-  <div class="section" id="s4">
-    <div class="section-header">Section 4</div>
-    <div class="section-title">&#x1F3B5; NYC Music Events &amp; Networking</div>
-
-    <div class="card">
-      <h3>Funkadelic Studios — Open Jam (Every Saturday, 6–10pm)</h3>
-      <p>Weekly open jam at 209 West 40th St, 5th Floor. All genres, all levels. Backline available. Free to participate. Also: Soul Sessions open mic jam — last Friday of every month, 7–11pm. Both are solid for meeting NYC players and getting stage reps.</p>
-      <span class="tag">Backline &middot; Weekly &middot; Midtown</span>
-      <p class="meta">
-        <a href="https://www.funkadelicstudios.com/open-jam" target="_blank" rel="noopener noreferrer">Funkadelic Studios — Open Jam</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.funkadelicstudios.com/soul-sessions" target="_blank" rel="noopener noreferrer">Soul Sessions</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.meetup.com/funkadelicstudio/" target="_blank" rel="noopener noreferrer">Meetup Page</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>NYC Jam Sessions — Groovehub + Random Strangers Registry</h3>
-      <p>Groovehub.io aggregates active NYC jam sessions and open mics with current event listings. Random Strangers Jam also maintains an NYC jam/open mic registry updated for 2026. Both are better than Google for finding active backline events since venues update them directly.</p>
-      <span class="tag">Open Mic &middot; Jam &middot; Registry</span>
-      <p class="meta">
-        <a href="https://www.groovehub.io/scene/us/new-york/events/jam-sessions" target="_blank" rel="noopener noreferrer">Groovehub — NYC Jam Sessions</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.randomstrangersjam.com/findajam" target="_blank" rel="noopener noreferrer">Random Strangers — Find a Jam NYC</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.facebook.com/NYJamsandOpenMics/" target="_blank" rel="noopener noreferrer">NYC Jams &amp; Open Mics (Facebook Group)</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Local 802 AFM Membership Meeting — June 24 (Zoom)</h3>
-      <p>Next Local 802 membership meeting is Wednesday, June 24 at 5pm on Zoom. Worth attending even as a non-member — context on the AFM vs. UMG/Warner AI lawsuit, the Off-Broadway raise, and what union membership would get you right now.</p>
-      <span class="tag">Union &middot; June 24 &middot; Virtual</span>
-      <p class="meta"><a href="https://www.local802afm.org/" target="_blank" rel="noopener noreferrer">Local 802 AFM</a></p>
-    </div>
-
-    <div class="news-item">
-      <div class="news-label">&#x1F4B0; Win — NYC Off-Broadway Musicians Get 14–18% Raise</div>
-      <p>Musicians under the AFM Local 802 Not-For-Profit Off-Broadway agreement just won a 14–18% raise over three years. If you're ever in a pit gig or considering theatre work, this is the contract floor. Meaningful movement in live performance pay.</p>
-      <p class="meta" style="margin-top:8px;"><a href="https://nycclc.org/news/nyc-musicians-secure-major-not-profit-broadway-raise-local" target="_blank" rel="noopener noreferrer">NYC CLC — Off-Broadway Raise</a></p>
-    </div>
-
-    <div class="news-item">
-      <div class="news-label">&#x1F3D9; NYC Nightlife Grants Distributed</div>
-      <p>NYC has distributed its first-ever nightlife grants (totaling over $350k). Recipients must complete projects by June 30, 2026. Includes workforce development and venue sustainability funding. Nightlife United is one grantee. Not directly actionable today but signals city investment in the live music ecosystem.</p>
-      <p class="meta" style="margin-top:8px;"><a href="https://gothamist.com/arts-entertainment/nyc-distributes-first-ever-nightlife-grants-totaling-over-350k" target="_blank" rel="noopener noreferrer">Gothamist — NYC Nightlife Grants</a></p>
-    </div>
-
-    <div class="news-item">
-      <div class="news-label">&#x1F4B8; Grant — NYC Musicians Union $40K Emerging Artist Project</div>
-      <p>NYC Musicians Union (Local 802) has an Emerging Artist Project Grant program. Separate from Café Royal — worth checking eligibility if you're planning a recording or release project.</p>
-      <p class="meta" style="margin-top:8px;"><a href="https://www.musicconnection.com/nyc-musicians-union-grant/" target="_blank" rel="noopener noreferrer">Music Connection — Local 802 Emerging Artist Grant</a></p>
-    </div>
+  <div class="card">
+    <h4>Modern Reading Text in 4/4 — Louis Bellson &amp; Gil Breines</h4>
+    <p class="meta">$14 · the other standard</p>
+    <p>Pure rhythmic reading, no kit choreography. Perfect for the "I can play but I freeze in front of a chart" problem — strips the kit out so the eye learns the rhythms cold.</p>
+    <p><a href="https://www.alfred.com/modern-reading-text-in-44/p/00-HAB00321/" target="_blank" rel="noopener noreferrer">Alfred Music — Modern Reading Text</a></p>
   </div>
 
-  <!-- SECTION 5: IT + AI Jobs -->
-  <div class="section" id="s5">
-    <div class="section-header">Section 5</div>
-    <div class="section-title">&#x1F4BB; Tech Jobs: IT + AI / Modern Stack</div>
-
-    <div class="card">
-      <h3>AI-Forward IT Support Engineer</h3>
-      <p>Active listing category: IT Support Engineers who lead AI tool adoption internally — managing SaaS environments, leveraging AI for solutions, and helping employees use AI resources. This is the intersection of your 12-year IT background and current AI fluency. Not a helpdesk role — closer to IT systems lead with a modern tooling emphasis.</p>
-      <span class="pay">$65k–$95k range</span>
-      <span class="tag">NYC &middot; Hybrid</span>
-      <p class="meta">
-        <a href="https://www.builtinnyc.com/jobs/cybersecurity-it/it" target="_blank" rel="noopener noreferrer">Built In NYC — IT Jobs</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.builtinnyc.com/jobs/ai-machine-learning/search/ai-automation" target="_blank" rel="noopener noreferrer">Built In NYC — AI Automation</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>IT Operations + AI / SaaS Administration</h3>
-      <p>A growing category in 2026: end-to-end IT operations roles covering identity and access management, endpoint management, AI platform administration, and SaaS tool management — without a pure Microsoft stack requirement. AI jobs in NYC are paying $58–$77/hr (ZipRecruiter), with 2,517 AI-related roles listed on Glassdoor in NYC as of June 2026.</p>
-      <span class="pay">$58–$77/hr (AI-focused)</span>
-      <span class="tag">NYC &middot; Remote-friendly</span>
-      <p class="meta">
-        <a href="https://www.ziprecruiter.com/Jobs/Ai/--in-New-York" target="_blank" rel="noopener noreferrer">ZipRecruiter — AI Jobs NYC</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.glassdoor.com/Job/new-york-artificial-intelligence-jobs-SRCH_IL.0,8_IC1132348_KO9,32.htm" target="_blank" rel="noopener noreferrer">Glassdoor — 2,517 NYC AI Roles</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.builtinnyc.com/jobs/artificial-intelligence" target="_blank" rel="noopener noreferrer">Built In NYC — AI Jobs</a>
-      </p>
-    </div>
-
-    <p class="thin-results">&#x1F4A1; Tip: Search Built In NYC and Wellfound/AngelList first — they filter out Microsoft-only shops naturally. On LinkedIn, add "Okta," "Jamf," "Notion," or "Google Workspace" to your searches to surface SaaS-native IT roles that match your background.</p>
+  <div class="card">
+    <h4>Big Band Drumming at First Sight — Steve Fidyk</h4>
+    <p class="meta">$22 · Alfred Music · play-along audio included</p>
+    <p>If you want to ever sub on a big-band gig (one of the better-paying NYC drum scenes), this is the on-ramp. Ten real chart arrangements with audio, plus the reading conventions specific to big-band charts (figures, ensemble hits, breaks).</p>
+    <p><a href="https://www.alfred.com/big-band-drumming-at-first-sight/p/00-37262/" target="_blank" rel="noopener noreferrer">Alfred Music — Big Band Drumming at First Sight</a></p>
   </div>
 
-  <!-- SECTION 6: Beyond IT Support -->
-  <div class="section" id="s6">
-    <div class="section-header">Section 6</div>
-    <div class="section-title">&#x1F680; Tech Jobs: Beyond IT Support</div>
-
-    <div class="card">
-      <h3>Solutions Engineer — 209 Open NYC Roles (June 2026)</h3>
-      <p>SEs own the technical side of sales cycles — demos, integration design, architecture conversations with clients. Glassdoor shows 209 open SE roles in NYC this month. Many SaaS companies accept equivalent experience in lieu of a CS degree; the threshold language is often "12+ years relevant experience." Your IT background, AI fluency, and React Native development all read as SE qualifications to a hiring manager at a mid-size SaaS company.</p>
-      <span class="pay">$100k–$160k</span>
-      <span class="tag">NYC &middot; Hybrid</span>
-      <p class="meta">
-        <a href="https://www.glassdoor.com/Job/new-york-solutions-engineer-jobs-SRCH_IL.0,8_IC1132348_KO9,27.htm" target="_blank" rel="noopener noreferrer">Glassdoor — 209 NYC SE Roles</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.builtinnyc.com/jobs/dev-engineering/search/solutions-engineer" target="_blank" rel="noopener noreferrer">Built In NYC — Solutions Engineer</a>
-        &nbsp;&middot;&nbsp; <a href="https://wellfound.com/role/l/solutions-engineer/new-york" target="_blank" rel="noopener noreferrer">Wellfound — SE NYC</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Implementation Specialist — SaaS Onboarding</h3>
-      <p>Onboard enterprise clients onto SaaS platforms — project management, technical configuration, client training. Your IT background maps directly. Entry/mid: $75k–$110k. Senior NYC roles reach $130k–$161k+. One of the most accessible pivots from IT support: the job is basically what you already do, but client-facing at scale.</p>
-      <span class="pay">$75k–$161k+ range</span>
-      <span class="tag">NYC &middot; Hybrid</span>
-      <p class="meta">
-        <a href="https://www.builtinnyc.com/salaries/project-mgmt/implementation-specialist/new-york" target="_blank" rel="noopener noreferrer">Built In NYC — Implementation Specialist Salaries</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.indeed.com/q-implementation-engineer-l-new-york,-ny-jobs.html" target="_blank" rel="noopener noreferrer">Indeed — Implementation Engineer NYC</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Technical Account Manager / Technical Customer Success</h3>
-      <p>TAMs own the post-sale technical relationship. Troubleshooting + communication + systems knowledge = TAM. Frequently experience-forward rather than degree-gated, especially at SaaS companies. Many are fully remote or hybrid. Target companies that explicitly list "IT background" or "enterprise experience" in the requirements.</p>
-      <span class="pay">$85k–$130k</span>
-      <span class="tag">Remote-friendly</span>
-      <p class="meta">
-        <a href="https://www.builtinnyc.com/jobs/customer-success" target="_blank" rel="noopener noreferrer">Built In NYC — Customer Success</a>
-        &middot;&nbsp; <a href="https://wellfound.com/role/r/technical-account-manager" target="_blank" rel="noopener noreferrer">Wellfound — TAM Roles</a>
-      </p>
-    </div>
+  <div class="card">
+    <h4>The Drummer's Link to Sight Reading — Jennings &amp; Ballinger</h4>
+    <p class="meta">$25 · with online audio</p>
+    <p>Specifically about studio chart reading — slash notation, kicks, figures, dynamics, road maps. Most reading books treat drums as a snare instrument; this one treats drums as a kit on a session.</p>
+    <p><a href="https://www.amazon.com/Drummers-Link-Sight-Reading-Understanding/dp/097000382X" target="_blank" rel="noopener noreferrer">Amazon</a></p>
   </div>
 
-  <!-- SECTION 7: High-Pay Entry-Level -->
-  <div class="section" id="s7">
-    <div class="section-header">Section 7</div>
-    <div class="section-title">&#x1F4B0; High-Pay Entry-Level ($35+/hr)</div>
+  <h3>Apps &amp; Software</h3>
 
-    <div class="card">
-      <h3>Tile / Terrazzo Apprentice — NYC Union (Day 1: $35+/hr)</h3>
-      <p>Tile apprentices start at $35.45/hr; terrazzo at $36.24/hr — both clear $35/hr from day one. No degree required: HS diploma/GED, physical, and 2-year NYC metro residency. Union benefits (health, pension, vacation) add significant value on top. Physically demanding but one of the cleanest entry-points into NYC union trades at this wage floor.</p>
-      <span class="pay">$35.45–$36.24/hr starting</span>
-      <span class="flag-union">&#x1F7E3; Union Required</span>
-      <p class="meta">
-        <a href="https://hardhat.careers/apprenticeships-new-york" target="_blank" rel="noopener noreferrer">Hardhat — NY Apprenticeships 2026</a>
-        &nbsp;&middot;&nbsp; <a href="https://bandana.com/c-NYC-Union-Apprenticeships.html" target="_blank" rel="noopener noreferrer">Bandana — Open NYC Union Programs</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Ironworker Apprentice — Locals 40 &amp; 361</h3>
-      <p>Starting base $30.36/hr + $35.59/hr in benefits = $65.95/hr total compensation. Prevailing wage NYC public projects push base even higher. Physically demanding with real injury risk, but journeyman wages hit $100k+ within 4–5 years. Strong demand tied to NYC infrastructure projects.</p>
-      <span class="pay">$30.36/hr base + $35.59 benefits</span>
-      <span class="flag-union">&#x1F7E3; Union Required</span>
-      <p class="meta"><a href="https://bandana.com/c-NYC-Union-Apprenticeships.html" target="_blank" rel="noopener noreferrer">Bandana — NYC Union Apprenticeships 2026</a></p>
-    </div>
-
-    <div class="card">
-      <h3>IBEW Local 3 — Electrical Apprentice (Monitor: July 1 Window)</h3>
-      <p>First-year base ~$22/hr, but prevailing wage NYC public jobs pay $35–$48/hr from the start. Westchester-Fairfield JEATC (Local 3-adjacent) opens July 1 — two weeks away. Application windows are 2–4 weeks long and very competitive (thousands apply per cycle). If you're interested, prepare your paperwork now so you're ready when it opens.</p>
-      <span class="pay">$22/hr → $35–$48/hr (prevailing wage)</span>
-      <span class="flag-union">&#x1F7E3; Union Required</span>
-      <p class="meta">
-        <a href="https://local3ibew.org/news/apprenticeship-recruitment-opens-october-16th" target="_blank" rel="noopener noreferrer">IBEW Local 3 — Apprenticeship Info</a>
-        &nbsp;&middot;&nbsp; <a href="https://dol.ny.gov/apprenticeship/apprenticeship-announcements" target="_blank" rel="noopener noreferrer">NY DOL — Apprenticeship Announcements</a>
-        &nbsp;&middot;&nbsp; <a href="https://pix11.com/news/local-news/free-training-and-pay-available-with-union-apprenticeships-in-ny/" target="_blank" rel="noopener noreferrer">PIX11 — NYC Union Apprenticeships</a>
-      </p>
-    </div>
-
-    <p class="thin-results">&#x1F4A1; Knees context: Tile/terrazzo and ironwork are high-knee-impact trades. Worth a conversation with your doctor before committing. Electrical work involves more standing/bending but less kneeling-on-concrete. Honest trade-off to factor in.</p>
+  <div class="card">
+    <h4>Rhythm Sight Reading Trainer</h4>
+    <p class="meta">iOS · $5 one-time</p>
+    <p>Generates rhythmic figures and listens via the mic — tap them on a pad and it scores you in real time. Pace and difficulty scale up. Best 5-minute-per-day app on this list.</p>
+    <p><a href="https://apps.apple.com/us/app/rhythm-sight-reading-trainer/id396302174" target="_blank" rel="noopener noreferrer">App Store</a></p>
   </div>
 
-  <!-- SECTION 8: Passive Income -->
-  <div class="section" id="s8">
-    <div class="section-header">Section 8</div>
-    <div class="section-title">&#x1F4C8; Passive Income: Vetted for Real People</div>
-
-    <div class="card">
-      <h3>Stock Music Licensing (Drum Loops &amp; Instrumentals)</h3>
-      <p>Upload percussion beds, groove loops, and drum-forward instrumentals to Pond5, AudioJungle, Artlist, or Musicbed. Non-exclusive licensing lets you submit the same track to multiple platforms. Realistic 2026 income: $200–$400/mo with a 50–100 track catalog in years 2–3; $1,000+/mo with 200+ tracks over 5 years.</p>
-      <span class="pay">$200–$400/mo (yrs 2–3, 50–100 tracks)</span>
-      <span class="tag">Music Skills</span>
-      <div class="honest-box">
-        <div class="honest-label">Honest Assessment</div>
-        <p>"Passive" only applies after active building — 10–20 hrs to produce a starter catalog. Best treated as a compounding asset: start now, earn later. Near-zero upfront cost. Dramatically underused by drummers specifically.</p>
-      </div>
-      <p class="meta" style="margin-top:10px;">
-        <a href="https://blog.beatpass.ca/passive-income-for-music-producers/" target="_blank" rel="noopener noreferrer">Beatpass — Passive Income for Producers 2026</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.stockmusicmusician.com/blog/how-to-make-money-licensing-stock-music-the-complete-guide-2026" target="_blank" rel="noopener noreferrer">Stock Music Musician — Complete Guide 2026</a>
-        &nbsp;&middot;&nbsp; <a href="https://orphiq.com/resources/stock-music-licensing-guide" target="_blank" rel="noopener noreferrer">Orphiq — Stock Music Licensing Guide</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Sync Licensing (TV / Film / Ad Placements)</h3>
-      <p>Same tracks as stock music, different pipeline: submit to sync companies for placement in TV, film, ads, and branded content. Micro-syncs (55% of placements in 2026) pay $50–$500. Larger TV/ad placements can reach $500–$5,000+. ArtistPortal.Studio has active open calls this month (see Section 3).</p>
-      <span class="pay">$50–$5,000+/placement</span>
-      <span class="tag">Music Skills &middot; Remote</span>
-      <div class="honest-box">
-        <div class="honest-label">Honest Assessment</div>
-        <p>Placement timelines are slow and unpredictable. Real income when it lands, but don't count on it as near-term cash flow. Combined with stock music, the same recordings earn multiple ways.</p>
-      </div>
-      <p class="meta" style="margin-top:10px;">
-        <a href="https://www.graygroupintl.com/blog/music-sync-licensing-guide-tv-film-ads/" target="_blank" rel="noopener noreferrer">Gray Group — Sync Licensing Guide 2026</a>
-        &nbsp;&middot;&nbsp; <a href="https://www.sidehustlenation.com/music-licensing/" target="_blank" rel="noopener noreferrer">Side Hustle Nation — Music Licensing</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>IT Templates &amp; Digital Products (Gumroad / Notion)</h3>
-      <p>12 years of IT = sellable products: runbooks, SaaS onboarding checklists, ITIL process templates, troubleshooting playbooks. IT professionals regularly pay $15–$50 for well-made niche resources. One-time creation, zero inventory, recurring sales.</p>
-      <span class="pay">$200–$1,000/mo potential</span>
-      <span class="tag">IT Skills &middot; Remote</span>
-      <div class="honest-box">
-        <div class="honest-label">Honest Assessment</div>
-        <p>Requires initial marketing effort — LinkedIn or a relevant subreddit (r/sysadmin, r/msp) for first-traffic. Zero upfront cost. Massively underutilized by IT vets who have exactly what buyers want. Combined with a simple landing page, this can be a consistent $200–$400/mo within 6 months of real effort.</p>
-      </div>
-    </div>
-
-    <div class="card urgent-card">
-      <div class="urgent-label">&#x26A0;&#xFE0F; 6 DAYS LEFT — Grant Deadline</div>
-      <h3>Caf&eacute; Royal Cultural Foundation — Music Production Grant</h3>
-      <p>NYC musician production grant. Deadline: <strong style="color:#e8a84d;">June 23, 2026.</strong> Must be NYC resident 1+ year. Music must release no earlier than August 2, 2026.</p>
-      <span class="pay">Grant (production support)</span>
-      <p class="meta"><a href="https://caferoyalculturalfoundation.org/music-page" target="_blank" rel="noopener noreferrer">Caf&eacute; Royal Cultural Foundation — Apply Here</a></p>
-    </div>
-
+  <div class="card">
+    <h4>Drummer Sight Reading</h4>
+    <p class="meta">Android / Amazon Appstore · free</p>
+    <p>Randomly generated charts across 7 difficulty levels, six time signatures, with flams, accents, rolls, triplets. Built-in metronome and tempo control. Lo-fi but unlimited material.</p>
+    <p><a href="https://www.amazon.com/Tidis-Ventures-Drummer-Sight-Reading/dp/B01N2Q151B" target="_blank" rel="noopener noreferrer">Amazon Appstore</a></p>
   </div>
 
-</div>
+  <div class="card">
+    <h4>Melodics</h4>
+    <p class="meta">Mac/PC · ~$10/month · connects to electronic kits</p>
+    <p>Pairs directly with the TD-11 over USB MIDI. Notation scrolls, hits register, scores in real time. The gamified loop is the closest thing to a sight-reading video game.</p>
+    <p><a href="https://melodics.com/" target="_blank" rel="noopener noreferrer">Melodics</a></p>
+  </div>
+
+  <h3>Free online</h3>
+  <ul>
+    <li><a href="https://patrickrfblakley.com/sight-reading/" target="_blank" rel="noopener noreferrer">Patrick Blakley's free sight-reading booklet</a> — 14-page PDF, six progressive levels, 48 graded passages. Zero cost, well-designed.</li>
+    <li><a href="https://learndrumsforfree.com/tag/sight-reading/" target="_blank" rel="noopener noreferrer">Learn Drums For Free — sight reading tag</a> — Theo Lawrence's blog, focused articles and short exercises.</li>
+    <li><a href="https://pas.org/pas-blog/sight-reading-tips/" target="_blank" rel="noopener noreferrer">Percussive Arts Society — Sight-Reading Tips</a> — short, professional-level rules-of-thumb.</li>
+  </ul>
+
+  <h3>A practice routine that actually works</h3>
+  <ul>
+    <li><strong>10 min/day, 5 days/week.</strong> More is not better — reading fatigue sets in fast.</li>
+    <li><strong>Two passes:</strong> Pass 1 — eyes only, no sticks, count out loud. Pass 2 — play, no stopping for mistakes.</li>
+    <li><strong>Never re-play a passage you've already read.</strong> Always advance. The skill is reading new material, not memorising old.</li>
+    <li><strong>Metronome at 60 BPM the first week.</strong> Tempo earns its way up.</li>
+  </ul>
+</section>
+
+<!-- THU-4 · Tips from World-Class Drummers -->
+<section id="drummers">
+  <h2>4 · Tips from World-Class Drummers</h2>
+
+  <h3>Steve Gadd — on serving the song</h3>
+  <blockquote>
+    "Technique doesn't mean shit if you can't play a backbeat in a place that fits and lock it in."
+    <cite>— Steve Gadd, on what session work taught him</cite>
+  </blockquote>
+  <p>Gadd keeps a kit set up at all times and practices in five-minute bursts whenever they appear — sometimes on the arm of a couch with no sticks. The lesson: drop the idea of a "practice session." Treat the kit as something you visit, not something you schedule. (<a href="https://www.drumstheword.com/drum-practice-routine-ideas-dvd-notes-steve-gadd/" target="_blank" rel="noopener noreferrer">DrumsTheWord — Gadd practice notes</a>, <a href="https://pas.org/steve-gadd/" target="_blank" rel="noopener noreferrer">PAS profile</a>)</p>
+
+  <h3>Vinnie Colaiuta — on flow</h3>
+  <blockquote>
+    "Thought is the enemy of flow. There are no mistakes — only creative events."
+    <cite>— Vinnie Colaiuta, Modern Drummer 2013</cite>
+  </blockquote>
+  <p>Colaiuta was famously the most obsessive practicer of his generation — pad in the car on the way to sessions — but said the breakthrough came when he gave himself permission <em>not</em> to practice for days at a time. The over-practice was a neurosis; the looseness was the music. Worth holding in mind when ADHD makes "I didn't practice today" feel like failure. (<a href="https://www.vinniecolaiuta.com/Interviews/ModernDrummer2013" target="_blank" rel="noopener noreferrer">Modern Drummer 2013 interview</a>, <a href="https://drummagazine.com/vinnie-colaiuta-10-ways-to-master-multiple-drumming-styles/" target="_blank" rel="noopener noreferrer">DRUM! Magazine</a>)</p>
+
+  <h3>Questlove — on emulation and the "sloppy meter"</h3>
+  <blockquote>
+    "I made the meter sloppy as hell, but not so sloppy that you couldn't feel it."
+    <cite>— Questlove, on his J Dilla-influenced pocket</cite>
+  </blockquote>
+  <p>Questlove's actionable advice: pick a drummer you love, learn their playing well enough to forge their feel, then move on to the next one. He emulated James Brown's drummers, Sly Stone's drummers, Dilla's programming. The catalog of feels you can summon comes from years of intentional imitation — not from "finding your own voice" in a vacuum. (<a href="https://daily.redbullmusicacademy.com/2019/02/give-the-drummer-some-questlove/" target="_blank" rel="noopener noreferrer">Red Bull Music Academy — Give the Drummer Some</a>, <a href="https://flypaper.soundfly.com/play/dynamic-beats-drum-parts-questlove-otis-brown-dilla-video/" target="_blank" rel="noopener noreferrer">Soundfly</a>)</p>
+
+  <h3>Stewart Copeland — on not being just a drummer</h3>
+  <blockquote>
+    "Drummers shouldn't just think of themselves as drummers. If you're going to be a musician, you should expand your horizons, compose things, and work with other instruments."
+    <cite>— Stewart Copeland</cite>
+  </blockquote>
+  <p>Copeland was self-taught, never had a formal teacher, and built his style by absorbing Middle Eastern, African, and Latin rhythms from his upbringing. His advice for adding depth: practice polyrhythms between hands and feet, and treat syncopation as the primary engine — accent the offbeats first, the downbeats second. (<a href="https://www.drumeo.com/beat/stewart-copeland-drum-genius/" target="_blank" rel="noopener noreferrer">Drumeo — Why Copeland is a genius</a>)</p>
+
+  <h3>Tony Williams — on clarity</h3>
+  <blockquote>
+    "When you play something, for it to sound like what you intended — not to have a 'maybe' kind of sound."
+    <cite>— Tony Williams, on what he learned from Alan Dawson</cite>
+  </blockquote>
+  <p>Williams said independence wasn't the rare skill — clarity was. Most drummers can play four limbs at once, but very few can play four limbs at once and have every note sound deliberate. His basic advice to drummers, said simply: <em>"You've really got to love the instrument, and love playing no matter what music it is."</em> (<a href="https://www.moderndrummer.com/article/january-1978-tony-williams/" target="_blank" rel="noopener noreferrer">Modern Drummer 1978</a>, <a href="https://jazzprofiles.blogspot.com/2021/02/tony-williams-two-decades-of-drum.html" target="_blank" rel="noopener noreferrer">JazzProfiles — Two Decades</a>)</p>
+</section>
+
+<!-- THU-5 · Passive Income -->
+<section id="passive">
+  <h2>5 · Passive Income — Lowest-Barrier-to-Entry This Week</h2>
+
+  <p>This week's filter: things you could legitimately start <em>this week</em> with what you already own. No course-sellers. No "buy real estate." Skills you already have, leveraged.</p>
+
+  <div class="card">
+    <h4>1 · License your voice to ElevenLabs Voice Library</h4>
+    <p class="meta">Setup: ~30 min · payout: ~$0.03 per 1,000 characters generated</p>
+    <p>You already own an SM58 and a treated-enough room to record clean voice. ElevenLabs' Voice Library lets users license your voice for AI generation; you get paid every time someone uses it. Not life-changing money, but the setup is one recording session, and the income compounds while you sleep. Independent narrators are reporting $40–$300/month with one good voice clone after about 6 months of accumulation.</p>
+    <p><strong>The catch:</strong> Your voice is in an AI library. Read the consent terms carefully — this is irrevocable in practice once distributed. Decide whether that's a tradeoff you're comfortable with before clicking through.</p>
+    <p><a href="https://elevenlabs.io/payouts" target="_blank" rel="noopener noreferrer">ElevenLabs — Earn with your voice</a> · <a href="https://elevenlabs.io/blog/monetize-your-voice-with-elevenlabs-voice-library-and-create-passive-income" target="_blank" rel="noopener noreferrer">Setup walkthrough</a></p>
+  </div>
+
+  <div class="card">
+    <h4>2 · Voice templates on a stock platform</h4>
+    <p class="meta">Setup: 1 weekend · payout: per-license, recurring</p>
+    <p>Record 30–50 generic VO templates (welcome messages, IVR greetings, explainer intros, app onboarding scripts), upload to Voices.com, Voquent, or similar. Each gets licensed repeatedly. Different from #1 because <em>you</em> deliver the audio, not an AI clone — which means slightly more friction per sale, but also no "your voice is in a library" tradeoff. Pairs well with your VO aspirations as a portfolio builder.</p>
+    <p><a href="https://www.voices.com/" target="_blank" rel="noopener noreferrer">Voices.com</a> · <a href="https://voquent.com/" target="_blank" rel="noopener noreferrer">Voquent</a></p>
+  </div>
+
+  <div class="card">
+    <h4>3 · Drum sample packs on Splice / your own Gumroad</h4>
+    <p class="meta">Setup: 1–2 weekends · payout: per download / per license</p>
+    <p>You have a TD-11, Logic Pro, and access to Hellrazer/GGD/SSD5. Record a pack of one-shots, loops, and MIDI files — your specific feel, your specific kit programming. Splice's marketplace pays per download; Gumroad gives you 100% control (you keep ~95%). Top sellers do four-figure months; realistic entry-level: $50–$200/month, growing with catalog. The work is 100% upfront, then it sells while you don't.</p>
+    <p>Critical: only sample sounds you legally created. Hellrazer/GGD/SSD5 outputs are <em>not</em> licensable for sample packs — read each EULA.</p>
+    <p><a href="https://splice.com/sounds/sell" target="_blank" rel="noopener noreferrer">Splice — Sell on Sounds</a> · <a href="https://gumroad.com/" target="_blank" rel="noopener noreferrer">Gumroad</a></p>
+  </div>
+
+  <div class="card">
+    <h4>4 · Build a small IT automation tool with Claude → sell as a one-time download</h4>
+    <p class="meta">Setup: 1 weekend with AI assistance · payout: $5–$30 per sale, recurring</p>
+    <p>You have 12 years of enterprise IT. There are unglamorous problems IT folks pay $10–$30 to make go away — a tiny Mac menu-bar disk-space alerter, a Windows scheduled-task auditor, a script that diffs two M365 tenant configs. Build one with Claude over a Saturday, sell on Gumroad. Most won't take off. One in five will quietly do $80–$200/month for years. Honest: this is "passive" only after the initial build and the first round of bug fixes. Don't expect zero ongoing work.</p>
+    <p><a href="https://gumroad.com/" target="_blank" rel="noopener noreferrer">Gumroad</a></p>
+  </div>
+
+  <p class="meta" style="margin-top: 1rem;">Sources: <a href="https://www.chartlex.com/blog/money/how-to-make-money-as-producer-2026" target="_blank" rel="noopener noreferrer">Chartlex — 7 revenue streams for producers</a>, <a href="https://orphiq.com/resources/passive-income-musicians" target="_blank" rel="noopener noreferrer">Orphiq — Passive income for musicians</a>, <a href="https://www.smartpassiveincome.com/podcasts/how-to-make-money-through-voiceover-work/" target="_blank" rel="noopener noreferrer">Smart Passive Income — Voiceover episode</a>.</p>
+</section>
+
+<!-- Past digests nav -->
+<nav class="archive-nav">
+  <h2>Past digests</h2>
+  <ul>
+    <li><a href="archive/2026-06-17.html">2026-06-17 (Wed)</a></li>
+  </ul>
+  <a class="all" href="archive/index.html">View all past digests →</a>
+</nav>
+
+<footer>
+  Generated for John · Thursday, June 18, 2026
+</footer>
+
 </body>
 </html>
