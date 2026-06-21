@@ -3,408 +3,275 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Sunday, June 21, 2026</title>
+<title>John's Daily Briefing — Saturday, June 20, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
     --fg: #e0e0e0;
     --muted: #8a8a8a;
-    --accent: #f0a060;
-    --accent-soft: #7bb6c4;
+    --rule: #222;
     --link: #9ecbff;
-    --line: #232323;
+    --nudge: #f5a623;
+    --soft: #6fb3a8;
     --card: #161616;
   }
   * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--fg); }
   body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 1.5rem 1.25rem 4rem;
-    line-height: 1.65;
-    font-size: 17px;
+    padding: 2rem 1.25rem 4rem;
+    line-height: 1.6;
+    font-size: 16px;
   }
-  header {
-    border-bottom: 1px solid var(--line);
+  header.page {
+    border-bottom: 1px solid var(--rule);
     padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
-  header h1 { margin: 0 0 .25rem; font-size: 1.7rem; }
-  header .date { color: var(--muted); margin: 0; }
-  header .updated { color: var(--muted); font-size: .85rem; margin-top: .25rem; }
-  h2 { font-size: 1.25rem; margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .35rem; }
-  h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--accent); }
-  h4 { font-size: 1rem; margin: 1rem 0 .25rem; color: var(--fg); }
-  p { margin: .5rem 0; }
-  a { color: var(--link); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  ul, ol { padding-left: 1.2rem; }
-  li { margin: .35rem 0; }
-  nav.toc, nav.archive-nav {
+  header.page h1 { margin: 0; font-size: 1.7rem; letter-spacing: -0.01em; }
+  header.page p.sub { margin: .25rem 0 0; color: var(--muted); font-size: 0.95rem; }
+  nav.nav-zone {
+    border: 1px solid var(--rule);
     background: var(--card);
-    border: 1px solid var(--line);
     border-radius: 8px;
-    padding: .8rem 1rem;
-    font-size: .92rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
   }
-  nav.toc { margin-bottom: .75rem; }
-  nav.toc strong, nav.archive-nav strong { color: var(--muted); font-weight: 600; display: block; margin-bottom: .35rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; }
-  nav.toc ol { margin: 0; padding-left: 1.1rem; }
-  nav.toc li { margin: .15rem 0; }
-  nav.archive-nav { margin-bottom: 2rem; }
-  nav.archive-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
-  nav.archive-nav li { margin: 0; }
-  .callout-nudge {
-    background: #1a1409;
-    border-left: 4px solid var(--accent);
-    border-radius: 4px;
+  nav.nav-zone .nav-block + .nav-block {
+    margin-top: .9rem;
+    padding-top: .9rem;
+    border-top: 1px dashed var(--rule);
+  }
+  nav.nav-zone strong { color: var(--fg); display: block; margin-bottom: .35rem; font-size: 0.95rem; }
+  nav.nav-zone ul { list-style: none; padding: 0; margin: 0; }
+  nav.nav-zone li { display: inline-block; margin: 0 .75rem .25rem 0; font-size: 0.92rem; }
+  nav.nav-zone a { color: var(--link); text-decoration: none; }
+  nav.nav-zone a:hover { text-decoration: underline; }
+  section { margin: 0 0 2.5rem; }
+  h2 {
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: .35rem;
+    margin: 2rem 0 1rem;
+  }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 .35rem; }
+  p { margin: .5rem 0 1rem; }
+  a { color: var(--link); }
+  ul.items { padding-left: 1.1rem; }
+  ul.items li { margin-bottom: .9rem; }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: #1d2a3a;
+    color: #9ecbff;
+    padding: .1rem .45rem;
+    border-radius: 3px;
+    margin-right: .4rem;
+    vertical-align: middle;
+  }
+  .nudge {
+    border: 1px solid var(--nudge);
+    border-left-width: 4px;
+    background: rgba(245, 166, 35, 0.07);
     padding: 1rem 1.1rem;
+    border-radius: 6px;
     margin: 1.25rem 0;
   }
-  .callout-nudge h4 { margin-top: 0; color: var(--accent); }
-  .callout-nudge .mantra {
-    margin-top: .85rem;
-    padding-top: .75rem;
-    border-top: 1px dashed #3a2810;
+  .nudge .label {
+    color: var(--nudge);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: .35rem;
+  }
+  .nudge p { margin: 0 0 .65rem; }
+  .nudge p:last-child { margin-bottom: 0; }
+  .mantra {
     font-style: italic;
-    color: #f7c89c;
+    color: var(--nudge);
+    border-top: 1px dashed rgba(245, 166, 35, 0.4);
+    margin-top: .65rem;
+    padding-top: .55rem;
   }
-  .callout-body {
-    background: #0e1719;
-    border-left: 4px solid var(--accent-soft);
-    border-radius: 4px;
-    padding: 1rem 1.1rem;
-    margin: 1.25rem 0;
+  .strategy {
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 1rem 0;
   }
-  .callout-body h4 { margin-top: 0; color: var(--accent-soft); }
-  blockquote {
-    margin: .75rem 0;
-    padding: .5rem 0 .5rem 1rem;
-    border-left: 3px solid var(--line);
-    color: #cfcfcf;
-    font-style: italic;
+  .strategy h4 { margin: 0 0 .25rem; font-size: 1rem; color: #cfd8dc; }
+  .strategy p { margin: 0; color: #c8c8c8; }
+  .sources {
+    font-size: 0.9rem;
+    color: var(--muted);
   }
-  .recipe {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: .8rem 1rem;
-    margin: .9rem 0;
-  }
-  .recipe h4 { margin: 0 0 .35rem; color: var(--fg); }
-  .recipe .meta { color: var(--muted); font-size: .85rem; margin-bottom: .4rem; }
-  .recipe summary { cursor: pointer; color: var(--accent); font-size: .9rem; margin-top: .35rem; }
-  .recipe details { margin-top: .35rem; }
-  .recipe ul { margin: .35rem 0 .5rem; }
-  .candidate {
-    margin: .8rem 0;
-    padding: .6rem .8rem;
-    background: var(--card);
-    border-radius: 6px;
-    border-left: 3px solid var(--line);
-  }
-  .candidate h4 { margin: 0 0 .2rem; }
-  .candidate .role { color: var(--muted); font-size: .85rem; margin-bottom: .35rem; }
-  .source { color: var(--muted); font-size: .85rem; }
-  .data-note { color: var(--muted); font-style: italic; font-size: .9rem; }
+  .sources a { color: var(--link); }
+  footer.foot { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 2rem; }
+  .note { color: var(--muted); font-size: 0.85rem; font-style: italic; }
 </style>
 </head>
 <body>
 
-<header>
+<header class="page">
   <h1>John's Daily Briefing</h1>
-  <p class="date">Sunday, June 21, 2026</p>
-  <p class="updated">Last updated: 10:46 PM ET</p>
+  <p class="sub">Saturday, June 20, 2026 &middot; Last updated: 11:22 PM ET</p>
 </header>
 
-<nav class="toc">
-  <strong>On this page</strong>
-  <ol>
-    <li><a href="#sun-1">SUN-1 · Sugar Addiction Recovery</a></li>
-    <li><a href="#sun-2">SUN-2 · Week Ahead</a></li>
-    <li><a href="#sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</a></li>
-    <li><a href="#sun-4">SUN-4 · Recipes: Meal Prep</a></li>
-    <li><a href="#sun-5">SUN-5 · Radical Thinkers: Quotes & Summaries</a></li>
-    <li><a href="#sun-6">SUN-6 · NYC Local Politics Digest</a></li>
-    <li><a href="#sun-7">SUN-7 · Body & Self-Image: Weekly Wisdom</a></li>
-  </ol>
+<nav class="nav-zone">
+  <div class="nav-block toc">
+    <strong>On this page</strong>
+    <ul>
+      <li><a href="#sat-1">SAT-1 &middot; Sugar Addiction Recovery</a></li>
+      <li><a href="#sat-2">SAT-2 &middot; Labor &amp; Left-Wing Good News</a></li>
+      <li><a href="#sat-3">SAT-3 &middot; Book Chapter Summary</a></li>
+    </ul>
+  </div>
+  <div class="nav-block archive-nav">
+    <strong>Past briefings</strong>
+    <ul>
+      <li><a href="archive/2026-06-21.html">Jun 21</a></li>
+      <li><a href="archive/2026-06-19.html">Jun 19</a></li>
+      <li><a href="archive/2026-06-18.html">Jun 18</a></li>
+      <li><a href="archive/2026-06-17.html">Jun 17</a></li>
+      <li><a href="archive/index.html">All archives &rarr;</a></li>
+    </ul>
+  </div>
 </nav>
 
-<nav class="archive-nav">
-  <strong>Past briefings</strong>
-  <ul>
-    <li><a href="archive/2026-06-19.html">Jun 19</a></li>
-    <li><a href="archive/2026-06-18.html">Jun 18</a></li>
-    <li><a href="archive/2026-06-17.html">Jun 17</a></li>
-    <li><a href="archive/index.html">All archives &rarr;</a></li>
-  </ul>
-</nav>
+<section id="sat-1-section">
+  <h2 id="sat-1">SAT-1 &middot; Sugar Addiction Recovery</h2>
+  <p>
+    Saturday tends to stack itself — volunteering, a jam, a catering shift, errands. The pull toward sugar in the middle of a long active day isn&rsquo;t weakness. It&rsquo;s a habit loop: a body running low on stable fuel reaches for the fastest hit it can find, gets a brief spike, then crashes harder and reaches again. Dr. Anna Lembke at Stanford frames it cleanly &mdash; every dopamine spike (sugar, ultra-processed food, alcohol) is followed by a dip below baseline. The way out isn&rsquo;t willpower. It&rsquo;s interrupting the loop with steadier fuel up front and small counter-moves at the moment of the urge.
+  </p>
+  <p class="note">
+    Tracker note: Supabase data wasn&rsquo;t reachable from this run&rsquo;s environment, so this section uses the general spec rather than personalized note patterns. If a craving pattern is showing up this week, the strategies below still apply &mdash; tailor where it lands.
+  </p>
 
-<section>
-  <h2 id="sun-1">SUN-1 · Sugar Addiction Recovery</h2>
-  <p class="data-note">Tracker data was unreachable from this run, so this section uses the general framing rather than your week's notes.</p>
-  <p>The cycle to keep naming: a sugary or refined-carb meal triggers a short blood-glucose spike, the spike triggers an insulin response, glucose crashes below baseline, and the crash shows up as fatigue, irritability, brain fog, and a fresh craving. Reaching for the next sugar hit completes the loop and trains the brain to repeat it. Anna Lembke's framing in <em>Dopamine Nation</em> is useful here — pleasure and pain share the same brain real estate, and every spike borrows from tomorrow's energy.</p>
-
-  <h3>Sunday is the leverage day</h3>
-  <p>Sunday is meal-prep day for a reason: most weekday sugar grabs happen because there's no easy alternative at the moment of crash. If a Tupperware of protein and fiber is already in the fridge at 3pm Tuesday, the loop doesn't get to run. The decision happens once, on Sunday, not fifty times across the week.</p>
-
-  <h3>Three concrete moves for today</h3>
-  <ol>
-    <li><strong>Cook one protein and one fiber bulk item.</strong> A tray of Cajun salmon or a pot of red lentil dahl plus a tray of roasted vegetables covers 4–5 lunches and dinners. See SUN-4 for batch recipes. The goal isn't perfection — it's "something is ready" so future-John doesn't have to negotiate with himself at the worst possible time.</li>
-    <li><strong>Self-binding for the week.</strong> Lembke's term for putting friction between you and your drug of choice. Don't bring home the thing you can't moderate. If sweet stuff isn't in the apartment, the craving has to clear the activation energy of leaving the building — most of the time it won't.</li>
-    <li><strong>Pre-load Monday's breakfast.</strong> Protein within an hour of waking sets the day's blood-sugar rhythm. Make overnight oats with Greek yogurt and chia tonight (recipe in SUN-4); eat it before the coffee hits an empty stomach. Skipping breakfast almost guarantees a 2pm sugar grab.</li>
-  </ol>
-
-  <div class="callout-nudge">
-    <h4>Today's nudge</h4>
-    <p>Don't try to break the sugar habit on Wednesday afternoon when you're crashing. Break it tonight, by making sure Wednesday afternoon you has something else to reach for. One cook session this evening is the most leveraged hour you'll spend all week — more energy Monday means more capability Monday means less reason to reach for a quick fix.</p>
-    <p class="mantra">Mantra: <strong>"I'm not eating for now — I'm eating for the hour I'll need energy I don't yet have."</strong></p>
+  <div class="strategy">
+    <h4>1. Front-load 25&ndash;30g of protein before you leave the apartment.</h4>
+    <p>
+      A protein-anchored breakfast (eggs + sourdough, Greek yogurt + nuts, a smoothie with whey) flattens the spike-crash curve that drives mid-day sugar reaching. For the fatty liver, gout, and pre-diabetes stack, this is the single highest-leverage move you can make on a Saturday. Prep one thing tonight &mdash; overnight oats with nut butter, or hard-boil four eggs &mdash; so morning-John doesn&rsquo;t have to decide.
+    </p>
   </div>
 
-  <p class="source">Sources: <a href="https://www.annalembke.com/dopamine-nation" target="_blank" rel="noopener noreferrer">Anna Lembke — Dopamine Nation</a> · <a href="https://health.clevelandclinic.org/how-to-stop-sugar-cravings" target="_blank" rel="noopener noreferrer">Cleveland Clinic — How to Stop Sugar Cravings</a> · <a href="https://www.drmckenzybrewer.com/blog/blood-sugar-and-anxiety-why-spikes-make-you-stressed-amp-what-to-eat-instead" target="_blank" rel="noopener noreferrer">Blood sugar, anxiety & the crash cycle</a></p>
+  <div class="strategy">
+    <h4>2. Pack a &ldquo;crash kit&rdquo; for the bag, the car, the gig.</h4>
+    <p>
+      Two slots: (1) sustained-energy fuel &mdash; jerky or string cheese, a small bag of almonds, an apple, a protein bar under 8g of sugar; (2) a non-food dopamine bridge &mdash; sparkling water with lime, gum, or a quick cold-water splash on the wrists and face. Lembke&rsquo;s research is clear that brief cold exposure produces a slow, sustained dopamine rise &mdash; the exact opposite of a sugar spike. When the 3pm wall hits between the volunteer shift and the jam, you reach into the bag, not into the pastry case at the catering staging area.
+    </p>
+  </div>
+
+  <div class="strategy">
+    <h4>3. At the moment of the craving: urge-surf for 10 minutes.</h4>
+    <p>
+      ACT and Mindfulness-Based Relapse Prevention research is consistent: cravings peak and fall within 20&ndash;30 minutes if you don&rsquo;t feed them. When the pull hits, name it out loud (&ldquo;there&rsquo;s the craving &mdash; this is the loop, not me&rdquo;), set a 10-minute timer, drink 16oz of water, and do one small physical thing &mdash; walk a block, carry a load, tune a drumhead. The defusion move is the whole point: it&rsquo;s a wave moving through, not a command you have to obey.
+    </p>
+  </div>
+
+  <div class="nudge">
+    <div class="label">Today&rsquo;s nudge</div>
+    <p>
+      The pull toward sugar today isn&rsquo;t weakness &mdash; it&rsquo;s your brain trying to borrow energy it thinks you don&rsquo;t have. Get the protein in before you leave, keep the crash kit within arm&rsquo;s reach, and when the craving hits between gigs, set a 10-minute timer and let the wave pass. Steadier fuel is what makes the long Saturday feel possible instead of impossible.
+    </p>
+    <p class="mantra">Mantra: <em>Steady fuel, steady day. The wave passes if I let it.</em></p>
+  </div>
+
+  <p class="sources">
+    Sources:
+    <a href="https://www.annalembke.com/" target="_blank" rel="noopener noreferrer">Dr. Anna Lembke (Stanford Addiction Medicine, <em>Dopamine Nation</em>)</a>
+    &middot;
+    <a href="https://www.ashburnpsych.com/urge-surfing-a-mindful-approach-to-managing-cravings-and-impulses/" target="_blank" rel="noopener noreferrer">Urge Surfing &mdash; ACT / MBRP clinical explainer</a>
+  </p>
 </section>
 
-<section>
-  <h2 id="sun-2">SUN-2 · Week Ahead</h2>
-  <p class="data-note">Calendar and Trello data weren't reachable this run (Supabase host blocked by the environment's egress policy). The personal items below are placeholders — check the Tracker app directly. The transit / civic / event info is live.</p>
+<section id="sat-2-section">
+  <h2 id="sat-2">SAT-2 &middot; Labor &amp; Left-Wing Good News</h2>
+  <p>A scan of wins, contracts, court decisions, and electoral results from roughly the last two weeks. Good news only.</p>
 
-  <h3>NYC transit</h3>
-  <ul>
-    <li>MTA hasn't published the June 26–29 Weekender yet; the most recent published advisory is the <a href="https://www.mta.info/article/mta-weekender-june-5-8-2026" target="_blank" rel="noopener noreferrer">June 5–8 Weekender</a>. Check <a href="https://www.mta.info/alerts" target="_blank" rel="noopener noreferrer">mta.info/alerts</a> and the <a href="https://www.mta.info/map/32906" target="_blank" rel="noopener noreferrer">live weekend service map</a> before any non-routine trip — Tuesday's primary day usually means added evening service, but planned construction can still hit the N/W to Astoria.</li>
-    <li><strong>Tuesday June 23 — NY Primary Election.</strong> Polls open 6 a.m.–9 p.m. Early voting ends today (Sunday June 21). Expect heavier subway loads in Manhattan and western Queens during evening returns.</li>
-  </ul>
-
-  <h3>Civic / holidays</h3>
-  <ul>
-    <li><strong>Friday June 19 was Juneteenth</strong> — already observed; no further federal holidays in the coming 7 days. <a href="https://www.timeanddate.com/holidays/us/2026" target="_blank" rel="noopener noreferrer">2026 US holiday calendar</a>.</li>
-    <li><strong>Tuesday June 23 — NY State / Federal primary.</strong> NYC City Council seats are <em>not</em> on this ballot (those come up in 2029), but the NY-7 congressional primary to replace Nydia Velázquez is on it and affects Astoria/LIC. See SUN-6.</li>
-  </ul>
-
-  <h3>Major NYC events this week</h3>
-  <ul>
-    <li><strong>Sun Jun 21</strong> — <a href="https://secretnyc.co/things-to-do-june-nyc-2026/" target="_blank" rel="noopener noreferrer">HBO Max "Dragon Solstice" House of the Dragon S3 premiere</a> on the NYC waterfront (DJs, free).</li>
-    <li><strong>Mon Jun 22</strong> — Norway vs. Senegal, FIFA World Cup group stage at MetLife Stadium. NJ Transit / PATH crowds, especially evening.</li>
-    <li><strong>Thu Jun 25 (7:30 pm)</strong> — <a href="https://astoriapost.com/central-astoria-announces-full-summer-lineup-in-astoria-park-despite-great-lawn-closure" target="_blank" rel="noopener noreferrer">"America! Come Together in Harmony!"</a> free community celebration at Astoria Park.</li>
-    <li><strong>Fri Jun 26 (7 pm)</strong> — <a href="https://www.timeout.com/newyork/news/astoria-park-announces-free-summer-programming-including-fireworks-and-outdoor-movies-051625" target="_blank" rel="noopener noreferrer">41st Annual Astoria Park Independence Day Celebration</a> with fireworks over Hell Gate Bridge. Walking distance.</li>
-  </ul>
-
-  <h3>Calendar & Trello</h3>
-  <p class="data-note">Briefing-data edge function couldn't be reached this morning, so today's calendar pull and Trello WIP/due-today list are not included. Open John's Tracker → Briefing tab to verify nothing's due that I missed.</p>
-
-  <h3>Week framing</h3>
-  <p>This is a civically loud week — primary on Tuesday, two of three Astoria summer kickoff events landing Thursday and Friday — bookended by what looks like a quieter weekend. The biggest risk to your routine is Tuesday: between voting, news cycles, and World Cup overflow, evening focus is going to be harder than usual. Plan demanding work for Monday and Wednesday mornings. Keep Friday evening free if you want to walk to the Astoria Park fireworks (no commute, full backline of strangers — a good low-effort social play).</p>
-</section>
-
-<section>
-  <h2 id="sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</h2>
-  <p class="data-note">Tracker logs/episodes/cravings weren't reachable from this run (Supabase host blocked by network policy), so this week's "things you said you'd do" scan couldn't run. When the connection is restored — or if you want to do it manually — open the Tracker app and skim the last 7 days of notes for phrases like "I should," "I want to," "next time," "remind me," "I keep forgetting." Those are usually where the small commitments hide.</p>
-  <p>If the egress block was unintentional, ask the harness to allowlist <code>xdcilgzgqfmcfrbnwrwt.supabase.co</code> and this section will populate normally next run.</p>
-</section>
-
-<section>
-  <h2 id="sun-4">SUN-4 · Recipes: Meal Prep</h2>
-  <p>One cook session, multiple meals. Everything below leans low/no added sugar, veggie-forward, protein-rich, and slow-carb.</p>
-
-  <div class="recipe">
-    <h4>Breakfast — Overnight Protein Chia Oats</h4>
-    <p class="meta">Batch yield: 4 jars · 5 min hands-on, sets overnight · <a href="https://meaningfuleats.com/overnight-protein-chia-oats/" target="_blank" rel="noopener noreferrer">Meaningful Eats recipe</a></p>
-    <details>
-      <summary>Ingredients (per jar — multiply ×4)</summary>
-      <ul>
-        <li>⅓ cup rolled oats</li>
-        <li>2 tbsp chia seeds</li>
-        <li>1 scoop unflavored or vanilla whey/plant protein powder</li>
-        <li>¾ cup unsweetened almond milk (or any milk)</li>
-        <li>2 tbsp plain Greek yogurt (skip for dairy-free)</li>
-        <li>½ tsp cinnamon, pinch of salt, splash of vanilla</li>
-        <li>Top day-of with berries and chopped walnuts</li>
-      </ul>
-    </details>
-    <p>Dump-and-stir into 4 pint mason jars. Holds 5 days. ~30 g protein per jar without added sugar.</p>
-  </div>
-
-  <div class="recipe">
-    <h4>Lunch — Sheet-Pan Cajun Salmon with Green Beans & Baby Potatoes</h4>
-    <p class="meta">Batch yield: 4 servings · 30 min total · <a href="https://bitesofwellness.com/cajun-salmon-sheet-pan-meal/" target="_blank" rel="noopener noreferrer">Bites of Wellness recipe</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>4 salmon fillets (~5 oz each)</li>
-        <li>1.5 lb baby potatoes, halved (slow carb — fine in this amount)</li>
-        <li>1 lb green beans, trimmed</li>
-        <li>2 tbsp olive oil</li>
-        <li>2 tbsp Cajun seasoning (check label — no added sugar)</li>
-        <li>Salt, pepper, lemon wedges</li>
-      </ul>
-    </details>
-    <p>Potatoes: 450°F for 15 min. Add seasoned salmon and beans, 12 more min. Reheats well 4 days. ~45 g protein per serving.</p>
-  </div>
-
-  <div class="recipe">
-    <h4>Dinner — Spicy Red Lentil Dahl (vegan)</h4>
-    <p class="meta">Batch yield: 6 servings · 35 min · <a href="https://us.myprotein.com/thezone/recipe/high-protein-vegan-meal-prep/" target="_blank" rel="noopener noreferrer">MyProtein lentil dahl</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>2 cups dried red lentils, rinsed</li>
-        <li>1 large yellow onion, diced</li>
-        <li>4 garlic cloves + 1 tbsp grated ginger</li>
-        <li>1 tbsp olive or coconut oil</li>
-        <li>1 can diced tomatoes (no sugar added)</li>
-        <li>1 can light coconut milk</li>
-        <li>3 cups vegetable broth</li>
-        <li>2 tbsp curry powder, 1 tsp turmeric, 1 tsp cumin, ½–1 tsp cayenne (to taste)</li>
-        <li>1 bag baby spinach, stirred in at the end</li>
-        <li>Cilantro + lime to finish</li>
-      </ul>
-    </details>
-    <p>Sauté aromatics, add spices for 30 sec, add liquids and lentils, simmer 20 min, fold in spinach. ~28 g plant protein per serving. Freezes well — portion 2 servings into a freezer container for week 2.</p>
-  </div>
-
-  <div class="recipe">
-    <h4>Dinner alt — Spinach & Turkey Lentil Meatballs in Curry Sauce</h4>
-    <p class="meta">Batch yield: ~30 meatballs (6 meals) · 1 hr · <a href="https://blog.rsfh.com/2025/02/13/turkey-lentil-meatballs-with-spinach-mushrooms/" target="_blank" rel="noopener noreferrer">Turkey-lentil meatballs base</a> · <a href="https://healthyfitnessmeals.com/healthy-turkey-meatballs/" target="_blank" rel="noopener noreferrer">Curry sauce version</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>1 lb lean ground turkey</li>
-        <li>1 cup cooked brown or green lentils</li>
-        <li>1 cup chopped sautéed spinach + mushrooms, cooled</li>
-        <li>1 egg, ¼ cup whole-wheat breadcrumbs (or almond flour)</li>
-        <li>2 garlic cloves minced, 1 tsp cumin, salt/pepper</li>
-        <li><strong>Curry sauce:</strong> 1 can light coconut milk, 2 tbsp red curry paste, 1 tbsp grated ginger, 1 tsp fish sauce (or tamari), juice of 1 lime</li>
-      </ul>
-    </details>
-    <p>Bake meatballs 400°F for 20 min, turning halfway. Simmer sauce, add meatballs, hold 5 min. Serve over cauliflower rice or a small portion of brown rice. 4 days fridge, freezes well.</p>
-  </div>
-
-  <div class="recipe">
-    <h4>Snack 1 — Spicy Roasted Chickpeas & Edamame</h4>
-    <p class="meta">Batch yield: ~6 cups (4–5 snack portions) · 25 min · <a href="https://thiswifecooks.com/roasted-chickpeas-and-edamame/" target="_blank" rel="noopener noreferrer">This Wife Cooks recipe</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>2 cans chickpeas, drained and dried well</li>
-        <li>2 cups shelled edamame, thawed and dried</li>
-        <li>1 tbsp olive or chili oil</li>
-        <li>¾ tsp chili powder, ½ tsp smoked paprika, ½ tsp garlic powder, ¼ tsp cayenne, salt</li>
-      </ul>
-    </details>
-    <p>425°F for 20 min, shake pan halfway. Best within 2 days — they soften. ~32 g protein + 20 g fiber per cup.</p>
-  </div>
-
-  <div class="recipe">
-    <h4>Snack 2 — Greek Yogurt Parfait Jars</h4>
-    <p class="meta">Batch yield: 4 jars · 10 min · <a href="https://www.eatbreadless.com/blog/quick-healthy-high-protein-lunches/" target="_blank" rel="noopener noreferrer">BREADLESS portable protein snacks</a></p>
-    <details>
-      <summary>Ingredients (per jar — multiply ×4)</summary>
-      <ul>
-        <li>¾ cup plain 2% Greek yogurt (no sugar)</li>
-        <li>2 tbsp chopped almonds</li>
-        <li>¼ cup mixed berries (fresh or frozen)</li>
-        <li>1 tsp chia seeds</li>
-        <li>Dash of cinnamon — skip honey, the berries do the sweetening</li>
-      </ul>
-    </details>
-    <p>Layer in small jars. Holds 4 days. ~18 g protein per jar, kills the 3pm crash.</p>
-  </div>
-</section>
-
-<section>
-  <h2 id="sun-5">SUN-5 · Radical Thinkers: Quotes & Summaries</h2>
-
-  <h3>Michael Parenti — <em>Against Empire</em> / <em>Imperialism 101</em></h3>
-  <blockquote>"The Third World is rich. Only its people are poor — and it is because of the pillage they have endured."</blockquote>
-  <p>Parenti's core move in <em>Against Empire</em> (1995) is to redirect attention from the language of "underdevelopment" to the active verbs of extraction. The Global South isn't behind; it's been systematically drained. He pairs this with a definition of imperialism worth memorizing: "the process whereby the dominant politico-economic interests of one nation expropriate for their own enrichment the land, labor, raw materials, and markets of another people." <a href="https://www.michael-parenti.org/article-imperialism-101" target="_blank" rel="noopener noreferrer">Imperialism 101</a>.</p>
-
-  <h3>Howard Zinn — "The Problem Is Civil Obedience" (Johns Hopkins, 1970)</h3>
-  <blockquote>"Historically, the most terrible things — war, genocide, and slavery — have resulted not from disobedience, but from obedience."</blockquote>
-  <p>Zinn delivered this in 1970 while himself defying a court order over Vietnam-era anti-war activity. The argument inverts the usual framing: the danger isn't a citizenry that breaks the law; it's one that follows orders. Particularly worth re-reading the week before any election. <a href="https://www.historyisaweapon.com/defcon1/zinnproblemobedience.html" target="_blank" rel="noopener noreferrer">Full text</a>.</p>
-
-  <h3>Angela Davis — <em>Freedom Is a Constant Struggle</em> (2016)</h3>
-  <blockquote>"Freedom can't be contained within a paradigm that is individualistic. One cannot be free alone: freedom is collective. Freedom is about transforming conditions so that communities can live in more habitable conditions."</blockquote>
-  <p>Davis is responding here to the American tendency to flatten freedom into "I can do what I want." She's pulling it back to its older, harder meaning: a condition the most oppressed must also share, or it isn't real. <a href="https://www.anothermag.com/design-living/12607/angela-davis-quotes-on-freedom-juneteenth-black-lives-matter-movement" target="_blank" rel="noopener noreferrer">Source</a>.</p>
-
-  <h3>Emma Goldman — <em>Anarchism and Other Essays</em> (1910)</h3>
-  <blockquote>"People have only as much liberty as they have the intelligence to want and the courage to take."</blockquote>
-  <p>Goldman wrote this while still in the US, before her 1919 deportation. The line is bracing because it refuses to externalize the failure — liberty isn't bestowed by reformers, and a population that won't take it won't get it. Pair with her insistence on direct action as the consistent method. <a href="https://theanarchistlibrary.org/library/emma-goldman-anarchism-and-other-essays" target="_blank" rel="noopener noreferrer">Full text</a>.</p>
-
-  <h3>Fred Hampton — Speech, 1969</h3>
-  <blockquote>"We say you don't fight racism with racism. We're gonna fight racism with solidarity. We say we're not going to fight capitalism with black capitalism, but we're going to fight it with socialism."</blockquote>
-  <p>The 21-year-old chair of the Illinois Black Panthers, building the original Rainbow Coalition with poor Appalachian whites and Puerto Rican organizers months before he was murdered in his bed by Chicago police and the FBI. The two-line theory of change is still one of the most quotable distillations of multi-racial class politics. <a href="https://www.historyisaweapon.com/defcon1/fhamptonspeech.html" target="_blank" rel="noopener noreferrer">"Power Anywhere Where There's People"</a>.</p>
-</section>
-
-<section>
-  <h2 id="sun-6">SUN-6 · NYC Local Politics Digest</h2>
-  <p>Presenting platforms and votes neutrally. Primary is Tuesday June 23.</p>
-
-  <h3>The race that affects Astoria most: NY-7 Congressional Democratic Primary</h3>
-  <p>Open seat: long-time Rep. Nydia Velázquez is retiring after representing parts of Brooklyn, Queens (including LIC and Astoria fringes) and lower Manhattan. Vote on Tuesday June 23.</p>
-
-  <div class="candidate">
-    <h4>Antonio Reynoso (D)</h4>
-    <p class="role">Brooklyn Borough President · Endorsed by Velázquez, Working Families Party, 32BJ SEIU, DC 37, AG Letitia James</p>
-    <p>Institutionally backed progressive lane. Has emphasized infrastructure, sanitation reform (from his BP work on the trash containerization push), and tenant protections. Raised $630K through Q1.</p>
-  </div>
-  <div class="candidate">
-    <h4>Claire Valdez (D)</h4>
-    <p class="role">NY State Assembly Member (AD-37, Queens) · Endorsed by NYC-DSA, Sen. Bernie Sanders, several state-level socialist lawmakers</p>
-    <p>DSA-aligned lane in the same vein as Mamdani and AOC. Platform centers Medicare for All advocacy, Green New Deal, immigrant defense, housing as a human right. Top fundraiser in the race at $751K through Q1.</p>
-  </div>
-  <div class="candidate">
-    <h4>Julie Won (D)</h4>
-    <p class="role">NYC Council Member (District 26 — LIC/Sunnyside/Woodside) · Independent progressive lane</p>
-    <p>Has positioned herself between Reynoso's institutional progressivism and Valdez's DSA wing. Background in tech and budget oversight; emphasizes housing production, immigrant constituency services, public safety reform. $644K raised through Q1.</p>
-  </div>
-  <div class="candidate">
-    <h4>Vichal Kumar (D)</h4>
-    <p class="role">Less-funded Democratic challenger</p>
-    <p>Lower-profile candidacy; limited public polling or platform coverage in mainstream press.</p>
-  </div>
-  <p class="source">Coverage: <a href="https://nyc.streetsblog.org/2026/06/04/seventh-congressional-district-rep-nydia-velazquez-claire-valdez-antonio-reynoso-julie-won" target="_blank" rel="noopener noreferrer">Streetsblog candidate breakdown</a> · <a href="https://ny1.com/nyc/all-boroughs/politics/2026/06/04/congressional-candidates-spar-in-ny-7-democratic-primary-debate-reynoso-valdez-won" target="_blank" rel="noopener noreferrer">NY1 debate recap</a> · <a href="https://brooklyndowntownstar.com/news_ql/2026/06/18/2026-primary-election-guide-new-yorks-7th-congressional-district" target="_blank" rel="noopener noreferrer">Brooklyn Downtown Star primary guide</a></p>
-
-  <h3>2026 NY Governor (general election in November)</h3>
-  <div class="candidate">
-    <h4>Kathy Hochul (D, incumbent)</h4>
-    <p class="role">Governor since 2021</p>
-    <p>Running on a record of infrastructure spending, congestion pricing implementation, and post-Cuomo institutional reform. Siena had her at 51% to Blakeman's 31% in March 2026.</p>
-  </div>
-  <div class="candidate">
-    <h4>Bruce Blakeman (R)</h4>
-    <p class="role">Nassau County Executive · Trump-endorsed presumptive nominee after Stefanik withdrew in Dec 2025</p>
-    <p>Running on public safety, cost of living, and pushback against NYC's progressive turn. No Republican has won a NY statewide race since Pataki's 2002 re-election.</p>
-  </div>
-  <p class="source"><a href="https://en.wikipedia.org/wiki/2026_New_York_gubernatorial_election" target="_blank" rel="noopener noreferrer">Race overview</a> · <a href="https://sri.siena.edu/2025/07/01/early-look-at-2026-hochul-leads-3-potential-republican-challengers-by-20-25-points-hochul-does-not-hit-50-more-than-%C2%BC-of-voters-undecided/" target="_blank" rel="noopener noreferrer">Siena polling</a></p>
-
-  <h3>Astoria-specific watch</h3>
-  <ul>
-    <li><strong>Diana Moreno (D, AD-36)</strong> — Won February's special election with 74% to fill Mamdani's old Assembly seat. DSA-aligned, full term up in November. <a href="https://qns.com/2026/02/diana-moreno-wins-district-36-special-election/" target="_blank" rel="noopener noreferrer">QNS coverage</a>.</li>
-    <li><strong>Council Member Tiffany Cabán</strong> — Continues to hold the Astoria/LIC Council seat (not on 2026 ballot; Council elections next come in 2029 after the even-year shift takes effect).</li>
-  </ul>
-
-  <h3>Recent city government activity</h3>
-  <ul>
-    <li><strong>Mayor Mamdani — 100-day mark (April 2026):</strong> Hit 100,000 potholes filled, launched a $1.2B state partnership for universal 3-K + expanded free 2-year-old care (2,000 fall seats), created an Office of LGBTQIA+ Affairs, distributed 30,000 Know Your Rights flyers in 10 languages, named Stanley Richards as DOC commissioner (first formerly incarcerated person to lead the department). <a href="https://gothamist.com/news/at-100-days-mamdani-leans-into-pothole-politics-and-child-care-push" target="_blank" rel="noopener noreferrer">Gothamist</a> · <a href="https://www.nyc.gov/mayors-office/news/2026/04/mayor-mamdani-takes-bold--unapologetic-actions-to-protect-new-yo" target="_blank" rel="noopener noreferrer">Mayor's office summary</a>.</li>
-    <li><strong>Free buses pilot delayed:</strong> State lawmakers declined to fund Mamdani's free-bus expansion in the budget; pilot will not happen this year.</li>
-    <li><strong>Rent Guidelines Board:</strong> Mamdani has appointed 6 of 9 members; final vote on rent stabilization adjustment expected late June. Worth checking outcome after the meeting.</li>
-    <li><strong>Carl Wilson (D, Council Dist 3, Manhattan):</strong> Won April special election with ~43% first-choice, defeating Mamdani-backed Lindsey Boylan — read as a check on the mayor's coattails. <a href="https://www.cityandstateny.com/politics/2026/04/carl-wilson-wins-nyc-council-special-election-blow-mamdani/413190/" target="_blank" rel="noopener noreferrer">City & State</a>.</li>
+  <ul class="items">
+    <li>
+      <span class="tag">Washington, DC</span>
+      <strong>Janeese Lewis George wins DC Democratic mayoral primary.</strong>
+      On June 17, the DC councilmember and DSA member took the Democratic nomination with 52.9% (Kenyan McDuffie 36.4%). In overwhelmingly Democratic DC she&rsquo;s expected to be sworn in next January, replacing Muriel Bowser. She ran on rent support, ending the tipped subminimum wage, and utility rate controls. Adds DC to a growing roster of DSA-aligned mayors heading into the midterms.
+      <br><a href="https://www.washingtonpost.com/dc-md-va/2026/06/18/kenyan-mcduffie-concedes-janeese-lewis-george-dc-mayoral-primary/" target="_blank" rel="noopener noreferrer">Washington Post &mdash; Jun 18, 2026</a>
+    </li>
+    <li>
+      <span class="tag">USA &middot; Federal</span>
+      <strong>Supreme Court rejects Macy&rsquo;s challenge, preserving NLRB make-whole remedies.</strong>
+      On June 16 SCOTUS declined to hear Macy&rsquo;s appeal of an NLRB ruling requiring it to compensate roughly 60 unionized building engineers in Nevada and California who were unlawfully locked out and fired after a strike. The denial leaves intact the NLRB&rsquo;s expanded Thryv-era &ldquo;direct and foreseeable&rdquo; financial-harm remedy &mdash; protecting a crucial worker remedy framework as the NLRB itself faces constitutional attack in lower courts.
+      <br><a href="https://www.retail-insight-network.com/news/supreme-court-macys-nlrb-worker-ruling/" target="_blank" rel="noopener noreferrer">Retail Insight Network &mdash; Jun 2026</a>
+    </li>
+    <li>
+      <span class="tag">Los Angeles</span>
+      <strong>SoFi Stadium workers win tentative deal with first-of-its-kind ICE-raid strike clause.</strong>
+      On June 9, Unite Here Local 11 &mdash; representing ~2,000 SoFi Stadium cooks, bartenders, and concession workers &mdash; reached a tentative agreement with Legends Hospitality days before the World Cup opener. The contract includes wage increases (cooks reaching ~$40/hr within two years) and reportedly the first U.S. union contract clause preserving the right to strike if ICE conducts an immigration raid at work. A new template for embedding immigrant-worker protections in collective bargaining.
+      <br><a href="https://www.pbs.org/newshour/nation/southern-california-stadium-workers-say-they-have-a-tentative-deal-averting-strike-ahead-of-world-cup" target="_blank" rel="noopener noreferrer">PBS NewsHour &mdash; Jun 9, 2026</a>
+    </li>
+    <li>
+      <span class="tag">San Diego</span>
+      <strong>San Diego REI becomes the largest unionized REI store in the country.</strong>
+      Workers at REI&rsquo;s San Diego flagship &mdash; the chain&rsquo;s third-largest store by revenue &mdash; voted in early June to join UFCW Local 135, becoming the 12th and largest unionized REI in the U.S. The win came on the heels of a worker-led national boycott of REI&rsquo;s Anniversary Sale. REI has refused to sign a first contract at any of its 11 prior union stores, so the next fight is contract recognition.
+      <br><a href="https://www.ufcw.org/press-releases/san-diego-rei-workers-win-union-election-becoming-the-largest-unionized-store-in-the-country/" target="_blank" rel="noopener noreferrer">UFCW</a>
+      &middot;
+      <a href="https://www.wnylabortoday.com/news/2026/06/07/national-labor-news/san-diego-rei-workers-win-union-election-become-the-largest-unionized-store-in-the-u.s.-comes-days-after-historic-worker-led-boycott-turns-away-thousands-of-rei-customers-across-30-states/" target="_blank" rel="noopener noreferrer">WNY Labor Today &mdash; Jun 7, 2026</a>
+    </li>
+    <li>
+      <span class="tag">USA &middot; Multi-state</span>
+      <strong>AFL-CIO &ldquo;Worker Wins&rdquo; roundup: first contracts ratified at Netflix Animation and Illinois schools.</strong>
+      The AFL-CIO&rsquo;s June 18 roundup highlights several fresh ratifications, including The Animation Guild / IATSE Local 839 at Netflix Animation Studios ratifying their first contract with 89% in favor (wage minimums, dismissal pay, workplace protections), and SEIU Local 73 at Illinois&rsquo;s Downers Grove District 99 ratifying their first CBA. First contracts at marquee employers like Netflix anchor union footholds in the streaming/animation sector.
+      <br><a href="https://aflcio.org/2026/6/18/worker-wins-affirm-dignity-and-value-our-labor" target="_blank" rel="noopener noreferrer">AFL-CIO &mdash; Jun 18, 2026</a>
+    </li>
+    <li>
+      <span class="tag">Italy</span>
+      <strong>Voters reject Meloni&rsquo;s signature judicial reform referendum.</strong>
+      Italian voters delivered a 53.5%&ndash;46.5% defeat to PM Giorgia Meloni&rsquo;s judicial reform referendum, with turnout above 58% &mdash; higher than the far-right government expected. A direct popular rebuke of a flagship hard-right policy from Europe&rsquo;s most prominent post-fascist-rooted ruling party. Note: this is part of an active June 2026 narrative; the linked Al Jazeera analysis frames the referendum within a broader pattern of European far-right setbacks.
+      <br><a href="https://www.aljazeera.com/features/2026/3/24/after-setbacks-across-europe-is-the-populist-far-right-losing-ground" target="_blank" rel="noopener noreferrer">Al Jazeera &mdash; analysis context</a>
+    </li>
   </ul>
 </section>
 
-<section>
-  <h2 id="sun-7">SUN-7 · Body & Self-Image: Weekly Wisdom</h2>
-  <div class="callout-body">
-    <h4>The reframe</h4>
-    <p>The CBT pattern most likely to show up around weight at 45 is <strong>emotional reasoning</strong> — "I feel sluggish, therefore I am sluggish/broken/failing" — usually layered with a touch of <strong>mind-reading</strong> ("everyone at the gig is noticing"). Both are cognitive shortcuts that feel like data. They aren't.</p>
-    <p>The honest measurement isn't the mirror or the scale. It's: <em>How clearly did I think on Wednesday morning? How much energy did I have at the 6pm load-in? How quickly did the anxiety lift after I ate?</em> Those are the variables that actually change life on the ground. Weight is, at most, a lagging proxy.</p>
-    <blockquote>"Acceptance and Commitment Therapy aims to help patients accept uncomfortable internal experiences while committing to behaviors in accordance with life values." — from the NIH systematic review of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6182714/" target="_blank" rel="noopener noreferrer">ACT for body image dissatisfaction</a></blockquote>
-    <blockquote>Anna Lembke's framing is consistent: the trap isn't the body, it's the loop. "Pleasure and pain are co-located in the brain." Every short-term fix borrows from tomorrow's baseline. (<a href="https://www.annalembke.com/dopamine-nation" target="_blank" rel="noopener noreferrer">Dopamine Nation</a>)</blockquote>
-    <p>Today's small move isn't a verdict on your body. It's a deposit on Wednesday's clarity. That's the whole metric — and it's the one a 45-year-old drummer, developer, and caterer actually needs to do the work.</p>
-    <p class="data-note">Note: Tracker mood/activity data was unreachable this run, so no personal pattern citation today. When connectivity is restored I'll surface a real "mood-on-drums-days vs. off-days" comparison here.</p>
-  </div>
+<section id="sat-3-section">
+  <h2 id="sat-3">SAT-3 &middot; Book Chapter Summary</h2>
+  <p>
+    <strong><em>A People&rsquo;s History of the United States</em></strong> by Howard Zinn &mdash; <strong>Chapter 18: &ldquo;The Impossible Victory: Vietnam.&rdquo;</strong>
+  </p>
+
+  <h3>Main thesis</h3>
+  <p>
+    Zinn reframes the Vietnam War not as a Cold War tragedy of strategic miscalculation but as a confrontation between &ldquo;organized modern technology versus organized human beings&rdquo; &mdash; in which the human beings won. The chapter argues the war ended because of two intertwined revolts: Vietnamese peasants resisting a foreign superpower, and an unprecedented American antiwar movement that constrained Washington from within.
+  </p>
+
+  <h3>Key events, figures, and arguments</h3>
+  <ul class="items">
+    <li>Traces U.S. involvement from 1946, when America bankrolled most of France&rsquo;s colonial war in Indochina, through the fall of Saigon. Leaked memos showing concern over Southeast Asia&rsquo;s tin, rubber, and oil sit alongside the public anti-communist rationale.</li>
+    <li>Centers Ho Chi Minh and the Vietnamese independence movement as nationalists invoking the U.S. Declaration of Independence &mdash; complicating the &ldquo;communist aggression&rdquo; story Washington told the public.</li>
+    <li>Documents the Gulf of Tonkin incident, the Pentagon Papers, My Lai, and the systematic gap between official statements and internal government assessments.</li>
+    <li>Highlights GI resistance &mdash; fragging, desertion, underground newspapers, Vietnam Veterans Against the War &mdash; arguing soldier disaffection reached a scale unseen in prior American wars.</li>
+    <li>Treats the antiwar movement (SDS, draft resistance, clergy, Black Power critiques linking imperialism abroad to racism at home) as a decisive political force, not a footnote to elite decision-making.</li>
+  </ul>
+
+  <h3>Why this chapter is relevant in June 2026</h3>
+  <p>
+    With renewed debate over U.S. military commitments, drone and proxy warfare, and campus protest movements being met with police crackdowns, Zinn&rsquo;s chapter reads as a near-template for understanding how official war narratives erode and how dissent reshapes foreign policy. His insistence on counting Vietnamese and protester voices as historical actors &mdash; not background noise &mdash; speaks directly to contemporary arguments about whose casualties and whose speech count in democratic deliberation.
+  </p>
+
+  <p class="sources">
+    Sources:
+    <a href="https://www.litcharts.com/lit/a-people-s-history-of-the-united-states/chapter-18-the-impossible-victory-vietnam" target="_blank" rel="noopener noreferrer">LitCharts &mdash; Ch. 18 summary &amp; analysis</a>
+    &middot;
+    <a href="https://www.historyisaweapon.com/defcon1/zinnimvivi18.html" target="_blank" rel="noopener noreferrer">History Is A Weapon &mdash; full chapter text</a>
+    &middot;
+    <a href="https://www.coursehero.com/lit/A-Peoples-History-of-the-United-States/chapter-18-summary/" target="_blank" rel="noopener noreferrer">Course Hero &mdash; chapter summary</a>
+  </p>
 </section>
+
+<footer class="foot">
+  Generated for John &middot; Saturday, June 20, 2026 &middot; Live: <a href="https://nuclearsalt.github.io/daily-report/">nuclearsalt.github.io/daily-report</a>
+</footer>
 
 </body>
 </html>
