@@ -3,106 +3,159 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Sunday, June 21, 2026</title>
+<title>John's Daily Briefing — Mon, Jun 22, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
     --fg: #e0e0e0;
     --muted: #888;
-    --accent: #9ecbff;
-    --accent-warm: #ffb86c;
-    --accent-soft: #b39ddb;
-    --line: #222;
-    --panel: #161616;
+    --dim: #b0b0b0;
+    --accent: #ffb86c;
+    --accent-soft: #9ecbff;
+    --softer: #b39df0;
+    --border: #2a2a2a;
+    --card: #161616;
   }
   * { box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 1.5rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 4rem;
     line-height: 1.6;
   }
-  header { border-bottom: 1px solid var(--line); margin-bottom: 1.25rem; padding-bottom: 1rem; }
-  header h1 { margin: 0 0 .35rem; font-size: 1.7rem; }
-  header .updated { color: var(--muted); font-size: .9rem; }
+  header { margin-bottom: 1.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
+  header .meta { color: var(--muted); font-size: .9rem; }
   nav.toc, nav.archive-nav {
-    border: 1px solid var(--line);
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    padding: .75rem 1rem;
-    margin: 0 0 .75rem;
-    background: var(--panel);
-    font-size: .92rem;
-  }
-  nav.toc strong, nav.archive-nav strong { display: block; color: var(--muted); margin-bottom: .35rem; font-weight: 500; letter-spacing: .03em; text-transform: uppercase; font-size: .78rem; }
-  nav.toc ol { margin: 0; padding: 0 0 0 1.25rem; }
-  nav.toc li { margin: .15rem 0; }
-  nav.toc a, nav.archive-nav a { color: var(--accent); text-decoration: none; }
-  nav.toc a:hover, nav.archive-nav a:hover { text-decoration: underline; }
-  nav.archive-nav .archive-list { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
-  nav.archive-nav .archive-list a { white-space: nowrap; }
-  section { margin: 2.25rem 0; }
-  h2 { font-size: 1.25rem; margin: 0 0 .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); }
-  h3 { font-size: 1.02rem; margin: 1.25rem 0 .35rem; color: #ddd; }
-  p, li { font-size: .98rem; }
-  a { color: var(--accent); }
-  a:hover { text-decoration: underline; }
-  ul { padding-left: 1.25rem; }
-  li { margin: .25rem 0; }
-  .callout {
-    border-left: 4px solid var(--accent-warm);
-    background: #1a1612;
     padding: .85rem 1rem;
-    margin: 1rem 0;
+    font-size: .9rem;
+    margin: 0;
+  }
+  nav.toc { border-bottom: none; border-radius: 6px 6px 0 0; }
+  nav.archive-nav { border-radius: 0 0 6px 6px; margin-bottom: 2rem; }
+  nav strong { color: var(--accent); display: block; margin-bottom: .4rem; font-size: .85rem; letter-spacing: .03em; text-transform: uppercase; }
+  nav ul { list-style: none; padding: 0; margin: 0; }
+  nav.toc li { padding: .15rem 0; }
+  nav.archive-nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; }
+  nav.archive-nav .archive-links { display: flex; flex-wrap: wrap; gap: .75rem; }
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  section { margin: 2.5rem 0; }
+  h2 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .35rem;
+    margin: 0 0 1rem;
+  }
+  h3 { font-size: 1rem; margin: 1.2rem 0 .35rem; color: var(--fg); }
+  p { margin: .55rem 0; }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin: .35rem 0; }
+  .nudge {
+    background: var(--card);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0;
     border-radius: 0 4px 4px 0;
   }
-  .callout .label { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-warm); margin-bottom: .35rem; }
-  .callout .mantra { font-style: italic; margin-top: .65rem; color: #f1d8b8; }
-  .body-callout {
-    border-left: 4px solid var(--accent-soft);
-    background: #18141d;
-    padding: .9rem 1rem;
+  .nudge strong { color: var(--accent); }
+  .mantra {
+    background: rgba(255, 184, 108, .07);
+    border: 1px dashed var(--accent);
+    padding: .7rem 1rem;
     margin: 1rem 0;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
+    font-style: italic;
+    text-align: center;
   }
-  .body-callout .label { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-soft); margin-bottom: .35rem; }
-  blockquote { margin: .5rem 0; padding-left: .85rem; border-left: 2px solid #444; color: #c9c9c9; font-style: italic; }
-  .recipe { margin: .85rem 0 1.1rem; padding: .75rem .9rem; background: var(--panel); border-radius: 4px; }
-  .recipe h3 { margin-top: 0; }
-  .recipe details summary { cursor: pointer; color: var(--muted); font-size: .9rem; }
-  .recipe details ul { margin: .35rem 0 0; }
-  .meta { color: var(--muted); font-size: .88rem; }
-  .flag { color: var(--accent-warm); font-weight: 600; }
-  .quote-block { margin: 1rem 0; padding: .25rem 0 .25rem 1rem; border-left: 3px solid #333; }
-  .quote-block .attr { color: var(--muted); font-size: .88rem; margin-top: .25rem; }
-  .data-note { color: var(--muted); font-size: .9rem; font-style: italic; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+  .tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: .6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: .6rem .75rem;
+    border-radius: 4px;
+  }
+  .stat .label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .stat .value { font-size: 1.15rem; color: var(--fg); margin-top: .15rem; }
+  .stat .sub { font-size: .75rem; color: var(--dim); }
+  .item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: .85rem 1rem;
+    margin: .7rem 0;
+    border-radius: 4px;
+  }
+  .item h4 { margin: 0 0 .3rem; color: var(--fg); font-size: .98rem; }
+  .item .item-meta { color: var(--muted); font-size: .82rem; margin-bottom: .35rem; }
+  .item p { margin: .35rem 0; font-size: .92rem; }
+  .item .links { font-size: .85rem; margin-top: .3rem; }
+  .flag {
+    display: inline-block;
+    background: rgba(255, 184, 108, .15);
+    color: var(--accent);
+    padding: .1rem .45rem;
+    border-radius: 3px;
+    font-size: .75rem;
+    margin-left: .35rem;
+  }
+  .flag.warn { background: rgba(255, 100, 100, .15); color: #ff8888; }
+  .note { color: var(--dim); font-size: .88rem; font-style: italic; }
+  details { margin: .5rem 0; }
+  details summary { cursor: pointer; color: var(--accent-soft); }
+  details[open] summary { margin-bottom: .4rem; }
+  .ingredients {
+    background: var(--card);
+    border-left: 3px solid var(--accent-soft);
+    padding: .6rem .85rem;
+    margin: .5rem 0;
+    font-size: .9rem;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  .caveat { color: var(--dim); font-size: .85rem; border-left: 2px solid var(--border); padding-left: .75rem; margin: .75rem 0; }
+  @media (max-width: 480px) {
+    body { padding: 1rem .85rem 3rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; }
+  }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>Sunday — June 21, 2026</h1>
-  <div class="updated">Last updated: 8:30 AM ET</div>
+  <h1>Monday, June 22, 2026</h1>
+  <div class="meta">Last updated: 6:30 AM ET · John's Daily Briefing</div>
 </header>
 
 <nav class="toc">
   <strong>On this page</strong>
-  <ol>
-    <li><a href="#sun-1">SUN-1 · Sugar Addiction Recovery</a></li>
-    <li><a href="#sun-2">SUN-2 · Week Ahead</a></li>
-    <li><a href="#sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</a></li>
-    <li><a href="#sun-4">SUN-4 · Recipes: Meal Prep</a></li>
-    <li><a href="#sun-5">SUN-5 · Radical Thinkers: Quotes &amp; Summaries</a></li>
-    <li><a href="#sun-6">SUN-6 · NYC Local Politics Digest</a></li>
-    <li><a href="#sun-7">SUN-7 · Body &amp; Self-Image: Weekly Wisdom</a></li>
-  </ol>
+  <ul>
+    <li><a href="#mon-1">MON-1 · John's Tracker: Weekly Progress</a></li>
+    <li><a href="#mon-2">MON-2 · Mindful Eating &amp; Exercise for ADHD</a></li>
+    <li><a href="#mon-3">MON-3 · Music: Income Opportunities</a></li>
+    <li><a href="#mon-4">MON-4 · Music: NYC Events &amp; Networking</a></li>
+    <li><a href="#mon-5">MON-5 · Tech Jobs: IT + AI / Modern Stack</a></li>
+    <li><a href="#mon-6">MON-6 · Tech Jobs: Beyond IT Support</a></li>
+    <li><a href="#mon-7">MON-7 · AI in IT: Workflow Automation</a></li>
+    <li><a href="#mon-8">MON-8 · High-Pay Entry-Level Jobs ($35+/hr)</a></li>
+    <li><a href="#mon-9">MON-9 · Passive Income</a></li>
+  </ul>
 </nav>
 
 <nav class="archive-nav">
   <strong>Past briefings</strong>
-  <div class="archive-list">
+  <div class="archive-links">
     <a href="archive/2026-06-21.html">Jun 21</a>
     <a href="archive/2026-06-19.html">Jun 19</a>
     <a href="archive/2026-06-18.html">Jun 18</a>
@@ -111,217 +164,410 @@
   </div>
 </nav>
 
-<section id="sun-1-section">
-  <h2 id="sun-1">SUN-1 · Sugar Addiction Recovery</h2>
-  <p class="data-note">Tracker data wasn't reachable from this morning's run (network egress not configured), so this section uses the general framing rather than week-specific notes.</p>
-  <p>Sunday is the hinge day. What you set up today — groceries in the fridge, one cooked thing on the shelf, one or two protein-forward snacks within arm's reach — decides what Tuesday afternoon's tired brain will reach for. The reach itself is the addiction; the choice is made hours before the craving.</p>
+<section>
+  <h2 id="mon-1">MON-1 · John's Tracker: Weekly Progress</h2>
 
-  <h3>The loop, named plainly</h3>
-  <p>Sugar or a refined-carb shortcut → 30-minute spike → crash → "I have no energy, I can't do this" → reach for the same shortcut. Dr. Anna Lembke calls this <em>dopamine debt</em>: every spike borrows from tomorrow's baseline. The way out isn't willpower — it's removing the gap between hunger and a real food being within reach. <a href="https://annalembke.com/dopamine-nation/" target="_blank" rel="noopener noreferrer">Dopamine Nation overview</a>.</p>
+  <h3>Most recent check-in (logged early Monday for 6/22)</h3>
+  <div class="tracker-grid">
+    <div class="stat"><div class="label">Mood</div><div class="value">8</div><div class="sub">evening</div></div>
+    <div class="stat"><div class="label">Energy</div><div class="value">4</div><div class="sub">low, sweets-driven</div></div>
+    <div class="stat"><div class="label">Anxiety</div><div class="value">2</div><div class="sub">low</div></div>
+    <div class="stat"><div class="label">Focus</div><div class="value">5</div></div>
+    <div class="stat"><div class="label">Fluoxetine</div><div class="value">✓</div></div>
+    <div class="stat"><div class="label">Ritalin</div><div class="value">✗</div><div class="sub">skipped again</div></div>
+    <div class="stat"><div class="label">Seroquel</div><div class="value">6.25 mg</div></div>
+    <div class="stat"><div class="label">Drums practice</div><div class="value">20 min</div></div>
+    <div class="stat"><div class="label">Sobriety</div><div class="value">Alcohol ✓ · Cannabis ✓</div></div>
+    <div class="stat"><div class="label">Sweets today</div><div class="value">Yes — craving</div></div>
+  </div>
+  <p class="note">Today's morning check-in not yet logged. Your last note: "tomorrow I need to figure out the labs. Then I need to go to the labs." That's today.</p>
 
-  <h3>Three things to do today</h3>
-  <ul>
-    <li><strong>Cook one protein anchor.</strong> A pan of salmon, a sheet of chicken thighs, or a pot of lentils. One thing that exists in the fridge means Tuesday's tired version of you isn't deciding from scratch.</li>
-    <li><strong>Pre-portion two snacks.</strong> Roasted chickpeas, hard-boiled eggs, cottage cheese with hot sauce, edamame. Pre-bagged or pre-bowled. The whole barrier you're removing is "thinking about food when you have no energy to think."</li>
-    <li><strong>Buy one bottle of seltzer with a real flavor</strong> (lime, grapefruit). Sober brain still wants a ritual after dinner. Carbonation + something cold + a hand-feel can fill the slot a sweet would.</li>
-  </ul>
+  <h3>7-day summary (Jun 15 – Jun 22)</h3>
+  <div class="tracker-grid">
+    <div class="stat"><div class="label">Avg mood</div><div class="value">7.0</div><div class="sub">→ steady</div></div>
+    <div class="stat"><div class="label">Avg energy</div><div class="value">5.0</div><div class="sub">middling</div></div>
+    <div class="stat"><div class="label">Avg anxiety</div><div class="value">3.2</div><div class="sub">low — good</div></div>
+    <div class="stat"><div class="label">Avg focus</div><div class="value">4.6</div></div>
+    <div class="stat"><div class="label">Fluoxetine</div><div class="value">6/8 days</div><div class="sub">75%</div></div>
+    <div class="stat"><div class="label">Ritalin</div><div class="value">0/8 days</div><div class="sub">skipped all week</div></div>
+    <div class="stat"><div class="label">Drums (practice)</div><div class="value">4/8 days</div></div>
+    <div class="stat"><div class="label">Drums (fun)</div><div class="value">3/8 days</div></div>
+    <div class="stat"><div class="label">Bicycle</div><div class="value">1/8 days</div></div>
+    <div class="stat"><div class="label">Other exercise</div><div class="value">2/8 days</div></div>
+    <div class="stat"><div class="label">Sweets</div><div class="value">6/8 days</div><div class="sub">"low energy" 4×</div></div>
+    <div class="stat"><div class="label">Cravings logged</div><div class="value">6/8 days</div><div class="sub">mostly sugar</div></div>
+    <div class="stat"><div class="label">Alcohol avoided</div><div class="value">6/8</div></div>
+    <div class="stat"><div class="label">Cannabis avoided</div><div class="value">6/8</div></div>
+  </div>
 
-  <div class="callout">
-    <span class="label">Today's nudge</span>
-    You don't have to feel motivated to chop vegetables. You just have to put on music and chop the vegetables. The energy comes after the doing, not before — that's the order of operations your brain currently has backwards.
-    <div class="mantra">Mantra: <em>"I'm cooking for the person I'll be on Wednesday at 3pm."</em></div>
+  <h3>This week's clearest signal</h3>
+  <p>You wrote it yourself on Jun 20: <em>"Cookie and chocolate covered cherries did actually give me a small bit of energy"</em> — and then later the same day: <em>"Well, eating sugar didn't do anything good for me lol. That was a weak excuse."</em> The sugar-as-energy loop showed up in 6 of 8 evenings, and you flagged "low energy" as the reason 4 times. The data and your own notes agree on what's happening.</p>
+
+  <p class="caveat">Calendar/Trello sync (briefing-data edge function) returned a Google token error this run — no scheduled events or board WIP available. Insights table query failed (schema column mismatch). Today's morning check-in is still open.</p>
+</section>
+
+<section>
+  <h2 id="mon-2">MON-2 · Mindful Eating &amp; Exercise for ADHD</h2>
+
+  <p>The pattern this week is loud and clear: low energy → reach for sugar → small spike → crash → feel less capable → repeat. You named it on Saturday: <em>"That was a weak excuse to eat sugar."</em> ADHD makes this loop especially sticky because executive function tanks first when blood sugar swings, which is exactly when planning ahead feels impossible.</p>
+
+  <h3>Three things to try this week</h3>
+
+  <p><strong>1. Pre-decide tomorrow's breakfast tonight.</strong> ADHD brains struggle most with decisions made in low-glucose, low-dopamine states (i.e. the morning). The decision <em>itself</em> is the executive-function tax — not the eating. Put a hard-boiled egg, a Greek yogurt, and a piece of fruit in a visible spot on the fridge shelf before bed. Tomorrow's you doesn't have to negotiate.</p>
+
+  <p><strong>2. Replace the sugar reach with a protein-fat reach.</strong> When you feel the "low energy → I need a cookie" loop fire, the loop is real but the input is wrong. Sugar gives you 20 minutes of energy and takes 90 minutes back. A handful of almonds + a square of dark chocolate (85%+) feeds the craving without the crash. Keep the better option closer to you than the worse one.</p>
+
+  <p><strong>3. Pair drum practice with the post-meal slump.</strong> You hit drums 4 of 8 days last week — your best activity. The 30–60 minutes after lunch is when energy crashes hardest. Schedule even 10 minutes of kit time there. Movement + dopamine + your strongest skill. Bonus: it solves "I should practice more" without needing willpower.</p>
+
+  <div class="nudge">
+    <strong>Today's nudge.</strong> You have labs to figure out today. Your past self has been writing notes all week that you trust the loop more than you trust the food. Today, you don't need to win the food fight all day — just pick the breakfast. One real meal before the labs, with protein. That's the whole assignment.
+  </div>
+
+  <div class="mantra">
+    "Sugar borrows energy at a punishing interest rate."
+  </div>
+
+  <p class="caveat">Also worth noticing: ritalin has been skipped every single day this week (and the logs show you recorded the intended 1.25 mg dose, just didn't take it). ADHD nutrition strategies work harder when meds are absent. Worth a quick honest check-in with yourself about why the skip.</p>
+
+  <p class="note">Sources: <a href="https://www.additudemag.com/adhd-and-food-cravings/" target="_blank" rel="noopener noreferrer">ADDitude — ADHD and food cravings</a> · <a href="https://www.understood.org/en/articles/adhd-and-eating" target="_blank" rel="noopener noreferrer">Understood — ADHD and eating habits</a></p>
+</section>
+
+<section>
+  <h2 id="mon-3">MON-3 · Music: Income Opportunities (NYC + Remote/Comped)</h2>
+
+  <div class="item">
+    <h4>TAXI — Indie Folk Sync for Major Label A&amp;R <span class="flag warn">Deadline tomorrow 6/23</span></h4>
+    <div class="item-meta">Sync/licensing · Remote · Royalty/placement</div>
+    <p>Senior VP of A&amp;R at a major label wants indie folk acts with strong songwriting. Must own masters + copyright and be PRO-affiliated.</p>
+    <div class="links"><a href="https://www.taxi.com/industry" target="_blank" rel="noopener noreferrer">taxi.com/industry</a> · <span class="note">heads-up: TAXI is a paid membership (~$300/yr). Legit, not a scam, but a real cost.</span></div>
+  </div>
+
+  <div class="item">
+    <h4>TAXI — Indie Folk Instrumentals (Positive Vibes) <span class="flag">Deadline 7/4</span></h4>
+    <div class="item-meta">Sync/licensing · Remote · Publisher with strong TV/commercial placement history</div>
+    <p>Upbeat indie folk instrumentals wanted. Good fit if you can hand over finished masters.</p>
+    <div class="links"><a href="https://www.taxi.com/industry" target="_blank" rel="noopener noreferrer">taxi.com/industry</a></div>
+  </div>
+
+  <div class="item">
+    <h4>New York Jazz Workshop — Drum/Percussion Faculty</h4>
+    <div class="item-meta">Drum teaching · Midtown Manhattan (265 W 37th St) · W-2 with benefits</div>
+    <p>Established jazz school actively maintaining faculty. Rate not public but sits in the NYC $31–$60/hr band. Direct outreach required.</p>
+    <div class="links"><a href="https://newyorkjazzworkshop.com/drum-teachers-nyc/" target="_blank" rel="noopener noreferrer">newyorkjazzworkshop.com</a></div>
+  </div>
+
+  <div class="item">
+    <h4>School of Rock — Drum Instructor (multiple NYC-area branches)</h4>
+    <div class="item-meta">Drum teaching · Queens, Roslyn, Rockville Centre, Syosset, Huntington · ~$30–$45/hr</div>
+    <p>Multiple branches reachable from Astoria. Pay meets the $35 floor at most locations. Band-based curriculum, flexible part-time hours.</p>
+    <div class="links"><a href="https://www.indeed.com/q-drum-instructor-l-new-york,-ny-jobs.html" target="_blank" rel="noopener noreferrer">Indeed — Drum Instructor NYC</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Holland America — Rolling Stone Rock Room (Drums)</h4>
+    <div class="item-meta">Cruise gig · NYC rehearsals → worldwide · ~$2,800–$4,500/mo + room/board</div>
+    <p>Submission window ran through Jun 10 — likely just closed but cycles re-post quarterly. NYC rehearsals are a real perk. Bookmark and refresh.</p>
+    <div class="links"><a href="https://hollandamericagroup.pinpointhq.com/entertainment-performers-and-presenters-gigs" target="_blank" rel="noopener noreferrer">Holland America gigs</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Princess Cruises — House Band Drums (virtual audition)</h4>
+    <div class="item-meta">Cruise gig · Worldwide · Audition from home</div>
+    <p>Most-recent open window was Feb–April. Page remains the canonical re-entry point — check weekly. Must sight-read across jazz/rock/funk/Latin.</p>
+    <div class="links"><a href="https://www.princesscruisesentertainment.com/careers/musicians/application-audition-process" target="_blank" rel="noopener noreferrer">princesscruisesentertainment.com</a></div>
+  </div>
+
+  <div class="item">
+    <h4>NYC Craigslist Musicians — Drummer searches</h4>
+    <div class="item-meta">Sub/dep gigs, fill-ins, paid one-offs · Updates hourly</div>
+    <p>Real paid NYC sub/dep work mostly routes here and is poorly indexed by search engines. Worth a 5-minute manual scan every other day.</p>
+    <div class="links"><a href="https://newyork.craigslist.org/search/muc?query=drummer" target="_blank" rel="noopener noreferrer">newyork.craigslist.org/search/muc</a></div>
+  </div>
+
+  <p class="caveat">No exposure gigs included. If a posting asks for upfront fees outside of TAXI's stated membership, walk away.</p>
+</section>
+
+<section>
+  <h2 id="mon-4">MON-4 · Music: NYC Events &amp; Networking</h2>
+
+  <h3>Open mics with confirmed backline (drum kit)</h3>
+
+  <div class="item">
+    <h4>Brooklyn Music Kitchen — Wednesday House-Band Open Mic <span class="flag">Backline ✓</span></h4>
+    <div class="item-meta">177 Vanderbilt Ave, Clinton Hill · Wednesdays · Free to perform (one-drink min)</div>
+    <p>Full PA, cables, stands, and drum kit on-site. House band backs you. Next Monday-night showcase 7/6.</p>
+    <div class="links"><a href="https://brooklynmusickitchen.com/calendar/" target="_blank" rel="noopener noreferrer">brooklynmusickitchen.com/calendar</a> · <a href="https://www.unation.com/event/monday-night-live-showcase-and-open-mic-at-the-brooklyn-music-kitchen-62858044/" target="_blank" rel="noopener noreferrer">Monday 7/6 RSVP</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Otto's Shrunken Head — Open Mic + Open Jam <span class="flag">Backline ✓</span></h4>
+    <div class="item-meta">538 E 14th St, East Village · Open mic 7:30 PM, jam ~9 PM · Free</div>
+    <p>Open-jam format means a kit is up. Host: Ira Zadikow. Easy F train from Astoria.</p>
+    <div class="links"><a href="https://bigcityfolks.com/the-official-guide-to-new-york-city-open-mics/" target="_blank" rel="noopener noreferrer">NYC open mic guide</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Jazz Foundation of America — Monday Night Jam</h4>
+    <div class="item-meta">Kit provided · Jazz/standards · See 2026 schedule</div>
+    <div class="links"><a href="https://jazzfoundation.org/monday-night-jam/" target="_blank" rel="noopener noreferrer">jazzfoundation.org/monday-night-jam</a></div>
+  </div>
+
+  <p class="caveat">Astoria-local open mics (Lily's, Q.E.D.) do <em>not</em> publicly confirm a house drum kit — call before showing up with sticks.</p>
+
+  <h3>Networking events</h3>
+
+  <div class="item">
+    <h4>343 Labs Music Producer Community — Meetup</h4>
+    <div class="item-meta">Tuesday, July 15, 6:00 PM EDT · NYC</div>
+    <div class="links"><a href="https://www.meetup.com/find/us--ny--new-york/music-industry/" target="_blank" rel="noopener noreferrer">Meetup — NYC music industry</a></div>
+  </div>
+
+  <div class="item">
+    <h4>The New York Singer Songwriters — Meetup</h4>
+    <div class="item-meta">Monday, July 21, 2:30 PM EDT</div>
+    <div class="links"><a href="https://www.meetup.com/find/us--ny--new-york/music-industry/" target="_blank" rel="noopener noreferrer">Meetup — NYC music industry</a></div>
+  </div>
+
+  <div class="item">
+    <h4>NY MusicTech Meetup — Demo Night (recurring)</h4>
+    <div class="item-meta">Public Records, Brooklyn · ~200 attendees, founders + industry · Check next date</div>
+    <div class="links"><a href="https://www.meetup.com/topics/music-industry/" target="_blank" rel="noopener noreferrer">NY MusicTech on Meetup</a></div>
+  </div>
+
+  <h3>NYC music industry news (last 7 days)</h3>
+
+  <div class="item">
+    <h4>Local 802 AFM Membership Meeting — Wed Jun 24, 5 PM (Zoom) <span class="flag">This week</span></h4>
+    <p>Agenda includes the ongoing AI-protection campaign for recording musicians. President's report runs in the June issue of Allegro.</p>
+    <div class="links"><a href="https://www.local802afm.org/events/" target="_blank" rel="noopener noreferrer">local802afm.org/events</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Music Hall of Williamsburg confirmed closing end of 2026</h4>
+    <p>Lease not renewed, building sold for $14M. Bowery Electric also uncertain. Bookings rotating to other rooms — opportunity for newer/smaller acts as bigger ones reroute.</p>
+    <div class="links"><a href="https://www.brooklynpaper.com/music-hall-of-williamsburg-close-2026/" target="_blank" rel="noopener noreferrer">Brooklyn Paper</a> · <a href="https://www.timeout.com/newyork/news/the-music-hall-of-williamsburg-will-likely-shut-down-at-the-end-of-2026-121925" target="_blank" rel="noopener noreferrer">Time Out NY</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Saint Vitus Bar (Greenpoint) shut down by DOB violation</h4>
+    <p>Bands scrambling for replacement bookings. If you do metal/punk/hardcore work, watch booking pages at Trans-Pecos, Saint Vitus alumni venues, and Brooklyn Bazaar for displaced shows.</p>
+    <div class="links"><a href="https://gothamist.com/news/beloved-brooklyn-bars-abrupt-shutdown-sends-bands-scrambling-to-book-new-venues" target="_blank" rel="noopener noreferrer">Gothamist</a></div>
+  </div>
+
+  <div class="item">
+    <h4>New 1,000-cap venue opening late 2026 at MADE Bush Terminal (Sunset Park)</h4>
+    <p>Public Records' new room. Arup acoustics, Ojas speakers. Biggest new Brooklyn room in years — worth tracking for backline gig opportunities.</p>
+    <div class="links"><a href="https://www.timeout.com/newyork/news/a-major-new-music-venue-is-opening-in-sunset-park-121025" target="_blank" rel="noopener noreferrer">Time Out NY</a></div>
   </div>
 </section>
 
-<section id="sun-2-section">
-  <h2 id="sun-2">SUN-2 · Week Ahead (Jun 22 – Jun 28)</h2>
+<section>
+  <h2 id="mon-5">MON-5 · Tech Jobs: IT + AI / Modern Stack</h2>
 
-  <h3>Calendar &amp; Trello</h3>
-  <p class="data-note">Calendar/Trello data wasn't reachable from this morning's run. Check Google Calendar and Trello directly to confirm this week's commitments.</p>
+  <p class="caveat">All major job boards (LinkedIn, Indeed, Built In NYC, Wellfound, Jamf Community) returned HTTP 403 to automated fetch this run. The market signals below are pulled from search snippets — verify direct posting URLs by loading the aggregator pages in your browser.</p>
 
-  <h3 class="flag">⚠ Civic deadline this week</h3>
-  <ul>
-    <li><strong>NY State Primary Election — Tuesday, June 23, 2026.</strong> Polls 6am–9pm. Today (June 21) is the <strong>last day of early voting</strong>. RCV applies to municipal/special races; not to the state &amp; federal races on this primary ballot. <a href="https://www.vote.nyc/election/primary-election-2026" target="_blank" rel="noopener noreferrer">NYC BOE — Primary 2026</a> · <a href="https://elections.ny.gov/certification-june-23-2026-primary-election" target="_blank" rel="noopener noreferrer">State BOE certification</a></li>
-  </ul>
+  <h3>Market signals (NYC, Mac/SaaS-leaning IT roles)</h3>
 
-  <h3>NYC transit — week of Jun 22–28</h3>
-  <ul>
-    <li><strong>G train suspended every weekend in June.</strong> Court Sq ↔ Bedford-Nostrand Avs, 9:45pm Fri–5am Mon; free shuttle bus. Confirmed for Jun 26–29. <a href="https://greenpointers.com/2026/04/27/mta-to-suspend-g-train-service-every-weekend-in-june/" target="_blank" rel="noopener noreferrer">Greenpointers</a> · <a href="https://www.bkmag.com/2026/04/29/nyc-g-train-delays-shutdowns-summer-2026/" target="_blank" rel="noopener noreferrer">Brooklyn Mag</a></li>
-    <li><strong>7 train</strong> (long-term, in effect this week): Flushing-bound 7 skips 52 St and 69 St due to platform reconstruction. Use Junction Blvd or 111 St. <a href="https://www.amny.com/news/7-train-service-changes-queens-manhattan/" target="_blank" rel="noopener noreferrer">amNY</a></li>
-    <li><strong>N train weekend Jun 26–29:</strong> Manhattan-bound N local skips 25 St / Prospect Av / 4 Av-9 St / Union St in Brooklyn. Astoria segment likely unaffected — confirm Friday. <a href="https://www.mta.info/alerts" target="_blank" rel="noopener noreferrer">MTA Alerts</a></li>
-    <li><strong>LIRR:</strong> Eastbound service suspended at Hollis, Queens Village, Elmont-UBS Arena the weekend of Jun 27–28 (Elmont infrastructure project). Hempstead Branch hit hardest. <a href="https://www.mta.info/article/summer-lirr-service-changes-2026" target="_blank" rel="noopener noreferrer">MTA — Summer LIRR 2026</a></li>
-    <li><strong>Metro-North:</strong> Hudson Line track work continues through Aug 5; Harlem Line work Jun 27–28. <a href="https://www.mta.info/agency/metro-north-railroad/schedules" target="_blank" rel="noopener noreferrer">Metro-North schedules</a></li>
-  </ul>
-
-  <h3>Major events that affect commuting / scheduling</h3>
-  <ul>
-    <li><strong>Mets at Citi Field every day Jun 22–28</strong> (Cubs Mon–Thu, Phillies Fri–Sun). <span class="flag">7 train into Astoria gets slammed</span> all week, especially after 10pm. <a href="https://seatgeek.com/new-york-mets-tickets/schedule" target="_blank" rel="noopener noreferrer">Mets schedule</a></li>
-    <li><strong>NYC Pride weekend — June 27–28.</strong> Dyke March Sat 5pm (Bryant Park → Washington Square). Pride March Sun 12pm (26th &amp; 5th Ave south, through Village). PrideFest 4th Ave 14th–8th St. Pride Island concerts at Governors Island Fri–Sat. Massive Midtown/Village impact; 1/2/3, F/M, A/C/E, L all affected. <a href="https://nycpride.org/home/events/" target="_blank" rel="noopener noreferrer">NYC Pride events</a></li>
-    <li><strong>Knicks championship parade fallout</strong> — Mamdani-era street energy is high; Manhattan still recovering from the Jun 18 ticker-tape route. <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-announces-ticker-tape-parade-and-city-hall-ceremon" target="_blank" rel="noopener noreferrer">NYC Mayor's Office</a></li>
-    <li><strong>RÜFÜS DU SOL — four nights at MSG, Jun 25–28.</strong> N/W from Astoria into Penn area gets dense 7–8pm and 11pm. <a href="https://www.msg.com/calendar?venues=KovZpZA7AAEA" target="_blank" rel="noopener noreferrer">MSG calendar</a></li>
-    <li><strong>Coney Island Friday-night fireworks Jun 26</strong>, 9:45pm. D/F/N/Q at Stillwell jammed 9–11pm. <a href="https://lunaparknyc.com/events-luna-park/friday-night-fireworks/" target="_blank" rel="noopener noreferrer">Luna Park</a></li>
-    <li><strong>Forest Hills Stadium — Kes (Soca), Sat Jun 27.</strong> E/F/R to Forest Hills packed evening of the show. <a href="https://www.foresthillsstadium.com/calendar/" target="_blank" rel="noopener noreferrer">FHS calendar</a></li>
-    <li><strong>Broadway Astoria Summer Jam</strong> — Sun Jun 28 on Broadway between Steinway and 47th. Local street closures and parking impact. <a href="https://www.queensbuzz.com/article/274/queens-street-fairs---street-festivals-in-queens-nyc" target="_blank" rel="noopener noreferrer">QueensBuzz</a></li>
-    <li><strong>Manhattan street fairs Sat Jun 27:</strong> 3rd Ave Festival (East Village, 6th–14th St) and Lower 6th Ave Expo (23rd–34th St). <a href="https://www.nyc.gov/main/events/?permalinkName=3rd-avenue-festival" target="_blank" rel="noopener noreferrer">NYC.gov</a></li>
-    <li><strong>Brooklyn Cyclones</strong> home stand Jun 23–28 vs. Jersey Shore (Maimonides Park, Coney Island). <a href="https://www.milb.com/brooklyn/news/2026-cyclones-schedule" target="_blank" rel="noopener noreferrer">MiLB</a></li>
-    <li><strong>Smorgasburg</strong> Williamsburg Sat / Prospect Park Sun. Brooklyn Flea in DUMBO Sat–Sun. <a href="https://www.smorgasburg.com/locations" target="_blank" rel="noopener noreferrer">Smorgasburg</a></li>
-    <li><strong>Summer Fancy Food Show</strong> at Javits — Jun 28–30. Catering-industry-adjacent if relevant to your work. <a href="https://www.specialtyfood.com/fancy-food-shows/summer/" target="_blank" rel="noopener noreferrer">Specialty Food Assoc</a></li>
-  </ul>
-
-  <h3>Holidays</h3>
-  <ul>
-    <li>None this week. Next federal holiday: Friday, July 3 (Independence Day observed). <a href="https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/" target="_blank" rel="noopener noreferrer">OPM</a></li>
-  </ul>
-
-  <h3>Week framing</h3>
-  <p>This is a high-density week. Mets at home every single day, Pride weekend on the back end, Knicks-parade aftermath, MSG four-night residency mid-week. <strong>Tuesday is the most important civic day</strong> (primary). For catering shifts and music gigs: budget an extra 20–30 min for any Manhattan-to-Astoria commute after 10pm Mon–Thu, and avoid the Village entirely on Saturday night and all day Sunday unless that's where you're working.</p>
-</section>
-
-<section id="sun-3-section">
-  <h2 id="sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</h2>
-  <p class="data-note">Tracker data wasn't reachable from this morning's run (Supabase host not in the egress allowlist for the scheduled environment). When you have a moment, scrolling through last week's check-in notes yourself will surface the "I should…" and "next time…" intentions this section is meant to catch. If this keeps happening, the network policy for the scheduled run may need to be widened to include the Supabase host.</p>
-</section>
-
-<section id="sun-4-section">
-  <h2 id="sun-4">SUN-4 · Recipes: Meal Prep</h2>
-  <p>Five recipes designed for one cook session → multiple meals. All low/no added sugar, slow carbs only, protein-forward, no white rice/bread/pasta. Salmon-and-cottage-cheese-heavy because both pull double duty for the fatty liver / pre-diabetes side.</p>
-
-  <div class="recipe">
-    <h3>Breakfast — Cottage Cheese Egg Muffins</h3>
-    <p>iFoodReal · <a href="https://ifoodreal.com/cottage-cheese-egg-muffins/" target="_blank" rel="noopener noreferrer">Recipe →</a> · <span class="meta">~12 muffins (serves 4–6)</span></p>
-    <p>Savory egg muffins baked in a tin. Eat 2–3 cold from the fridge any morning of the week.</p>
-    <details><summary>Ingredients to shop</summary>
-      <ul>
-        <li>Large eggs · 2% cottage cheese · red bell pepper · fresh spinach · shredded cheddar · salt · black pepper</li>
-        <li><em>Heat add:</em> feta + red pepper flakes</li>
-      </ul>
-    </details>
+  <div class="item">
+    <h4>Indeed — Okta + Jamf IT roles, NYC (9 active)</h4>
+    <p>Titles include Systems Administrator, Support Technician, Senior IT Manager. Jamf Engineer avg ~$118k (range $91k–$146k). Systems Engineer ~$140k. One described role profile matches you tightly: hybrid, managing Google Workspace + Okta SSO + CrowdStrike + Jamf/Intune, onboarding/offboarding, provisioning.</p>
+    <div class="links"><a href="https://www.indeed.com/q-okta-jamf-l-new-york,-ny-jobs.html" target="_blank" rel="noopener noreferrer">indeed.com — Okta Jamf NYC</a></div>
   </div>
 
-  <div class="recipe">
-    <h3>Lunch — Mediterranean Lentil &amp; Grain Bowls</h3>
-    <p>Rainbow Plant Life · <a href="https://rainbowplantlife.com/mediterranean-lentil-and-grain-bowls/" target="_blank" rel="noopener noreferrer">Recipe →</a> · <span class="meta">serves 4–6</span></p>
-    <p>Vegan bowls layering spiced French lentils + farro with homemade hummus and quick-pickled onions. Skip the maple in the pickle to keep zero added sugar.</p>
-    <details><summary>Ingredients to shop</summary>
-      <ul>
-        <li>French green lentils · farro (or quinoa) · canned chickpeas · vegetable broth · tahini · lemon · garlic · cumin · tamari · red pepper flakes · red onion · apple cider vinegar · olive oil · fresh dill · cherry tomatoes · cucumber · baby spinach/arugula · sumac · salt · black pepper</li>
-      </ul>
-    </details>
+  <div class="item">
+    <h4>Built In NYC — IT Operations &amp; Support board</h4>
+    <p>Aggregator for NYC tech-company IT roles. Filter by "Sysadmin" or "IT" — these are the ones where modern stack is the default rather than the exception. Best signal-to-noise board for avoiding pure Microsoft-AD shops.</p>
+    <div class="links"><a href="https://www.builtinnyc.com/jobs/sales/operations/information-technology" target="_blank" rel="noopener noreferrer">builtinnyc.com IT board</a></div>
   </div>
 
-  <div class="recipe">
-    <h3>Dinner — Salmon Meal Prep Bowls</h3>
-    <p>Eating Bird Food · <a href="https://www.eatingbirdfood.com/easy-salmon-meal-prep-bowl/" target="_blank" rel="noopener noreferrer">Recipe →</a> · <span class="meta">serves 4</span></p>
-    <p>Mustard-glazed salmon over quinoa, with roasted sweet potatoes and broccolini, lemon vinaigrette. Add harissa or cayenne to the glaze for heat; use the maple sparingly or skip.</p>
-    <details><summary>Ingredients to shop</summary>
-      <ul>
-        <li>Salmon filets · quinoa · sweet potatoes · broccolini · Dijon mustard · garlic · lemon · olive oil · maple syrup (optional) · salt · black pepper · fresh parsley</li>
-      </ul>
-    </details>
+  <div class="item">
+    <h4>Jamf Community Job Board</h4>
+    <p>Direct postings from companies running Apple fleets. By definition zero pure-AD shops here.</p>
+    <div class="links"><a href="https://community.jamf.com/job-board-4" target="_blank" rel="noopener noreferrer">community.jamf.com/job-board-4</a></div>
   </div>
 
-  <div class="recipe">
-    <h3>Snack #1 — Roasted Chickpeas &amp; Edamame</h3>
-    <p>This Wife Cooks · <a href="https://thiswifecooks.com/roasted-chickpeas-and-edamame/" target="_blank" rel="noopener noreferrer">Recipe →</a> · <span class="meta">~4 cups (serves 4–6)</span></p>
-    <p>Crunchy, salty, plant-protein-heavy. Stays crisp 3–4 days in a jar with the lid cracked.</p>
-    <details><summary>Ingredients to shop</summary>
-      <ul>
-        <li>Canned chickpeas · shelled edamame (frozen) · olive oil · smoked paprika · cayenne or chili powder · garlic powder · cumin · salt · black pepper</li>
-      </ul>
-    </details>
-  </div>
-
-  <div class="recipe">
-    <h3>Snack #2 — Ultra-Creamy White Bean Hummus + Crudités</h3>
-    <p>The Mediterranean Dish · <a href="https://www.themediterraneandish.com/white-bean-hummus-recipe/" target="_blank" rel="noopener noreferrer">Recipe →</a> · <span class="meta">~2 cups dip (serves 6–8)</span></p>
-    <p>Tahini + butter beans. Portion into 4-oz containers Sunday night and you have an afternoon snack that's not crackers.</p>
-    <details><summary>Ingredients to shop</summary>
-      <ul>
-        <li>Canned butter beans (or cannellini) · tahini · garlic · lemon · olive oil · cumin · Aleppo or red pepper flakes · salt · ice water</li>
-        <li><em>Dippers:</em> carrots · celery · cucumber · bell pepper · cherry tomatoes · endive · sugar snap peas</li>
-      </ul>
-    </details>
+  <div class="item">
+    <h4>ZipRecruiter — Jamf Engineer NYC</h4>
+    <p>Live feed. Avg in this title runs $35–$70/hr in NYC.</p>
+    <div class="links"><a href="https://www.ziprecruiter.com/Jobs/Jamf-Engineer/-in-New-York-City,NY" target="_blank" rel="noopener noreferrer">ZipRecruiter — Jamf Engineer</a></div>
   </div>
 </section>
 
-<section id="sun-5-section">
-  <h2 id="sun-5">SUN-5 · Radical Thinkers: Quotes &amp; Summaries</h2>
+<section>
+  <h2 id="mon-6">MON-6 · Tech Jobs: Beyond IT Support</h2>
 
-  <div class="quote-block">
-    <blockquote>"Leave this Europe where they are never done talking of Man, yet murder men everywhere they find them, at the corner of every one of their own streets, in all the corners of the globe. Come, then, comrades, the European game has finally ended; we must find something different."</blockquote>
-    <p class="attr"><strong>Frantz Fanon</strong> — <em>The Wretched of the Earth</em>, Conclusion (1961). <a href="https://www.marxists.org/subject/africa/fanon/conclusion.htm" target="_blank" rel="noopener noreferrer">Marxists.org</a></p>
-    <p>Written from Tunisia as Algeria's independence war neared its end. Fanon was urging newly decolonizing nations not to reproduce European liberal-capitalist forms whose humanist rhetoric masks systemic violence. The passage is being re-read this year as movements for Palestinian liberation and Global South sovereignty contest a "rules-based order" whose stated values and conduct diverge sharply.</p>
+  <div class="item">
+    <h4>Glassdoor — Solutions Engineer, NYC (209 open)</h4>
+    <p>Avg $134k, range $111k–$153k. Many list "Bachelor's OR equivalent (~12 years) work experience" — your 12 years of enterprise IT qualifies you under the experience substitution. SE roles tend to value technical depth + customer communication, both of which fit you.</p>
+    <div class="links"><a href="https://www.glassdoor.com/Job/new-york-solutions-engineer-jobs-SRCH_IL.0,8_IC1132348_KO9,27.htm" target="_blank" rel="noopener noreferrer">Glassdoor — SE NYC</a></div>
   </div>
 
-  <div class="quote-block">
-    <blockquote>"Friedrich Engels once said: 'Bourgeois society stands at the crossroads, either transition to socialism or regression into barbarism.' … A look around us at this moment shows what the regression of bourgeois society into barbarism means. This world war is a regression into barbarism. The triumph of imperialism leads to the annihilation of civilization."</blockquote>
-    <p class="attr"><strong>Rosa Luxemburg</strong> — <em>The Junius Pamphlet</em>, Ch. 1 (1915), written from a Berlin women's prison. <a href="https://www.marxists.org/archive/luxemburg/1915/junius/ch01.htm" target="_blank" rel="noopener noreferrer">Marxists.org</a></p>
-    <p>Luxemburg wrote this as the SPD voted war credits and Europe collapsed into industrialized slaughter — indicting the socialist parties that abandoned internationalism for nationalism. "Socialism or barbarism" became the touchstone of ecosocialist and anti-fascist thought, and is now being revived as climate breakdown and great-power militarism reopen the same crossroads.</p>
+  <div class="item">
+    <h4>LinkedIn — Technical Account Manager, NY (921 open, ~40 new this week)</h4>
+    <p>NYC avg $94k, range $67k–$110k. Lower band than SE, but the volume is huge and the role rewards exactly your background: enterprise IT empathy + ability to translate technical work to non-technical stakeholders.</p>
+    <div class="links"><a href="https://www.linkedin.com/jobs/technical-account-manager-jobs-new-york" target="_blank" rel="noopener noreferrer">LinkedIn — TAM NY</a></div>
   </div>
 
-  <div class="quote-block">
-    <blockquote>"You can kill a revolutionary but you can't kill revolution. You can jail a liberator but you can't jail liberation. We're going to fight racism not with racism, but we're going to fight it with solidarity. We're not going to fight capitalism with black capitalism, but we're going to fight it with socialism."</blockquote>
-    <p class="attr"><strong>Fred Hampton</strong> — "Power Anywhere Where There's People," Olivet Church, Chicago (1969). <a href="https://www.historyisaweapon.com/defcon1/fhamspeech.html" target="_blank" rel="noopener noreferrer">History Is a Weapon</a></p>
-    <p>Hampton was 21, chairman of the Illinois Black Panther Party, building the original Rainbow Coalition with the Young Lords and the (white Appalachian) Young Patriots. He'd be assassinated by Chicago police and the FBI months later. The speech is a touchstone for contemporary multiracial labor and tenant organizing that rejects identity-flattened "diversity" in favor of class solidarity.</p>
+  <div class="item">
+    <h4>Wellfound — Solutions Engineer, NY (startup-side)</h4>
+    <p>Wellfound is the startup-equity-heavy slice of the SE market. Higher upside, more risk. Worth a scan if you want to lean into the early-stage SaaS side.</p>
+    <div class="links"><a href="https://wellfound.com/role/l/solutions-engineer/new-york" target="_blank" rel="noopener noreferrer">wellfound.com — SE NY</a></div>
   </div>
 
-  <div class="quote-block">
-    <blockquote>"By demanding that black people repress and annihilate our rage to assimilate, to reap the benefits of material privilege in white supremacist capitalist patriarchal culture, white folks urge us to remain complicit with their efforts to colonize, oppress, and exploit."</blockquote>
-    <p class="attr"><strong>bell hooks</strong> — <em>Killing Rage: Ending Racism</em>, title essay (1995). <a href="https://books.google.com/books/about/Killing_Rage.html?id=3JlNFYKLheUC" target="_blank" rel="noopener noreferrer">Google Books</a></p>
-    <p>The book opens with an airline incident that triggered a murderous rage; hooks then theorizes that rage as a legitimate political response that liberal multiculturalism pathologizes. The essay matters now as DEI rollbacks and "civility" discourse pressure marginalized people to swallow anger as the price of admission to institutions.</p>
+  <div class="item">
+    <h4>Built In NYC — Technical Account Manager roles</h4>
+    <p>NYC tech-company filter. Implementation Specialist also lives on this board — same kind of fit.</p>
+    <div class="links"><a href="https://www.builtinnyc.com/jobs/sales/search/technical-account-manager" target="_blank" rel="noopener noreferrer">Built In NYC — TAM</a></div>
+  </div>
+
+  <p class="note"><strong>If you only do one thing in this section this week:</strong> spend 30 minutes on the Built In NYC IT board and the Jamf Community board. Both are smaller, less spammy, and surface modern-stack roles disproportionately.</p>
+</section>
+
+<section>
+  <h2 id="mon-7">MON-7 · AI in IT: Workflow Automation</h2>
+
+  <p>You're considering a return to enterprise IT. Below are five practical, currently-shipping AI techniques that cut the interruption load — the actual thing that makes IT draining. Ordered from "set up first" to "useful once you're settled."</p>
+
+  <h3>1. LLM-as-scripting-partner (ChatGPT, Claude, Copilot)</h3>
+  <p><strong>What it does:</strong> Turns "I need a PowerShell script to find stale AD accounts and email the report" from 45 minutes into 5. Also parses log files, drafts regex, explains cryptic stack traces, converts manual runbooks into scripts.</p>
+  <p><strong>Why it reduces burnout:</strong> The exhausting part of IT isn't the work — it's the context-switching when a ticket pulls you out of a half-written script and you lose your place. AI handles the boilerplate so your remaining focus goes to judgment calls. It also kills the "I know I've solved this before but where" tax.</p>
+  <p><strong>Get started:</strong> A $20/month Claude or ChatGPT subscription on your personal account, or M365 Copilot if your employer provides one. Start by pasting in error messages. Graduate to "write me a PowerShell function that does X, comment every block." Always read what it gives you before running.</p>
+  <p><strong>Limits:</strong> Hallucinates cmdlet names and flags — verify with <code>Get-Help</code> before running anything destructive. Never paste customer data, passwords, or internal hostnames into a public model.</p>
+  <p class="links"><a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-reports-for-admins" target="_blank" rel="noopener noreferrer">Microsoft Copilot for IT admins</a></p>
+
+  <h3>2. Self-service password reset (Microsoft Entra SSPR)</h3>
+  <p><strong>What it does:</strong> Lets users reset their own AD/Entra password from the lock screen after MFA verification. Eliminates the single most common L1 ticket.</p>
+  <p><strong>Why it reduces burnout:</strong> Password resets are interruption-shaped — trivial individually, lethal to concentration. Killing this category is the highest-leverage hour you'll spend in your first month at a new shop.</p>
+  <p><strong>Get started:</strong> If the org has Entra ID P1 or P2 (bundled with M365 Business Premium and up), SSPR is a config toggle, not a purchase. Pilot with one group, then expand.</p>
+  <p><strong>Limits:</strong> Adoption is the hard part — users won't register methods unless you force registration via Conditional Access. The Sept 30, 2025 deprecation moved auth methods to the unified Authentication Methods policy; if you inherit a tenant on the legacy policy, migrate it first.</p>
+  <p class="links"><a href="https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr" target="_blank" rel="noopener noreferrer">Microsoft Learn — Enable SSPR</a></p>
+
+  <h3>3. AI ticket triage in the helpdesk platform (Freshservice, Atera)</h3>
+  <p><strong>What it does:</strong> Auto-categorizes tickets, routes them to the right queue, suggests priority, drafts a first reply from past resolved tickets, deflects common questions before they become a ticket.</p>
+  <p><strong>Why it reduces burnout:</strong> You stop being a human router. Small service desks report ~30% fewer escalations, 15–20% better SLA — meaning fewer "why is this still open?" pings from managers.</p>
+  <p><strong>Get started:</strong> If you're interviewing, ask what ticketing system the shop uses and whether AI add-ons are enabled. Freshservice Starter ~$19/agent/mo base; "Freddy AI" sits on higher tiers. Atera bundles AI Copilot into $149/mo-per-tech IT department plan (no per-endpoint charge — good for lean teams).</p>
+  <p><strong>Limits:</strong> Pricing balloons when add-ons stack. AI suggestions need a few hundred historical tickets to be useful — greenfield instances are mediocre for the first quarter.</p>
+  <p class="links"><a href="https://www.flamingo.run/blog/best-ai-help-desk-software" target="_blank" rel="noopener noreferrer">Flamingo — best AI helpdesk 2026</a> · <a href="https://www.console.com/blog/freshservice-pricing/" target="_blank" rel="noopener noreferrer">Freshservice pricing 2026</a></p>
+
+  <h3>4. AI-powered internal knowledge search (Guru, Glean, Notion AI)</h3>
+  <p><strong>What it does:</strong> Indexes SharePoint, Confluence, Slack, ticket history, runbooks. Answers "how do we provision a new contractor laptop?" in natural language with links to the source doc.</p>
+  <p><strong>Why it reduces burnout:</strong> Tribal-knowledge anxiety is a huge component of returning-to-IT stress. Working internal search means you don't have to remember everything — and you don't have to interrupt a senior colleague to ask.</p>
+  <p><strong>Get started:</strong> Cheapest path is Notion AI (~$10/user/mo) if the team uses Notion. Guru is safer for IT because cards require human verification — the AI won't confidently cite a stale 2019 runbook. Glean is enterprise-priced; usually a top-down purchase.</p>
+  <p><strong>Limits:</strong> Garbage in, garbage out. If the docs are a mess, the AI will surface confidently-wrong answers. Plan a docs cleanup before deploying.</p>
+  <p class="links"><a href="https://www.eesel.ai/blog/best-ai-tools-for-knowledge-base-management" target="_blank" rel="noopener noreferrer">eesel — best AI KB tools 2026</a></p>
+
+  <h3>5. Workflow automation for onboarding/offboarding (Tines, Power Automate)</h3>
+  <p><strong>What it does:</strong> Triggered by an HRIS event, the workflow creates the AD account, assigns licenses, provisions SaaS apps, ships the laptop. On termination it revokes everything with an audit trail. CISA's Jan 2025 rule now sets credential revocation within 10 days of termination as the regulatory bar — manual processes miss this.</p>
+  <p><strong>Why it reduces burnout:</strong> Onboarding/offboarding is checklist-heavy, error-prone work where forgetting a step has heavy consequences (orphaned accounts, audit findings). Automating it removes both the tedium and the dread.</p>
+  <p><strong>Get started:</strong> Power Automate is included with M365, lowest-friction starting point. Tines has a generous free Community Edition. Start with offboarding (lower risk if half-broken) before onboarding (where a broken flow = angry new hire on day one).</p>
+  <p><strong>Limits:</strong> Workflow tools become load-bearing scripts nobody understands six months later. Document every flow.</p>
+  <p class="links"><a href="https://www.tines.com/blog/employee-offboarding-automation-a-playbook-for-it-and-security/" target="_blank" rel="noopener noreferrer">Tines offboarding playbook</a> · <a href="https://m365scripts.com/microsoft365/automate-microsoft-365-user-onboarding-using-power-automate/" target="_blank" rel="noopener noreferrer">M365Scripts — Power Automate onboarding</a></p>
+
+  <div class="nudge">
+    <strong>Highest-leverage interview question.</strong> "What percentage of L1 tickets are password resets, and is SSPR deployed?" The answer tells you instantly whether the team is fighting fires they could have prevented — a strong signal of overall burnout culture.
   </div>
 </section>
 
-<section id="sun-6-section">
-  <h2 id="sun-6">SUN-6 · NYC Local Politics Digest</h2>
+<section>
+  <h2 id="mon-8">MON-8 · High-Pay Entry-Level Jobs ($35+/hr, Any Industry)</h2>
 
-  <h3>The mayor &amp; the moment</h3>
-  <p><strong>Zohran Mamdani</strong> is six months into his first term as NYC's 112th mayor (sworn in Jan 1, 2026 after winning the Nov 2025 general). Recent activity:</p>
-  <ul>
-    <li><strong>Knicks championship parade</strong> Jun 18 — first NBA title since 1973; ticker-tape up the Canyon of Heroes, Keys to the City presented. <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-announces-ticker-tape-parade-and-city-hall-ceremon" target="_blank" rel="noopener noreferrer">Mayor's Office</a></li>
-    <li><strong>ICE pushback (Jun 9)</strong> — Mamdani called for ICE abolition at a joint press conference with Gov. Hochul after Border Czar Tom Homan said NYC would see "more ICE than you've ever seen." DHS Secretary Mullin escalated the public exchange. <a href="https://www.democracynow.org/2026/6/9/headlines/nyc_mayor_mamdani_pushes_back_against_border_czar_homans_threats" target="_blank" rel="noopener noreferrer">Democracy Now</a></li>
-    <li><strong>City cash-flow crunch</strong> — Comptroller Levine reported NYC held only ~$9.4B on May 29 (down 24% YoY). Budget team weighed deferring upfront FY27 nonprofit payments (~$3.5B to ~700 nonprofits); Mamdani chose a different path per Crain's (Jun 15). <a href="https://www.crainsnewyork.com/politics-policy/cny-nonprofit-mamdani-budget-social-services-20260615/" target="_blank" rel="noopener noreferrer">Crain's</a></li>
-    <li><strong>FIFA World Cup 2026 prep</strong> — multi-agency transit, safety, and public health plan released with Hochul. <a href="https://www.governor.ny.gov/news/ahead-world-cup-governor-hochul-and-mayor-mamdani-update-new-yorkers-transportation-and-safety" target="_blank" rel="noopener noreferrer">Governor's Office</a></li>
-    <li><strong>Charter Revision (COGE)</strong> — Mamdani's Commission on Government Efficiency, chaired by Patrick Gaspard, began public hearings Jun 9. Goal: proposals on the Nov 2026 ballot. The prior Adams "last-day" commission was rescinded but counsel Randy Mastro claims it will continue self-funded; legal status of any Adams-commission ballot questions is contested. <a href="https://www.thecity.nyc/2026/05/28/mamdani-adams-charter-commission-coge/" target="_blank" rel="noopener noreferrer">THE CITY</a></li>
-    <li><strong>100-day approval ratings:</strong> Emerson 43% approve / 27% disapprove; Marist 48% / 30% (+18 net, 63% among Democrats). <a href="https://emersoncollegepolling.com/new-york-city-2026-poll/" target="_blank" rel="noopener noreferrer">Emerson</a> · <a href="https://maristpoll.marist.edu/polls/mayor-mamdanis-first-100-days-april-2026/" target="_blank" rel="noopener noreferrer">Marist</a></li>
-  </ul>
+  <div class="item">
+    <h4>MTA Conductor (Exam #6626) <span class="flag warn">Closes 6/30 — 8 days</span></h4>
+    <div class="item-meta">$26.70/hr start → $38.15/hr (~$79k) by year 6 · TWU Local 100 · Five boroughs</div>
+    <p>Civil service exam. $68 fee. Test scheduled ~10/11/2026. Lowest-friction $79k path in NYC. Diffs + pension on top.</p>
+    <div class="links"><a href="https://www.mta.info/document/209271" target="_blank" rel="noopener noreferrer">MTA Conductor exam announcement</a></div>
+  </div>
 
-  <h3>2029 mayoral challengers already declared</h3>
-  <ul>
-    <li><strong>John Chell</strong> (Independent) — former NYPD Chief of Department; announced late April 2026, running on a "purple" public-safety platform. <a href="https://abc7ny.com/post/john-chell-former-nypd-chief-department-announces-run-nyc-mayor-2029/18991095/" target="_blank" rel="noopener noreferrer">ABC7NY</a></li>
-    <li><strong>Michael Rapaport</strong> — actor/podcaster, announced May 13, 2026; vowed "street fight" against Mamdani, focused on Jewish New Yorker concerns. <a href="https://www.foxnews.com/entertainment/michael-rapaport-doubles-2029-nyc-mayoral-run-vows-street-fight-zohran-mamdani" target="_blank" rel="noopener noreferrer">Fox News</a></li>
-    <li><strong>Curtis Sliwa</strong> reportedly confirmed a 2029 run per a City &amp; State roundup (lower confidence — no formal launch). <a href="https://www.cityandstateny.com/20th-anniversary/2026/05/whos-going-be-next-mayor-new-york-city/413439/" target="_blank" rel="noopener noreferrer">City &amp; State</a></li>
-  </ul>
+  <div class="item">
+    <h4>MTA Bus Operator</h4>
+    <div class="item-meta">$26.19/hr start → $39.70/hr ($82,578) by year 6 · TWU Local 100 · Citywide</div>
+    <p>CDL Class B + passenger endorsement provided through training. Watch the DCAS exam schedule.</p>
+    <div class="links"><a href="https://www.mta.info/careers/bus-operator" target="_blank" rel="noopener noreferrer">MTA Bus Operator</a> · <a href="https://www.mta.info/careers/mta-exams/exam-schedule" target="_blank" rel="noopener noreferrer">MTA exam schedule</a></div>
+  </div>
 
-  <h3>On the ballot Tuesday Jun 23 (primary) and Nov 3 (general)</h3>
-  <p>No mayoral race this year (cycle runs 2025 → 2029). This is a state &amp; federal year, plus judges and any local special-election fills.</p>
-  <ul>
-    <li><strong>Governor &amp; LG:</strong> Hochul/Adrienne Adams (D, won state convention with 85%) vs. Bruce Blakeman/Todd Hood (R, Nassau County exec). Antonio Delgado withdrew from the Dem primary Feb 10; now running an independent ticket with India Walton. <a href="https://en.wikipedia.org/wiki/2026_New_York_gubernatorial_election" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
-    <li><strong>Attorney General:</strong> Letitia James (D) seeking a third term. <a href="https://ballotpedia.org/New_York_Attorney_General_election,_2026" target="_blank" rel="noopener noreferrer">Ballotpedia</a></li>
-    <li><strong>State Comptroller:</strong> Thomas DiNapoli (D) seeking a fifth term. <a href="https://ballotpedia.org/New_York_Comptroller_election,_2026" target="_blank" rel="noopener noreferrer">Ballotpedia</a></li>
-    <li><strong>US House:</strong> all 26 NY districts. Astoria sits in NY-14 (AOC, D, incumbent). <a href="https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_New_York" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
-    <li><strong>State Senate &amp; Assembly:</strong> all 63 Senate / 150 Assembly seats. Dems enter with 41–22 Senate majority. <a href="https://en.wikipedia.org/wiki/2026_New_York_State_Senate_election" target="_blank" rel="noopener noreferrer">State Senate</a></li>
-    <li><strong>Queens Civil Court:</strong> 4 Dems (Ciafone, Irizarry, Milner, Wong) for 2 open seats; County Dems + NYC Bar endorsed Wong and Irizarry. <a href="https://www.amny.com/law/candidates-queens-civil-court-primary-2026/" target="_blank" rel="noopener noreferrer">amNY</a></li>
-    <li><strong>No US Senate race</strong> in NY in 2026 (Gillibrand &amp; Schumer not up).</li>
-  </ul>
+  <div class="item">
+    <h4>Laborers Local 79 Apprenticeship <span class="flag warn">Window 7/10–7/23 only</span></h4>
+    <div class="item-meta">Apprentice → journey $40+/hr; prevailing-wage $35–$50+/hr · LIUNA Local 79 · NYC metro</div>
+    <p>Only 200 slots. Apps issued online 9–11 AM daily, first-come-first-served, capped at 2,000 apps total. Block your calendar for 9 AM 7/10 — by minute 10 it may be over.</p>
+    <div class="links"><a href="https://dol.ny.gov/news/construction-general-building-laborers-lu-79" target="_blank" rel="noopener noreferrer">NY DOL — Local 79 announcement</a> · <a href="https://www.local79.org/apprenticeship/" target="_blank" rel="noopener noreferrer">local79.org/apprenticeship</a></div>
+  </div>
 
-  <h3>Astoria / Queens local notes</h3>
-  <p class="data-note">A few sub-queries for hyper-local Astoria/Queens items hit the run's API limit this morning. Of the items that did come through: NY-14 (your district) is AOC; State Senate Dist 12 (Gianaris) and Assembly Dist 36 (Mamdani's old seat) had special elections Apr 28 — those races already concluded for the cycle. For active local race lists, check the <a href="https://vote.nyc/important-notices/june-23-2026-primary-election-contest-list" target="_blank" rel="noopener noreferrer">NYC BOE June 23 contest list</a> with your address.</p>
-</section>
+  <div class="item">
+    <h4>Plumbers Local 1 Apprenticeship <span class="flag">Open now</span></h4>
+    <div class="item-meta">Apprentice ~$20–25/hr → prevailing $40+/hr; journeyman $60/hr+ package · UA Local 1 · NYC</div>
+    <p>Recruitment open 5/15/2026 through 5/14/2027 — one of the longest open windows in NYC trades right now. Apply early.</p>
+    <div class="links"><a href="https://dol.ny.gov/apprenticeship/apprenticeship-announcements" target="_blank" rel="noopener noreferrer">NY DOL apprenticeship announcements</a> · <a href="https://steamfitters638.org/apprenticeship.aspx" target="_blank" rel="noopener noreferrer">Steamfitters Local 638 (parallel option)</a></div>
+  </div>
 
-<section id="sun-7-section">
-  <h2 id="sun-7">SUN-7 · Body &amp; Self-Image: Weekly Wisdom</h2>
-  <div class="body-callout">
-    <span class="label">This week</span>
-    <p>The most common cognitive pattern that hijacks body-image self-talk is <strong>emotional reasoning</strong> — David Burns's classic example: "I feel fat, therefore I must be fat." Burns names it directly in <em>Feeling Good</em>: a feeling is being treated as evidence of reality, when it's actually a weather report from your nervous system.</p>
-    <p>The reframe isn't "love your body." It's: <em>check the evidence you'd actually act on.</em> Energy at 3pm. Sleep last night. Days sober. Walks taken this week. Whether you could carry the drum hardware up the stairs without stopping. That's the data. The feeling is signal, not verdict.</p>
-    <blockquote>"I tell people that going for a run is like taking a little bit of Prozac and a little bit of Ritalin, because, like the drugs, exercise elevates these neurotransmitters."<br>
-    <span class="attr">— John Ratey, MD, Harvard Medical School, <em>Spark</em>. <a href="https://www.goodreads.com/work/quotes/376155-spark-the-revolutionary-new-science-of-exercise-and-the-brain" target="_blank" rel="noopener noreferrer">Source</a></span></blockquote>
-    <blockquote>"Curiosity can help you stay present in a non-judgmental way to whatever your experience is, and it's actually stronger than any type of force or willpower you might use."<br>
-    <span class="attr">— Judson Brewer, MD, PhD, Brown University. <a href="https://www.mindful.org/the-science-of-curiosity/" target="_blank" rel="noopener noreferrer">Source</a></span></blockquote>
-    <p>The frame all week: every health move you make is for <em>more energy, clearer thinking, less anxiety, more motivation, more enjoyment</em>. Not appearance. Not weight loss as a destination. The destination is being able to do the things you want to do, with less drag.</p>
+  <div class="item">
+    <h4>IBEW Local 3 Electrician Apprenticeship</h4>
+    <div class="item-meta">Apprentice ~$22/hr base → $35–$48/hr prevailing-wage → journeyman $50–$70/hr · IBEW Local 3 · Five boroughs + Westchester</div>
+    <p>Annual recruitment opens Oct 16. 4-year apprenticeship + AAS degree. Highly competitive — thousands of applicants per cycle.</p>
+    <div class="links"><a href="https://local3ibew.org/news/apprenticeship-recruitment-opens-october-16th" target="_blank" rel="noopener noreferrer">local3ibew.org — Oct 16 opening</a> · <a href="https://www.jibei.org/benefits/apprentice-program/" target="_blank" rel="noopener noreferrer">JIB apprentice program info</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Private CDL-B Hauler / Sanitation Driver</h4>
+    <div class="item-meta">$28–$38/hr (top union shops $35+) · Often USWU Local 339 · Citywide · No civil service test</div>
+    <p>Need Class B CDL + DOT medical card. Direct hire. Fastest path to $35+/hr if civil service exams feel too slow.</p>
+    <div class="links"><a href="https://www.ziprecruiter.com/Jobs/Cdl-Garbage-Truck/--in-New-York" target="_blank" rel="noopener noreferrer">ZipRecruiter — CDL garbage truck NYC</a></div>
+  </div>
+
+  <div class="item">
+    <h4>Staten Island Ferry Deckhand (civil service)</h4>
+    <div class="item-meta">$57,991–$66,690 for 32-hr week (~$35–40/hr) + diffs · MEBA · Staten Island</div>
+    <p><strong>Requires 2 yrs prior paid deckhand/seagoing experience.</strong> If that's a no, NYC Ferry (Hornblower) hires entry-level deckhands at lower entry pay with no maritime requirement.</p>
+    <div class="links"><a href="https://cityjobs.nyc.gov/job/deckhand-in-staten-island-jid-20431" target="_blank" rel="noopener noreferrer">cityjobs.nyc.gov</a> · <a href="https://www.ferry.nyc/careers/" target="_blank" rel="noopener noreferrer">NYC Ferry careers (no-exp path)</a></div>
+  </div>
+
+  <p class="note"><strong>Honorable mention — DSNY Sanitation Worker:</strong> $47k start → $89k at 5.5 years. <em>No exam currently open</em> (every 4–6 years; last was 2023). Bookmark and subscribe to DCAS alerts. <a href="https://www.nyc.gov/site/dcas/employment/exam-schedules-open-competitive-exams.page" target="_blank" rel="noopener noreferrer">DCAS exam schedule</a></p>
+
+  <div class="nudge">
+    <strong>Best near-term moves.</strong> 1) Apply MTA Conductor before 6/30 (8 days). 2) Block 9 AM 7/10 for Local 79. 3) Submit Plumbers Local 1 now (11-month window, no urgency but apply early). 4) Pursue CDL-B in parallel — fastest weeks-to-$35+/hr path.
   </div>
 </section>
+
+<section>
+  <h2 id="mon-9">MON-9 · Passive Income</h2>
+
+  <p>Three options that clear the honest bar. Everything else in the "passive income" genre this week was course-seller bait. Bottom line up front: drum sample packs are your biggest natural edge.</p>
+
+  <div class="item">
+    <h4>1. T-bills (4-week, 3-month) via TreasuryDirect</h4>
+    <div class="item-meta">Setup: ~1 hour · Yield: 4-week 3.65% / 3-month 3.75% · State-tax exempt</div>
+    <p>Boring but real. $50K parked at 3.75% = ~$156/mo. $100K = ~$313/mo. State-tax-exempt is meaningful for an NYC resident (saves you NY state + NYC tax vs. HYSA interest).</p>
+    <p><strong>The catch:</strong> Requires capital. This isn't income from nothing — it's "stop letting cash rot in a 0.38% account." Rates trending down as the Fed cuts.</p>
+    <p><strong>Edge from your skills:</strong> None needed.</p>
+    <div class="links"><a href="https://www.treasurydirect.gov/marketable-securities/treasury-bills/" target="_blank" rel="noopener noreferrer">treasurydirect.gov</a> · <a href="https://www.bankrate.com/banking/savings/best-high-yield-interests-savings-accounts/" target="_blank" rel="noopener noreferrer">Bankrate HYSA comparison</a></p>
+  </div>
+
+  <div class="item">
+    <h4>2. Drum Sample Packs (Splice + your own Gumroad/Payhip) <span class="flag">Your strongest edge</span></h4>
+    <div class="item-meta">Setup: 1–3 weeks per pack · Realistic: $500–$5k pack 1 month then $50–$200/mo tail · 5–10 packs across platforms: $200–$2k/mo</div>
+    <p>A real drummer recording from a home kit (one-shots, multi-velocity round-robins, fills, loop kits at various BPMs) makes material bedroom producers using VSTs literally cannot. Splice is the marketplace; their contributor application takes weeks-to-months. Run your own storefront on Payhip for higher margins.</p>
+    <p><strong>The catch:</strong> Discovery is the bottleneck. You have to market via short clips (IG/TikTok/YouTube Shorts), which is not passive. Trap/hip-hop kits are saturated; live-recorded acoustic and rock are less crowded.</p>
+    <p><strong>Edge from your skills:</strong> Very strong. This is your best $/hour ratio of the creative options.</p>
+    <div class="links"><a href="https://splice.com/sounds/sell" target="_blank" rel="noopener noreferrer">Splice Sounds — sell</a> · <a href="https://payhip.com/sell-samples" target="_blank" rel="noopener noreferrer">Payhip storefront</a> · <a href="https://orphiq.com/resources/sample-pack-sales-guide" target="_blank" rel="noopener noreferrer">Honest revenue breakdown (Orphiq)</a></p>
+  </div>
+
+  <div class="item">
+    <h4>3. Stock Music Licensing (Pond5 + AudioJungle, non-exclusive)</h4>
+    <div class="item-meta">Setup: 3–6 months part-time to build 30–50 starter tracks · Realistic: $50–$200/mo at 50–100 tracks; ~$100/mo "common" at 150–400 tracks</div>
+    <p>"Passive" only kicks in after the catalog exists. Top earners ($1k+/mo) have 500–2,000+ tracks built over years.</p>
+    <p><strong>The catch:</strong> Heavily saturated and now flooded with AI-generated tracks competing on the same keywords. Composers who go inactive see sales decay — search favors recent uploaders. Plan on 2–3 tracks/month indefinitely.</p>
+    <p><strong>Edge from your skills:</strong> Strong. Live-feel rhythm beds and corporate/indie cues with real drums score above the AI noise. Live drums are a genuine differentiator right now.</p>
+    <div class="links"><a href="https://www.pond5.com/sell-stock-footage" target="_blank" rel="noopener noreferrer">Pond5 contributor</a> · <a href="https://audiojungle.net/become_an_author" target="_blank" rel="noopener noreferrer">AudioJungle author</a> · <a href="https://www.stockmusicmusician.com/blog/how-much-do-stock-music-composers-make-realistic-income-expectations" target="_blank" rel="noopener noreferrer">Real composer income numbers</a></p>
+  </div>
+
+  <p class="note"><strong>Deliberately rejected:</strong> "Sell developer scripts on Gumroad," niche SaaS, online courses. SaaS = on-call support burden. Courses = the entire genre is dominated by people whose actual income is selling courses <em>about</em> making passive income. Skip. Musicbed and Artlist are premium/curated — not realistic for a cold submission; revisit in year 2 with a portfolio.</p>
+
+  <div class="nudge">
+    <strong>If you only do one thing.</strong> Record one tight 50-sample drum pack (one kit, one room, multi-velocity round-robins on every piece, four BPMs) over the next 2 weeks. Get it on Payhip first (instant), then submit to Splice while it's already earning. That's the cleanest first dollar.
+  </div>
+</section>
+
+<hr>
+<p class="note">Generated 6:30 AM ET · <a href="archive/">All past briefings</a></p>
 
 </body>
 </html>
