@@ -3,571 +3,406 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Mon, Jun 22, 2026</title>
+<title>John's Daily Briefing — Tue Jun 23, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
     --fg: #e0e0e0;
     --muted: #888;
-    --dim: #b0b0b0;
-    --accent: #ffb86c;
-    --accent-soft: #9ecbff;
-    --softer: #b39df0;
-    --border: #2a2a2a;
+    --border: #222;
     --card: #161616;
+    --accent: #f0a868;
+    --accent-soft: #6ec5ff;
+    --link: #9ecbff;
   }
   * { box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1.25rem 4rem;
     line-height: 1.6;
   }
-  header { margin-bottom: 1.5rem; }
-  h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
-  header .meta { color: var(--muted); font-size: .9rem; }
-  nav.toc, nav.archive-nav {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: .85rem 1rem;
-    font-size: .9rem;
-    margin: 0;
-  }
-  nav.toc { border-bottom: none; border-radius: 6px 6px 0 0; }
-  nav.archive-nav { border-radius: 0 0 6px 6px; margin-bottom: 2rem; }
-  nav strong { color: var(--accent); display: block; margin-bottom: .4rem; font-size: .85rem; letter-spacing: .03em; text-transform: uppercase; }
-  nav ul { list-style: none; padding: 0; margin: 0; }
-  nav.toc li { padding: .15rem 0; }
-  nav.archive-nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; }
-  nav.archive-nav .archive-links { display: flex; flex-wrap: wrap; gap: .75rem; }
-  a { color: var(--accent-soft); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  section { margin: 2.5rem 0; }
-  h2 {
-    font-size: 1.2rem;
-    color: var(--accent);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: .35rem;
-    margin: 0 0 1rem;
-  }
-  h3 { font-size: 1rem; margin: 1.2rem 0 .35rem; color: var(--fg); }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.25rem; }
+  h1 { font-size: 1.7rem; margin: 0 0 .25rem; }
+  header .sub { color: var(--muted); font-size: .92rem; }
+  h2 { font-size: 1.25rem; margin: 2.25rem 0 .75rem; padding-bottom: .35rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.04rem; margin: 1.4rem 0 .5rem; color: #f3f3f3; }
+  h4 { font-size: .98rem; margin: 1rem 0 .35rem; color: #ddd; }
   p { margin: .55rem 0; }
-  ul, ol { padding-left: 1.4rem; }
-  li { margin: .35rem 0; }
-  .nudge {
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul, ol { padding-left: 1.3rem; margin: .5rem 0; }
+  li { margin: .3rem 0; }
+  nav.toc, nav.archive-nav { font-size: .92rem; padding: .75rem 1rem; }
+  .nav-wrap {
+    border: 1px solid var(--border);
+    border-radius: 8px;
     background: var(--card);
+    padding: .25rem 0;
+    margin-bottom: 1.5rem;
+  }
+  .nav-wrap nav { padding: .75rem 1rem; }
+  .nav-wrap nav + nav { border-top: 1px solid var(--border); }
+  nav.toc strong, nav.archive-nav strong { color: var(--muted); display: block; margin-bottom: .35rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: .2rem 0; }
+  nav.archive-nav .arch-links a { display: inline-block; margin-right: .9rem; }
+  .nudge {
     border-left: 4px solid var(--accent);
-    padding: 1rem 1.1rem;
-    margin: 1.25rem 0;
-    border-radius: 0 4px 4px 0;
+    background: rgba(240,168,104,0.06);
+    padding: .9rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
   }
   .nudge strong { color: var(--accent); }
   .mantra {
-    background: rgba(255, 184, 108, .07);
     border: 1px dashed var(--accent);
-    padding: .7rem 1rem;
-    margin: 1rem 0;
+    padding: .8rem 1rem;
+    margin: .9rem 0;
     border-radius: 4px;
     font-style: italic;
     text-align: center;
+    color: #f5d9bd;
   }
-  .tracker-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: .6rem;
-    margin: 1rem 0;
-  }
-  .stat {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: .6rem .75rem;
-    border-radius: 4px;
-  }
-  .stat .label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
-  .stat .value { font-size: 1.15rem; color: var(--fg); margin-top: .15rem; }
-  .stat .sub { font-size: .75rem; color: var(--dim); }
-  .item {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: .85rem 1rem;
-    margin: .7rem 0;
-    border-radius: 4px;
-  }
-  .item h4 { margin: 0 0 .3rem; color: var(--fg); font-size: .98rem; }
-  .item .item-meta { color: var(--muted); font-size: .82rem; margin-bottom: .35rem; }
-  .item p { margin: .35rem 0; font-size: .92rem; }
-  .item .links { font-size: .85rem; margin-top: .3rem; }
-  .flag {
+  .recipe { border: 1px solid var(--border); border-radius: 6px; padding: .8rem 1rem; margin: .8rem 0; background: var(--card); }
+  .recipe h4 { margin-top: 0; }
+  .ingredients { font-size: .92rem; color: #cfcfcf; }
+  .ingredients summary { cursor: pointer; color: var(--muted); }
+  .meta { color: var(--muted); font-size: .87rem; }
+  .pill {
     display: inline-block;
-    background: rgba(255, 184, 108, .15);
-    color: var(--accent);
-    padding: .1rem .45rem;
-    border-radius: 3px;
-    font-size: .75rem;
-    margin-left: .35rem;
+    padding: .12rem .55rem;
+    border-radius: 999px;
+    background: #1d1d1d;
+    border: 1px solid #2a2a2a;
+    font-size: .78rem;
+    color: #bbb;
+    margin-right: .3rem;
   }
-  .flag.warn { background: rgba(255, 100, 100, .15); color: #ff8888; }
-  .note { color: var(--dim); font-size: .88rem; font-style: italic; }
-  details { margin: .5rem 0; }
-  details summary { cursor: pointer; color: var(--accent-soft); }
-  details[open] summary { margin-bottom: .4rem; }
-  .ingredients {
-    background: var(--card);
-    border-left: 3px solid var(--accent-soft);
-    padding: .6rem .85rem;
-    margin: .5rem 0;
-    font-size: .9rem;
-  }
-  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-  .caveat { color: var(--dim); font-size: .85rem; border-left: 2px solid var(--border); padding-left: .75rem; margin: .75rem 0; }
-  @media (max-width: 480px) {
-    body { padding: 1rem .85rem 3rem; }
-    h1 { font-size: 1.5rem; }
-    h2 { font-size: 1.1rem; }
-  }
+  .why { color: #b4b4b4; font-size: .9rem; margin-top: .35rem; }
+  .source-row { margin-top: .5rem; font-size: .88rem; }
+  .red-flag { color: #ff9a9a; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Monday, June 22, 2026</h1>
-  <div class="meta">Last updated: 6:30 AM ET · John's Daily Briefing</div>
+  <h1>John's Daily Briefing</h1>
+  <div class="sub">Tuesday · June 23, 2026 · Last updated: 1:35 AM ET</div>
 </header>
 
-<nav class="toc">
-  <strong>On this page</strong>
-  <ul>
-    <li><a href="#mon-1">MON-1 · John's Tracker: Weekly Progress</a></li>
-    <li><a href="#mon-2">MON-2 · Mindful Eating &amp; Exercise for ADHD</a></li>
-    <li><a href="#mon-3">MON-3 · Music: Income Opportunities</a></li>
-    <li><a href="#mon-4">MON-4 · Music: NYC Events &amp; Networking</a></li>
-    <li><a href="#mon-5">MON-5 · Tech Jobs: IT + AI / Modern Stack</a></li>
-    <li><a href="#mon-6">MON-6 · Tech Jobs: Beyond IT Support</a></li>
-    <li><a href="#mon-7">MON-7 · AI in IT: Workflow Automation</a></li>
-    <li><a href="#mon-8">MON-8 · High-Pay Entry-Level Jobs ($35+/hr)</a></li>
-    <li><a href="#mon-9">MON-9 · Passive Income</a></li>
-  </ul>
-</nav>
-
-<nav class="archive-nav">
-  <strong>Past briefings</strong>
-  <div class="archive-links">
-    <a href="archive/2026-06-21.html">Jun 21</a>
-    <a href="archive/2026-06-19.html">Jun 19</a>
-    <a href="archive/2026-06-18.html">Jun 18</a>
-    <a href="archive/2026-06-17.html">Jun 17</a>
-    <a href="archive/index.html">All archives →</a>
-  </div>
-</nav>
+<div class="nav-wrap">
+  <nav class="toc">
+    <strong>On this page</strong>
+    <ul>
+      <li><a href="#tue-1">TUE-1 · Sugar Addiction Recovery</a></li>
+      <li><a href="#tue-2">TUE-2 · Recipes: Interesting Individual Dishes</a></li>
+      <li><a href="#tue-3">TUE-3 · App Development: React Native, AI &amp; Indie Building</a></li>
+      <li><a href="#tue-4">TUE-4 · Wellness App Landscape vs. John's Tracker</a></li>
+      <li><a href="#tue-5">TUE-5 · Passive Income</a></li>
+    </ul>
+  </nav>
+  <nav class="archive-nav">
+    <strong>Past briefings</strong>
+    <div class="arch-links">
+      <a href="archive/2026-06-22.html">Jun 22</a>
+      <a href="archive/2026-06-21.html">Jun 21</a>
+      <a href="archive/2026-06-19.html">Jun 19</a>
+      <a href="archive/2026-06-18.html">Jun 18</a>
+      <a href="archive/2026-06-17.html">Jun 17</a>
+      <a href="archive/">All archives →</a>
+    </div>
+  </nav>
+</div>
 
 <section>
-  <h2 id="mon-1">MON-1 · John's Tracker: Weekly Progress</h2>
+  <h2 id="tue-1">TUE-1 · Sugar Addiction Recovery</h2>
 
-  <h3>Most recent check-in (logged early Monday for 6/22)</h3>
-  <div class="tracker-grid">
-    <div class="stat"><div class="label">Mood</div><div class="value">8</div><div class="sub">evening</div></div>
-    <div class="stat"><div class="label">Energy</div><div class="value">4</div><div class="sub">low, sweets-driven</div></div>
-    <div class="stat"><div class="label">Anxiety</div><div class="value">2</div><div class="sub">low</div></div>
-    <div class="stat"><div class="label">Focus</div><div class="value">5</div></div>
-    <div class="stat"><div class="label">Fluoxetine</div><div class="value">✓</div></div>
-    <div class="stat"><div class="label">Ritalin</div><div class="value">✗</div><div class="sub">skipped again</div></div>
-    <div class="stat"><div class="label">Seroquel</div><div class="value">6.25 mg</div></div>
-    <div class="stat"><div class="label">Drums practice</div><div class="value">20 min</div></div>
-    <div class="stat"><div class="label">Sobriety</div><div class="value">Alcohol ✓ · Cannabis ✓</div></div>
-    <div class="stat"><div class="label">Sweets today</div><div class="value">Yes — craving</div></div>
-  </div>
-  <p class="note">Today's morning check-in not yet logged. Your last note: "tomorrow I need to figure out the labs. Then I need to go to the labs." That's today.</p>
+  <p>This week's notes are loud and specific. From the last several days: <em>"I think it's the sugar. The fucking sugar."</em> · <em>"Ate chocolate covered cherries, then took a nap."</em> · <em>"Ate more chocolate covered frozen raspberries. AAAAAAA."</em> · <em>"Does 'forcing myself to do it' even work?"</em> The sweets-reason field has the exact diagnosis logged in the tracker itself: <strong>Low energy.</strong></p>
 
-  <h3>7-day summary (Jun 15 – Jun 22)</h3>
-  <div class="tracker-grid">
-    <div class="stat"><div class="label">Avg mood</div><div class="value">7.0</div><div class="sub">→ steady</div></div>
-    <div class="stat"><div class="label">Avg energy</div><div class="value">5.0</div><div class="sub">middling</div></div>
-    <div class="stat"><div class="label">Avg anxiety</div><div class="value">3.2</div><div class="sub">low — good</div></div>
-    <div class="stat"><div class="label">Avg focus</div><div class="value">4.6</div></div>
-    <div class="stat"><div class="label">Fluoxetine</div><div class="value">6/8 days</div><div class="sub">75%</div></div>
-    <div class="stat"><div class="label">Ritalin</div><div class="value">0/8 days</div><div class="sub">skipped all week</div></div>
-    <div class="stat"><div class="label">Drums (practice)</div><div class="value">4/8 days</div></div>
-    <div class="stat"><div class="label">Drums (fun)</div><div class="value">3/8 days</div></div>
-    <div class="stat"><div class="label">Bicycle</div><div class="value">1/8 days</div></div>
-    <div class="stat"><div class="label">Other exercise</div><div class="value">2/8 days</div></div>
-    <div class="stat"><div class="label">Sweets</div><div class="value">6/8 days</div><div class="sub">"low energy" 4×</div></div>
-    <div class="stat"><div class="label">Cravings logged</div><div class="value">6/8 days</div><div class="sub">mostly sugar</div></div>
-    <div class="stat"><div class="label">Alcohol avoided</div><div class="value">6/8</div></div>
-    <div class="stat"><div class="label">Cannabis avoided</div><div class="value">6/8</div></div>
-  </div>
+  <p>That's the loop, in your own words, sitting in the database: <strong>low energy → frozen-fruit-shaped sugar → quick spike → nap → wake up feeling like the day got away → guilt-shop and guilt-eat → reach for the quick fix again.</strong> It's not a willpower failure. It's a glucose roller-coaster that your nervous system is correctly trying to escape, and "force yourself" is the wrong tool for the job because forcing requires energy that the crash just took away.</p>
 
-  <h3>This week's clearest signal</h3>
-  <p>You wrote it yourself on Jun 20: <em>"Cookie and chocolate covered cherries did actually give me a small bit of energy"</em> — and then later the same day: <em>"Well, eating sugar didn't do anything good for me lol. That was a weak excuse."</em> The sugar-as-energy loop showed up in 6 of 8 evenings, and you flagged "low energy" as the reason 4 times. The data and your own notes agree on what's happening.</p>
+  <p>This isn't moral. This is the habit loop Anna Lembke describes in <em>Dopamine Nation</em>: the deeper the post-sugar dopamine dip, the louder the next pull toward sugar. Willpower fights against the dip; structure prevents the dip.</p>
 
-  <p class="caveat">Calendar/Trello sync (briefing-data edge function) returned a Google token error this run — no scheduled events or board WIP available. Insights table query failed (schema column mismatch). Today's morning check-in is still open.</p>
-</section>
+  <h3>Three things to try today — chosen for this week's pattern</h3>
 
-<section>
-  <h2 id="mon-2">MON-2 · Mindful Eating &amp; Exercise for ADHD</h2>
+  <ol>
+    <li><strong>Eat protein and fat <em>before</em> the next sugar moment, not instead of it.</strong> Anna Lembke and addiction-medicine clinicians both point at the same lever: you do not negotiate with a craving from a glucose low, you negotiate with one from a stable blood sugar. The cottage cheese + cucumber snack in TUE-2 below is exactly this — 22g of protein, 90 seconds to prep, kept in the fridge so the friction is lower than the chocolate-covered raspberries. The goal isn't to avoid the raspberries today. It's to eat the cottage cheese <em>first</em>, and let the craving rate itself again from a stable baseline.</li>
 
-  <p>The pattern this week is loud and clear: low energy → reach for sugar → small spike → crash → feel less capable → repeat. You named it on Saturday: <em>"That was a weak excuse to eat sugar."</em> ADHD makes this loop especially sticky because executive function tanks first when blood sugar swings, which is exactly when planning ahead feels impossible.</p>
+    <li><strong>Name the loop out loud the next time you reach.</strong> CBT-style: as you open the freezer, say (or mutter) "this is the low-energy reach, not the hungry reach." Two seconds. Not a lecture, not a debate. Just labeling it shifts the brain out of automatic-mode. You logged the loop yourself yesterday — that means the awareness is already there. You just need to insert the label between the cue and the action.</li>
 
-  <h3>Three things to try this week</h3>
-
-  <p><strong>1. Pre-decide tomorrow's breakfast tonight.</strong> ADHD brains struggle most with decisions made in low-glucose, low-dopamine states (i.e. the morning). The decision <em>itself</em> is the executive-function tax — not the eating. Put a hard-boiled egg, a Greek yogurt, and a piece of fruit in a visible spot on the fridge shelf before bed. Tomorrow's you doesn't have to negotiate.</p>
-
-  <p><strong>2. Replace the sugar reach with a protein-fat reach.</strong> When you feel the "low energy → I need a cookie" loop fire, the loop is real but the input is wrong. Sugar gives you 20 minutes of energy and takes 90 minutes back. A handful of almonds + a square of dark chocolate (85%+) feeds the craving without the crash. Keep the better option closer to you than the worse one.</p>
-
-  <p><strong>3. Pair drum practice with the post-meal slump.</strong> You hit drums 4 of 8 days last week — your best activity. The 30–60 minutes after lunch is when energy crashes hardest. Schedule even 10 minutes of kit time there. Movement + dopamine + your strongest skill. Bonus: it solves "I should practice more" without needing willpower.</p>
+    <li><strong>Stop trying to "force" anything this week.</strong> Your own note — <em>"Does 'forcing myself to do it' even work? How would I even do that?"</em> — is the data telling you the answer. Force is expensive and you're already at energy 3-4. Replace "force" with "set up" — set up one thing in advance, then let the setup do the work. Today's setup: cut up a cucumber and a red pepper, put the cottage cheese in a small bowl. That's the whole intervention. The future-you with low energy will pick what's easiest, so make the right thing the easiest thing.</li>
+  </ol>
 
   <div class="nudge">
-    <strong>Today's nudge.</strong> You have labs to figure out today. Your past self has been writing notes all week that you trust the loop more than you trust the food. Today, you don't need to win the food fight all day — just pick the breakfast. One real meal before the labs, with protein. That's the whole assignment.
+    <strong>Today's nudge.</strong> You don't have a sugar problem, you have a low-energy problem with a sugar-shaped solution. The chocolate-covered raspberries are working — they're solving the energy crash for 20 minutes. They just charge a 4-hour interest rate. Today, before the next reach, eat one protein-and-fat thing first. Not instead. <em>First.</em> Then if you still want the raspberries, have them. You'll be choosing them from baseline instead of from the floor — and that's the only difference that matters.
   </div>
 
   <div class="mantra">
-    "Sugar borrows energy at a punishing interest rate."
+    Protein first. Then decide.
   </div>
 
-  <p class="caveat">Also worth noticing: ritalin has been skipped every single day this week (and the logs show you recorded the intended 1.25 mg dose, just didn't take it). ADHD nutrition strategies work harder when meds are absent. Worth a quick honest check-in with yourself about why the skip.</p>
-
-  <p class="note">Sources: <a href="https://www.additudemag.com/adhd-and-food-cravings/" target="_blank" rel="noopener noreferrer">ADDitude — ADHD and food cravings</a> · <a href="https://www.understood.org/en/articles/adhd-and-eating" target="_blank" rel="noopener noreferrer">Understood — ADHD and eating habits</a></p>
+  <p class="meta">Sources: Anna Lembke, <em>Dopamine Nation</em> (Penguin, 2021); ACT/CBT addiction frameworks (urge surfing, cue labeling). Pattern drawn from your own check-in notes 6/22–6/23.</p>
 </section>
 
 <section>
-  <h2 id="mon-3">MON-3 · Music: Income Opportunities (NYC + Remote/Comped)</h2>
+  <h2 id="tue-2">TUE-2 · Recipes: Interesting Individual Dishes</h2>
+  <p class="meta">Low/no added sugar · veggie-heavy · spicy · protein-rich · slow carbs · unsaturated fats · individual portions.</p>
 
-  <div class="item">
-    <h4>TAXI — Indie Folk Sync for Major Label A&amp;R <span class="flag warn">Deadline tomorrow 6/23</span></h4>
-    <div class="item-meta">Sync/licensing · Remote · Royalty/placement</div>
-    <p>Senior VP of A&amp;R at a major label wants indie folk acts with strong songwriting. Must own masters + copyright and be PRO-affiliated.</p>
-    <div class="links"><a href="https://www.taxi.com/industry" target="_blank" rel="noopener noreferrer">taxi.com/industry</a> · <span class="note">heads-up: TAXI is a paid membership (~$300/yr). Legit, not a scam, but a real cost.</span></div>
+  <div class="recipe">
+    <h4>Breakfast — Harissa Shakshuka (single-serving)</h4>
+    <p>Eggs poached in a fiery North African tomato-pepper sauce spiked with harissa, cumin, and smoked paprika, finished with wilted spinach. One skillet, one portion.</p>
+    <details class="ingredients"><summary>Ingredients</summary>
+      <ul>
+        <li>1 tbsp olive oil</li>
+        <li>½ small yellow onion, diced</li>
+        <li>½ red bell pepper, diced</li>
+        <li>2 garlic cloves, minced</li>
+        <li>1 tsp ground cumin · 1 tsp smoked paprika</li>
+        <li>1 tbsp harissa paste · pinch cayenne</li>
+        <li>1 cup canned crushed tomatoes</li>
+        <li>1 big handful baby spinach</li>
+        <li>2 eggs · salt, pepper</li>
+        <li>Fresh parsley or cilantro · optional crumbled feta</li>
+      </ul>
+    </details>
+    <p class="why"><strong>Why it fits:</strong> ~12g protein from the eggs, veg-forward, no added sugar, slow-carb (no bread), genuine heat from harissa + cayenne, olive oil only.</p>
+    <p class="source-row"><a href="https://lindseyeatsla.com/easy-harissa-shakshuka/" target="_blank" rel="noopener noreferrer">Lindsey Eats LA — Easy Harissa Shakshuka</a> · <a href="https://dishedbykate.com/shakshuka-for-one/" target="_blank" rel="noopener noreferrer">Dished by Kate — Shakshuka for One</a></p>
   </div>
 
-  <div class="item">
-    <h4>TAXI — Indie Folk Instrumentals (Positive Vibes) <span class="flag">Deadline 7/4</span></h4>
-    <div class="item-meta">Sync/licensing · Remote · Publisher with strong TV/commercial placement history</div>
-    <p>Upbeat indie folk instrumentals wanted. Good fit if you can hand over finished masters.</p>
-    <div class="links"><a href="https://www.taxi.com/industry" target="_blank" rel="noopener noreferrer">taxi.com/industry</a></div>
+  <div class="recipe">
+    <h4>Lunch — Greek Lentil Power Bowl with Yogurt-Lemon Dressing</h4>
+    <p>A grain-free single bowl: warm spiced lentils over greens with cucumber, tomato, red onion, olives, and feta, dressed with a tangy Greek yogurt-lemon-garlic-dill sauce.</p>
+    <details class="ingredients"><summary>Ingredients</summary>
+      <ul>
+        <li>½ cup cooked green/brown lentils</li>
+        <li>2 cups baby spinach or arugula</li>
+        <li>½ cucumber, diced · ½ cup cherry tomatoes, halved</li>
+        <li>2 tbsp red onion, thinly sliced</li>
+        <li>8–10 Kalamata olives · 2 tbsp crumbled feta</li>
+        <li>1 tsp olive oil · pinch cumin + Aleppo pepper or chili flakes</li>
+        <li><em>Dressing:</em> ¼ cup plain Greek yogurt (0% or 2%), 1 tbsp lemon juice, 1 garlic clove (grated), 1 tbsp fresh dill, salt, pepper, pinch chili flakes</li>
+      </ul>
+    </details>
+    <p class="why"><strong>Why it fits:</strong> ~25g protein from lentils + yogurt, slow carbs only, no added sugar, heavy veg, Aleppo heat, olive-oil + yogurt fats.</p>
+    <p class="source-row"><a href="https://greenletes.com/greek-lentil-power-bowl-3/" target="_blank" rel="noopener noreferrer">Greenletes — Greek Lentil Power Bowl</a></p>
   </div>
 
-  <div class="item">
-    <h4>New York Jazz Workshop — Drum/Percussion Faculty</h4>
-    <div class="item-meta">Drum teaching · Midtown Manhattan (265 W 37th St) · W-2 with benefits</div>
-    <p>Established jazz school actively maintaining faculty. Rate not public but sits in the NYC $31–$60/hr band. Direct outreach required.</p>
-    <div class="links"><a href="https://newyorkjazzworkshop.com/drum-teachers-nyc/" target="_blank" rel="noopener noreferrer">newyorkjazzworkshop.com</a></div>
+  <div class="recipe">
+    <h4>Dinner — Gochujang-Glazed Salmon with Sesame Bok Choy</h4>
+    <p>A salmon fillet broiled with a spicy gochujang-soy-ginger-garlic glaze (rice vinegar in place of honey), served over garlicky sesame bok choy. ~20 minutes start to finish.</p>
+    <details class="ingredients"><summary>Ingredients</summary>
+      <ul>
+        <li>1 (5–6 oz) salmon fillet</li>
+        <li><em>Glaze:</em> 1 tbsp gochujang, 1 tsp low-sodium soy/tamari, ½ tsp toasted sesame oil, ½ tsp rice vinegar, 1 grated garlic clove, ½ tsp grated ginger. (Sub ½ tsp mirin for the typical honey to keep added sugar near zero.)</li>
+        <li><em>Bok choy:</em> 2–3 baby bok choy halved, 1 tsp avocado oil, 1 garlic clove sliced, ½ tsp ginger, 1 tsp toasted sesame seeds, splash tamari, pinch chili flakes</li>
+      </ul>
+    </details>
+    <p class="why"><strong>Why it fits:</strong> ~35g protein, omega-3 from salmon, gochujang heat without sugary teriyaki, bok choy is slow-carb veg, no rice/bread.</p>
+    <p class="source-row"><a href="https://feastingnotfasting.com/gochujang-korean-salmon/" target="_blank" rel="noopener noreferrer">Feasting Not Fasting — Gochujang Korean Salmon</a> · <a href="https://fromscratchfast.com/gochujang-salmon-bowls/" target="_blank" rel="noopener noreferrer">From Scratch Fast — Gochujang Salmon Bowls</a></p>
   </div>
 
-  <div class="item">
-    <h4>School of Rock — Drum Instructor (multiple NYC-area branches)</h4>
-    <div class="item-meta">Drum teaching · Queens, Roslyn, Rockville Centre, Syosset, Huntington · ~$30–$45/hr</div>
-    <p>Multiple branches reachable from Astoria. Pay meets the $35 floor at most locations. Band-based curriculum, flexible part-time hours.</p>
-    <div class="links"><a href="https://www.indeed.com/q-drum-instructor-l-new-york,-ny-jobs.html" target="_blank" rel="noopener noreferrer">Indeed — Drum Instructor NYC</a></div>
+  <div class="recipe">
+    <h4>Snack 1 — Chili-Lime Crispy Roasted Edamame</h4>
+    <p>Shelled edamame tossed with chili and lime, then air-fried or oven-roasted until crunchy. Single-portion bowl.</p>
+    <details class="ingredients"><summary>Ingredients</summary>
+      <ul>
+        <li>1 cup shelled edamame (thawed, patted very dry)</li>
+        <li>1 tsp avocado or olive oil</li>
+        <li>¾ tsp chili powder · ¼ tsp smoked paprika</li>
+        <li>¼ tsp garlic powder · ¼ tsp onion powder · pinch cayenne</li>
+        <li>Zest of ½ lime · flaky salt · squeeze of fresh lime after roasting</li>
+      </ul>
+    </details>
+    <p class="why"><strong>Why it fits:</strong> ~17g protein per cup, fiber-rich, zero added sugar, spicy, unsaturated fat, not a starch.</p>
+    <p class="source-row"><a href="https://theproteinchef.co/easy-dry-roasted-edamame-recipe/" target="_blank" rel="noopener noreferrer">The Protein Chef — Dry Roasted Edamame</a></p>
   </div>
 
-  <div class="item">
-    <h4>Holland America — Rolling Stone Rock Room (Drums)</h4>
-    <div class="item-meta">Cruise gig · NYC rehearsals → worldwide · ~$2,800–$4,500/mo + room/board</div>
-    <p>Submission window ran through Jun 10 — likely just closed but cycles re-post quarterly. NYC rehearsals are a real perk. Bookmark and refresh.</p>
-    <div class="links"><a href="https://hollandamericagroup.pinpointhq.com/entertainment-performers-and-presenters-gigs" target="_blank" rel="noopener noreferrer">Holland America gigs</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Princess Cruises — House Band Drums (virtual audition)</h4>
-    <div class="item-meta">Cruise gig · Worldwide · Audition from home</div>
-    <p>Most-recent open window was Feb–April. Page remains the canonical re-entry point — check weekly. Must sight-read across jazz/rock/funk/Latin.</p>
-    <div class="links"><a href="https://www.princesscruisesentertainment.com/careers/musicians/application-audition-process" target="_blank" rel="noopener noreferrer">princesscruisesentertainment.com</a></div>
-  </div>
-
-  <div class="item">
-    <h4>NYC Craigslist Musicians — Drummer searches</h4>
-    <div class="item-meta">Sub/dep gigs, fill-ins, paid one-offs · Updates hourly</div>
-    <p>Real paid NYC sub/dep work mostly routes here and is poorly indexed by search engines. Worth a 5-minute manual scan every other day.</p>
-    <div class="links"><a href="https://newyork.craigslist.org/search/muc?query=drummer" target="_blank" rel="noopener noreferrer">newyork.craigslist.org/search/muc</a></div>
-  </div>
-
-  <p class="caveat">No exposure gigs included. If a posting asks for upfront fees outside of TAXI's stated membership, walk away.</p>
-</section>
-
-<section>
-  <h2 id="mon-4">MON-4 · Music: NYC Events &amp; Networking</h2>
-
-  <h3>Open mics with confirmed backline (drum kit)</h3>
-
-  <div class="item">
-    <h4>Brooklyn Music Kitchen — Wednesday House-Band Open Mic <span class="flag">Backline ✓</span></h4>
-    <div class="item-meta">177 Vanderbilt Ave, Clinton Hill · Wednesdays · Free to perform (one-drink min)</div>
-    <p>Full PA, cables, stands, and drum kit on-site. House band backs you. Next Monday-night showcase 7/6.</p>
-    <div class="links"><a href="https://brooklynmusickitchen.com/calendar/" target="_blank" rel="noopener noreferrer">brooklynmusickitchen.com/calendar</a> · <a href="https://www.unation.com/event/monday-night-live-showcase-and-open-mic-at-the-brooklyn-music-kitchen-62858044/" target="_blank" rel="noopener noreferrer">Monday 7/6 RSVP</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Otto's Shrunken Head — Open Mic + Open Jam <span class="flag">Backline ✓</span></h4>
-    <div class="item-meta">538 E 14th St, East Village · Open mic 7:30 PM, jam ~9 PM · Free</div>
-    <p>Open-jam format means a kit is up. Host: Ira Zadikow. Easy F train from Astoria.</p>
-    <div class="links"><a href="https://bigcityfolks.com/the-official-guide-to-new-york-city-open-mics/" target="_blank" rel="noopener noreferrer">NYC open mic guide</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Jazz Foundation of America — Monday Night Jam</h4>
-    <div class="item-meta">Kit provided · Jazz/standards · See 2026 schedule</div>
-    <div class="links"><a href="https://jazzfoundation.org/monday-night-jam/" target="_blank" rel="noopener noreferrer">jazzfoundation.org/monday-night-jam</a></div>
-  </div>
-
-  <p class="caveat">Astoria-local open mics (Lily's, Q.E.D.) do <em>not</em> publicly confirm a house drum kit — call before showing up with sticks.</p>
-
-  <h3>Networking events</h3>
-
-  <div class="item">
-    <h4>343 Labs Music Producer Community — Meetup</h4>
-    <div class="item-meta">Tuesday, July 15, 6:00 PM EDT · NYC</div>
-    <div class="links"><a href="https://www.meetup.com/find/us--ny--new-york/music-industry/" target="_blank" rel="noopener noreferrer">Meetup — NYC music industry</a></div>
-  </div>
-
-  <div class="item">
-    <h4>The New York Singer Songwriters — Meetup</h4>
-    <div class="item-meta">Monday, July 21, 2:30 PM EDT</div>
-    <div class="links"><a href="https://www.meetup.com/find/us--ny--new-york/music-industry/" target="_blank" rel="noopener noreferrer">Meetup — NYC music industry</a></div>
-  </div>
-
-  <div class="item">
-    <h4>NY MusicTech Meetup — Demo Night (recurring)</h4>
-    <div class="item-meta">Public Records, Brooklyn · ~200 attendees, founders + industry · Check next date</div>
-    <div class="links"><a href="https://www.meetup.com/topics/music-industry/" target="_blank" rel="noopener noreferrer">NY MusicTech on Meetup</a></div>
-  </div>
-
-  <h3>NYC music industry news (last 7 days)</h3>
-
-  <div class="item">
-    <h4>Local 802 AFM Membership Meeting — Wed Jun 24, 5 PM (Zoom) <span class="flag">This week</span></h4>
-    <p>Agenda includes the ongoing AI-protection campaign for recording musicians. President's report runs in the June issue of Allegro.</p>
-    <div class="links"><a href="https://www.local802afm.org/events/" target="_blank" rel="noopener noreferrer">local802afm.org/events</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Music Hall of Williamsburg confirmed closing end of 2026</h4>
-    <p>Lease not renewed, building sold for $14M. Bowery Electric also uncertain. Bookings rotating to other rooms — opportunity for newer/smaller acts as bigger ones reroute.</p>
-    <div class="links"><a href="https://www.brooklynpaper.com/music-hall-of-williamsburg-close-2026/" target="_blank" rel="noopener noreferrer">Brooklyn Paper</a> · <a href="https://www.timeout.com/newyork/news/the-music-hall-of-williamsburg-will-likely-shut-down-at-the-end-of-2026-121925" target="_blank" rel="noopener noreferrer">Time Out NY</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Saint Vitus Bar (Greenpoint) shut down by DOB violation</h4>
-    <p>Bands scrambling for replacement bookings. If you do metal/punk/hardcore work, watch booking pages at Trans-Pecos, Saint Vitus alumni venues, and Brooklyn Bazaar for displaced shows.</p>
-    <div class="links"><a href="https://gothamist.com/news/beloved-brooklyn-bars-abrupt-shutdown-sends-bands-scrambling-to-book-new-venues" target="_blank" rel="noopener noreferrer">Gothamist</a></div>
-  </div>
-
-  <div class="item">
-    <h4>New 1,000-cap venue opening late 2026 at MADE Bush Terminal (Sunset Park)</h4>
-    <p>Public Records' new room. Arup acoustics, Ojas speakers. Biggest new Brooklyn room in years — worth tracking for backline gig opportunities.</p>
-    <div class="links"><a href="https://www.timeout.com/newyork/news/a-major-new-music-venue-is-opening-in-sunset-park-121025" target="_blank" rel="noopener noreferrer">Time Out NY</a></div>
+  <div class="recipe">
+    <h4>Snack 2 — Spicy Whipped Cottage Cheese Dip with Cucumber &amp; Pepper Sticks</h4>
+    <p>Cottage cheese blended smooth with garlic, lemon, harissa, and za'atar — a high-protein riff on tzatziki, served with cold raw veg.</p>
+    <details class="ingredients"><summary>Ingredients</summary>
+      <ul>
+        <li>¾ cup 2% cottage cheese</li>
+        <li>1 small garlic clove · 1 tsp lemon juice</li>
+        <li>1 tsp harissa paste (or ½ tsp Calabrian chili)</li>
+        <li>½ tsp za'atar · 1 tsp olive oil</li>
+        <li>Salt, pepper, chopped fresh dill or mint</li>
+        <li><em>Dippers:</em> ½ cucumber in spears, ½ red bell pepper in strips, a few radishes</li>
+      </ul>
+    </details>
+    <p class="why"><strong>Why it fits:</strong> ~22g protein, no added sugar, veggie dippers (no crackers/bread), harissa heat, mostly unsaturated fats. <em>This is the snack from TUE-1 — make it tonight so it's in the fridge tomorrow.</em></p>
+    <p class="source-row"><a href="https://www.themediterraneandish.com/" target="_blank" rel="noopener noreferrer">The Mediterranean Dish — spice-profile reference</a> (search "whipped cottage cheese harissa")</p>
   </div>
 </section>
 
 <section>
-  <h2 id="mon-5">MON-5 · Tech Jobs: IT + AI / Modern Stack</h2>
+  <h2 id="tue-3">TUE-3 · App Development: React Native, AI &amp; Indie Building</h2>
+  <p class="meta">Tuesday focus: mobile-specific — React Native/Expo patterns, UI/UX, structure, performance. (Backend/AI is Wednesday.)</p>
 
-  <p class="caveat">All major job boards (LinkedIn, Indeed, Built In NYC, Wellfound, Jamf Community) returned HTTP 403 to automated fetch this run. The market signals below are pulled from search snippets — verify direct posting URLs by loading the aggregator pages in your browser.</p>
+  <h3>1. Expo SDK 54 + precompiled iOS XCFrameworks</h3>
+  <p><strong>What it is.</strong> SDK 54 (late 2025, current in 2026) ships React Native 0.81 with iOS dependencies precompiled as XCFrameworks rather than source. SDK 56 is in beta.</p>
+  <p><strong>Why it matters.</strong> Clean iOS builds drop from ~120 seconds to ~10 seconds on an M-series Mac. Cause: you were recompiling the same React Native C++/Obj-C every clean build. Effect: it's a binary blob that just links now. As an indie dev doing many <code>expo run:ios</code> cycles a day, those minutes add up to whether you bother iterating.</p>
+  <p><strong>For Tracker.</strong> Upgrade to SDK 54 before adding more native modules. Iterating on Buddy screen or new check-in UI on a real device gets instant, which changes how often you'll bother to try variants.</p>
+  <p class="source-row"><a href="https://expo.dev/changelog/sdk-54" target="_blank" rel="noopener noreferrer">expo.dev — SDK 54 changelog</a></p>
 
-  <h3>Market signals (NYC, Mac/SaaS-leaning IT roles)</h3>
+  <h3>2. New Architecture is the default (Fabric + JSI + TurboModules)</h3>
+  <p><strong>What it is.</strong> The old JS↔native "bridge" is gone. Fabric (renderer), JSI (direct JS↔native calls), and TurboModules (lazy-loaded native modules) replaced it. In SDK 54 you can't turn it off.</p>
+  <p><strong>Why it matters.</strong> The old bridge serialized everything to JSON and shipped it across threads asynchronously — that's why animations used to stutter and scroll lists felt "off." JSI lets JS hold direct refs to native objects. Typical apps see ~40% faster startup and 2-3× faster layout. About 85% of popular npm packages are now compatible.</p>
+  <p><strong>For Tracker.</strong> When evaluating a chart library for mood trends, or a calendar picker for the history view, check "New Architecture compatible" in the README. Incompatible libs either crash or fall back to interop shims that erase the perf win.</p>
+  <p class="source-row"><a href="https://docs.expo.dev/guides/new-architecture/" target="_blank" rel="noopener noreferrer">docs.expo.dev — New Architecture guide</a></p>
 
-  <div class="item">
-    <h4>Indeed — Okta + Jamf IT roles, NYC (9 active)</h4>
-    <p>Titles include Systems Administrator, Support Technician, Senior IT Manager. Jamf Engineer avg ~$118k (range $91k–$146k). Systems Engineer ~$140k. One described role profile matches you tightly: hybrid, managing Google Workspace + Okta SSO + CrowdStrike + Jamf/Intune, onboarding/offboarding, provisioning.</p>
-    <div class="links"><a href="https://www.indeed.com/q-okta-jamf-l-new-york,-ny-jobs.html" target="_blank" rel="noopener noreferrer">indeed.com — Okta Jamf NYC</a></div>
-  </div>
+  <h3>3. Reanimated 4: CSS animations vs. worklets</h3>
+  <p><strong>What it is.</strong> Reanimated 4 (stable mid-2025) splits animation into two: declarative CSS-style ("fade in over 300ms"), and worklets — JS functions compiled to run on the UI thread for gesture-driven work. Worklets now live in the separate <code>react-native-worklets</code> package.</p>
+  <p><strong>Why it matters.</strong> Animations on the JS thread block when JS is busy parsing a Claude API response. Worklets run on the UI thread, hitting 60fps even when JS is choking. CSS animations are "easy mode" with no worklet boilerplate. Separating <em>what</em> from <em>how</em> keeps simple cases simple.</p>
+  <p><strong>For Tracker.</strong> Use CSS animations for check-in-card entry transitions and the streak counter pop. Reserve worklets for gestures — swipe-to-log-mood, pull-to-refresh — anything where the finger drives the motion live.</p>
+  <p class="source-row"><a href="https://docs.swmansion.com/react-native-reanimated/docs/guides/migration-from-3.x/" target="_blank" rel="noopener noreferrer">Reanimated — migration to 4.x guide</a></p>
 
-  <div class="item">
-    <h4>Built In NYC — IT Operations &amp; Support board</h4>
-    <p>Aggregator for NYC tech-company IT roles. Filter by "Sysadmin" or "IT" — these are the ones where modern stack is the default rather than the exception. Best signal-to-noise board for avoiding pure Microsoft-AD shops.</p>
-    <div class="links"><a href="https://www.builtinnyc.com/jobs/sales/operations/information-technology" target="_blank" rel="noopener noreferrer">builtinnyc.com IT board</a></div>
-  </div>
+  <h3>4. Expo Router: route groups + protected routes</h3>
+  <p><strong>What it is.</strong> File-based routing — your <code>app/</code> folder IS the nav tree (like Next.js). <code>(tabs)</code> is a route group that doesn't appear in the URL. <code>_layout.tsx</code> wraps child routes. <code>+modal.tsx</code> presents modally.</p>
+  <p><strong>Why it matters.</strong> React Navigation wires up navigators imperatively in code, which gets tangled for an indie dev juggling features. File-based makes the structure visible at a glance. Auth gating lives in <code>(auth)/_layout.tsx</code> — check Supabase session, redirect if missing. No more "did I wrap this in <code>&lt;ProtectedRoute&gt;</code>?" bugs.</p>
+  <p><strong>For Tracker.</strong> <code>(tabs)/index.tsx</code> = today's check-in, <code>(tabs)/history.tsx</code> = past entries, <code>(tabs)/insights.tsx</code> = Buddy insights. Log-mood sheet at <code>(modals)/log.tsx</code>. Login behind <code>(auth)/_layout.tsx</code>.</p>
+  <p class="source-row"><a href="https://docs.expo.dev/router/basics/common-navigation-patterns/" target="_blank" rel="noopener noreferrer">docs.expo.dev — Expo Router patterns</a></p>
 
-  <div class="item">
-    <h4>Jamf Community Job Board</h4>
-    <p>Direct postings from companies running Apple fleets. By definition zero pure-AD shops here.</p>
-    <div class="links"><a href="https://community.jamf.com/job-board-4" target="_blank" rel="noopener noreferrer">community.jamf.com/job-board-4</a></div>
-  </div>
+  <h3>5. FlashList for any growing list of past entries</h3>
+  <p><strong>What it is.</strong> Shopify's FlashList is a drop-in FlatList replacement that recycles cell instances instead of destroying/recreating them. Same API.</p>
+  <p><strong>Why it matters.</strong> FlatList virtualizes (renders only visible rows) but mounts/unmounts components on scroll — hence the "blank flashes" and high JS thread usage. FlashList keeps a pool of mounted cells and swaps the data inside them. Same trick as iOS's <code>UITableView</code>. JS thread stays under 10% during scroll vs. 90%+ on FlatList. Rule of thumb: under ~400 items FlatList is fine, beyond that switch.</p>
+  <p><strong>For Tracker.</strong> The history view grows forever if the app sticks. Build it on FlashList from day one — you'll never have to rewrite when a power user hits day 800. Set <code>estimatedItemSize</code> (row height in px) so it can pre-allocate.</p>
+  <p class="source-row"><a href="https://shopify.github.io/flash-list/" target="_blank" rel="noopener noreferrer">shopify.github.io/flash-list — docs</a></p>
 
-  <div class="item">
-    <h4>ZipRecruiter — Jamf Engineer NYC</h4>
-    <p>Live feed. Avg in this title runs $35–$70/hr in NYC.</p>
-    <div class="links"><a href="https://www.ziprecruiter.com/Jobs/Jamf-Engineer/-in-New-York-City,NY" target="_blank" rel="noopener noreferrer">ZipRecruiter — Jamf Engineer</a></div>
-  </div>
+  <p class="meta">Bonus pointer for later: 2026 indie consensus on UI kits is <strong>Tamagui</strong> (compiler-optimized) or <strong>NativeWind</strong> (Tailwind classes). Both support New Arch. <a href="https://blog.logrocket.com/best-react-native-ui-component-libraries/" target="_blank" rel="noopener noreferrer">LogRocket — best RN UI libraries</a>.</p>
 </section>
 
 <section>
-  <h2 id="mon-6">MON-6 · Tech Jobs: Beyond IT Support</h2>
+  <h2 id="tue-4">TUE-4 · Wellness App Landscape vs. John's Tracker</h2>
 
-  <div class="item">
-    <h4>Glassdoor — Solutions Engineer, NYC (209 open)</h4>
-    <p>Avg $134k, range $111k–$153k. Many list "Bachelor's OR equivalent (~12 years) work experience" — your 12 years of enterprise IT qualifies you under the experience substitution. SE roles tend to value technical depth + customer communication, both of which fit you.</p>
-    <div class="links"><a href="https://www.glassdoor.com/Job/new-york-solutions-engineer-jobs-SRCH_IL.0,8_IC1132348_KO9,27.htm" target="_blank" rel="noopener noreferrer">Glassdoor — SE NYC</a></div>
-  </div>
+  <h3>1. Bearable — iOS &amp; Android</h3>
+  <p><em>Most comprehensive symptom-and-lifestyle tracker for chronic physical and mental health management.</em></p>
+  <ul>
+    <li>Unlimited custom metrics (mood, symptoms, sleep, energy, meds, diet, activity) in a few taps</li>
+    <li>Correlation reports surface which inputs actually move symptoms</li>
+    <li>Strong medication tracking with reminders, doses, adherence history</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> no AI companion · dense, clinical UI · correlation insights paywalled at $34.99/yr.</p>
+  <p class="source-row"><a href="https://bearable.app/" target="_blank" rel="noopener noreferrer">bearable.app</a></p>
 
-  <div class="item">
-    <h4>LinkedIn — Technical Account Manager, NY (921 open, ~40 new this week)</h4>
-    <p>NYC avg $94k, range $67k–$110k. Lower band than SE, but the volume is huge and the role rewards exactly your background: enterprise IT empathy + ability to translate technical work to non-technical stakeholders.</p>
-    <div class="links"><a href="https://www.linkedin.com/jobs/technical-account-manager-jobs-new-york" target="_blank" rel="noopener noreferrer">LinkedIn — TAM NY</a></div>
-  </div>
+  <h3>2. Daylio — iOS &amp; Android</h3>
+  <p><em>Fastest-to-log mood + micro-journal app, with the iconic "Year in Pixels."</em></p>
+  <ul>
+    <li>2-tap mood + activity logging removes all friction</li>
+    <li>Year in Pixels makes a year of mood legible at a glance</li>
+    <li>Clean activity-to-mood correlation stats</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> mood is 5-point only (no anxiety/focus/energy dimensions) · no medication or sobriety modules · no AI.</p>
+  <p class="source-row"><a href="https://daylio.net/" target="_blank" rel="noopener noreferrer">daylio.net</a></p>
 
-  <div class="item">
-    <h4>Wellfound — Solutions Engineer, NY (startup-side)</h4>
-    <p>Wellfound is the startup-equity-heavy slice of the SE market. Higher upside, more risk. Worth a scan if you want to lean into the early-stage SaaS side.</p>
-    <div class="links"><a href="https://wellfound.com/role/l/solutions-engineer/new-york" target="_blank" rel="noopener noreferrer">wellfound.com — SE NY</a></div>
-  </div>
+  <h3>3. Finch — iOS &amp; Android</h3>
+  <p><em>Gamified self-care via a virtual pet that grows when you complete wellbeing tasks.</em></p>
+  <ul>
+    <li>Shame-free gamification reframes self-care as caring for someone else</li>
+    <li>Pairs mood check-ins with breathing, journaling, and tiny goals in one flow</li>
+    <li>Built-in self-screening quizzes (anxiety, depression, body image)</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> shallow data layer · no correlations · no meds · no sobriety · can feel infantilizing for clinical-grade users.</p>
+  <p class="source-row"><a href="https://finchcare.com/" target="_blank" rel="noopener noreferrer">finchcare.com</a></p>
 
-  <div class="item">
-    <h4>Built In NYC — Technical Account Manager roles</h4>
-    <p>NYC tech-company filter. Implementation Specialist also lives on this board — same kind of fit.</p>
-    <div class="links"><a href="https://www.builtinnyc.com/jobs/sales/search/technical-account-manager" target="_blank" rel="noopener noreferrer">Built In NYC — TAM</a></div>
-  </div>
+  <h3>4. Stoic — iOS &amp; Android</h3>
+  <p><em>AI-powered guided journal with morning/evening reflection rituals.</em></p>
+  <ul>
+    <li>Morning-prep + evening-reflection wizard mirrors a structured check-in cadence</li>
+    <li>AI Mentors give contextual prompts and reactions across custom metrics (late-'25/'26)</li>
+    <li>Broad coverage: journal, mood, meditation, breathing, habits, exports</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> no sobriety/cravings · minimal med tracking · AI behind premium tier · some billing/support complaints.</p>
+  <p class="source-row"><a href="https://www.getstoic.com/" target="_blank" rel="noopener noreferrer">getstoic.com</a></p>
 
-  <p class="note"><strong>If you only do one thing in this section this week:</strong> spend 30 minutes on the Built In NYC IT board and the Jamf Community board. Both are smaller, less spammy, and surface modern-stack roles disproportionately.</p>
+  <h3>5. How We Feel — iOS &amp; Android (free, no ads, no paid tier)</h3>
+  <p><em>Research-backed emotion-granularity tool from Yale's RULER framework.</em></p>
+  <ul>
+    <li>144-word Mood Meter on a valence/energy grid teaches emotional precision</li>
+    <li>"Reflect" AI feature turns check-ins into journaling prompts</li>
+    <li>Bundles sleep/exercise tracking and coping-strategy video lessons; entirely free</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> no meds, no sobriety, no 1–10 scales · minimal long-form analytics.</p>
+  <p class="source-row"><a href="https://howwefeel.org/" target="_blank" rel="noopener noreferrer">howwefeel.org</a></p>
+
+  <h3>6. I Am Sober — iOS &amp; Android</h3>
+  <p><em>Sobriety-first tracker with daily pledge, milestone counters, and per-substance communities.</em></p>
+  <ul>
+    <li>Real-time sobriety counter (down to the second) plus money/time-saved calculator</li>
+    <li>Daily pledge + end-of-day recap creates a bookended check-in pattern</li>
+    <li>Withdrawal timeline populated by real user data; condition-specific communities</li>
+  </ul>
+  <p class="why"><strong>Gaps:</strong> single-domain · no mood/anxiety/focus dimensions · no meds · no AI conversation.</p>
+  <p class="source-row"><a href="https://iamsober.com/" target="_blank" rel="noopener noreferrer">iamsober.com</a></p>
+
+  <h3>5 concrete feature ideas for John's Tracker</h3>
+  <ol>
+    <li><strong>Med-filtered correlation dashboard.</strong> Show "your anxiety is 2.1 points higher on nights you slept under 6h" — but scoped to <em>your</em> meds (fluoxetine / ritalin / seroquel) individually. Bearable does correlations in general; nobody does them filtered by personal medication adherence. You have the raw data already.</li>
+    <li><strong>Multi-layer "Year in Pixels."</strong> Daylio's single-mood heatmap is iconic. Stack three rows — mood, cannabis-free streak, med adherence — and the visual storytelling about how sobriety lines up with mood across 365 days becomes uniquely yours.</li>
+    <li><strong>Morning pledge + evening recap framing for sobriety check-ins.</strong> Borrow I Am Sober's bookend: morning asks "pledge cannabis-free today?" Evening recaps whether it held, with a real-time counter on the home screen. Adds ritual to the data you're already collecting.</li>
+    <li><strong>Emotion-granularity tagger on free-text notes.</strong> Overlay a How-We-Feel-style 2D valence/energy grid as an <em>optional</em> tag layer on the notes field. Makes notes searchable later ("show every 'restless' entry") and trains precise self-awareness without forcing it.</li>
+    <li><strong>Buddy-generated Sunday weekly digest.</strong> Use the existing Claude integration to push a 1-paragraph summary every Sunday morning: top mood drivers this week, sobriety status, sleep-vs-focus pattern, one experiment to try. Turns Buddy from reactive chat into a proactive coach — closing the gap Stoic and Bearable each only half-fill.</li>
+  </ol>
 </section>
 
 <section>
-  <h2 id="mon-7">MON-7 · AI in IT: Workflow Automation</h2>
+  <h2 id="tue-5">TUE-5 · Passive Income</h2>
+  <p class="meta">Tuesday's angle: things that could be built or augmented using Claude. Quick reality check first — nothing here is "passive" in the recliner sense. Front-loaded effort, then reduced (not zero) maintenance. Anyone selling the recliner version is the product.</p>
 
-  <p>You're considering a return to enterprise IT. Below are five practical, currently-shipping AI techniques that cut the interruption load — the actual thing that makes IT draining. Ordered from "set up first" to "useful once you're settled."</p>
+  <h3>1. AI Automation Retainer Practice (B2B — Make.com / n8n + Claude API)</h3>
+  <p><strong>Type:</strong> Done-for-you workflow automation for SMBs, monthly retainer model.</p>
+  <p><strong>Setup:</strong> 4–8 weeks to land first client. Medium difficulty for John — his enterprise IT + RN dev background maps directly. Sales is the hard part, not the tech.</p>
+  <p><strong>Realistic income:</strong> $500–$3,000 per workflow build + $200–$500/mo maintenance per client. Five recurring clients = roughly $1,000–$2,500/mo semi-passive after build-out.</p>
+  <p><strong class="red-flag">The catch:</strong> Not actually passive — clients call when integrations break (API deprecations, schema drift, edge cases). Churn is real; SMBs cancel when budgets tighten. Sales cycle is 4–12 weeks. Effectively fractional IT consulting with AI flavor.</p>
+  <p><strong>Where Claude fits:</strong> Sonnet/Haiku as reasoning layer inside Make.com/n8n flows — document extraction, contract review, email triage, lead qualification, support routing. Claude Code can scaffold integration code, cutting build time 50%+.</p>
+  <p class="why"><strong>Best fit for John?</strong> Highest of the four. Leverages 12 years enterprise IT + indie dev — he already speaks SMB-IT and can debug auth/webhooks fast.</p>
+  <p class="source-row"><a href="https://www.mindstudio.ai/blog/sell-ai-automations-local-businesses-claude-code-skills" target="_blank" rel="noopener noreferrer">MindStudio — selling AI automations to local businesses</a> · <a href="https://www.yaitec.com/en/blog/claude-code-how-base-aios-receita-recorrente" target="_blank" rel="noopener noreferrer">Yaitec — recurring revenue model for AI agencies</a></p>
 
-  <h3>1. LLM-as-scripting-partner (ChatGPT, Claude, Copilot)</h3>
-  <p><strong>What it does:</strong> Turns "I need a PowerShell script to find stale AD accounts and email the report" from 45 minutes into 5. Also parses log files, drafts regex, explains cryptic stack traces, converts manual runbooks into scripts.</p>
-  <p><strong>Why it reduces burnout:</strong> The exhausting part of IT isn't the work — it's the context-switching when a ticket pulls you out of a half-written script and you lose your place. AI handles the boilerplate so your remaining focus goes to judgment calls. It also kills the "I know I've solved this before but where" tax.</p>
-  <p><strong>Get started:</strong> A $20/month Claude or ChatGPT subscription on your personal account, or M365 Copilot if your employer provides one. Start by pasting in error messages. Graduate to "write me a PowerShell function that does X, comment every block." Always read what it gives you before running.</p>
-  <p><strong>Limits:</strong> Hallucinates cmdlet names and flags — verify with <code>Get-Help</code> before running anything destructive. Never paste customer data, passwords, or internal hostnames into a public model.</p>
-  <p class="links"><a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-reports-for-admins" target="_blank" rel="noopener noreferrer">Microsoft Copilot for IT admins</a></p>
+  <h3>2. Vertical Micro-SaaS (single-niche tool, Claude-powered)</h3>
+  <p><strong>Type:</strong> Tiny SaaS solving one painful workflow for a narrow vertical (drum-teacher scheduling, RN app review-monitoring dashboard, etc.).</p>
+  <p><strong>Setup:</strong> 2–4 months to MVP + launch. 6–18 months to meaningful MRR. High difficulty — distribution kills more micro-SaaS than code does.</p>
+  <p><strong>Realistic income:</strong> Sobering numbers — <strong>70% of micro-SaaS earn under $1K MRR.</strong> Median <em>profitable</em> one is ~$4.2K MRR. 30% plateau at $1K–$5K. Only ~10% break $20K. Plan for $0–$1K in year one as the base case.</p>
+  <p><strong class="red-flag">The catch:</strong> "Build it and they'll come" is a lie. Acquisition and support eat the "passive" hours. Claude API costs scale with active users; a viral hit can briefly run at negative margin until you optimize prompts/caching.</p>
+  <p><strong>Where Claude fits:</strong> Core product reasoning (summarization, classification, generation) + Claude Code shipping the product faster. Prompt caching + Haiku for cheap paths, Sonnet for hard ones, is the standard margin pattern.</p>
+  <p class="why"><strong>Best fit for John?</strong> Strong, given RN shipping experience. Pick a vertical with insider knowledge — drumming community, enterprise IT pains.</p>
+  <p class="source-row"><a href="https://www.nxcode.io/resources/news/micro-saas-ideas-2026" target="_blank" rel="noopener noreferrer">NxCode — 50 micro-SaaS ideas 2026 with revenue data</a> · <a href="https://www.vibrantsnap.com/blog/micro-saas-ideas-profitable-niches-2026" target="_blank" rel="noopener noreferrer">VibrantSnap — 30 solo-founder micro-SaaS revenue case studies</a></p>
 
-  <h3>2. Self-service password reset (Microsoft Entra SSPR)</h3>
-  <p><strong>What it does:</strong> Lets users reset their own AD/Entra password from the lock screen after MFA verification. Eliminates the single most common L1 ticket.</p>
-  <p><strong>Why it reduces burnout:</strong> Password resets are interruption-shaped — trivial individually, lethal to concentration. Killing this category is the highest-leverage hour you'll spend in your first month at a new shop.</p>
-  <p><strong>Get started:</strong> If the org has Entra ID P1 or P2 (bundled with M365 Business Premium and up), SSPR is a config toggle, not a purchase. Pilot with one group, then expand.</p>
-  <p><strong>Limits:</strong> Adoption is the hard part — users won't register methods unless you force registration via Conditional Access. The Sept 30, 2025 deprecation moved auth methods to the unified Authentication Methods policy; if you inherit a tenant on the legacy policy, migrate it first.</p>
-  <p class="links"><a href="https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr" target="_blank" rel="noopener noreferrer">Microsoft Learn — Enable SSPR</a></p>
+  <h3>3. Niche SEO Content Site with AI-Assisted Research</h3>
+  <p><strong>Type:</strong> Affiliate / display-ad content in a narrow expertise niche (drumming gear reviews, etc.).</p>
+  <p><strong>Setup:</strong> 6–18 months before meaningful traffic. Low technical, high patience.</p>
+  <p><strong>Realistic income:</strong> $500–$5,000/mo for sites with real expertise. Established sites cluster around $2,000/mo. Many earn $0 indefinitely.</p>
+  <p><strong class="red-flag">The catch:</strong> Google's 2024–25 algorithm shifts + AI Overviews crushed thin AI content. Only sites with real expertise signals — author bylines, original photography, demonstrated experience — survive. Pure AI-spun content is actively penalized.</p>
+  <p><strong>Where Claude fits:</strong> Outline, fact-check, source-synthesize, edit — <em>not</em> first-draft writing if you want to rank. Claude as research engine + your voice = the pattern that still works.</p>
+  <p class="why"><strong>Best fit for John?</strong> Drumming niche is genuinely defensible — 20+ years experience = real E-E-A-T signals Google rewards.</p>
+  <p class="source-row"><a href="https://medium.com/@ayeshha2398/the-best-ai-tools-for-passive-income-in-2026-what-actually-works-after-8-months-of-testing-e3626db822d6" target="_blank" rel="noopener noreferrer">Medium — 8 months testing AI passive-income tools (2026)</a></p>
 
-  <h3>3. AI ticket triage in the helpdesk platform (Freshservice, Atera)</h3>
-  <p><strong>What it does:</strong> Auto-categorizes tickets, routes them to the right queue, suggests priority, drafts a first reply from past resolved tickets, deflects common questions before they become a ticket.</p>
-  <p><strong>Why it reduces burnout:</strong> You stop being a human router. Small service desks report ~30% fewer escalations, 15–20% better SLA — meaning fewer "why is this still open?" pings from managers.</p>
-  <p><strong>Get started:</strong> If you're interviewing, ask what ticketing system the shop uses and whether AI add-ons are enabled. Freshservice Starter ~$19/agent/mo base; "Freddy AI" sits on higher tiers. Atera bundles AI Copilot into $149/mo-per-tech IT department plan (no per-endpoint charge — good for lean teams).</p>
-  <p><strong>Limits:</strong> Pricing balloons when add-ons stack. AI suggestions need a few hundred historical tickets to be useful — greenfield instances are mediocre for the first quarter.</p>
-  <p class="links"><a href="https://www.flamingo.run/blog/best-ai-help-desk-software" target="_blank" rel="noopener noreferrer">Flamingo — best AI helpdesk 2026</a> · <a href="https://www.console.com/blog/freshservice-pricing/" target="_blank" rel="noopener noreferrer">Freshservice pricing 2026</a></p>
+  <h3>4. Paid Newsletter on Beehiiv (specialized expertise)</h3>
+  <p><strong>Type:</strong> Niche newsletter monetized via Beehiiv ad network and/or paid tier.</p>
+  <p><strong>Setup:</strong> 3–9 months to a meaningful list. Low technical, high consistency required (weekly cadence kills most).</p>
+  <p><strong>Realistic income:</strong> ~$500–$1,500/mo from automated sponsor placements at ~5,000 engaged subscribers. Paid-tier conversion typically 1–3% of list.</p>
+  <p><strong class="red-flag">The catch:</strong> Subscriber acquisition is the actual job. Without paid ads or an existing audience, organic growth is brutally slow. "Passive" only after ~3–5K subscribers + a content system. Cadence burnout is the #1 failure mode.</p>
+  <p><strong>Where Claude fits:</strong> Research + first-draft + summarization pipeline (Claude reads 20 source links → structured brief; you add voice/opinion). Cuts a 6-hour issue to ~2. Does <em>not</em> replace the human angle — that's what readers pay for.</p>
+  <p class="why"><strong>Best fit for John?</strong> Solid for either "Enterprise IT decoded for non-IT execs" or a drumming/music-tech angle. The skeptic voice is itself a differentiator in an AI-slop newsletter market.</p>
+  <p class="source-row"><a href="https://medium.com/@ayeshha2398/the-best-ai-tools-for-passive-income-in-2026-what-actually-works-after-8-months-of-testing-e3626db822d6" target="_blank" rel="noopener noreferrer">Medium — 8 months testing AI passive-income tools (2026)</a></p>
 
-  <h3>4. AI-powered internal knowledge search (Guru, Glean, Notion AI)</h3>
-  <p><strong>What it does:</strong> Indexes SharePoint, Confluence, Slack, ticket history, runbooks. Answers "how do we provision a new contractor laptop?" in natural language with links to the source doc.</p>
-  <p><strong>Why it reduces burnout:</strong> Tribal-knowledge anxiety is a huge component of returning-to-IT stress. Working internal search means you don't have to remember everything — and you don't have to interrupt a senior colleague to ask.</p>
-  <p><strong>Get started:</strong> Cheapest path is Notion AI (~$10/user/mo) if the team uses Notion. Guru is safer for IT because cards require human verification — the AI won't confidently cite a stale 2019 runbook. Glean is enterprise-priced; usually a top-down purchase.</p>
-  <p><strong>Limits:</strong> Garbage in, garbage out. If the docs are a mess, the AI will surface confidently-wrong answers. Plan a docs cleanup before deploying.</p>
-  <p class="links"><a href="https://www.eesel.ai/blog/best-ai-tools-for-knowledge-base-management" target="_blank" rel="noopener noreferrer">eesel — best AI KB tools 2026</a></p>
+  <h3>Red flags across the board</h3>
+  <ul>
+    <li><span class="red-flag">"AI does it all while you sleep"</span> — every credible source debunks this. Front-loaded effort, reduced (not zero) ongoing work.</li>
+    <li>Anyone selling a course before showing their own product revenue. Ask: <em>"What's your MRR on the thing itself, not on the course about the thing?"</em></li>
+    <li>"AI content at scale" sites — penalized by Google since 2024.</li>
+    <li>Faceless YouTube / AI-voiceover channels — YouTube is demonetizing low-effort AI through 2025–26.</li>
+    <li>API cost blindness — every Claude-powered build needs a unit-economics model from day one (input/output tokens × users × frequency). Prompt caching + Haiku-vs-Sonnet routing is the difference between margin and bankruptcy.</li>
+  </ul>
 
-  <h3>5. Workflow automation for onboarding/offboarding (Tines, Power Automate)</h3>
-  <p><strong>What it does:</strong> Triggered by an HRIS event, the workflow creates the AD account, assigns licenses, provisions SaaS apps, ships the laptop. On termination it revokes everything with an audit trail. CISA's Jan 2025 rule now sets credential revocation within 10 days of termination as the regulatory bar — manual processes miss this.</p>
-  <p><strong>Why it reduces burnout:</strong> Onboarding/offboarding is checklist-heavy, error-prone work where forgetting a step has heavy consequences (orphaned accounts, audit findings). Automating it removes both the tedium and the dread.</p>
-  <p><strong>Get started:</strong> Power Automate is included with M365, lowest-friction starting point. Tines has a generous free Community Edition. Start with offboarding (lower risk if half-broken) before onboarding (where a broken flow = angry new hire on day one).</p>
-  <p><strong>Limits:</strong> Workflow tools become load-bearing scripts nobody understands six months later. Document every flow.</p>
-  <p class="links"><a href="https://www.tines.com/blog/employee-offboarding-automation-a-playbook-for-it-and-security/" target="_blank" rel="noopener noreferrer">Tines offboarding playbook</a> · <a href="https://m365scripts.com/microsoft365/automate-microsoft-365-user-onboarding-using-power-automate/" target="_blank" rel="noopener noreferrer">M365Scripts — Power Automate onboarding</a></p>
+  <h3>John-specific take</h3>
+  <p>Highest expected value given your profile: <strong>#1 (Automation Retainer) as the income engine, #4 (Newsletter) as the distribution funnel that feeds it.</strong> Enterprise IT credibility + NYC market + skeptic voice is a defensible combo. #2 (micro-SaaS) is the long-term wealth bet — treat it as 18-month patient capital, not passive income. #3 only if the drumming niche genuinely excites you. Content sites die from boredom more than from competition.</p>
 
-  <div class="nudge">
-    <strong>Highest-leverage interview question.</strong> "What percentage of L1 tickets are password resets, and is SSPR deployed?" The answer tells you instantly whether the team is fighting fires they could have prevented — a strong signal of overall burnout culture.
-  </div>
+  <p class="meta">Topics covered Monday will not be repeated here. Wednesday's passive income will look for fresh angles.</p>
 </section>
-
-<section>
-  <h2 id="mon-8">MON-8 · High-Pay Entry-Level Jobs ($35+/hr, Any Industry)</h2>
-
-  <div class="item">
-    <h4>MTA Conductor (Exam #6626) <span class="flag warn">Closes 6/30 — 8 days</span></h4>
-    <div class="item-meta">$26.70/hr start → $38.15/hr (~$79k) by year 6 · TWU Local 100 · Five boroughs</div>
-    <p>Civil service exam. $68 fee. Test scheduled ~10/11/2026. Lowest-friction $79k path in NYC. Diffs + pension on top.</p>
-    <div class="links"><a href="https://www.mta.info/document/209271" target="_blank" rel="noopener noreferrer">MTA Conductor exam announcement</a></div>
-  </div>
-
-  <div class="item">
-    <h4>MTA Bus Operator</h4>
-    <div class="item-meta">$26.19/hr start → $39.70/hr ($82,578) by year 6 · TWU Local 100 · Citywide</div>
-    <p>CDL Class B + passenger endorsement provided through training. Watch the DCAS exam schedule.</p>
-    <div class="links"><a href="https://www.mta.info/careers/bus-operator" target="_blank" rel="noopener noreferrer">MTA Bus Operator</a> · <a href="https://www.mta.info/careers/mta-exams/exam-schedule" target="_blank" rel="noopener noreferrer">MTA exam schedule</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Laborers Local 79 Apprenticeship <span class="flag warn">Window 7/10–7/23 only</span></h4>
-    <div class="item-meta">Apprentice → journey $40+/hr; prevailing-wage $35–$50+/hr · LIUNA Local 79 · NYC metro</div>
-    <p>Only 200 slots. Apps issued online 9–11 AM daily, first-come-first-served, capped at 2,000 apps total. Block your calendar for 9 AM 7/10 — by minute 10 it may be over.</p>
-    <div class="links"><a href="https://dol.ny.gov/news/construction-general-building-laborers-lu-79" target="_blank" rel="noopener noreferrer">NY DOL — Local 79 announcement</a> · <a href="https://www.local79.org/apprenticeship/" target="_blank" rel="noopener noreferrer">local79.org/apprenticeship</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Plumbers Local 1 Apprenticeship <span class="flag">Open now</span></h4>
-    <div class="item-meta">Apprentice ~$20–25/hr → prevailing $40+/hr; journeyman $60/hr+ package · UA Local 1 · NYC</div>
-    <p>Recruitment open 5/15/2026 through 5/14/2027 — one of the longest open windows in NYC trades right now. Apply early.</p>
-    <div class="links"><a href="https://dol.ny.gov/apprenticeship/apprenticeship-announcements" target="_blank" rel="noopener noreferrer">NY DOL apprenticeship announcements</a> · <a href="https://steamfitters638.org/apprenticeship.aspx" target="_blank" rel="noopener noreferrer">Steamfitters Local 638 (parallel option)</a></div>
-  </div>
-
-  <div class="item">
-    <h4>IBEW Local 3 Electrician Apprenticeship</h4>
-    <div class="item-meta">Apprentice ~$22/hr base → $35–$48/hr prevailing-wage → journeyman $50–$70/hr · IBEW Local 3 · Five boroughs + Westchester</div>
-    <p>Annual recruitment opens Oct 16. 4-year apprenticeship + AAS degree. Highly competitive — thousands of applicants per cycle.</p>
-    <div class="links"><a href="https://local3ibew.org/news/apprenticeship-recruitment-opens-october-16th" target="_blank" rel="noopener noreferrer">local3ibew.org — Oct 16 opening</a> · <a href="https://www.jibei.org/benefits/apprentice-program/" target="_blank" rel="noopener noreferrer">JIB apprentice program info</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Private CDL-B Hauler / Sanitation Driver</h4>
-    <div class="item-meta">$28–$38/hr (top union shops $35+) · Often USWU Local 339 · Citywide · No civil service test</div>
-    <p>Need Class B CDL + DOT medical card. Direct hire. Fastest path to $35+/hr if civil service exams feel too slow.</p>
-    <div class="links"><a href="https://www.ziprecruiter.com/Jobs/Cdl-Garbage-Truck/--in-New-York" target="_blank" rel="noopener noreferrer">ZipRecruiter — CDL garbage truck NYC</a></div>
-  </div>
-
-  <div class="item">
-    <h4>Staten Island Ferry Deckhand (civil service)</h4>
-    <div class="item-meta">$57,991–$66,690 for 32-hr week (~$35–40/hr) + diffs · MEBA · Staten Island</div>
-    <p><strong>Requires 2 yrs prior paid deckhand/seagoing experience.</strong> If that's a no, NYC Ferry (Hornblower) hires entry-level deckhands at lower entry pay with no maritime requirement.</p>
-    <div class="links"><a href="https://cityjobs.nyc.gov/job/deckhand-in-staten-island-jid-20431" target="_blank" rel="noopener noreferrer">cityjobs.nyc.gov</a> · <a href="https://www.ferry.nyc/careers/" target="_blank" rel="noopener noreferrer">NYC Ferry careers (no-exp path)</a></div>
-  </div>
-
-  <p class="note"><strong>Honorable mention — DSNY Sanitation Worker:</strong> $47k start → $89k at 5.5 years. <em>No exam currently open</em> (every 4–6 years; last was 2023). Bookmark and subscribe to DCAS alerts. <a href="https://www.nyc.gov/site/dcas/employment/exam-schedules-open-competitive-exams.page" target="_blank" rel="noopener noreferrer">DCAS exam schedule</a></p>
-
-  <div class="nudge">
-    <strong>Best near-term moves.</strong> 1) Apply MTA Conductor before 6/30 (8 days). 2) Block 9 AM 7/10 for Local 79. 3) Submit Plumbers Local 1 now (11-month window, no urgency but apply early). 4) Pursue CDL-B in parallel — fastest weeks-to-$35+/hr path.
-  </div>
-</section>
-
-<section>
-  <h2 id="mon-9">MON-9 · Passive Income</h2>
-
-  <p>Three options that clear the honest bar. Everything else in the "passive income" genre this week was course-seller bait. Bottom line up front: drum sample packs are your biggest natural edge.</p>
-
-  <div class="item">
-    <h4>1. T-bills (4-week, 3-month) via TreasuryDirect</h4>
-    <div class="item-meta">Setup: ~1 hour · Yield: 4-week 3.65% / 3-month 3.75% · State-tax exempt</div>
-    <p>Boring but real. $50K parked at 3.75% = ~$156/mo. $100K = ~$313/mo. State-tax-exempt is meaningful for an NYC resident (saves you NY state + NYC tax vs. HYSA interest).</p>
-    <p><strong>The catch:</strong> Requires capital. This isn't income from nothing — it's "stop letting cash rot in a 0.38% account." Rates trending down as the Fed cuts.</p>
-    <p><strong>Edge from your skills:</strong> None needed.</p>
-    <div class="links"><a href="https://www.treasurydirect.gov/marketable-securities/treasury-bills/" target="_blank" rel="noopener noreferrer">treasurydirect.gov</a> · <a href="https://www.bankrate.com/banking/savings/best-high-yield-interests-savings-accounts/" target="_blank" rel="noopener noreferrer">Bankrate HYSA comparison</a></p>
-  </div>
-
-  <div class="item">
-    <h4>2. Drum Sample Packs (Splice + your own Gumroad/Payhip) <span class="flag">Your strongest edge</span></h4>
-    <div class="item-meta">Setup: 1–3 weeks per pack · Realistic: $500–$5k pack 1 month then $50–$200/mo tail · 5–10 packs across platforms: $200–$2k/mo</div>
-    <p>A real drummer recording from a home kit (one-shots, multi-velocity round-robins, fills, loop kits at various BPMs) makes material bedroom producers using VSTs literally cannot. Splice is the marketplace; their contributor application takes weeks-to-months. Run your own storefront on Payhip for higher margins.</p>
-    <p><strong>The catch:</strong> Discovery is the bottleneck. You have to market via short clips (IG/TikTok/YouTube Shorts), which is not passive. Trap/hip-hop kits are saturated; live-recorded acoustic and rock are less crowded.</p>
-    <p><strong>Edge from your skills:</strong> Very strong. This is your best $/hour ratio of the creative options.</p>
-    <div class="links"><a href="https://splice.com/sounds/sell" target="_blank" rel="noopener noreferrer">Splice Sounds — sell</a> · <a href="https://payhip.com/sell-samples" target="_blank" rel="noopener noreferrer">Payhip storefront</a> · <a href="https://orphiq.com/resources/sample-pack-sales-guide" target="_blank" rel="noopener noreferrer">Honest revenue breakdown (Orphiq)</a></p>
-  </div>
-
-  <div class="item">
-    <h4>3. Stock Music Licensing (Pond5 + AudioJungle, non-exclusive)</h4>
-    <div class="item-meta">Setup: 3–6 months part-time to build 30–50 starter tracks · Realistic: $50–$200/mo at 50–100 tracks; ~$100/mo "common" at 150–400 tracks</div>
-    <p>"Passive" only kicks in after the catalog exists. Top earners ($1k+/mo) have 500–2,000+ tracks built over years.</p>
-    <p><strong>The catch:</strong> Heavily saturated and now flooded with AI-generated tracks competing on the same keywords. Composers who go inactive see sales decay — search favors recent uploaders. Plan on 2–3 tracks/month indefinitely.</p>
-    <p><strong>Edge from your skills:</strong> Strong. Live-feel rhythm beds and corporate/indie cues with real drums score above the AI noise. Live drums are a genuine differentiator right now.</p>
-    <div class="links"><a href="https://www.pond5.com/sell-stock-footage" target="_blank" rel="noopener noreferrer">Pond5 contributor</a> · <a href="https://audiojungle.net/become_an_author" target="_blank" rel="noopener noreferrer">AudioJungle author</a> · <a href="https://www.stockmusicmusician.com/blog/how-much-do-stock-music-composers-make-realistic-income-expectations" target="_blank" rel="noopener noreferrer">Real composer income numbers</a></p>
-  </div>
-
-  <p class="note"><strong>Deliberately rejected:</strong> "Sell developer scripts on Gumroad," niche SaaS, online courses. SaaS = on-call support burden. Courses = the entire genre is dominated by people whose actual income is selling courses <em>about</em> making passive income. Skip. Musicbed and Artlist are premium/curated — not realistic for a cold submission; revisit in year 2 with a portfolio.</p>
-
-  <div class="nudge">
-    <strong>If you only do one thing.</strong> Record one tight 50-sample drum pack (one kit, one room, multi-velocity round-robins on every piece, four BPMs) over the next 2 weeks. Get it on Payhip first (instant), then submit to Splice while it's already earning. That's the cleanest first dollar.
-  </div>
-</section>
-
-<hr>
-<p class="note">Generated 6:30 AM ET · <a href="archive/">All past briefings</a></p>
 
 </body>
 </html>
