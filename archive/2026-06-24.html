@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>John's Daily Briefing — Wednesday, June 24, 2026</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --fg: #e0e0e0;
+    --muted: #888;
+    --rule: #222;
+    --link: #9ecbff;
+    --accent: #ffb454;
+    --accent-soft: #7fb3a1;
+    --card: #161616;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem 4rem;
+    line-height: 1.62;
+    font-size: 17px;
+  }
+  header.page {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.page h1 {
+    margin: 0 0 .25rem;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+  }
+  header.page .date {
+    color: var(--muted);
+    font-size: .98rem;
+    margin: 0;
+  }
+  header.page .updated {
+    color: var(--muted);
+    font-size: .85rem;
+    margin: .25rem 0 0;
+  }
+  nav.toc, nav.archive-nav {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: .75rem 1rem;
+    font-size: .92rem;
+  }
+  nav.toc { margin: 0 0 .6rem; }
+  nav.archive-nav { margin: 0 0 1.75rem; }
+  nav.toc strong, nav.archive-nav strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem .85rem;
+  }
+  nav.toc li::before {
+    content: '· ';
+    color: var(--muted);
+  }
+  nav.toc li:first-child::before { content: ''; }
+  nav.archive-nav .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem .85rem;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  section {
+    margin: 2.25rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+  section:first-of-type { border-top: none; padding-top: 0; }
+  h2 {
+    font-size: 1.22rem;
+    margin: 0 0 .85rem;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+  h2 .tag {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: .35rem;
+  }
+  h3 {
+    font-size: 1.02rem;
+    margin: 1.25rem 0 .35rem;
+    color: var(--fg);
+  }
+  p { margin: .55rem 0; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin: .25rem 0; }
+  .callout {
+    background: var(--card);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0;
+  }
+  .callout .label {
+    color: var(--accent);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    margin-bottom: .35rem;
+  }
+  .mantra {
+    margin-top: .85rem;
+    font-style: italic;
+    color: var(--accent);
+    border-top: 1px dashed #333;
+    padding-top: .7rem;
+  }
+  .recipe {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .recipe-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: .35rem;
+  }
+  .recipe-type {
+    color: var(--accent);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+  }
+  .recipe-yield {
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  .recipe-name {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  details {
+    margin-top: .65rem;
+    border-top: 1px solid var(--rule);
+    padding-top: .55rem;
+  }
+  details summary {
+    cursor: pointer;
+    color: var(--accent-soft);
+    font-size: .9rem;
+    user-select: none;
+  }
+  details ul {
+    margin-top: .5rem;
+    margin-bottom: 0;
+    font-size: .94rem;
+    color: #c8c8c8;
+  }
+  .item {
+    margin: 1.1rem 0;
+    padding-left: .75rem;
+    border-left: 2px solid #2a2a2a;
+  }
+  .item h3 { margin-top: 0; }
+  .meta {
+    color: var(--muted);
+    font-size: .85rem;
+    margin: 0 0 .35rem;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .85rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>John's Daily Briefing</h1>
+  <p class="date">Wednesday, June 24, 2026</p>
+  <p class="updated">Last updated: 8:04 AM ET</p>
+</header>
+
+<nav class="toc">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#wed-1">WED-1 · Mindful Eating &amp; Exercise for ADHD</a></li>
+    <li><a href="#wed-2">WED-2 · Recipes: Meal-Prep Batches</a></li>
+    <li><a href="#wed-3">WED-3 · App Dev: AI, Backend &amp; Tools</a></li>
+    <li><a href="#wed-4">WED-4 · NYC Urban Planning &amp; Global Urbanism</a></li>
+    <li><a href="#wed-5">WED-5 · Passive Income</a></li>
+  </ol>
+</nav>
+
+<nav class="archive-nav">
+  <strong>Past briefings</strong>
+  <div class="links">
+    <a href="archive/2026-06-23.html">Jun 23</a>
+    <a href="archive/2026-06-22.html">Jun 22</a>
+    <a href="archive/2026-06-21.html">Jun 21</a>
+    <a href="archive/2026-06-19.html">Jun 19</a>
+    <a href="archive/2026-06-18.html">Jun 18</a>
+    <a href="archive/index.html">All archives →</a>
+  </div>
+</nav>
+
+<section id="wed-1-section">
+  <h2 id="wed-1"><span class="tag">WED-1</span>Mindful Eating &amp; Exercise for ADHD</h2>
+
+  <p>You named it yesterday — and naming it matters more than it feels like it does. From the 5:52 PM check-in: <em>"now I can only think about The Cycle. I don't know how I'm going to crawl out of this. Is the app helping me? It's helping me to maintain awareness so that I can course correct more quickly. That is very valuable."</em> That's not the voice of someone losing. That's the wedge. The same person reaching for two chocolate bars at low energy also unpacked a box, voted, followed up with Cynthia, and cooked tofu and garlic for the week. Awareness landed mid-day, not three weeks later.</p>
+
+  <p>The ADHD-specific loop, plainly: dopamine is low → executive function tax for any decision feels enormous → sugar is the cheapest dopamine hit available → 20-minute spike → crash deeper than baseline → the next decision feels even more impossible → repeat. The evening check-in said it directly: <strong>"sweets_reason: Low energy."</strong> Your tracker is naming cause and effect for you in plain text.</p>
+
+  <h3>Three things that actually move the needle for ADHD brains</h3>
+  <ol>
+    <li><strong>Pre-decide one default protein meal — and put it at eye level.</strong> You already did the hard part. Tofu and garlic is cooked. Portion it into 4 containers tonight and put them at the front of the fridge, ahead of anything else. ADHD brains don't fail at willpower, they fail at decision-making under load. The decision you made on a calm Tuesday night beats the decision you make at 3 PM with energy at 5.</li>
+    <li><strong>Eat protein <em>before</em> opening anything with a screen.</strong> Not "eat better." Not "less sugar." Just one rule: 15g of protein before phone, before email, before the first job posting that's going to make your whole body refuse. The morning data shows mood 7, energy 6, anxiety 3 — protein-first protects that window before the day chews it down.</li>
+    <li><strong>Two-minute movement, not a workout.</strong> Exercise was false every day this week. Don't try to fix that. Just: when you notice the craving start (the tracker will tell you — you've already proven it logs in real-time), stand up and walk to the farthest corner of the apartment and back. That's it. Movement breaks the dopamine-seeking pattern enough that the choice opens back up. A workout is a goal. Two minutes is a hinge.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="label">Today's nudge</div>
+    <p>The Cycle isn't proof you're broken. It's a feedback loop with one weak link: the moment between "I notice" and "I reach." You already widened that gap yesterday by naming it in writing. Today, put the cooked tofu where you'll see it before the cabinet. That's the whole assignment. One physical placement, one time. The rest takes care of itself when you're not running on a sugar crash.</p>
+    <div class="mantra">Mantra: <em>Awareness <strong>is</strong> the wedge. I already have the tool.</em></div>
+  </div>
+
+  <p class="meta">Frame drawn from: Dr. Edward Hallowell (ADHD &amp; reward sensitivity), Dr. Russell Barkley (executive function as a temporal problem), ADDitude Magazine on protein-first mornings, and Anna Lembke's <em>Dopamine Nation</em> on the spike-crash mechanic.</p>
+</section>
+
+<section id="wed-2-section">
+  <h2 id="wed-2"><span class="tag">WED-2</span>Recipes: Meal-Prep Batches</h2>
+  <p class="meta">Low/no added sugar · veggie-heavy · slow carbs · unsaturated fats · protein-forward. Each one cook session = multiple meals.</p>
+
+  <div class="recipe">
+    <div class="recipe-head">
+      <span class="recipe-type">Breakfast</span>
+      <span class="recipe-yield">12 muffins · serves 4–6</span>
+    </div>
+    <p class="recipe-name"><a href="https://www.wellplated.com/healthy-breakfast-egg-muffins/" target="_blank" rel="noopener noreferrer">Healthy Breakfast Egg Muffins (Make-Ahead) — Well Plated</a></p>
+    <p>~7g protein per muffin from 6 whole eggs + 4 egg whites; veggie-loaded (peppers, spinach, onions); easy to spice with jalapeño, cayenne, or hot sauce. Keeps 5 days in the fridge or 6 months frozen.</p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>6 large whole eggs · 4 large egg whites</li>
+        <li>1/2 tsp kosher salt · 1/4 tsp black pepper</li>
+        <li>1 tbsp extra-virgin olive oil</li>
+        <li>1 small yellow onion, diced</li>
+        <li>1 red bell pepper, diced</li>
+        <li>2 cloves garlic, minced</li>
+        <li>3 cups baby spinach, chopped</li>
+        <li>1/2 cup crumbled feta (or shredded part-skim mozzarella)</li>
+        <li>1/4 cup chopped fresh herbs (parsley, chives, or basil)</li>
+        <li>1 diced jalapeño OR 1/4 tsp cayenne OR a few dashes hot sauce</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head">
+      <span class="recipe-type">Lunch</span>
+      <span class="recipe-yield">Serves 4–6</span>
+    </div>
+    <p class="recipe-name"><a href="https://www.eatyourselfskinny.com/spicy-chickpea-quinoa-bowl/" target="_blank" rel="noopener noreferrer">Spicy Chickpea Quinoa Bowls — Eat Yourself Skinny</a></p>
+    <p>Vegan, slow-carb quinoa base, double protein from chickpeas + quinoa, real heat from cumin + red pepper flakes. Components store separately for 4–5 days, so it doesn't get sad.</p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>1 cup dry quinoa (rinsed) · 2 cups low-sodium vegetable broth</li>
+        <li>2 tbsp extra-virgin olive oil</li>
+        <li>1 small yellow onion, diced · 3 cloves garlic, minced</li>
+        <li>2 (15 oz) cans chickpeas, drained and rinsed</li>
+        <li>1 (14.5 oz) can fire-roasted diced tomatoes</li>
+        <li>2 tsp ground cumin · 1 tsp smoked paprika</li>
+        <li>1/2–1 tsp crushed red pepper flakes</li>
+        <li>1/2 tsp sea salt · 1/4 tsp black pepper</li>
+        <li>Juice of 1 lemon · 1/4 cup chopped cilantro</li>
+        <li>Optional: sliced avocado, baby spinach or arugula, tahini drizzle</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head">
+      <span class="recipe-type">Dinner</span>
+      <span class="recipe-yield">Serves 6–8</span>
+    </div>
+    <p class="recipe-name"><a href="https://sallysbakingaddiction.com/sweet-potato-turkey-chili/" target="_blank" rel="noopener noreferrer">Sweet Potato Turkey Chili (Slow Cooker) — Sally's Baking Addiction</a></p>
+    <p>Lean ground turkey + black/kidney beans for protein; sweet potato as the slow carb (and only sweetness — no added sugar); jalapeño + cayenne + chili powder do the heavy lifting on heat. Freezes for 3 months.</p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>1 tbsp olive oil · 1 lb lean ground turkey (93/7)</li>
+        <li>1 large yellow onion, diced · 1 red bell pepper, diced</li>
+        <li>1 jalapeño, seeded and minced · 4 cloves garlic, minced</li>
+        <li>2 medium sweet potatoes, peeled and cubed (~4 cups)</li>
+        <li>1 (15 oz) can black beans, drained and rinsed</li>
+        <li>1 (15 oz) can kidney beans, drained and rinsed</li>
+        <li>1 (28 oz) can crushed tomatoes (no sugar added)</li>
+        <li>1 (15 oz) can fire-roasted diced tomatoes</li>
+        <li>2 cups low-sodium chicken broth</li>
+        <li>2 tbsp chili powder · 1 tbsp ground cumin · 2 tsp smoked paprika · 1 tsp dried oregano</li>
+        <li>1/4–1/2 tsp cayenne (to taste)</li>
+        <li>1 tsp sea salt · 1/2 tsp black pepper</li>
+        <li>Juice of 1 lime · fresh cilantro to finish</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head">
+      <span class="recipe-type">Snack 1</span>
+      <span class="recipe-yield">~3 cups · serves 6</span>
+    </div>
+    <p class="recipe-name"><a href="https://www.loveandlemons.com/roasted-chickpeas/" target="_blank" rel="noopener noreferrer">Crispy Spicy Roasted Chickpeas — Love &amp; Lemons</a></p>
+    <p>Plant-protein + fiber dense, no added sugar, slow-carb legumes, unsaturated olive oil. One sheet pan = a week of snacks; stores 2 weeks at room temp in a sealed jar. Built to be the thing you grab instead of chocolate.</p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>2 (15 oz) cans chickpeas, drained, rinsed, and patted very dry</li>
+        <li>1.5 tbsp extra-virgin olive oil</li>
+        <li>3/4 tsp sea salt</li>
+        <li>1 tsp smoked paprika · 1 tsp ground cumin · 1 tsp chili powder · 1/2 tsp garlic powder</li>
+        <li>1/4–1/2 tsp cayenne pepper (to taste)</li>
+        <li>Optional: pinch of ground coriander, squeeze of lime after roasting</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-head">
+      <span class="recipe-type">Snack 2</span>
+      <span class="recipe-yield">~2 cups · serves 6</span>
+    </div>
+    <p class="recipe-name"><a href="https://cookieandkate.com/edamame-hummus-recipe/" target="_blank" rel="noopener noreferrer">Spicy Edamame Hummus — Cookie and Kate</a></p>
+    <p>Edamame is a complete plant protein; tahini and olive oil are the unsaturated fats; jalapeño + red pepper flakes for the heat. Pairs with raw veggies for a slow-carb, protein-forward snack. Keeps 4 days refrigerated.</p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>2 cups shelled edamame (thawed if frozen)</li>
+        <li>1/3 cup tahini · 1/4 cup fresh lemon juice</li>
+        <li>2 cloves garlic · 1/4 cup extra-virgin olive oil</li>
+        <li>3–5 tbsp cold water (to thin)</li>
+        <li>1 tsp ground cumin · 1/2 tsp sea salt</li>
+        <li>1 small jalapeño (or 1/2 tsp red pepper flakes)</li>
+        <li>Optional: 1 tsp chili crisp drizzled on top</li>
+        <li>For dipping: carrot sticks, cucumber, bell pepper strips, celery, snap peas</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section id="wed-3-section">
+  <h2 id="wed-3"><span class="tag">WED-3</span>App Dev: AI, Backend &amp; Tools</h2>
+
+  <div class="item">
+    <h3>1. Prompt caching is the single biggest lever on your Claude bill — and the TTL changed</h3>
+    <p><strong>What it is.</strong> Mark the stable parts of your prompt (system instructions, Buddy persona, recent journal context) as <code>cache_control</code>. The first call pays a write premium (~1.25×); subsequent calls inside the TTL pay ~10% of normal input cost.</p>
+    <p><strong>Why it matters.</strong> Chat-style apps repeat the same system prompt and history on every turn — without caching you're paying full price to re-read the same tokens. Anthropic dropped the default cache TTL from 60 minutes to 5 minutes earlier this year; many teams saw bills jump 30–60% silently. You can opt into the 1-hour TTL (costs 2× to write, breaks even after two reads).</p>
+    <p><strong>For John's Tracker.</strong> In the Buddy Edge Function, put the persona + last N journal entries inside a <code>cache_control</code> block. Pick the 1-hour TTL if a typical chat burst is &gt; 5 minutes. Daily briefing won't benefit (one-shot per day); Buddy will.</p>
+    <p class="meta"><a href="https://dev.to/whoffagents/claude-prompt-caching-in-2026-the-5-minute-ttl-change-thats-costing-you-money-4363" target="_blank" rel="noopener noreferrer">Source: Claude Prompt Caching in 2026 — the 5-minute TTL change</a></p>
+  </div>
+
+  <div class="item">
+    <h3>2. The "hub" Edge Function pattern: fewer, bigger functions beat many tiny ones</h3>
+    <p><strong>What it is.</strong> Supabase's current guidance is to develop a small number of large Edge Functions ("hubs") that internally route to features, instead of one function per endpoint. Combine with a deny-by-default allowlist and a <code>USER_DATA</code> block convention to defend against prompt injection.</p>
+    <p><strong>Why it matters.</strong> Each function is its own cold-start surface, its own deploy, and its own place to forget an auth check. Consolidating cuts cold starts, makes shared helpers (auth, logging, Claude client) reusable, and gives you one place to audit security. The <code>_shared</code> folder convention is the supported way to share code without deploying it.</p>
+    <p><strong>For John's Tracker.</strong> Consider one <code>ai</code> Edge Function that dispatches <code>buddy.chat</code>, <code>briefing.generate</code>, <code>entry.summarize</code> internally — one shared Claude client, one auth check, one rate limiter.</p>
+    <p class="meta"><a href="https://supabase.com/docs/guides/functions/development-tips" target="_blank" rel="noopener noreferrer">Source: Supabase Edge Functions — Development Tips</a></p>
+  </div>
+
+  <div class="item">
+    <h3>3. Automatic embeddings via pgmq + pg_cron — stop running your own pipeline</h3>
+    <p><strong>What it is.</strong> A documented Supabase pattern: a Postgres trigger drops a job into <code>pgmq</code> (Postgres message queue) when a row changes, <code>pg_cron</code> drains the queue and calls an Edge Function that generates the embedding and writes it back. HNSW is the 2026 default index (faster queries, slightly slower writes than IVFFlat).</p>
+    <p><strong>Why it matters.</strong> Embedding inline on insert couples your write path to an external API's latency and uptime. A separate worker is one more thing for an indie to host. Doing it inside Postgres means failures retry automatically, the queue is visible in SQL, and there's nothing extra to deploy.</p>
+    <p><strong>For John's Tracker.</strong> When you start semantic search over tracker entries (or letting Buddy recall "what was I thinking about last month?"), wire it: trigger → pgmq → cron → Edge Function → <code>embedding</code> column. Then <code>ORDER BY embedding &lt;=&gt; query_embedding LIMIT 5</code> to feed Buddy relevant memory.</p>
+    <p class="meta"><a href="https://github.com/supabase/supabase/blob/master/apps/docs/content/guides/ai/automatic-embeddings.mdx" target="_blank" rel="noopener noreferrer">Source: Supabase Automatic Embeddings docs</a></p>
+  </div>
+
+  <div class="item">
+    <h3>4. The agentic loop: keep one growing messages array — don't rebuild it</h3>
+    <p><strong>What it is.</strong> A real tool-using Claude agent is a <code>while</code> loop: send messages, check <code>stop_reason</code>; if it's <code>tool_use</code>, run the tool, append the result to the same messages array, send again. Stop when <code>stop_reason</code> is no longer <code>tool_use</code>. The discipline: <em>append, never rebuild</em>.</p>
+    <p><strong>Why it matters.</strong> Rebuilding from scratch loses context Claude was relying on and burns tokens re-establishing state. Treating messages as an append-only log is what makes multi-turn tool use work — and it's what makes prompt caching effective, since the prefix stays stable.</p>
+    <p><strong>For John's Tracker.</strong> When Buddy gains tools (<code>search_entries</code>, <code>create_entry</code>, <code>set_reminder</code>), structure the Edge Function as this loop. Pair with #1 — the growing array is exactly what caching is built for. Use Sonnet for main reasoning, Haiku for "classify this / extract that" sub-calls.</p>
+    <p class="meta"><a href="https://sabaqguide.com/blog/claude-api-tool-use-agentic-workflows" target="_blank" rel="noopener noreferrer">Source: Claude API tool use &amp; agentic workflows</a></p>
+  </div>
+
+  <div class="item">
+    <h3>5. Background jobs without a job runner: tables + Edge Functions + cron</h3>
+    <p><strong>What it is.</strong> A pattern documented by indie builder Jignesh: a <code>jobs</code> table, an Edge Function that processes a batch, and <code>pg_cron</code> to invoke on a schedule. No Redis, no BullMQ, no separate worker.</p>
+    <p><strong>Why it matters.</strong> Daily briefing generation is the textbook "I need a background job" case — but the textbook answer (Redis + a worker) is overkill for one developer. Tables give you durability (jobs survive restarts), observability (SQL queries the queue), and retries (just don't mark the row done).</p>
+    <p><strong>For John's Tracker.</strong> The daily briefing generator wants to be exactly this. A <code>briefing_jobs</code> table, cron at e.g. 5 AM user-local inserting rows for active users, an Edge Function pulling a batch, calling Claude, writing the briefing, marking complete. Failures stay in the queue and get retried the next day without code.</p>
+    <p class="meta"><a href="https://www.jigz.dev/blogs/how-i-solved-background-jobs-using-supabase-tables-and-edge-functions" target="_blank" rel="noopener noreferrer">Source: How I solved background jobs using Supabase tables and Edge Functions</a></p>
+  </div>
+</section>
+
+<section id="wed-4-section">
+  <h2 id="wed-4"><span class="tag">WED-4</span>NYC Urban Planning &amp; Global Urbanism</h2>
+
+  <h3>NYC</h3>
+
+  <div class="item">
+    <h3>Mayor Mamdani's "Block by Block" housing plan gains momentum</h3>
+    <p class="meta">New York City · Mayor Mamdani's administration, HPD, NYCHA</p>
+    <p>The 112-page <em>Block by Block: The Housing Plan for A New Era</em> (released May 2026) is being actively rolled out in June. On June 4, Mamdani cut the ribbon on the ANCP Morningside affordable co-ops, spotlighting the homeownership pillar. The plan targets 200,000 new affordable homes over a decade, ~$5B in two-year funding for rent-stabilized housing, doubling of the Open Door program, a new "Our Home" permanent-affordable co-op program, a $40/hour construction-wage floor under the Construction Justice Act, and the largest recent City capital injection into NYCHA.</p>
+    <p><strong>Why it matters:</strong> With a 1.4% vacancy rate (lowest in 50+ years) and Manhattan median rent at $5,000, this is the first comprehensive municipal housing plan since City of Yes — and the first big test of Mamdani's promise to shift NYC housing toward public production and homeownership.</p>
+    <p class="meta">Sources: <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-cuts-ribbon-on-affordable-co-ops-at-ancp-morningsi" target="_blank" rel="noopener noreferrer">NYC.gov</a> · <a href="https://amsterdamnews.com/news/2026/06/04/nyc-mayors-block-by-block-highlights-nycha-needs/" target="_blank" rel="noopener noreferrer">Amsterdam News</a></p>
+  </div>
+
+  <div class="item">
+    <h3>Second Avenue Subway Phase 2 breaks ground in East Harlem</h3>
+    <p class="meta">East Harlem, Manhattan · Gov. Hochul, MTA, Skanska-Traylor-Walsh JV</p>
+    <p>On June 8, Hochul and MTA leadership broke ground on Phase 2, extending the Q line from 96th Street to 125th &amp; Lexington with new stations at 106th, 116th, and 125th. The $1.02B design-build Contract 3 went to Skanska-Traylor-Walsh for the 106 St station shell. Tunnel boring machines arrive in early 2027.</p>
+    <p><strong>Why it matters:</strong> A long-promised transit-equity project for East Harlem, funded substantially through congestion-pricing-backed capital bonds. Projected 100,000 daily riders, connections to the 4/5/6 and Metro-North at 125th. ~$7B total, completion targeted 2032.</p>
+    <p class="meta">Sources: <a href="https://www.thecityreporter.nyc/2026/06/08/second-avenue-subway-mta-construction-hochul/" target="_blank" rel="noopener noreferrer">The City Reporter</a> · <a href="https://www.amny.com/news/second-avenue-subway-hochul-mta-tunnel-boring/" target="_blank" rel="noopener noreferrer">amNY</a></p>
+  </div>
+
+  <div class="item">
+    <h3>Congestion pricing: 18-month data confirms sustained traffic and pollution drop</h3>
+    <p class="meta">Manhattan CRZ (south of 60th St) · MTA, Hochul's office, Cornell study</p>
+    <p>27 million fewer vehicles entered the CRZ in the first year (–11%); a new Cornell study shows a 22% drop in air pollution inside the zone; $6B+ in transit projects unlocked by the toll are in construction (Second Ave Phase 2, ADA upgrades at 9 stations, A/C signal modernization for 600,000 daily riders). The federal court challenge has slipped into late 2026.</p>
+    <p><strong>Why it matters:</strong> The cleanest US evidence yet that cordon pricing works. Boston, SF, and Seattle are citing this data as they study their own programs.</p>
+    <p class="meta">Sources: <a href="https://www.governor.ny.gov/news/less-traffic-better-transit-its-first-anniversary-governor-hochul-celebrates-transformational" target="_blank" rel="noopener noreferrer">Governor.ny.gov</a> · <a href="https://landline.media/nyc-congestion-pricing-lives-on-court-pushes-decision-into-2026/" target="_blank" rel="noopener noreferrer">Landline</a></p>
+  </div>
+
+  <div class="item">
+    <h3>NYC DOT 2026 Open Streets season underway with 150+ locations</h3>
+    <p class="meta">All five boroughs · NYC DOT, CitizensNYC, Comptroller Levine</p>
+    <p>DOT kicked off the 2026 season with 150+ initial locations, a streamlined payment process for community partners (via CitizensNYC), and a June 10 deadline for school-based applications. Comptroller Levine simultaneously released <em>Streets for People</em>, calling for a permanent NYC public space management office to stabilize the program after years of volunteer-led attrition.</p>
+    <p><strong>Why it matters:</strong> Open Streets has been NYC's signature post-pandemic public-realm experiment; institutionalizing it would be a major shift from ad-hoc community management to a funded city function.</p>
+    <p class="meta">Sources: <a href="https://www.nyc.gov/html/dot/html/pr2026/nyc-dot-kicks-off-2026-open-streets-season.shtml" target="_blank" rel="noopener noreferrer">NYC DOT</a> · <a href="https://comptroller.nyc.gov/reports/streets-for-people-open-streets-and-the-future-of-public-space-management-in-nyc/" target="_blank" rel="noopener noreferrer">Comptroller</a></p>
+  </div>
+
+  <h3>Global</h3>
+
+  <div class="item">
+    <h3>Houston completes Downtown Main Street pedestrianization ahead of FIFA World Cup</h3>
+    <p class="meta">Houston, Texas · City of Houston, Downtown Houston+ BID</p>
+    <p>Houston's full pedestrianization of Downtown Main Street is wrapping up in June 2026, timed to the city's role as a Men's World Cup host. ArchDaily features it alongside parallel projects in London (Oxford Street), Copenhagen, and Shanghai as part of a "cities for people" wave.</p>
+    <p><strong>Why it matters:</strong> One of the largest car-to-pedestrian conversions ever attempted in a Sun Belt US city historically defined by auto dependence — a real test of whether pedestrianization exports beyond European and dense coastal contexts.</p>
+    <p class="meta">Source: <a href="https://www.archdaily.com/1037458/from-london-to-houston-four-ongoing-pedestrianisation-initiatives-shaping-more-walkable-cities" target="_blank" rel="noopener noreferrer">ArchDaily</a></p>
+  </div>
+
+  <div class="item">
+    <h3>Concéntrico Festival transforms Logroño's public spaces (June 18–23, 2026)</h3>
+    <p class="meta">Logroño, Spain · Concéntrico festival, 24 international practices</p>
+    <p>The 2026 edition installed 24 temporary interventions across the city's squares, vacant lots, bridges, and forgotten passages, using tactical-urbanism methods to test how small, low-cost moves can reactivate underused public space. Runs in parallel with Dezeen's <em>Tactical Urbanism Now! 2026</em> competition.</p>
+    <p><strong>Why it matters:</strong> Concéntrico has become one of Europe's most-watched live laboratories for tactical urbanism — a counterpoint to top-down megaprojects, showing how cheap, participatory installations can permanently reshape civic space.</p>
+    <p class="meta">Sources: <a href="https://www.archdaily.com/tag/urbanism" target="_blank" rel="noopener noreferrer">ArchDaily festival coverage</a> · <a href="https://www.dezeen.com/competitions/tactical-urbanism-now-the-revolution-of-public-space-2/" target="_blank" rel="noopener noreferrer">Dezeen competition</a></p>
+  </div>
+</section>
+
+<section id="wed-5-section">
+  <h2 id="wed-5"><span class="tag">WED-5</span>Passive Income</h2>
+  <p class="meta">This week's angles: real-estate adjacent, licensing/IP, automated services, creator-economy niches. Honest numbers, real catches.</p>
+
+  <div class="item">
+    <h3>1. Drum sample packs on Splice / Loopmasters <span style="color:var(--muted);font-weight:normal;font-size:.85rem">(licensing/IP — direct skill fit)</span></h3>
+    <p><strong>What it is.</strong> Record original drum loops, one-shots, and grooves; license them through a marketplace. Splice pays per-sample royalties; Loopmasters/Sellfy pay per-pack. Once a pack is live, income trickles for years with zero further work.</p>
+    <p><strong>Honest setup &amp; income.</strong> 40–80 hours to record/edit/tag a quality 50–100-sound pack. Realistic: $50–$200/mo per pack after a moderate launch; 5–10 packs in a catalog reports out at $200–$2,000/mo. Splice-accepted packs skew higher (one Jamaican producer's first Splice pack 4×'d his prior annual income in 3 months). Top earners ($5K–$20K/mo) are outliers, usually with brand/audience.</p>
+    <p><strong>The catch.</strong> Splice has a curation gate — most submissions get rejected. Self-publishing on Loopmasters/Sellfy means you do the marketing. The trap/hip-hop kit market is oversaturated; your edge is <em>real acoustic drumming</em>, which is underserved. No upfront capital beyond gear you already own.</p>
+    <p class="meta"><a href="https://orphiq.com/resources/sample-pack-sales-guide" target="_blank" rel="noopener noreferrer">Source: Orphiq — Sample Pack Sales: A Producer's Revenue Guide</a></p>
+  </div>
+
+  <div class="item">
+    <h3>2. Neighbor.com — rent out storage / parking space <span style="color:var(--muted);font-weight:normal;font-size:.85rem">(real-estate adjacent, only if you control space)</span></h3>
+    <p><strong>What it is.</strong> Peer-to-peer Airbnb for unused parking, driveways, garages, basements, sheds. Renter pays monthly; Neighbor handles billing and provides $1M host liability.</p>
+    <p><strong>Honest setup &amp; income.</strong> ~2 hours to list. NYC parking spots run $50–$300/mo; garages $50–$500/mo. One Reddit host renting 6 RV/boat spots makes ~$1,000/mo. Realistic top end for one NYC parking spot in Brooklyn/Queens: $250–$400/mo net after Neighbor's ~4.9% + transaction fee.</p>
+    <p><strong>The catch.</strong> Requires actually owning/controlling a deeded spot, driveway, or basement — most Astoria renters don't. Leases almost universally prohibit subletting storage. NYC zoning and co-op/condo boards frequently ban it. <strong>Skip unless you have a deeded garage/driveway or a homeowner friend to partner with on revenue share.</strong></p>
+    <p class="meta"><a href="https://www.sidehustlenation.com/neighbor-com-review/" target="_blank" rel="noopener noreferrer">Source: Side Hustle Nation — Neighbor.com Review (real host interviews)</a></p>
+  </div>
+
+  <div class="item">
+    <h3>3. Fundrise (REIT-style) — honest reality check <span style="color:var(--muted);font-weight:normal;font-size:.85rem">(capital allocation, not a side hustle)</span></h3>
+    <p><strong>What it is.</strong> Pooled real-estate fund; $10 minimum to start. Quarterly dividends + appreciation. Not really "passive income" — it's a portfolio allocation marketed as one.</p>
+    <p><strong>Honest setup &amp; income.</strong> 15 minutes to set up. Long-term net return ~7% annualized — but annual swings have ranged <strong>–7.45% to +22.99%</strong>. On $10K invested, expect ~$700/yr in good years, losses in bad ones. Arrived Homes (the single-family alternative) averaged just <strong>3.9% dividend yield</strong> in 2025, with individual properties ranging 0.4%–10.4% — you can pick a dud.</p>
+    <p><strong>The catch.</strong> Requires real upfront capital ($10K+ to mean anything). <strong>Liquidity is locked</strong> — 1% redemption penalty under 5 years, and Fundrise paused/queued redemptions for months in 2022–23. Not an emergency fund. For comparison: Vanguard's VNQ REIT ETF is fully liquid with lower fees. Fundrise's main advantage is psychological (feels like "real" real estate), not financial.</p>
+    <p class="meta"><a href="https://moneywise.com/investing/reviews/arrived-homes" target="_blank" rel="noopener noreferrer">Source: Moneywise — Arrived Homes Review: tested with $1,000</a></p>
+  </div>
+
+  <div class="item">
+    <h3>4. Notion templates for enterprise IT / DevOps niches <span style="color:var(--muted);font-weight:normal;font-size:.85rem">(creator economy — leverages 12 yrs IT)</span></h3>
+    <p><strong>What it is.</strong> Build a Notion template (runbooks, incident response, on-call rotation, SOC2 evidence collector, sprint planner for IT teams) and sell on Gumroad / Notion Marketplace / Etsy. Buyers duplicate it into their workspace.</p>
+    <p><strong>Honest setup &amp; income.</strong> 20–60 hours per polished template + landing page. Realistic newbie: $100–$300/mo first month with 1–2 listings. After 6 months with 5–10 templates: $1,000–$3,000/mo. Outlier earners (Easlo at $20K/mo, Thomas Frank's $1M+ on two templates) had massive existing audiences — don't anchor on them.</p>
+    <p><strong>The catch.</strong> The generic productivity/habit-tracker space is saturated and dead. Your edge is the <em>enterprise IT vertical</em> (incident postmortems, change management, vendor security review trackers) — corporate buyers have budget, not broke students. Requires ongoing marketing. AI-generated competitor templates are flooding the market in 2026; differentiation has to come from real domain expertise — which you have, painfully.</p>
+    <p class="meta"><a href="https://www.kajabi.com/blog/can-you-make-money-selling-notion-templates" target="_blank" rel="noopener noreferrer">Source: Kajabi — Can You Make Money Selling Notion Templates? (creator earnings breakdown)</a></p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Quick verdict</div>
+    <ul>
+      <li><strong>Highest skill-fit, lowest risk:</strong> Drum sample packs (#1). Real acoustic drumming is a moat in a synthetic-heavy market.</li>
+      <li><strong>Best capital-light leverage:</strong> Notion templates in the enterprise IT niche (#4). Your 12 years of war stories are the differentiator.</li>
+      <li><strong>Skip:</strong> Neighbor (#2), unless you have a deeded NYC parking spot.</li>
+      <li><strong>Treat as portfolio allocation, not income:</strong> Fundrise (#3) — and honestly compare to VNQ first.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Generated 2026-06-24 · <a href="https://nuclearsalt.github.io/daily-report/">live URL</a></p>
+</footer>
+
+</body>
+</html>
