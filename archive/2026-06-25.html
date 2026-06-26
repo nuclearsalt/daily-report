@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>John's Daily Briefing — Thursday, Jun 25, 2026</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --fg: #e0e0e0;
+    --muted: #8a8a8a;
+    --soft: #1a1a1a;
+    --border: #242424;
+    --link: #9ecbff;
+    --accent: #ff8c5a;
+    --accent-soft: #b9a3ff;
+    --good: #7ad28a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.62;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem 4rem;
+    font-size: 16.5px;
+  }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  header .day { color: var(--accent); font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+  header h1 { margin: 0.25rem 0 0.35rem; font-size: 1.7rem; font-weight: 700; }
+  header .updated { color: var(--muted); font-size: 0.85rem; }
+  nav.toc, nav.archive-nav {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.92rem;
+  }
+  nav.toc strong, nav.archive-nav strong { color: var(--accent); display: block; margin-bottom: 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; }
+  nav.toc ol { margin: 0; padding-left: 1.2rem; }
+  nav.toc li { padding: 0.1rem 0; }
+  nav.archive-nav { margin-bottom: 2rem; }
+  nav.archive-nav ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem 0.9rem; }
+  nav.archive-nav li { padding: 0; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h2 {
+    margin: 2.5rem 0 0.75rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  h2 .num { color: var(--accent); margin-right: 0.4rem; font-weight: 700; }
+  h3 { font-size: 1.05rem; margin: 1.4rem 0 0.4rem; font-weight: 600; }
+  p { margin: 0.55rem 0; }
+  ul, ol { margin: 0.5rem 0; padding-left: 1.4rem; }
+  li { margin: 0.35rem 0; }
+  .callout {
+    background: #1c130d;
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0 1.25rem;
+  }
+  .callout .label { color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+  .callout p { margin: 0.4rem 0; }
+  .mantra {
+    margin-top: 0.65rem;
+    font-style: italic;
+    color: var(--fg);
+    border-top: 1px dashed #3a2a1f;
+    padding-top: 0.55rem;
+  }
+  .source { color: var(--muted); font-size: 0.85rem; }
+  .meta { color: var(--muted); font-size: 0.88rem; }
+  .recipe-card { background: var(--soft); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem 1rem; margin: 0.85rem 0; }
+  .tip { background: var(--soft); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1rem; margin: 0.85rem 0; }
+  .tip .tip-title { font-weight: 700; margin-bottom: 0.3rem; }
+  .kv { color: var(--muted); }
+  .kv strong { color: var(--fg); font-weight: 600; }
+  .pill { display: inline-block; background: #1c2a1c; color: var(--good); padding: 0.1rem 0.5rem; border-radius: 10px; font-size: 0.75rem; margin-left: 0.4rem; }
+  hr.spacer { border: none; height: 1rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
+  @media (max-width: 540px) {
+    body { font-size: 16px; padding: 1.25rem 1rem 3rem; }
+    h2 { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="day">Thursday</div>
+  <h1>John's Daily Briefing</h1>
+  <div class="updated">June 25, 2026 &nbsp;·&nbsp; Last updated: 8:05 AM ET</div>
+</header>
+
+<nav class="toc" aria-label="On this page">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#thu-1">THU-1 · Sugar Addiction Recovery</a></li>
+    <li><a href="#thu-2">THU-2 · Music Production: Home Studio Techniques</a></li>
+    <li><a href="#thu-3">THU-3 · Music Sight-Reading for Drummers</a></li>
+    <li><a href="#thu-4">THU-4 · Tips from World-Class Drummers</a></li>
+    <li><a href="#thu-5">THU-5 · Passive Income</a></li>
+  </ol>
+</nav>
+
+<nav class="archive-nav" aria-label="Past briefings">
+  <strong>Past briefings</strong>
+  <ul>
+    <li><a href="archive/2026-06-24.html">Jun 24</a></li>
+    <li><a href="archive/2026-06-23.html">Jun 23</a></li>
+    <li><a href="archive/2026-06-22.html">Jun 22</a></li>
+    <li><a href="archive/2026-06-21.html">Jun 21</a></li>
+    <li><a href="archive/2026-06-19.html">Jun 19</a></li>
+    <li><a href="archive/index.html">All archives →</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== THU-1 ===================== -->
+<h2 id="thu-1"><span class="num">THU-1</span> Sugar Addiction Recovery</h2>
+
+<p>You logged a real win last night: <em>"did not eat any sweets so far today. Win!"</em> (6/25 quick check-in). That's the first crack in The Cycle this week — and it's worth naming what you're up against so it doesn't get smoothed over.</p>
+
+<p>Here's the loop that's been pulling you under, in your own words from this week:</p>
+
+<ul>
+  <li><strong>6/23 midday</strong> — <em>"anger at everything … to cope, I once again did the stupid fucking thing I always do: eat high-sugar foods. Two chocolate bars today."</em></li>
+  <li><strong>6/23 quick</strong> — <em>"I don't know how I'm going to crawl out of this … I need to get out of The Cycle and I do not know how to make that happen."</em></li>
+  <li><strong>6/24 morning</strong> — <em>"battling the low energy demons for seemingly the past month."</em></li>
+  <li><strong>6/25 evening</strong> — <em>"Maybe I can keep going on sweets abstention, and have my energy level out, and then have the energy to unclutter the room."</em></li>
+</ul>
+
+<p>You named the mechanism yourself in that last note. The loop:
+<strong>anger or low energy → high-sugar food for a 30-min spike → crash to lower-than-baseline energy → feel incapable → reach for the next quick fix.</strong> Dr. Anna Lembke calls this the dopamine seesaw — every spike is paid for with a deeper dip, and your brain remembers the spike and forgets the dip. The chocolate bars on 6/23 didn't <em>cause</em> the energy crash on 6/24; they <em>compounded</em> it.</p>
+
+<p>This is a habit loop, not a character flaw. "I once again did the stupid fucking thing I always do" is a habit talking. The same brain that learned that loop can unlearn it — but only by interrupting the trigger, not by white-knuckling the craving.</p>
+
+<h3>Three strategies for today</h3>
+
+<ol>
+  <li><strong>Pre-decide the protein, not the prohibition.</strong> "I won't eat sweets" is a will-power tax that you pay every time the thought appears. "I will eat 30g of protein before noon" is a single decision that crowds out the trigger. Tofu, eggs, Greek yogurt, leftover chicken — whatever's already in the fridge. Pick it now, before low-energy-you has to decide.</li>
+  <li><strong>Name the trigger out loud the moment it fires.</strong> When you feel that pull — and you will today — say to yourself <em>"this is the cycle"</em> before you say anything else. That tiny pause moves the urge from automatic behavior into the prefrontal cortex where you actually have a vote. Lembke calls it "the pause." It works because addiction lives in the gap between trigger and action; if you widen the gap by even 10 seconds, you often choose differently.</li>
+  <li><strong>Replace the spike, not the energy.</strong> When the urge hits, the brain wants <em>fast pleasure</em>, not nutrition. Cold water on the face, two minutes outside, a song from the kit, ice in a glass with a splash of something tart — anything that delivers a fast sensory hit without sugar. You're not pretending it's the same; you're showing your nervous system that the spike <em>can</em> come from somewhere else.</li>
+</ol>
+
+<div class="callout">
+  <div class="label">Today's nudge</div>
+  <p>Last night you wrote that you're exhausted just thinking about uncluttering the living room. Read that note back — the path you described is right. Level the energy first, then the cluttered room gets handled by a calmer, more capable version of you. Yesterday you proved you can choose differently for one day. Today is just one more day. Stack one more.</p>
+  <div class="mantra">Mantra: <em>One spike costs me tomorrow. I'm keeping tomorrow.</em></div>
+</div>
+
+<!-- ===================== THU-2 ===================== -->
+<h2 id="thu-2"><span class="num">THU-2</span> Music Production: Home Studio Techniques</h2>
+
+<p class="meta">Tuned to your rig: Roland TD-11, Focusrite 2i2, Logic Pro (Mac + iPad), Ample Metal Hellrazer, GGD Modern & Massive 2, Steven Slate Drums 5, Splice + NI libraries.</p>
+
+<div class="tip">
+  <div class="tip-title">1. Save undo history with your project (Logic Pro 11.2)</div>
+  <p>Logic Pro 11.2 added a Settings → General option that persists undo history across save/close. Because the full edit history reopens with the project, you can revisit a drum edit or guitar comp from days ago without rebuilding it — huge for songs that get tracked across many sessions.</p>
+  <p class="kv"><strong>For your rig:</strong> Flip it on before the next songwriting session on the Mac. Pairs well with Logic Remote on the iPad — record a TD-11 take from the kit, then roll back any pass later without losing the trail.</p>
+  <p class="source"><a href="https://www.logicprohelp.com/articles/logic-pro-112-new-features-explained-r26/" target="_blank" rel="noopener noreferrer">Logic Pro Help — 11.2 new features</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">2. Keep MIDI drum humanization ≤ 8% (velocity AND timing)</div>
+  <p>Programmed-drum rule of thumb that keeps holding up: humanize beyond ~8% on either velocity or timing and it starts to sound sloppy rather than human. Real drummers have tight <em>micro</em>-variation, not loose macro-variation — small randomization reads as feel, large reads as drunk.</p>
+  <p class="kv"><strong>For your rig:</strong> When you write SSD5 parts in the piano roll (double-kick patterns, fills you haven't dialed in physically yet), cap humanize at 8% and only write what a real drummer could play. Respects your 20-year ear for what's executable.</p>
+  <p class="source"><a href="https://mastering.com/program-realistic-midi-drums/" target="_blank" rel="noopener noreferrer">Mastering.com — Program realistic MIDI drums</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">3. Blend two IRs inside GGD Modern & Massive 2 instead of one</div>
+  <p>Modern amp-sim mixing has moved away from a single cab IR. The go-to is slot 1 = focused close-mic IR (SM57-style) for midrange bite, slot 2 = room IR (e.g. U87) for space and depth. Stacked, you get the cut of a close mic with the three-dimensionality of a real tracking room.</p>
+  <p class="kv"><strong>For your rig:</strong> Inside M&amp;M2's mixer, run a close+room IR blend on rhythm guitars. Bonus: borrow GGD's drum-library room IRs onto guitars to glue them into the same space as SSD5 — a free move since you already own GGD products.</p>
+  <p class="source"><a href="https://www.nailthemix.com/add-depth-to-amp-sim-guitars-w-getgood-drums-room-irs" target="_blank" rel="noopener noreferrer">Nail the Mix — depth with GGD room IRs</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">4. HPF + 250–350 Hz cut to carve DI bass around guitars</div>
+  <p>When DI bass (Hellrazer) and rhythm guitars (GGD M&amp;M2) fight, the cleanest fix is: HPF guitars at 80–100 Hz for standard tuning or 60–70 Hz for drop tunings, then cut 2–4 dB at 250–350 Hz on whichever source is muddier. That clears the low-mid blanket so the bass fundamental and the guitar chug each get their own lane.</p>
+  <p class="kv"><strong>For your rig:</strong> Hellrazer has a roughly 50 ms pick-attack delay by default — set a –50 ms region nudge or track delay in Logic so the bass locks to your kick.</p>
+  <p class="source"><a href="https://www.komposition101.com/blog/essential-guitar-and-bass-frequencies-for-killer-metal-tones" target="_blank" rel="noopener noreferrer">Komposition101 — Guitar &amp; bass frequencies for metal</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">5. Track Stacks + Track Alternatives for fast song iteration</div>
+  <p>Track Stacks fold a drum kit or backing-vocal group under one fader — you mix the section, not 12 channels. Track Alternatives let you keep multiple takes or arrangement ideas (different chorus, different solo) on a single track without duplicating it. Together you A/B arrangement decisions in seconds.</p>
+  <p class="kv"><strong>For your rig:</strong> SSD5 multi-out routing and layered guitars (GGD plus Splice/NI sweeteners) collapse into one DRUMS and one GTRS stack. Track Alternatives = try a 7/8 pre-chorus vs. a 4/4 one without losing either.</p>
+  <p class="source"><a href="https://www.loopmasters.com/articles/2251-10-Logic-Pro-X-Tips-For-Better-Workflow-in-the-Studio" target="_blank" rel="noopener noreferrer">Loopmasters — Logic Pro workflow tips</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">6. Write one odd-meter section per song</div>
+  <p>A reliable songwriting move right now: a single 5/4 or 7/8 passage (often pre-chorus or bridge) inside an otherwise 4/4 song. The contrast creates tension that the chorus then resolves by returning to 4 — the listener feels the payoff without consciously knowing why.</p>
+  <p class="kv"><strong>For your rig:</strong> Sketch the odd-meter riff on guitar, then track it live on the TD-11 so the part stays human and playable. A Kontakt pad under the odd-meter section marks it as a "moment."</p>
+  <p class="source"><a href="https://developdevice.com/blogs/news/the-art-of-crafting-a-modern-metal-song-a-comprehensive-guide" target="_blank" rel="noopener noreferrer">Develop Device — Modern metal songwriting</a></p>
+</div>
+
+<!-- ===================== THU-3 ===================== -->
+<h2 id="thu-3"><span class="num">THU-3</span> Music Sight-Reading for Drummers</h2>
+
+<p>You play fluently but didn't grow up reading rhythmic notation. Reading is a stamina skill — the only way in is daily, low-tempo reps where you never have to stop. Here's a small library to actually do it from.</p>
+
+<h3>Books (2–3)</h3>
+
+<div class="tip">
+  <div class="tip-title">Progressive Steps to Syncopation for the Modern Drummer — Ted Reed</div>
+  <p>The standard reference. Page 38 alone has been used by pros for decades — each one-bar rhythm can be applied dozens of ways (ride patterns, bass-drum figures, jazz comping, samba clave). Best book for tying reading to actual playing.</p>
+  <p class="source"><a href="https://www.amazon.com/Progressive-Steps-Syncopation-Modern-Drummer/dp/1607968843" target="_blank" rel="noopener noreferrer">Amazon</a> &nbsp;·&nbsp; <a href="https://hudsonmusic.com/product/syncopation/" target="_blank" rel="noopener noreferrer">Hudson Music</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">Modern Reading Text in 4/4 — Louis Bellson &amp; Gil Breines</div>
+  <p>Exercises are laid out like real charts — varied notation, rests, ties — closer to what you'll see on a session music stand than Reed. Best book specifically for sight-reading (read it once, move on) vs. deep interpretation.</p>
+  <p class="source"><a href="https://www.alfred.com/modern-reading-text-in-4-4/p/00-HAB00003/" target="_blank" rel="noopener noreferrer">Alfred Music</a> &nbsp;·&nbsp; <a href="https://www.amazon.com/Modern-Reading-Text-All-Instruments/dp/0769233775" target="_blank" rel="noopener noreferrer">Amazon</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">Stick Control for the Snare Drummer — George Lawrence Stone</div>
+  <p>Not strictly a reading book, but for someone who didn't grow up reading, it builds the eye–hand link with simple R/L notation. Use it as a warm-up reader before Reed or Bellson.</p>
+  <p class="source"><a href="https://www.drumeo.com/beat/drum-books-that-every-drummer-should-own/" target="_blank" rel="noopener noreferrer">Drumeo — Books every drummer should own</a></p>
+</div>
+
+<h3>Apps &amp; software tools</h3>
+
+<div class="tip">
+  <div class="tip-title">Rhythm Sight Reading Trainer (ReadRhythm) — iOS, free</div>
+  <p>Generates endless random rhythmic exercises (2–12 beats per bar, common and odd meters). Tap on screen or via MIDI device (works with the TD-11 through USB). Best free tool for daily reps.</p>
+  <p class="source"><a href="https://apps.apple.com/us/app/rhythm-sight-reading-trainer/id396302174" target="_blank" rel="noopener noreferrer">App Store</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">RhythmBot (by JP Bouvet) — web/iOS, free + paid</div>
+  <p>Made by a drummer specifically for drummers. Generates notation with adjustable complexity, subdivisions, and time signatures. Great for session-style "what's this bar?" practice.</p>
+  <p class="source"><a href="https://melodics.com/blog/top-drum-notation-apps" target="_blank" rel="noopener noreferrer">Melodics — Top drum notation apps</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">Sight Reading Factory — web, ~$35/yr</div>
+  <p>Originally for melodic instruments, but the rhythm-only mode is gold. Generates fresh exercises every time so you can't memorize, with adjustable difficulty and meters — the closest thing to a session-chart simulator.</p>
+  <p class="source"><a href="https://www.sightreadingfactory.com/" target="_blank" rel="noopener noreferrer">sightreadingfactory.com</a></p>
+</div>
+
+<h3>Free blogs &amp; videos</h3>
+
+<div class="tip">
+  <div class="tip-title">Cruise Ship Drummer! (Todd Bishop)</div>
+  <p>Working pro who writes extensively about reading, Reed interpretations, and sight-reading drills. Tons of free downloadable PDFs aimed at exactly your use case: sub gigs, charts.</p>
+  <p class="source"><a href="https://cruiseshipdrummer.com/2021/08/15/louis-bellson-reading-text-in-4-4/" target="_blank" rel="noopener noreferrer">cruiseshipdrummer.com — Bellson reading text post</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">Stephen Taylor Drums (YouTube + site)</div>
+  <p>Working sub who walks through how to read drum charts, road maps, and rehearsal notation. Search his channel for "chart reading" and "sight reading."</p>
+  <p class="source"><a href="https://www.stephensdrumshed.com/the-455/" target="_blank" rel="noopener noreferrer">Stephen's Drum Shed</a></p>
+</div>
+
+<div class="callout">
+  <div class="label">10–15 min daily routine</div>
+  <ol>
+    <li><strong>Warm-up read (2 min):</strong> Open Stick Control to a random page. Play 4 lines at ♩ = 70 with eyes glued to the page. Don't memorize — turn the page if you catch yourself looking up.</li>
+    <li><strong>Reed page 38 (5 min):</strong> Pick one line. Pass 1: play the written rhythm on snare with jazz ride and hi-hat on 2 &amp; 4. Pass 2: same rhythm on bass drum with swing on top. Different "voicing" each day.</li>
+    <li><strong>App rep (3–5 min):</strong> Open Rhythm Sight Reading Trainer or RhythmBot. Generate 4–8 fresh bars. Play through on a pad, no stops. Repeat once a click faster.</li>
+    <li><strong>Chart day (1×/week instead of step 3):</strong> Read a real chart cold — free big-band PDF or a fresh Bellson exercise. Goal: through it once without stopping, count out loud at rests.</li>
+  </ol>
+  <p class="mantra">Tempo low enough that you never have to stop. The win is unbroken flow, not perfect hits.</p>
+</div>
+
+<!-- ===================== THU-4 ===================== -->
+<h2 id="thu-4"><span class="num">THU-4</span> Tips from World-Class Drummers</h2>
+
+<div class="tip">
+  <div class="tip-title">1. Stewart Copeland — "Practice perfection"</div>
+  <p class="kv"><strong>Genre:</strong> Rock (The Police). Distinct hi-hat work and reggae-inflected grooves.</p>
+  <p><strong>The tip:</strong> Find the exact tempo at which you can execute a rudiment <em>flawlessly</em> — and never go above it during practice. Playing imperfectly above that speed only teaches your hands wrongness. Copeland also calls quiet playing "the most unappreciated technique" — drums sound better, body stays relaxed.</p>
+  <p><strong>Why it's useful:</strong> Coming off a 6-year break, your muscle memory rebuilds cleanly only at tempos you can already execute. Resist pushing speed; reclaim chops at low volume first.</p>
+  <p class="source"><a href="https://www.musicradar.com/news/drums/stewart-copelands-top-5-tips-for-drummers-619308" target="_blank" rel="noopener noreferrer">MusicRadar — Stewart Copeland's top 5 tips</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">2. Vinnie Colaiuta — "Thought is the enemy of flow"</div>
+  <p class="kv"><strong>Genre:</strong> Fusion / session (Sting, Frank Zappa, Jeff Beck).</p>
+  <p><strong>The tip:</strong> Practice to build vocabulary so ideas flow freely — but don't let practice become a neurosis. Vinnie no longer practices obsessively; you need discipline, but constantly telling yourself "I have to practice" is counterproductive. Billy Cobham specifically told him to enjoy his practice time.</p>
+  <p><strong>Why it's useful:</strong> Returning players guilt-trip themselves about lost ground. Vinnie's framing — build vocabulary off the kit, get out of your own way on the gig — is the headspace live performance demands.</p>
+  <p class="source"><a href="https://www.vinniecolaiuta.com/Interviews/Drum2014" target="_blank" rel="noopener noreferrer">VinnieColaiuta.com — Drum interview</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">3. Steve Gadd — Listen hard, leave space</div>
+  <p class="kv"><strong>Genre:</strong> Studio / R&amp;B / jazz-pop (Steely Dan, Paul Simon, James Taylor). The most-recorded session drummer in history.</p>
+  <p><strong>The tip:</strong> "A good musician is someone who listens real hard and leaves some space. If you have to fight for a space, it's not too much fun." Gadd says his best days are the ones he wakes up realizing he doesn't have the answers and has something to learn.</p>
+  <p><strong>Why it's useful:</strong> For live performance after a long break, the temptation is to overplay to prove you're back. Listening and leaving space is the fastest way to make bandmates want to call you again.</p>
+  <p class="source"><a href="https://www.moderndrummer.com/2005/07/steve-gadd/" target="_blank" rel="noopener noreferrer">Modern Drummer — Steve Gadd</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">4. Nate Smith — Don't watch the clock</div>
+  <p class="kv"><strong>Genre:</strong> Modern jazz / funk / pocket (Dave Holland, Fearless Flyers, Brittany Howard).</p>
+  <p><strong>The tip:</strong> "If you're practicing and you're looking at the clock, you shouldn't be practicing." Practice should be playing. When you hit something hard, work on that specific thing. "Touch is huge" — your sound starts in the hands, not the gear.</p>
+  <p><strong>Why it's useful:</strong> You don't need a structured 2-hour routine to get back in shape. Short sessions focused on what's actually broken — and rebuilding touch on your own kit — beat checkbox practice every time.</p>
+  <p class="source"><a href="https://www.drummersresource.com/nate-smith-interview/" target="_blank" rel="noopener noreferrer">Drummer's Resource — Nate Smith</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">5. Mark Guiliana — Use ideas as your "North Star" + D.R.O.P.</div>
+  <p class="kv"><strong>Genre:</strong> Jazz / electronic / prog (Bowie's <em>Blackstar</em>, Brad Mehldau, Beat Music).</p>
+  <p><strong>The tip:</strong> You only need enough technique to play your ideas. When you hear something in your head you can't yet execute, that gap is the practice goal. Use D.R.O.P. — <strong>D</strong>ynamics, <strong>R</strong>ate, <strong>O</strong>rchestration, <strong>P</strong>hrasing — and vary one element at a time over a single idea to unlock new vocabulary. Limited practice time (he has kids) actually sharpened his focus.</p>
+  <p><strong>Why it's useful:</strong> Limited time + targeted work. D.R.O.P. extracts weeks of material from one groove or fill — perfect for a 45-year-old with a packed schedule.</p>
+  <p class="source"><a href="https://drummersreview.com/news/mark-guiliana-interview/" target="_blank" rel="noopener noreferrer">Drummer's Review — Mark Guiliana</a></p>
+</div>
+
+<!-- ===================== THU-5 ===================== -->
+<h2 id="thu-5"><span class="num">THU-5</span> Passive Income — Lowest Barrier, Start This Week</h2>
+
+<p class="meta">Honestly vetted. Ranked by what you can actually launch in 7 days using skills you already have. Zero upfront capital across all four.</p>
+
+<div class="tip">
+  <div class="tip-title">1. React Native template / component on Gumroad + CodeCanyon <span class="pill">START HERE</span></div>
+  <p><strong>What it is:</strong> Extract one polished, reusable piece from John's Tracker (charts component, streak logic, onboarding flow, notification scheduler) — or build a small new one — and sell as a paid code asset. One-time purchases, recurring sales over months/years.</p>
+  <p><strong>Realistic income:</strong> Solo RN template sellers on CodeCanyon typically see <strong>$50–$500/month per listing</strong> in year one. Hit templates ($30–$60 price) reach $1k–$3k/month. Gumroad is lower volume but ~90% revenue share vs. CodeCanyon's ~50–70% take.</p>
+  <p><strong>Setup time:</strong> 20–40 hours to package well (clean repo, README, demo GIFs, license, support email). Doable in 1–2 weeks of evenings if you're extracting from existing code.</p>
+  <p><strong>The catch:</strong> Support burden. Buyers email about broken Expo configs at 2am. CodeCanyon also wants an exclusivity decision and approval review (1–2 weeks). Market is saturated with generic "ecommerce app templates" — you have to pick a wedge nobody else covers.</p>
+  <p><strong>Why it fits you:</strong> You already ship an RN app. The hardest part — knowing what production-grade RN code looks like — is done. Pure sweat-equity from skills you use anyway. Highest leverage per hour on this list.</p>
+  <p><strong>Start this week:</strong></p>
+  <ol>
+    <li>Audit John's Tracker for the most reusable, self-contained module. Pick one.</li>
+    <li>Extract into a clean standalone repo with demo app, screenshots, 1-page README.</li>
+    <li>List on Gumroad day one ($19–$39); submit to CodeCanyon in parallel.</li>
+  </ol>
+  <p class="source"><a href="https://help.gumroad.com/article/305-sell-react-components" target="_blank" rel="noopener noreferrer">Gumroad — sell React components</a> &nbsp;·&nbsp; <a href="https://codecanyon.net/search/react%20native" target="_blank" rel="noopener noreferrer">CodeCanyon — RN bestsellers</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">2. Original drum sample packs &amp; loops on Splice + BeatStars</div>
+  <p><strong>What it is:</strong> Record original drum loops, one-shots, fills, and kits from your home setup. Producers buy them as building blocks. Recurring per-stream/per-download royalties.</p>
+  <p><strong>Realistic income:</strong> First-year solo creator with 1–3 packs: <strong>$20–$200/month</strong>. Producers with 5–10 well-marketed packs report $200–$2,000/month. The "$5k–$20k/month" numbers floating around are top-percentile creators with 30+ packs and audience — don't plan around them.</p>
+  <p><strong>Setup time:</strong> 15–30 hours for a first pack done right (recording, editing, tagging, cover art, submission). First pack submittable in 7–10 days if you push.</p>
+  <p><strong>The catch:</strong> Splice gatekeeps via application form and curates aggressively — many first submissions get rejected. Every sample must be 100% original — no copyrighted breaks, no AI-generated content with murky rights, or your pack gets pulled.</p>
+  <p><strong>Why it fits you:</strong> 20+ years on drums = the one skill that's hardest to fake. Most sample-pack drum loops sound stiff/quantized because they're made by producers, not drummers. Live-played loops by a real drummer are genuinely scarce.</p>
+  <p><strong>Start this week:</strong></p>
+  <ol>
+    <li>Pick ONE narrow niche (e.g. "lo-fi hip-hop live drum breaks 70–90 BPM" or "indie rock fills"). Niche outsells generic.</li>
+    <li>Record 30–50 loops + 50 one-shots in one weekend session. Edit/tag in Logic.</li>
+    <li>While Splice review pends, list on BeatStars (instant approval) and Kitsi (up to 92% revenue share).</li>
+  </ol>
+  <p class="source"><a href="https://support.splice.com/en/articles/8652643-how-do-i-submit-my-own-samples-packs-to-sell-on-splice" target="_blank" rel="noopener noreferrer">Splice — submit sample packs</a> &nbsp;·&nbsp; <a href="https://toneisland.com/sites-to-sell-sample-packs/" target="_blank" rel="noopener noreferrer">Tone Island — 13 marketplaces compared</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">3. Sync licensing — drum-forward instrumental beds on non-exclusive libraries</div>
+  <p><strong>What it is:</strong> Short instrumental beds (or drum-driven tracks) uploaded to non-exclusive sync libraries that license to YouTubers, podcasts, ads, TV. Each license = $5–$500+; popular tracks earn for years.</p>
+  <p><strong>Realistic income:</strong> Brutally honest: <strong>$0–$50/month for the first 6 months</strong>, scaling to <strong>$100–$600/month</strong> by year 2 with 50–100 tracks uploaded. The "one placement = millions of streams" stories are real but rare.</p>
+  <p><strong>Setup time:</strong> 5–10 hours per track if efficient. First payout typically 60–90 days after first upload.</p>
+  <p><strong>The catch:</strong> Chain of title is non-negotiable. Every sound must be cleared — <strong>no Splice samples in tracks you sync-license</strong> (Splice's license forbids it for syncs). Volume is the game; one track is hopeless, 50 is the floor. Metadata/keywording quality determines whether anyone finds your track.</p>
+  <p><strong>Why it fits you:</strong> Drum-forward instrumental beds (sports stingers, action podcast intros, tense documentary cues) are in constant demand and play to your strength. No vocals or melodies required.</p>
+  <p><strong>Start this week:</strong></p>
+  <ol>
+    <li>Open free contributor accounts on Pond5 (fastest approval) and AudioJungle.</li>
+    <li>Produce 3–5 sting/bed tracks this week (30s, 60s, loopable versions — libraries want all formats).</li>
+    <li>Spend as much time on metadata/keywords as on the music.</li>
+  </ol>
+  <p class="source"><a href="https://www.pond5.com/sell-stock-footage" target="_blank" rel="noopener noreferrer">Pond5 contributor signup</a> &nbsp;·&nbsp; <a href="https://orphiq.com/resources/passive-income-musicians" target="_blank" rel="noopener noreferrer">Orphiq — realistic sync income</a></p>
+</div>
+
+<div class="tip">
+  <div class="tip-title">4. Bandwidth monetization SDK (skip for John's Tracker — flagging only)</div>
+  <p><strong>What it is:</strong> Integrate an SDK (Pacific, EarnApp-style, Honeygain-style) that shares users' idle bandwidth. ~$0.10–$0.40/active user/month paid to you.</p>
+  <p><strong>The catch — read this:</strong> Apple App Store and Google Play have rejected/removed apps using bandwidth SDKs as malware/policy violations (residential proxy traffic is the use case, adjacent to abuse). You <em>must</em> disclose in the privacy policy and ideally make it opt-in, and you may still get pulled. If John's Tracker is your portfolio piece, this could blow up the asset.</p>
+  <p><strong>Verdict:</strong> Don't put this in John's Tracker. If the upside is interesting, build a separate throwaway utility app for it. Including only because the brief asked for IT-skill options.</p>
+  <p class="source"><a href="https://www.idlen.io/blog/passive-income-ideas-developers-2026/" target="_blank" rel="noopener noreferrer">Overview (read skeptically)</a></p>
+</div>
+
+<footer>
+  Generated for John · jtyler203@gmail.com · <a href="https://nuclearsalt.github.io/daily-report/">nuclearsalt.github.io/daily-report</a>
+</footer>
+
+</body>
+</html>
