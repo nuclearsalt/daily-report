@@ -3,382 +3,457 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Thursday, Jun 25, 2026</title>
+<title>John's Daily Briefing — Friday, June 26, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
     --fg: #e0e0e0;
     --muted: #8a8a8a;
-    --soft: #1a1a1a;
-    --border: #242424;
+    --dim: #555;
+    --line: #222;
     --link: #9ecbff;
-    --accent: #ff8c5a;
-    --accent-soft: #b9a3ff;
-    --good: #7ad28a;
+    --accent: #ffb86c;
+    --soft: #b48cf0;
+    --card: #161616;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.62;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 1.75rem 1.25rem 4rem;
-    font-size: 16.5px;
+    padding: 2rem 1.25rem 4rem;
+    line-height: 1.65;
+    font-size: 16px;
   }
-  header { border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem; }
-  header .day { color: var(--accent); font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
-  header h1 { margin: 0.25rem 0 0.35rem; font-size: 1.7rem; font-weight: 700; }
-  header .updated { color: var(--muted); font-size: 0.85rem; }
-  nav.toc, nav.archive-nav {
-    background: var(--soft);
-    border: 1px solid var(--border);
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  header h1 {
+    margin: 0 0 .25rem;
+    font-size: 1.85rem;
+    line-height: 1.2;
+  }
+  header .date {
+    color: var(--muted);
+    margin: 0;
+    font-size: 1rem;
+  }
+  header .updated {
+    color: var(--dim);
+    margin: .25rem 0 0;
+    font-size: .85rem;
+  }
+  nav.zone {
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 0.9rem 1rem;
-    margin-bottom: 0.7rem;
-    font-size: 0.92rem;
+    padding: 1rem 1.25rem;
+    margin: 0 0 2rem;
   }
-  nav.toc strong, nav.archive-nav strong { color: var(--accent); display: block; margin-bottom: 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; }
-  nav.toc ol { margin: 0; padding-left: 1.2rem; }
-  nav.toc li { padding: 0.1rem 0; }
-  nav.archive-nav { margin-bottom: 2rem; }
-  nav.archive-nav ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem 0.9rem; }
-  nav.archive-nav li { padding: 0; }
+  nav.zone strong {
+    color: var(--muted);
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  nav.toc ul, nav.archive-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  nav.toc li {
+    padding: .15rem 0;
+  }
+  nav.archive-nav {
+    border-top: 1px solid var(--line);
+    padding-top: .85rem;
+    margin-top: 0;
+  }
+  nav.archive-nav .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+  }
+  nav.archive-nav .links a {
+    font-size: .9rem;
+  }
+  section {
+    margin: 0 0 2.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin: 0 0 .75rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 1.05rem;
+    margin: 1.5rem 0 .35rem;
+    color: var(--fg);
+  }
+  p { margin: .5rem 0; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  h2 {
-    margin: 2.5rem 0 0.75rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--border);
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.35;
+  ul, ol { padding-left: 1.25rem; }
+  li { margin: .25rem 0; }
+  blockquote {
+    margin: 1rem 0;
+    padding: .5rem 1rem;
+    border-left: 3px solid var(--dim);
+    color: #c8c8c8;
+    font-style: italic;
   }
-  h2 .num { color: var(--accent); margin-right: 0.4rem; font-weight: 700; }
-  h3 { font-size: 1.05rem; margin: 1.4rem 0 0.4rem; font-weight: 600; }
-  p { margin: 0.55rem 0; }
-  ul, ol { margin: 0.5rem 0; padding-left: 1.4rem; }
-  li { margin: 0.35rem 0; }
   .callout {
-    background: #1c130d;
+    border: 1px solid var(--accent);
     border-left: 4px solid var(--accent);
     border-radius: 6px;
-    padding: 1rem 1.1rem;
-    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.15rem;
+    margin: 1.25rem 0;
+    background: rgba(255, 184, 108, 0.06);
   }
-  .callout .label { color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
-  .callout p { margin: 0.4rem 0; }
-  .mantra {
-    margin-top: 0.65rem;
+  .callout .label {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: .35rem;
+  }
+  .callout .mantra {
+    margin-top: .85rem;
+    padding-top: .75rem;
+    border-top: 1px dashed rgba(255,184,108,.3);
     font-style: italic;
-    color: var(--fg);
-    border-top: 1px dashed #3a2a1f;
-    padding-top: 0.55rem;
   }
-  .source { color: var(--muted); font-size: 0.85rem; }
-  .meta { color: var(--muted); font-size: 0.88rem; }
-  .recipe-card { background: var(--soft); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem 1rem; margin: 0.85rem 0; }
-  .tip { background: var(--soft); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1rem; margin: 0.85rem 0; }
-  .tip .tip-title { font-weight: 700; margin-bottom: 0.3rem; }
-  .kv { color: var(--muted); }
-  .kv strong { color: var(--fg); font-weight: 600; }
-  .pill { display: inline-block; background: #1c2a1c; color: var(--good); padding: 0.1rem 0.5rem; border-radius: 10px; font-size: 0.75rem; margin-left: 0.4rem; }
-  hr.spacer { border: none; height: 1rem; }
-  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
-  @media (max-width: 540px) {
-    body { font-size: 16px; padding: 1.25rem 1rem 3rem; }
-    h2 { font-size: 1.15rem; }
+  details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: .6rem .9rem;
+    margin: .5rem 0;
+  }
+  details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #d4d4d4;
+  }
+  details[open] summary { margin-bottom: .5rem; }
+  .ingredients ul {
+    margin: .25rem 0 .75rem;
+    padding-left: 1.25rem;
+  }
+  .meta-line {
+    color: var(--muted);
+    font-size: .9rem;
+    margin: .15rem 0 .35rem;
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(158, 203, 255, 0.08);
+    border: 1px solid rgba(158, 203, 255, 0.25);
+    color: var(--link);
+    font-size: .75rem;
+    padding: .05rem .45rem;
+    border-radius: 999px;
+    margin-right: .25rem;
+  }
+  .caveat {
+    color: var(--muted);
+    font-size: .9rem;
+    font-style: italic;
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="day">Thursday</div>
   <h1>John's Daily Briefing</h1>
-  <div class="updated">June 25, 2026 &nbsp;·&nbsp; Last updated: 8:05 AM ET</div>
+  <p class="date">Friday, June 26, 2026</p>
+  <p class="updated">Last updated: 7:00 AM ET</p>
 </header>
 
-<nav class="toc" aria-label="On this page">
-  <strong>On this page</strong>
-  <ol>
-    <li><a href="#thu-1">THU-1 · Sugar Addiction Recovery</a></li>
-    <li><a href="#thu-2">THU-2 · Music Production: Home Studio Techniques</a></li>
-    <li><a href="#thu-3">THU-3 · Music Sight-Reading for Drummers</a></li>
-    <li><a href="#thu-4">THU-4 · Tips from World-Class Drummers</a></li>
-    <li><a href="#thu-5">THU-5 · Passive Income</a></li>
-  </ol>
+<nav class="zone">
+  <nav class="toc">
+    <strong>On this page</strong>
+    <ul>
+      <li><a href="#fri-1">FRI-1 · Mindful Eating &amp; Exercise for ADHD</a></li>
+      <li><a href="#fri-2">FRI-2 · Recipes: Intermediate-Level, Interesting Chefs</a></li>
+      <li><a href="#fri-3">FRI-3 · Weekend Music: NYC Performances</a></li>
+      <li><a href="#fri-4">FRI-4 · Weekend Art &amp; Installations: NYC</a></li>
+      <li><a href="#fri-5">FRI-5 · Weekend Social: NYC Events with Activity</a></li>
+      <li><a href="#fri-6">FRI-6 · Shirt Shopping: John's Size &amp; Style</a></li>
+    </ul>
+  </nav>
+  <nav class="archive-nav">
+    <strong>Past briefings</strong>
+    <div class="links">
+      <a href="archive/2026-06-25.html">Jun 25</a>
+      <a href="archive/2026-06-24.html">Jun 24</a>
+      <a href="archive/2026-06-23.html">Jun 23</a>
+      <a href="archive/2026-06-22.html">Jun 22</a>
+      <a href="archive/2026-06-21.html">Jun 21</a>
+      <a href="archive/index.html">All archives &rarr;</a>
+    </div>
+  </nav>
 </nav>
 
-<nav class="archive-nav" aria-label="Past briefings">
-  <strong>Past briefings</strong>
+<section id="fri-1-section">
+  <h2 id="fri-1">FRI-1 · Mindful Eating &amp; Exercise for ADHD</h2>
+
+  <p>This week's data tells a clear story. Five of seven days logged sweets, and the reason field said <em>"Low energy"</em> every single time except one (and that one was "Just a craving"). On 6/23 you named the loop yourself, in your own words:</p>
+
+  <blockquote>"I once again did the stupid fucking thing I always do: eat high-sugar foods. Two chocolate bars today. Cool, great. GREAT… I need to get out of The Cycle and I do not know how to make that happen."</blockquote>
+
+  <p>You also wrote, the same day, that the app is helping you "maintain awareness so that I can course correct more quickly." That's not nothing. Awareness is step one. The point of today's section is to add a second tool you can reach for the next time the low-energy → sugar reach happens — because the loop is the problem, not your character.</p>
+
+  <p>And the data already shows the alternative exists. <strong>6/25:</strong> "I overate at dinner, which is a bummer, but I did not eat any sweets so far today. Win!" Mood that day: 8. Energy: 7. Anxiety bumped to 6, but no sweets, and a tracker note that ends in "Win." That's a real datapoint — proof the cycle is breakable, not a slogan.</p>
+
+  <h3>Three things to try this weekend</h3>
+
+  <ol>
+    <li><strong>The 10-minute energy audit before the cookie.</strong> When the "I need sugar to function" thought arrives, set a 10-minute timer. In those 10 minutes do one of: drink a full glass of water, eat 15g of protein (handful of nuts, jerky, a hard-boiled egg, a spoon of peanut butter), or step outside for 5 minutes of daylight. ADHD brains genuinely cannot distinguish "tired" from "thirsty" from "understimulated" from "low blood sugar" — the body is sending a vague alarm. The timer doesn't ban the sugar. It just buys you 10 minutes to rule out the cheaper fixes first. Often that's all it takes.</li>
+    <li><strong>Stack one healthy thing onto one thing you already do.</strong> You drummed five of the last seven days. That's a habit that's already running. Add a single "before the kit" anchor — fill a water bottle and eat a protein snack before you sit down. You don't have to remember; the drum kit reminds you. ADHD-friendly because it doesn't add a new "thing to remember," it bolts onto an existing groove.</li>
+    <li><strong>Pre-decide one weekend meal.</strong> Saturday and Sunday are decision-fatigue days. By 3pm on a busy day, your brain refuses to plan dinner and the path of least resistance wins (which usually means: nothing healthy in the fridge → chocolate-covered something). Tonight or tomorrow morning, pre-decide one specific weekend meal — pick from the FRI-2 recipes below, or repeat the tofu and garlic you already cooked Tuesday. Buy whatever ingredient is missing. Done. One meal pre-decided = one less collapse point.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="label">Today's nudge</div>
+    <p>You named The Cycle on Tuesday. That's the part most people skip their whole lives. This weekend, the goal isn't to break it forever — it's to interrupt it once. Pick one moment, between now and Sunday night, where you'd normally reach for sugar to fix tired. Insert the 10-minute timer. Drink water, eat protein, step outside. See what happens. If the sugar still wins after 10 minutes, you've lost nothing. If it doesn't, you have a new datapoint and the cycle has a crack in it.</p>
+    <p>And remember the 6/25 win. You already did this once this week.</p>
+    <div class="mantra">Mantra: <strong>Water, protein, light — then decide.</strong></div>
+  </div>
+</section>
+
+<section id="fri-2-section">
+  <h2 id="fri-2">FRI-2 · Recipes: Intermediate-Level, Interesting Chefs</h2>
+
+  <p>A day of meals from chefs working outside the mainstream blog circuit — West African, Chinese-Australian diaspora, Palestinian, Indian-American, Vietnamese-American. All low-sugar, veggie-heavy, protein-rich, slow-carb.</p>
+
+  <h3>Breakfast — Nigerian Egg Stew (Eggs in Ata Dindin)</h3>
+  <p class="meta-line">Yewande Komolafe · ~30 min · serves 2–3</p>
+  <p>Komolafe is the Nigerian-born NYT Cooking columnist and author of <em>My Everyday Lagos</em>. Ata dindin is the Yoruba bell-pepper-and-chili sauce that anchors her morning routine — bright, pepper-driven, and built around eggs.</p>
+  <details class="ingredients">
+    <summary>Ingredients</summary>
+    <ul>
+      <li>2 red bell peppers, roughly chopped</li>
+      <li>1 large beefsteak tomato (or 2 Romas), chopped</li>
+      <li>1 medium red onion, half blended, half diced</li>
+      <li>1–2 habanero or scotch bonnet peppers (to taste)</li>
+      <li>3 cloves garlic, 1-inch piece fresh ginger</li>
+      <li>3 tbsp extra-virgin olive oil</li>
+      <li>1 tsp ground crayfish or smoked paprika (optional)</li>
+      <li>½ tsp curry powder, ½ tsp dried thyme</li>
+      <li>Salt and black pepper</li>
+      <li>4–6 large eggs</li>
+      <li>Scallions or parsley to garnish</li>
+      <li>Serve with: dense seeded sourdough, boiled yam, or steel-cut oats (skip the Agege bread for slow-carb)</li>
+    </ul>
+  </details>
+  <p><a href="https://www.yewandekomolafe.com/nytrecipes" target="_blank" rel="noopener noreferrer">Recipe family — Yewande Komolafe's NYT collection &rarr;</a></p>
+
+  <h3>Lunch — Rainbow Vegetable Bowl with Harissa-Roasted Carrots, Charred Broccoli &amp; Quinoa</h3>
+  <p class="meta-line">Hetty Lui McKinnon · ~35 min (mostly hands-off) · serves 4</p>
+  <p>McKinnon is a Chinese-Australian, Brooklyn-based cookbook author (<em>To Asia, With Love</em>; <em>Tenderheart</em>). Plant-forward, almost no sugar, generous on herbs and textural contrast.</p>
+  <details class="ingredients">
+    <summary>Ingredients</summary>
+    <ul>
+      <li>2 small heads broccoli (~20 oz), cut into florets</li>
+      <li>4 carrots (~14 oz), peeled and chunked</li>
+      <li>1 tsp harissa flakes (or 2 tsp harissa paste)</li>
+      <li>Extra-virgin olive oil, sea salt, black pepper</li>
+      <li>4 cups (~120g) kale leaves, torn</li>
+      <li>10 oz hummus (good store-bought or homemade)</li>
+      <li>½ cup mixed soft herbs — dill, mint, parsley, cilantro</li>
+      <li>1 lemon (zest + juice)</li>
+      <li>3–4 cups cooked quinoa, brown rice, black rice, or lentils</li>
+      <li>To finish: dukkah, furikake, toasted sesame, or chopped pistachios</li>
+      <li>Optional protein boost: chickpeas tossed with the carrots, or a soft-boiled egg per bowl</li>
+    </ul>
+  </details>
+  <p><a href="https://hettymckinnon.com/recipe/rainbow-vegetable-bowl/" target="_blank" rel="noopener noreferrer">Recipe — Hetty McKinnon &rarr;</a></p>
+
+  <h3>Dinner — Musakhan (Palestinian Sumac-Roasted Chicken with Caramelized Onions)</h3>
+  <p class="meta-line">Reem Kassis · ~70 min total · serves 4</p>
+  <p>Kassis is a Jerusalem-born Palestinian author (<em>The Palestinian Table</em>, <em>The Arabesque Table</em>) who trained at Wharton and the LSE before turning to food writing. Musakhan is the recipe she most associates with her grandmother Teta Fatima; it's the national dish of Palestine.</p>
+  <details class="ingredients">
+    <summary>Ingredients</summary>
+    <ul>
+      <li>4 bone-in, skin-on chicken thighs (or spatchcocked 3–4 lb whole chicken)</li>
+      <li>4 large red onions, thinly sliced</li>
+      <li>½ cup extra-virgin olive oil (heart of the dish — use a good one)</li>
+      <li>3 tbsp ground sumac, divided</li>
+      <li>1 tsp ground allspice, ½ tsp cinnamon, ½ tsp cumin, ½ tsp cardamom</li>
+      <li>Salt and black pepper</li>
+      <li>Juice of 1 lemon</li>
+      <li>3 tbsp pine nuts (or slivered almonds), toasted</li>
+      <li>¼ cup chopped flat-leaf parsley</li>
+      <li>Slow-carb serve: whole-wheat or sprouted-grain pita; cucumber-tomato-parsley salad with lemon and oil</li>
+    </ul>
+  </details>
+  <p><a href="https://www.saveur.com/palestinian-roast-chicken-with-sumac-and-red-onions-recipe/" target="_blank" rel="noopener noreferrer">Recipe — Saveur (Kassis-aligned) &rarr;</a></p>
+
+  <h3>Snack 1 — Indian-Spiced Crispy Roasted Chickpeas</h3>
+  <p class="meta-line">Nik Sharma · 5 min prep + 30–40 min roast · serves 2–3</p>
+  <p>Sharma is a Bombay-born, Oakland-based food scientist (<em>The Flavor Equation</em>, <em>Season</em>) who started as a molecular biologist. South Indian × American Southern with scientist's precision.</p>
+  <details class="ingredients">
+    <summary>Ingredients</summary>
+    <ul>
+      <li>1 (15 oz) can chickpeas, drained, rinsed, patted very dry</li>
+      <li>1 tbsp extra-virgin olive or avocado oil</li>
+      <li>½ tsp each: ground cumin, ground coriander, garam masala</li>
+      <li>¼ tsp ground turmeric</li>
+      <li>¼ tsp Kashmiri chili powder (or cayenne)</li>
+      <li>¼ tsp amchur (dried mango powder) — optional, for tang</li>
+      <li>½ tsp fine sea salt</li>
+      <li>Squeeze of fresh lime to finish</li>
+    </ul>
+  </details>
+  <p><a href="https://niksharmacooks.com/" target="_blank" rel="noopener noreferrer">Nik Sharma's blog (search "roasted chickpeas") &rarr;</a></p>
+
+  <h3>Snack 2 — Vietnamese Cucumber Salad with Spicy Candied Nuts (Gỏi Dưa Leo)</h3>
+  <p class="meta-line">Andrea Nguyen · 15–20 min · serves 2</p>
+  <p>Nguyen is a Vietnamese-American author of <em>Ever-Green Vietnamese</em> (James Beard winner) and <em>Vietnamese Food Any Day</em>. Rigorously tested recipes that reduce meat and lean into vegetables without losing Vietnamese flavor logic.</p>
+  <details class="ingredients">
+    <summary>Ingredients</summary>
+    <ul>
+      <li>2 Persian or Japanese cucumbers, sliced on the bias</li>
+      <li>1 small shallot, very thinly sliced</li>
+      <li>1 small carrot, julienned</li>
+      <li>1 Thai bird's-eye chili, thinly sliced (to taste)</li>
+      <li>¼ cup torn cilantro and/or Vietnamese mint</li>
+      <li>2 tbsp fish sauce (or Nguyen's vegan "fishless" version)</li>
+      <li>1 tbsp fresh lime juice</li>
+      <li>1 tsp honey or coconut sugar (minimal — for nuoc cham balance)</li>
+      <li>1 small garlic clove, grated</li>
+      <li>⅓ cup spicy candied peanuts or cashews</li>
+      <li>Optional protein: shredded poached chicken or pan-seared tofu</li>
+    </ul>
+  </details>
+  <p><a href="https://www.vietworldkitchen.com/" target="_blank" rel="noopener noreferrer">Andrea Nguyen's Viet World Kitchen &rarr;</a></p>
+
+  <h3>Shopping notes</h3>
   <ul>
-    <li><a href="archive/2026-06-24.html">Jun 24</a></li>
-    <li><a href="archive/2026-06-23.html">Jun 23</a></li>
-    <li><a href="archive/2026-06-22.html">Jun 22</a></li>
-    <li><a href="archive/2026-06-21.html">Jun 21</a></li>
-    <li><a href="archive/2026-06-19.html">Jun 19</a></li>
-    <li><a href="archive/index.html">All archives →</a></li>
+    <li><strong>Spices to stock:</strong> sumac, allspice, garam masala, Kashmiri chili powder, harissa flakes, dukkah or furikake.</li>
+    <li><strong>One slow-carb base for the week:</strong> a big batch of quinoa or brown rice covers the lunch bowl and pairs with the dinner.</li>
+    <li><strong>Day's protein:</strong> ~100g+ across all five dishes.</li>
+    <li><strong>Caveat:</strong> The Komolafe and Kassis canonical versions live in print cookbooks; linked pages are the closest free, chef-aligned versions. If NYT Cooking access is around, search "Yewande Komolafe egg stew" directly.</li>
   </ul>
-</nav>
+</section>
 
-<!-- ===================== THU-1 ===================== -->
-<h2 id="thu-1"><span class="num">THU-1</span> Sugar Addiction Recovery</h2>
+<section id="fri-3-section">
+  <h2 id="fri-3">FRI-3 · Weekend Music: NYC Performances (Free / Low-Cost)</h2>
 
-<p>You logged a real win last night: <em>"did not eat any sweets so far today. Win!"</em> (6/25 quick check-in). That's the first crack in The Cycle this week — and it's worth naming what you're up against so it doesn't get smoothed over.</p>
+  <p>Confirmed-for-2026 events spanning the requested genre buckets. All free or under $25 unless flagged. Verify door price and venue status before heading out — Saint Vitus and a few smaller venues had reported closures that may or may not have reversed.</p>
 
-<p>Here's the loop that's been pulling you under, in your own words from this week:</p>
+  <h3>Friday, June 26</h3>
+  <ul>
+    <li><strong>Laurie Anderson: "Republic of Love" with Sexmob</strong> · 6–8 PM · Central Park SummerStage (Rumsey Playfield, Manhattan) · Avant-garde / brass-jazz · <span class="tag">FREE</span> · <a href="https://www.centralpark.com/things-to-do/concerts/summerstage-festival/" target="_blank" rel="noopener noreferrer">Central Park SummerStage 2026</a></li>
+    <li><strong>Stardust Fest Night 1 — Taake (Norway), Fell Voices, Young and in the Way, Wolvhammer, Anicon</strong> · ~7 PM doors · Saint Vitus Bar, Greenpoint · Black metal / hardcore · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan — Stardust Fest 2026</a> <span class="caveat">(verify venue status — Saint Vitus was reported closed in 2024)</span></li>
+    <li><strong>TSQ LIVE Summer Friday: Strange Neighbors</strong> · 6 PM · Broadway &amp; 46th St, Times Square · Power pop / indie · <span class="tag">FREE</span> · <a href="https://www.timessquarenyc.org/events" target="_blank" rel="noopener noreferrer">Times Square NYC events</a></li>
+  </ul>
 
-<ul>
-  <li><strong>6/23 midday</strong> — <em>"anger at everything … to cope, I once again did the stupid fucking thing I always do: eat high-sugar foods. Two chocolate bars today."</em></li>
-  <li><strong>6/23 quick</strong> — <em>"I don't know how I'm going to crawl out of this … I need to get out of The Cycle and I do not know how to make that happen."</em></li>
-  <li><strong>6/24 morning</strong> — <em>"battling the low energy demons for seemingly the past month."</em></li>
-  <li><strong>6/25 evening</strong> — <em>"Maybe I can keep going on sweets abstention, and have my energy level out, and then have the energy to unclutter the room."</em></li>
-</ul>
+  <h3>Saturday, June 27</h3>
+  <ul>
+    <li><strong>Valtinho Anastácio — Brazilian Percussion</strong> · 7:30 &amp; 9 PM sets · Zinc Bar, Greenwich Village · Brazilian / Latin percussion · $35 at door <span class="caveat">(over the $25 cap — flagged as the cleanest Brazilian option this weekend; cheaper online in advance)</span> · <a href="https://www.zincbar.com/calendar/" target="_blank" rel="noopener noreferrer">Zinc Bar calendar</a></li>
+    <li><strong>Stardust Fest Night 2 — Bethlehem (Germany), Tombs, Black Anvil, Inter Arma, Vorde</strong> · ~7 PM doors · Saint Vitus Bar · Black / doom metal · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan</a></li>
+  </ul>
 
-<p>You named the mechanism yourself in that last note. The loop:
-<strong>anger or low energy → high-sugar food for a 30-min spike → crash to lower-than-baseline energy → feel incapable → reach for the next quick fix.</strong> Dr. Anna Lembke calls this the dopamine seesaw — every spike is paid for with a deeper dip, and your brain remembers the spike and forgets the dip. The chocolate bars on 6/23 didn't <em>cause</em> the energy crash on 6/24; they <em>compounded</em> it.</p>
+  <h3>Sunday, June 28</h3>
+  <ul>
+    <li><strong>Red Baraat</strong> · 10 PM · Barbès, Park Slope (376 9th St) · World music — Brooklyn Indian-American dhol &amp; brass fusing Punjabi bhangra with go-go funk, jazz, hip-hop · suggested donation typically $10–20 · <a href="https://www.barbesbrooklyn.com/events" target="_blank" rel="noopener noreferrer">Barbès Brooklyn</a></li>
+    <li><strong>Stardust Fest Night 3 — Bethlehem, Fell Voices, Svart Crown (France), Mutilation Rites, Anicon</strong> · ~7 PM doors · Saint Vitus Bar · Black / death metal · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan</a></li>
+    <li><strong>Dreamland: Pride in Central Park — Purple Disco Machine (Germany) / Kungs (France) / Dani Brasil (Brazil)</strong> · 3–10 PM · Central Park SummerStage · Electronic / house / disco / Brazilian dance · Pride benefit, tiered pricing — verify GA under $25 · <a href="https://www.centralpark.com/things-to-do/concerts/summerstage-festival/" target="_blank" rel="noopener noreferrer">SummerStage 2026</a></li>
+  </ul>
 
-<p>This is a habit loop, not a character flaw. "I once again did the stupid fucking thing I always do" is a habit talking. The same brain that learned that loop can unlearn it — but only by interrupting the trigger, not by white-knuckling the craving.</p>
+  <h3>Gaps worth knowing about</h3>
+  <ul>
+    <li><strong>Drum &amp; bass:</strong> Nowadays (Ridgewood) and H0L0 (Bushwick) post their weekly schedules on their own sites — neither was fetchable. Check <a href="https://nowadays.nyc" target="_blank" rel="noopener noreferrer">nowadays.nyc</a> and <a href="https://h0l0.nyc/events" target="_blank" rel="noopener noreferrer">h0l0.nyc/events</a> directly.</li>
+    <li><strong>Trip-hop / neo soul / underground hip hop:</strong> SOB's had a 6/28 event teased but lineup/price weren't verifiable. Check <a href="https://sobs.com/calendar/" target="_blank" rel="noopener noreferrer">sobs.com/calendar</a> direct.</li>
+    <li><strong>Astoria local:</strong> Bohemian Hall has a rolling live-music calendar but nothing confirmed for 6/26-28 surfaced in search — check <a href="https://www.bohemianhall.com" target="_blank" rel="noopener noreferrer">bohemianhall.com</a>.</li>
+  </ul>
+</section>
 
-<h3>Three strategies for today</h3>
+<section id="fri-4-section">
+  <h2 id="fri-4">FRI-4 · Weekend Art &amp; Installations: NYC</h2>
 
-<ol>
-  <li><strong>Pre-decide the protein, not the prohibition.</strong> "I won't eat sweets" is a will-power tax that you pay every time the thought appears. "I will eat 30g of protein before noon" is a single decision that crowds out the trigger. Tofu, eggs, Greek yogurt, leftover chicken — whatever's already in the fridge. Pick it now, before low-energy-you has to decide.</li>
-  <li><strong>Name the trigger out loud the moment it fires.</strong> When you feel that pull — and you will today — say to yourself <em>"this is the cycle"</em> before you say anything else. That tiny pause moves the urge from automatic behavior into the prefrontal cortex where you actually have a vote. Lembke calls it "the pause." It works because addiction lives in the gap between trigger and action; if you widen the gap by even 10 seconds, you often choose differently.</li>
-  <li><strong>Replace the spike, not the energy.</strong> When the urge hits, the brain wants <em>fast pleasure</em>, not nutrition. Cold water on the face, two minutes outside, a song from the kit, ice in a glass with a splash of something tart — anything that delivers a fast sensory hit without sugar. You're not pretending it's the same; you're showing your nervous system that the spike <em>can</em> come from somewhere else.</li>
-</ol>
+  <p>Heads up — the major listing sites (Time Out, Artforum, GalleriesNow) all blocked automated fetching, so these come from search-result snippets that explicitly named June 26 openings. Confirm hours and current-day status on the linked pages before heading out.</p>
 
-<div class="callout">
-  <div class="label">Today's nudge</div>
-  <p>Last night you wrote that you're exhausted just thinking about uncluttering the living room. Read that note back — the path you described is right. Level the energy first, then the cluttered room gets handled by a calmer, more capable version of you. Yesterday you proved you can choose differently for one day. Today is just one more day. Stack one more.</p>
-  <div class="mantra">Mantra: <em>One spike costs me tomorrow. I'm keeping tomorrow.</em></div>
-</div>
+  <ul>
+    <li><strong>"Illuminations" — curated by Angela Lane, feat. Megan Gabrielle Harris</strong> · Opens Fri June 26 (on view through summer) · Anate Bgi Gallery, 372 Broadway, Tribeca · <span class="tag">FREE</span> · Single-artist showcase in a small Tribeca gallery operating off the museum circuit — the kind of opening night where you meet the artist. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime NYC Gallery Openings 2026</a></li>
 
-<!-- ===================== THU-2 ===================== -->
-<h2 id="thu-2"><span class="num">THU-2</span> Music Production: Home Studio Techniques</h2>
+    <li><strong>"Clay Pigeons" — Lzzy Barber</strong> · Opens June 26 · Charles Moffett Gallery, 394 Broadway, Tribeca · <span class="tag">FREE</span> · Moffett tends to program emerging painters with an off-kilter, narrative-figurative bent. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
 
-<p class="meta">Tuned to your rig: Roland TD-11, Focusrite 2i2, Logic Pro (Mac + iPad), Ample Metal Hellrazer, GGD Modern & Massive 2, Steven Slate Drums 5, Splice + NI libraries.</p>
+    <li><strong>"See You Tomorrow Under Other Skies" — group show</strong> · Opens June 26 · Andrew Kreps Gallery, 22 Cortlandt Alley + 394 Broadway, Tribeca · <span class="tag">FREE</span> · Two-venue install spilling into Cortlandt Alley (the alley that doubles as every NYC backdrop in film). · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
 
-<div class="tip">
-  <div class="tip-title">1. Save undo history with your project (Logic Pro 11.2)</div>
-  <p>Logic Pro 11.2 added a Settings → General option that persists undo history across save/close. Because the full edit history reopens with the project, you can revisit a drum edit or guitar comp from days ago without rebuilding it — huge for songs that get tracked across many sessions.</p>
-  <p class="kv"><strong>For your rig:</strong> Flip it on before the next songwriting session on the Mac. Pairs well with Logic Remote on the iPad — record a TD-11 take from the kit, then roll back any pass later without losing the trail.</p>
-  <p class="source"><a href="https://www.logicprohelp.com/articles/logic-pro-112-new-features-explained-r26/" target="_blank" rel="noopener noreferrer">Logic Pro Help — 11.2 new features</a></p>
-</div>
+    <li><strong>DDDD.pictures — new exhibition</strong> · Opens June 26 · 79 Leonard St, Tribeca · <span class="tag">FREE</span> · Experimental moving-image / photo-adjacent programming in a small Leonard St space — artist-run, not commercial. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
 
-<div class="tip">
-  <div class="tip-title">2. Keep MIDI drum humanization ≤ 8% (velocity AND timing)</div>
-  <p>Programmed-drum rule of thumb that keeps holding up: humanize beyond ~8% on either velocity or timing and it starts to sound sloppy rather than human. Real drummers have tight <em>micro</em>-variation, not loose macro-variation — small randomization reads as feel, large reads as drunk.</p>
-  <p class="kv"><strong>For your rig:</strong> When you write SSD5 parts in the piano roll (double-kick patterns, fills you haven't dialed in physically yet), cap humanize at 8% and only write what a real drummer could play. Respects your 20-year ear for what's executable.</p>
-  <p class="source"><a href="https://mastering.com/program-realistic-midi-drums/" target="_blank" rel="noopener noreferrer">Mastering.com — Program realistic MIDI drums</a></p>
-</div>
+    <li><strong>LEERFORM — "A Year of Magical Thinking"</strong> · On view June 2026 · LEERFORM, Bushwick · <span class="tag">FREE</span> · Labor-intensive, drawing-based works inside a working fabrication studio — the warehouse-loft hybrid you wanted. · <a href="https://bushwickdaily.com/music-and-nightlife/your-guide-to-events-in-bushwick-ridgewood-and-beyond-january-13-19-2026/" target="_blank" rel="noopener noreferrer">Bushwick Daily 2026</a></li>
 
-<div class="tip">
-  <div class="tip-title">3. Blend two IRs inside GGD Modern & Massive 2 instead of one</div>
-  <p>Modern amp-sim mixing has moved away from a single cab IR. The go-to is slot 1 = focused close-mic IR (SM57-style) for midrange bite, slot 2 = room IR (e.g. U87) for space and depth. Stacked, you get the cut of a close mic with the three-dimensionality of a real tracking room.</p>
-  <p class="kv"><strong>For your rig:</strong> Inside M&amp;M2's mixer, run a close+room IR blend on rhythm guitars. Bonus: borrow GGD's drum-library room IRs onto guitars to glue them into the same space as SSD5 — a free move since you already own GGD products.</p>
-  <p class="source"><a href="https://www.nailthemix.com/add-depth-to-amp-sim-guitars-w-getgood-drums-room-irs" target="_blank" rel="noopener noreferrer">Nail the Mix — depth with GGD room IRs</a></p>
-</div>
+    <li><strong>Bronx Museum AIM Biennial 7 — "Forms of Connection"</strong> · Opened Jan 23, 2026; through summer 2026 · Bronx Museum, South Bronx · <span class="tag">FREE</span> · Artist-in-the-Marketplace cohort — emerging-artist biennial that's rougher and more experimental than its Manhattan cousins. · <a href="https://gothamist.com/arts-entertainment/8-must-see-2026-nyc-art-shows" target="_blank" rel="noopener noreferrer">Gothamist — 8 must-see 2026 NYC art shows</a></li>
+  </ul>
 
-<div class="tip">
-  <div class="tip-title">4. HPF + 250–350 Hz cut to carve DI bass around guitars</div>
-  <p>When DI bass (Hellrazer) and rhythm guitars (GGD M&amp;M2) fight, the cleanest fix is: HPF guitars at 80–100 Hz for standard tuning or 60–70 Hz for drop tunings, then cut 2–4 dB at 250–350 Hz on whichever source is muddier. That clears the low-mid blanket so the bass fundamental and the guitar chug each get their own lane.</p>
-  <p class="kv"><strong>For your rig:</strong> Hellrazer has a roughly 50 ms pick-attack delay by default — set a –50 ms region nudge or track delay in Logic so the bass locks to your kick.</p>
-  <p class="source"><a href="https://www.komposition101.com/blog/essential-guitar-and-bass-frequencies-for-killer-metal-tones" target="_blank" rel="noopener noreferrer">Komposition101 — Guitar &amp; bass frequencies for metal</a></p>
-</div>
+  <p class="caveat">Couldn't verify within the tool budget: Bushwick Open Studios 2026 dates (historically June — check <a href="https://artsinbushwick.org/members-2/" target="_blank" rel="noopener noreferrer">artsinbushwick.org</a>), specific performance-art events for this weekend, and SVA/Pratt/Cooper thesis afterglow shows (main run wrapped April–May).</p>
+</section>
 
-<div class="tip">
-  <div class="tip-title">5. Track Stacks + Track Alternatives for fast song iteration</div>
-  <p>Track Stacks fold a drum kit or backing-vocal group under one fader — you mix the section, not 12 channels. Track Alternatives let you keep multiple takes or arrangement ideas (different chorus, different solo) on a single track without duplicating it. Together you A/B arrangement decisions in seconds.</p>
-  <p class="kv"><strong>For your rig:</strong> SSD5 multi-out routing and layered guitars (GGD plus Splice/NI sweeteners) collapse into one DRUMS and one GTRS stack. Track Alternatives = try a 7/8 pre-chorus vs. a 4/4 one without losing either.</p>
-  <p class="source"><a href="https://www.loopmasters.com/articles/2251-10-Logic-Pro-X-Tips-For-Better-Workflow-in-the-Studio" target="_blank" rel="noopener noreferrer">Loopmasters — Logic Pro workflow tips</a></p>
-</div>
+<section id="fri-5-section">
+  <h2 id="fri-5">FRI-5 · Weekend Social: NYC Events with Activity</h2>
 
-<div class="tip">
-  <div class="tip-title">6. Write one odd-meter section per song</div>
-  <p>A reliable songwriting move right now: a single 5/4 or 7/8 passage (often pre-chorus or bridge) inside an otherwise 4/4 song. The contrast creates tension that the chorus then resolves by returning to 4 — the listener feels the payoff without consciously knowing why.</p>
-  <p class="kv"><strong>For your rig:</strong> Sketch the odd-meter riff on guitar, then track it live on the TD-11 so the part stays human and playable. A Kontakt pad under the odd-meter section marks it as a "moment."</p>
-  <p class="source"><a href="https://developdevice.com/blogs/news/the-art-of-crafting-a-modern-metal-song-a-comprehensive-guide" target="_blank" rel="noopener noreferrer">Develop Device — Modern metal songwriting</a></p>
-</div>
+  <p>Not "hang out at a bar." Each of these involves doing something — yoga, dancing, walking, improv, hosted games, marching. A few major event sites blocked direct fetch; verify time-of-day on the linked page before going.</p>
 
-<!-- ===================== THU-3 ===================== -->
-<h2 id="thu-3"><span class="num">THU-3</span> Music Sight-Reading for Drummers</h2>
+  <ul>
+    <li><strong>Q.E.D. Astoria — Workshops, Trivia &amp; Games</strong> <span class="tag">Astoria</span> · Fri/Sat/Sun sessions all weekend · 27-16 23rd Ave, Astoria · ~$10–35 depending on workshop · The closest match to you — Q.E.D. runs craft and learning workshops, hosted trivia, and games most weekend nights. Their calendar lists specific 6/26–28 sessions. · <a href="https://qedastoria.com/apps/events/calendar" target="_blank" rel="noopener noreferrer">Q.E.D. calendar</a></li>
 
-<p>You play fluently but didn't grow up reading rhythmic notation. Reading is a stamina skill — the only way in is daily, low-tempo reps where you never have to stop. Here's a small library to actually do it from.</p>
+    <li><strong>NYC Dyke March — Pride Weekend Group Walk</strong> · Saturday June 27, steps off 5 PM from Bryant Park · 5th Ave route, Midtown · <span class="tag">FREE</span> · Mass protest-march / social walk — collaborative, mild movement, very social. · <a href="https://helpnewyork.com/free-in-nyc-this-week-may-26-june-1-2026-photovilles-final-days-dumbo-drop-returns-bryant-park-yoga-reopens/" target="_blank" rel="noopener noreferrer">NYC 2026 events roundup</a></li>
 
-<h3>Books (2–3)</h3>
+    <li><strong>Shape Up NYC — Dance Fitness, Prospect Park Boathouse</strong> · Saturday June 27, 10–11 AM · Prospect Park Boathouse, Brooklyn · <span class="tag">FREE</span> · Hosted, choreographed, beginner-welcome group dance-fitness class — recurring weekly through Nov 1. · <a href="https://www.nycgovparks.org/events/outdoor-fitness" target="_blank" rel="noopener noreferrer">NYC Parks 2026 outdoor fitness</a></li>
 
-<div class="tip">
-  <div class="tip-title">Progressive Steps to Syncopation for the Modern Drummer — Ted Reed</div>
-  <p>The standard reference. Page 38 alone has been used by pros for decades — each one-bar rhythm can be applied dozens of ways (ride patterns, bass-drum figures, jazz comping, samba clave). Best book for tying reading to actual playing.</p>
-  <p class="source"><a href="https://www.amazon.com/Progressive-Steps-Syncopation-Modern-Drummer/dp/1607968843" target="_blank" rel="noopener noreferrer">Amazon</a> &nbsp;·&nbsp; <a href="https://hudsonmusic.com/product/syncopation/" target="_blank" rel="noopener noreferrer">Hudson Music</a></p>
-</div>
+    <li><strong>Morning Yoga at Brooklyn Bridge Park (Abhaya Yoga)</strong> · Saturday June 27, 9:30–10:30 AM · Brooklyn Bridge Park, Pier 1 · <span class="tag">FREE</span> · Outdoor group yoga with waterfront skyline. · <a href="https://www.nycforfree.co/free-outdoor-yoga" target="_blank" rel="noopener noreferrer">NYC For Free 2026</a></li>
 
-<div class="tip">
-  <div class="tip-title">Modern Reading Text in 4/4 — Louis Bellson &amp; Gil Breines</div>
-  <p>Exercises are laid out like real charts — varied notation, rests, ties — closer to what you'll see on a session music stand than Reed. Best book specifically for sight-reading (read it once, move on) vs. deep interpretation.</p>
-  <p class="source"><a href="https://www.alfred.com/modern-reading-text-in-4-4/p/00-HAB00003/" target="_blank" rel="noopener noreferrer">Alfred Music</a> &nbsp;·&nbsp; <a href="https://www.amazon.com/Modern-Reading-Text-All-Instruments/dp/0769233775" target="_blank" rel="noopener noreferrer">Amazon</a></p>
-</div>
+    <li><strong>UCB ASSSSCAT Improv</strong> · Saturday June 27 · UCB NY, 14th St, Manhattan · ~$10–15 · Longform improv jam — audience suggestions drive the scenes. Interactive and creative; arrive early for the stand-by line if you want to call out suggestions. · <a href="https://ucbcomedy.com/" target="_blank" rel="noopener noreferrer">UCB calendar</a></li>
 
-<div class="tip">
-  <div class="tip-title">Stick Control for the Snare Drummer — George Lawrence Stone</div>
-  <p>Not strictly a reading book, but for someone who didn't grow up reading, it builds the eye–hand link with simple R/L notation. Use it as a warm-up reader before Reed or Bellson.</p>
-  <p class="source"><a href="https://www.drumeo.com/beat/drum-books-that-every-drummer-should-own/" target="_blank" rel="noopener noreferrer">Drumeo — Books every drummer should own</a></p>
-</div>
+    <li><strong>Bryant Park Yoga</strong> · Multiple sessions weekly through summer · Bryant Park, 42nd &amp; 6th · <span class="tag">FREE</span> · Free outdoor mat-based vinyasa/hatha, all levels — confirm Saturday slot on the page. · <a href="https://bryantpark.org/activities/yoga" target="_blank" rel="noopener noreferrer">Bryant Park 2026</a></li>
 
-<h3>Apps &amp; software tools</h3>
+    <li><strong>Brooklyn Bridge Park Free Guided Walking Tour</strong> · Weekend tours through summer 2026 · Meet at Pier 1 · <span class="tag">FREE</span> · Docent-led waterfront walking tour covering the piers' design and history — 60–90 min, light movement, social. · <a href="https://www.nycforfree.co/events" target="_blank" rel="noopener noreferrer">NYC For Free 2026 events</a></li>
+  </ul>
 
-<div class="tip">
-  <div class="tip-title">Rhythm Sight Reading Trainer (ReadRhythm) — iOS, free</div>
-  <p>Generates endless random rhythmic exercises (2–12 beats per bar, common and odd meters). Tap on screen or via MIDI device (works with the TD-11 through USB). Best free tool for daily reps.</p>
-  <p class="source"><a href="https://apps.apple.com/us/app/rhythm-sight-reading-trainer/id396302174" target="_blank" rel="noopener noreferrer">App Store</a></p>
-</div>
+  <p class="caveat">Verification: 2, 3, 4, 5 had explicit 2026 date confirmation in search results. 1, 6, 7 are 2026-season pages whose specific slot you should confirm before heading out.</p>
+</section>
 
-<div class="tip">
-  <div class="tip-title">RhythmBot (by JP Bouvet) — web/iOS, free + paid</div>
-  <p>Made by a drummer specifically for drummers. Generates notation with adjustable complexity, subdivisions, and time signatures. Great for session-style "what's this bar?" practice.</p>
-  <p class="source"><a href="https://melodics.com/blog/top-drum-notation-apps" target="_blank" rel="noopener noreferrer">Melodics — Top drum notation apps</a></p>
-</div>
+<section id="fri-6-section">
+  <h2 id="fri-6">FRI-6 · Shirt Shopping: John's Size &amp; Style</h2>
 
-<div class="tip">
-  <div class="tip-title">Sight Reading Factory — web, ~$35/yr</div>
-  <p>Originally for melodic instruments, but the rhythm-only mode is gold. Generates fresh exercises every time so you can't memorize, with adjustable difficulty and meters — the closest thing to a session-chart simulator.</p>
-  <p class="source"><a href="https://www.sightreadingfactory.com/" target="_blank" rel="noopener noreferrer">sightreadingfactory.com</a></p>
-</div>
+  <p>Targeting chest 47" / waist 50.5" (3XL–4XL depending on brand), boho aesthetic, breathable fabrics, button-downs and V-necks both. Several retailer product pages blocked direct fetch — entries below are sourced from search results plus brand knowledge, with size-availability confidence noted per item.</p>
 
-<h3>Free blogs &amp; videos</h3>
-
-<div class="tip">
-  <div class="tip-title">Cruise Ship Drummer! (Todd Bishop)</div>
-  <p>Working pro who writes extensively about reading, Reed interpretations, and sight-reading drills. Tons of free downloadable PDFs aimed at exactly your use case: sub gigs, charts.</p>
-  <p class="source"><a href="https://cruiseshipdrummer.com/2021/08/15/louis-bellson-reading-text-in-4-4/" target="_blank" rel="noopener noreferrer">cruiseshipdrummer.com — Bellson reading text post</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">Stephen Taylor Drums (YouTube + site)</div>
-  <p>Working sub who walks through how to read drum charts, road maps, and rehearsal notation. Search his channel for "chart reading" and "sight reading."</p>
-  <p class="source"><a href="https://www.stephensdrumshed.com/the-455/" target="_blank" rel="noopener noreferrer">Stephen's Drum Shed</a></p>
-</div>
-
-<div class="callout">
-  <div class="label">10–15 min daily routine</div>
   <ol>
-    <li><strong>Warm-up read (2 min):</strong> Open Stick Control to a random page. Play 4 lines at ♩ = 70 with eyes glued to the page. Don't memorize — turn the page if you catch yourself looking up.</li>
-    <li><strong>Reed page 38 (5 min):</strong> Pick one line. Pass 1: play the written rhythm on snare with jazz ride and hi-hat on 2 &amp; 4. Pass 2: same rhythm on bass drum with swing on top. Different "voicing" each day.</li>
-    <li><strong>App rep (3–5 min):</strong> Open Rhythm Sight Reading Trainer or RhythmBot. Generate 4–8 fresh bars. Play through on a pad, no stops. Repeat once a click faster.</li>
-    <li><strong>Chart day (1×/week instead of step 3):</strong> Read a real chart cold — free big-band PDF or a fresh Bellson exercise. Goal: through it once without stopping, count out loud at rests.</li>
+    <li><strong>Men's Vintage Ethnic Boho Linen Shirt — Etsy independent seller</strong> · ~$55–$90 · Pure linen ethnic-cut button-down with a relaxed boho silhouette. Many Etsy linen sellers offer made-to-measure or extended sizes through 4XL — message the seller with your measurements (47"/50.5") before ordering. · <a href="https://www.etsy.com/listing/180527638/men-linen-shirt-vintage-ethnic-boho-men" target="_blank" rel="noopener noreferrer">Etsy listing</a></li>
+
+    <li><strong>Holy Clothing — Renaissance / Boho Shirts</strong> · ~$45–$75 · <strong>Brand standard is S–5X across their catalog</strong> — one of the few boho brands that genuinely carries 4X/5X. Renaissance/Celtic lace-up V-neck and pirate-shirt styles in cotton; loose, breathable, festival-ready. Highest-confidence size fit on this list. · <a href="https://holyclothing.com/" target="_blank" rel="noopener noreferrer">Holy Clothing</a></li>
+
+    <li><strong>Mexicali Blues — Men's Tops</strong> · ~$40–$70 · Maine B Corp, globally sourced since 1988. Cotton gauze, rayon, hemp-blend tunics and button-ups with global/ethnic patterns — hippie-modern aesthetic in spades. Sizing typically tops out at XXL/XXXL; for 47"/50.5", look specifically at kurta-cut and tunic styles, which run roomier than fitted button-downs. · <a href="https://www.mexicaliblues.com/collections/mens-tops/short" target="_blank" rel="noopener noreferrer">Mexicali Blues men's tops</a></li>
+
+    <li><strong>Etsy "Boho Mens V Neck Shirt" — handmade cotton gauze</strong> · ~$35–$65 · Crinkled cotton gauze V-necks — the canonical festival/hippie summer shirt. Extremely breathable, drapey, often earth tones or block prints. Many sellers list up to 4XL or offer custom sizing. · <a href="https://www.etsy.com/market/boho_mens_v_neck_shirt" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
+
+    <li><strong>Etsy "Bohemian Linen Shirt" — handmade button-down</strong> · ~$50–$95 · Pure linen, often unbleached or naturally dyed, with mandarin collars or open plackets. Many sellers offer made-to-measure — best route for a confirmed fit at 47"/50.5". · <a href="https://www.etsy.com/market/bohemian_linen_shirt" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
+
+    <li><strong>Etsy "Cotton Gauze Shirt Men"</strong> · ~$40–$70 · Double-gauze cotton — the lightest, most breathable summer weave. Indian and Thai artisan sellers in this category lean heavily into kaftan-influenced silhouettes and offer 3XL/4XL or made-to-measure as standard. · <a href="https://www.etsy.com/market/cotton_gauze_shirt_men" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
+
+    <li><strong>Lucky Gent — Rayon V-Neck "Boho Chic"</strong> · ~$45–$60 · Silky drapey rayon V-neck explicitly marketed as boho chic. <strong>Caveat: brand typically runs S–XXL only.</strong> Confirm 3XL availability on the product page before counting on this one. · <a href="https://luckygent.com/menstops/mens-luxury-touch-v-neck-shirt-rayon-boho-chic" target="_blank" rel="noopener noreferrer">Lucky Gent</a></li>
   </ol>
-  <p class="mantra">Tempo low enough that you never have to stop. The win is unbroken flow, not perfect hits.</p>
-</div>
 
-<!-- ===================== THU-4 ===================== -->
-<h2 id="thu-4"><span class="num">THU-4</span> Tips from World-Class Drummers</h2>
-
-<div class="tip">
-  <div class="tip-title">1. Stewart Copeland — "Practice perfection"</div>
-  <p class="kv"><strong>Genre:</strong> Rock (The Police). Distinct hi-hat work and reggae-inflected grooves.</p>
-  <p><strong>The tip:</strong> Find the exact tempo at which you can execute a rudiment <em>flawlessly</em> — and never go above it during practice. Playing imperfectly above that speed only teaches your hands wrongness. Copeland also calls quiet playing "the most unappreciated technique" — drums sound better, body stays relaxed.</p>
-  <p><strong>Why it's useful:</strong> Coming off a 6-year break, your muscle memory rebuilds cleanly only at tempos you can already execute. Resist pushing speed; reclaim chops at low volume first.</p>
-  <p class="source"><a href="https://www.musicradar.com/news/drums/stewart-copelands-top-5-tips-for-drummers-619308" target="_blank" rel="noopener noreferrer">MusicRadar — Stewart Copeland's top 5 tips</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">2. Vinnie Colaiuta — "Thought is the enemy of flow"</div>
-  <p class="kv"><strong>Genre:</strong> Fusion / session (Sting, Frank Zappa, Jeff Beck).</p>
-  <p><strong>The tip:</strong> Practice to build vocabulary so ideas flow freely — but don't let practice become a neurosis. Vinnie no longer practices obsessively; you need discipline, but constantly telling yourself "I have to practice" is counterproductive. Billy Cobham specifically told him to enjoy his practice time.</p>
-  <p><strong>Why it's useful:</strong> Returning players guilt-trip themselves about lost ground. Vinnie's framing — build vocabulary off the kit, get out of your own way on the gig — is the headspace live performance demands.</p>
-  <p class="source"><a href="https://www.vinniecolaiuta.com/Interviews/Drum2014" target="_blank" rel="noopener noreferrer">VinnieColaiuta.com — Drum interview</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">3. Steve Gadd — Listen hard, leave space</div>
-  <p class="kv"><strong>Genre:</strong> Studio / R&amp;B / jazz-pop (Steely Dan, Paul Simon, James Taylor). The most-recorded session drummer in history.</p>
-  <p><strong>The tip:</strong> "A good musician is someone who listens real hard and leaves some space. If you have to fight for a space, it's not too much fun." Gadd says his best days are the ones he wakes up realizing he doesn't have the answers and has something to learn.</p>
-  <p><strong>Why it's useful:</strong> For live performance after a long break, the temptation is to overplay to prove you're back. Listening and leaving space is the fastest way to make bandmates want to call you again.</p>
-  <p class="source"><a href="https://www.moderndrummer.com/2005/07/steve-gadd/" target="_blank" rel="noopener noreferrer">Modern Drummer — Steve Gadd</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">4. Nate Smith — Don't watch the clock</div>
-  <p class="kv"><strong>Genre:</strong> Modern jazz / funk / pocket (Dave Holland, Fearless Flyers, Brittany Howard).</p>
-  <p><strong>The tip:</strong> "If you're practicing and you're looking at the clock, you shouldn't be practicing." Practice should be playing. When you hit something hard, work on that specific thing. "Touch is huge" — your sound starts in the hands, not the gear.</p>
-  <p><strong>Why it's useful:</strong> You don't need a structured 2-hour routine to get back in shape. Short sessions focused on what's actually broken — and rebuilding touch on your own kit — beat checkbox practice every time.</p>
-  <p class="source"><a href="https://www.drummersresource.com/nate-smith-interview/" target="_blank" rel="noopener noreferrer">Drummer's Resource — Nate Smith</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">5. Mark Guiliana — Use ideas as your "North Star" + D.R.O.P.</div>
-  <p class="kv"><strong>Genre:</strong> Jazz / electronic / prog (Bowie's <em>Blackstar</em>, Brad Mehldau, Beat Music).</p>
-  <p><strong>The tip:</strong> You only need enough technique to play your ideas. When you hear something in your head you can't yet execute, that gap is the practice goal. Use D.R.O.P. — <strong>D</strong>ynamics, <strong>R</strong>ate, <strong>O</strong>rchestration, <strong>P</strong>hrasing — and vary one element at a time over a single idea to unlock new vocabulary. Limited practice time (he has kids) actually sharpened his focus.</p>
-  <p><strong>Why it's useful:</strong> Limited time + targeted work. D.R.O.P. extracts weeks of material from one groove or fill — perfect for a 45-year-old with a packed schedule.</p>
-  <p class="source"><a href="https://drummersreview.com/news/mark-guiliana-interview/" target="_blank" rel="noopener noreferrer">Drummer's Review — Mark Guiliana</a></p>
-</div>
-
-<!-- ===================== THU-5 ===================== -->
-<h2 id="thu-5"><span class="num">THU-5</span> Passive Income — Lowest Barrier, Start This Week</h2>
-
-<p class="meta">Honestly vetted. Ranked by what you can actually launch in 7 days using skills you already have. Zero upfront capital across all four.</p>
-
-<div class="tip">
-  <div class="tip-title">1. React Native template / component on Gumroad + CodeCanyon <span class="pill">START HERE</span></div>
-  <p><strong>What it is:</strong> Extract one polished, reusable piece from John's Tracker (charts component, streak logic, onboarding flow, notification scheduler) — or build a small new one — and sell as a paid code asset. One-time purchases, recurring sales over months/years.</p>
-  <p><strong>Realistic income:</strong> Solo RN template sellers on CodeCanyon typically see <strong>$50–$500/month per listing</strong> in year one. Hit templates ($30–$60 price) reach $1k–$3k/month. Gumroad is lower volume but ~90% revenue share vs. CodeCanyon's ~50–70% take.</p>
-  <p><strong>Setup time:</strong> 20–40 hours to package well (clean repo, README, demo GIFs, license, support email). Doable in 1–2 weeks of evenings if you're extracting from existing code.</p>
-  <p><strong>The catch:</strong> Support burden. Buyers email about broken Expo configs at 2am. CodeCanyon also wants an exclusivity decision and approval review (1–2 weeks). Market is saturated with generic "ecommerce app templates" — you have to pick a wedge nobody else covers.</p>
-  <p><strong>Why it fits you:</strong> You already ship an RN app. The hardest part — knowing what production-grade RN code looks like — is done. Pure sweat-equity from skills you use anyway. Highest leverage per hour on this list.</p>
-  <p><strong>Start this week:</strong></p>
-  <ol>
-    <li>Audit John's Tracker for the most reusable, self-contained module. Pick one.</li>
-    <li>Extract into a clean standalone repo with demo app, screenshots, 1-page README.</li>
-    <li>List on Gumroad day one ($19–$39); submit to CodeCanyon in parallel.</li>
-  </ol>
-  <p class="source"><a href="https://help.gumroad.com/article/305-sell-react-components" target="_blank" rel="noopener noreferrer">Gumroad — sell React components</a> &nbsp;·&nbsp; <a href="https://codecanyon.net/search/react%20native" target="_blank" rel="noopener noreferrer">CodeCanyon — RN bestsellers</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">2. Original drum sample packs &amp; loops on Splice + BeatStars</div>
-  <p><strong>What it is:</strong> Record original drum loops, one-shots, fills, and kits from your home setup. Producers buy them as building blocks. Recurring per-stream/per-download royalties.</p>
-  <p><strong>Realistic income:</strong> First-year solo creator with 1–3 packs: <strong>$20–$200/month</strong>. Producers with 5–10 well-marketed packs report $200–$2,000/month. The "$5k–$20k/month" numbers floating around are top-percentile creators with 30+ packs and audience — don't plan around them.</p>
-  <p><strong>Setup time:</strong> 15–30 hours for a first pack done right (recording, editing, tagging, cover art, submission). First pack submittable in 7–10 days if you push.</p>
-  <p><strong>The catch:</strong> Splice gatekeeps via application form and curates aggressively — many first submissions get rejected. Every sample must be 100% original — no copyrighted breaks, no AI-generated content with murky rights, or your pack gets pulled.</p>
-  <p><strong>Why it fits you:</strong> 20+ years on drums = the one skill that's hardest to fake. Most sample-pack drum loops sound stiff/quantized because they're made by producers, not drummers. Live-played loops by a real drummer are genuinely scarce.</p>
-  <p><strong>Start this week:</strong></p>
-  <ol>
-    <li>Pick ONE narrow niche (e.g. "lo-fi hip-hop live drum breaks 70–90 BPM" or "indie rock fills"). Niche outsells generic.</li>
-    <li>Record 30–50 loops + 50 one-shots in one weekend session. Edit/tag in Logic.</li>
-    <li>While Splice review pends, list on BeatStars (instant approval) and Kitsi (up to 92% revenue share).</li>
-  </ol>
-  <p class="source"><a href="https://support.splice.com/en/articles/8652643-how-do-i-submit-my-own-samples-packs-to-sell-on-splice" target="_blank" rel="noopener noreferrer">Splice — submit sample packs</a> &nbsp;·&nbsp; <a href="https://toneisland.com/sites-to-sell-sample-packs/" target="_blank" rel="noopener noreferrer">Tone Island — 13 marketplaces compared</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">3. Sync licensing — drum-forward instrumental beds on non-exclusive libraries</div>
-  <p><strong>What it is:</strong> Short instrumental beds (or drum-driven tracks) uploaded to non-exclusive sync libraries that license to YouTubers, podcasts, ads, TV. Each license = $5–$500+; popular tracks earn for years.</p>
-  <p><strong>Realistic income:</strong> Brutally honest: <strong>$0–$50/month for the first 6 months</strong>, scaling to <strong>$100–$600/month</strong> by year 2 with 50–100 tracks uploaded. The "one placement = millions of streams" stories are real but rare.</p>
-  <p><strong>Setup time:</strong> 5–10 hours per track if efficient. First payout typically 60–90 days after first upload.</p>
-  <p><strong>The catch:</strong> Chain of title is non-negotiable. Every sound must be cleared — <strong>no Splice samples in tracks you sync-license</strong> (Splice's license forbids it for syncs). Volume is the game; one track is hopeless, 50 is the floor. Metadata/keywording quality determines whether anyone finds your track.</p>
-  <p><strong>Why it fits you:</strong> Drum-forward instrumental beds (sports stingers, action podcast intros, tense documentary cues) are in constant demand and play to your strength. No vocals or melodies required.</p>
-  <p><strong>Start this week:</strong></p>
-  <ol>
-    <li>Open free contributor accounts on Pond5 (fastest approval) and AudioJungle.</li>
-    <li>Produce 3–5 sting/bed tracks this week (30s, 60s, loopable versions — libraries want all formats).</li>
-    <li>Spend as much time on metadata/keywords as on the music.</li>
-  </ol>
-  <p class="source"><a href="https://www.pond5.com/sell-stock-footage" target="_blank" rel="noopener noreferrer">Pond5 contributor signup</a> &nbsp;·&nbsp; <a href="https://orphiq.com/resources/passive-income-musicians" target="_blank" rel="noopener noreferrer">Orphiq — realistic sync income</a></p>
-</div>
-
-<div class="tip">
-  <div class="tip-title">4. Bandwidth monetization SDK (skip for John's Tracker — flagging only)</div>
-  <p><strong>What it is:</strong> Integrate an SDK (Pacific, EarnApp-style, Honeygain-style) that shares users' idle bandwidth. ~$0.10–$0.40/active user/month paid to you.</p>
-  <p><strong>The catch — read this:</strong> Apple App Store and Google Play have rejected/removed apps using bandwidth SDKs as malware/policy violations (residential proxy traffic is the use case, adjacent to abuse). You <em>must</em> disclose in the privacy policy and ideally make it opt-in, and you may still get pulled. If John's Tracker is your portfolio piece, this could blow up the asset.</p>
-  <p><strong>Verdict:</strong> Don't put this in John's Tracker. If the upside is interesting, build a separate throwaway utility app for it. Including only because the brief asked for IT-skill options.</p>
-  <p class="source"><a href="https://www.idlen.io/blog/passive-income-ideas-developers-2026/" target="_blank" rel="noopener noreferrer">Overview (read skeptically)</a></p>
-</div>
-
-<footer>
-  Generated for John · jtyler203@gmail.com · <a href="https://nuclearsalt.github.io/daily-report/">nuclearsalt.github.io/daily-report</a>
-</footer>
+  <h3>Recommendations</h3>
+  <ul>
+    <li><strong>Best guaranteed 4XL fit:</strong> Holy Clothing (S–5X is brand-standard) and Etsy made-to-measure linen sellers. These two reliably accommodate 47" chest / 50.5" waist.</li>
+    <li><strong>Highest aesthetic match:</strong> Mexicali Blues kurta/tunic styles — but verify size on each item.</li>
+    <li><strong>Skip unless confirmed:</strong> Lucky Gent — most "boho" brands cap at XXL.</li>
+    <li><strong>Before ordering on Etsy:</strong> message the seller with chest 47" and waist 50.5" — most independent sellers will confirm fit or offer custom sizing for a small upcharge.</li>
+  </ul>
+</section>
 
 </body>
 </html>
