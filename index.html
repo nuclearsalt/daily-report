@@ -3,457 +3,204 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Friday, June 26, 2026</title>
+<title>John's Daily Briefing — Saturday, June 27, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
     --fg: #e0e0e0;
-    --muted: #8a8a8a;
-    --dim: #555;
-    --line: #222;
-    --link: #9ecbff;
-    --accent: #ffb86c;
-    --soft: #b48cf0;
-    --card: #161616;
+    --muted: #888;
+    --rule: #222;
+    --accent: #ffb454;
+    --accent-soft: #9ecbff;
+    --callout-bg: #1a1410;
+    --callout-soft-bg: #10161c;
+    --code-bg: #181818;
   }
   * { box-sizing: border-box; }
   body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 4rem;
-    line-height: 1.65;
-    font-size: 16px;
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 800px; margin: 0 auto; padding: 1.75rem 1.25rem 4rem;
+    line-height: 1.6; font-size: 16px;
   }
-  header {
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  header h1 {
-    margin: 0 0 .25rem;
-    font-size: 1.85rem;
-    line-height: 1.2;
-  }
-  header .date {
-    color: var(--muted);
-    margin: 0;
-    font-size: 1rem;
-  }
-  header .updated {
-    color: var(--dim);
-    margin: .25rem 0 0;
-    font-size: .85rem;
-  }
-  nav.zone {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 0 0 2rem;
-  }
-  nav.zone strong {
-    color: var(--muted);
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    display: block;
-    margin-bottom: .5rem;
-  }
-  nav.toc ul, nav.archive-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem;
-  }
-  nav.toc li {
-    padding: .15rem 0;
-  }
-  nav.archive-nav {
-    border-top: 1px solid var(--line);
-    padding-top: .85rem;
-    margin-top: 0;
-  }
-  nav.archive-nav .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem 1rem;
-  }
-  nav.archive-nav .links a {
-    font-size: .9rem;
-  }
-  section {
-    margin: 0 0 2.5rem;
-  }
-  h2 {
-    font-size: 1.3rem;
-    margin: 0 0 .75rem;
-    padding-bottom: .35rem;
-    border-bottom: 1px solid var(--line);
-  }
-  h3 {
-    font-size: 1.05rem;
-    margin: 1.5rem 0 .35rem;
-    color: var(--fg);
-  }
-  p { margin: .5rem 0; }
-  a { color: var(--link); text-decoration: none; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.25rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
+  header .sub { color: var(--muted); font-size: .95rem; }
+  h2 { margin: 2.5rem 0 .75rem; font-size: 1.35rem; border-bottom: 1px solid var(--rule); padding-bottom: .4rem; }
+  h3 { margin: 1.5rem 0 .5rem; font-size: 1.1rem; color: var(--accent-soft); }
+  a { color: var(--accent-soft); text-decoration: none; }
   a:hover { text-decoration: underline; }
   ul, ol { padding-left: 1.25rem; }
-  li { margin: .25rem 0; }
-  blockquote {
-    margin: 1rem 0;
-    padding: .5rem 1rem;
-    border-left: 3px solid var(--dim);
-    color: #c8c8c8;
-    font-style: italic;
+  li { margin-bottom: .35rem; }
+  blockquote { border-left: 3px solid var(--rule); margin: .75rem 0; padding: .25rem 0 .25rem 1rem; color: #c4c4c4; font-style: italic; }
+  .nav-zone {
+    border: 1px solid var(--rule); border-radius: 8px;
+    background: #141414; padding: 1rem 1.1rem; margin: 0 0 2rem;
   }
+  .nav-zone strong { color: var(--accent-soft); display: block; margin-bottom: .4rem; font-size: .9rem; letter-spacing: .03em; text-transform: uppercase; }
+  .nav-zone ul { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: .3rem; }
+  .archive-nav { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--rule); }
+  .archive-nav ul { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+  .archive-nav li { margin: 0; }
   .callout {
-    border: 1px solid var(--accent);
     border-left: 4px solid var(--accent);
-    border-radius: 6px;
-    padding: 1rem 1.15rem;
-    margin: 1.25rem 0;
-    background: rgba(255, 184, 108, 0.06);
+    background: var(--callout-bg);
+    padding: .9rem 1.1rem; margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
   }
-  .callout .label {
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: .75rem;
-    font-weight: 600;
-    margin-bottom: .35rem;
-  }
-  .callout .mantra {
-    margin-top: .85rem;
-    padding-top: .75rem;
-    border-top: 1px dashed rgba(255,184,108,.3);
-    font-style: italic;
-  }
-  details {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: .6rem .9rem;
-    margin: .5rem 0;
-  }
-  details summary {
-    cursor: pointer;
-    font-weight: 600;
-    color: #d4d4d4;
-  }
-  details[open] summary { margin-bottom: .5rem; }
-  .ingredients ul {
-    margin: .25rem 0 .75rem;
-    padding-left: 1.25rem;
-  }
-  .meta-line {
-    color: var(--muted);
-    font-size: .9rem;
-    margin: .15rem 0 .35rem;
-  }
-  .tag {
-    display: inline-block;
-    background: rgba(158, 203, 255, 0.08);
-    border: 1px solid rgba(158, 203, 255, 0.25);
-    color: var(--link);
-    font-size: .75rem;
-    padding: .05rem .45rem;
-    border-radius: 999px;
-    margin-right: .25rem;
-  }
-  .caveat {
-    color: var(--muted);
-    font-size: .9rem;
-    font-style: italic;
-  }
+  .callout .label { display: block; color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .35rem; }
+  .callout .mantra { font-style: italic; color: #eee; margin-top: .6rem; padding-top: .5rem; border-top: 1px dashed #3a2d1c; }
+  .item { margin-bottom: 1.1rem; }
+  .item .meta { color: var(--muted); font-size: .85rem; }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; text-align: center; }
+  code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; font-size: .9em; }
+  .tags { color: var(--muted); font-size: .8rem; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>John's Daily Briefing</h1>
-  <p class="date">Friday, June 26, 2026</p>
-  <p class="updated">Last updated: 7:00 AM ET</p>
+  <div class="sub">Saturday, June 27, 2026 · Last updated: 12:04 PM ET</div>
 </header>
 
-<nav class="zone">
-  <nav class="toc">
+<nav class="nav-zone">
+  <div class="toc">
     <strong>On this page</strong>
     <ul>
-      <li><a href="#fri-1">FRI-1 · Mindful Eating &amp; Exercise for ADHD</a></li>
-      <li><a href="#fri-2">FRI-2 · Recipes: Intermediate-Level, Interesting Chefs</a></li>
-      <li><a href="#fri-3">FRI-3 · Weekend Music: NYC Performances</a></li>
-      <li><a href="#fri-4">FRI-4 · Weekend Art &amp; Installations: NYC</a></li>
-      <li><a href="#fri-5">FRI-5 · Weekend Social: NYC Events with Activity</a></li>
-      <li><a href="#fri-6">FRI-6 · Shirt Shopping: John's Size &amp; Style</a></li>
+      <li><a href="#sat-1">SAT-1 · Sugar Addiction Recovery</a></li>
+      <li><a href="#sat-2">SAT-2 · Labor &amp; Left-Wing Good News</a></li>
+      <li><a href="#sat-3">SAT-3 · Book Chapter Summary</a></li>
     </ul>
-  </nav>
-  <nav class="archive-nav">
+  </div>
+  <div class="archive-nav">
     <strong>Past briefings</strong>
-    <div class="links">
-      <a href="archive/2026-06-25.html">Jun 25</a>
-      <a href="archive/2026-06-24.html">Jun 24</a>
-      <a href="archive/2026-06-23.html">Jun 23</a>
-      <a href="archive/2026-06-22.html">Jun 22</a>
-      <a href="archive/2026-06-21.html">Jun 21</a>
-      <a href="archive/index.html">All archives &rarr;</a>
-    </div>
-  </nav>
+    <ul>
+      <li><a href="archive/2026-06-26.html">Jun 26</a></li>
+      <li><a href="archive/2026-06-25.html">Jun 25</a></li>
+      <li><a href="archive/2026-06-24.html">Jun 24</a></li>
+      <li><a href="archive/2026-06-23.html">Jun 23</a></li>
+      <li><a href="archive/2026-06-22.html">Jun 22</a></li>
+      <li><a href="archive/index.html">All archives →</a></li>
+    </ul>
+  </div>
 </nav>
 
-<section id="fri-1-section">
-  <h2 id="fri-1">FRI-1 · Mindful Eating &amp; Exercise for ADHD</h2>
+<section>
+  <h2 id="sat-1">SAT-1 · Sugar Addiction Recovery</h2>
 
-  <p>This week's data tells a clear story. Five of seven days logged sweets, and the reason field said <em>"Low energy"</em> every single time except one (and that one was "Just a craving"). On 6/23 you named the loop yourself, in your own words:</p>
+  <p>This week you named it yourself: <em>"I think it's the sugar. The fucking sugar."</em> And in a more honest moment on Monday: <em>"I might need sugar in order to do that effectively. Because I'm exhausted."</em> That's The Cycle in one sentence — the belief that sugar is the only on-ramp to capability, when it's actually the thing tearing the engine apart.</p>
 
-  <blockquote>"I once again did the stupid fucking thing I always do: eat high-sugar foods. Two chocolate bars today. Cool, great. GREAT… I need to get out of The Cycle and I do not know how to make that happen."</blockquote>
+  <p>The neuroscience here is not a moral failure story. Dr. Anna Lembke (Stanford addiction medicine, <em>Dopamine Nation</em>) describes it as the <strong>pleasure–pain balance</strong>: the brain restores equilibrium after a dopamine spike by tipping an equal amount in the opposite direction. You don't return to baseline after the chocolate-covered cherries — you dip below it. That dip is the crash, the fatigue, the "I literally can't move" feeling that shows up an hour later. And the brain's solution is to crave the next spike, even though the next spike is also the cause of the next crash. <a href="https://www.npr.org/transcripts/1090009509" target="_blank" rel="noopener noreferrer">Lembke on NPR Life Kit</a>.</p>
 
-  <p>You also wrote, the same day, that the app is helping you "maintain awareness so that I can course correct more quickly." That's not nothing. Awareness is step one. The point of today's section is to add a second tool you can reach for the next time the low-energy → sugar reach happens — because the loop is the problem, not your character.</p>
+  <p>You're not failing at willpower. You're trapped in a feedback loop with sound biological mechanics. The way out is to remove the loop's fuel for long enough that baseline dopamine starts recovering — Lembke's clinical observation is that this takes roughly <em>two to four weeks</em>, not days. The first week is the worst. The third week is when people start noticing they have steady energy for the first time in years.</p>
 
-  <p>And the data already shows the alternative exists. <strong>6/25:</strong> "I overate at dinner, which is a bummer, but I did not eat any sweets so far today. Win!" Mood that day: 8. Energy: 7. Anxiety bumped to 6, but no sweets, and a tracker note that ends in "Win." That's a real datapoint — proof the cycle is breakable, not a slogan.</p>
+  <p>Saturday context: you've got social plans tomorrow you've already committed to (good — your evening note today: "<em>I have social things to do tomorrow and damnit I need to go and do those social things!</em>"). Today and tomorrow are long active days. Three concrete strategies that fit that reality:</p>
 
-  <h3>Three things to try this weekend</h3>
+  <h3>1. Pre-decide tomorrow's first meal tonight.</h3>
+  <p>The cycle hijacks decision-making when blood sugar is low and energy is fried — i.e., the moment you wake up. If breakfast is already chosen and the ingredients are in the kitchen, you bypass the decision your tired brain will lose. Tofu (you cooked some Tuesday — still good), eggs with greens, or oats with peanut butter and berries. Protein + fiber + fat = no spike, no crash. The decision is the hard part; the cooking is mechanical.</p>
 
-  <ol>
-    <li><strong>The 10-minute energy audit before the cookie.</strong> When the "I need sugar to function" thought arrives, set a 10-minute timer. In those 10 minutes do one of: drink a full glass of water, eat 15g of protein (handful of nuts, jerky, a hard-boiled egg, a spoon of peanut butter), or step outside for 5 minutes of daylight. ADHD brains genuinely cannot distinguish "tired" from "thirsty" from "understimulated" from "low blood sugar" — the body is sending a vague alarm. The timer doesn't ban the sugar. It just buys you 10 minutes to rule out the cheaper fixes first. Often that's all it takes.</li>
-    <li><strong>Stack one healthy thing onto one thing you already do.</strong> You drummed five of the last seven days. That's a habit that's already running. Add a single "before the kit" anchor — fill a water bottle and eat a protein snack before you sit down. You don't have to remember; the drum kit reminds you. ADHD-friendly because it doesn't add a new "thing to remember," it bolts onto an existing groove.</li>
-    <li><strong>Pre-decide one weekend meal.</strong> Saturday and Sunday are decision-fatigue days. By 3pm on a busy day, your brain refuses to plan dinner and the path of least resistance wins (which usually means: nothing healthy in the fridge → chocolate-covered something). Tonight or tomorrow morning, pre-decide one specific weekend meal — pick from the FRI-2 recipes below, or repeat the tofu and garlic you already cooked Tuesday. Buy whatever ingredient is missing. Done. One meal pre-decided = one less collapse point.</li>
-  </ol>
+  <h3>2. Treat the 3 PM energy dip as a signal, not a sugar invitation.</h3>
+  <p>The dip is real and predictable. It's not a deficiency of cookies. It's the body asking for two things: water and a brief state change. Try the sequence: 16 oz water → 5 minutes of any movement (walk around the block, two minutes on the drum kit, even just stairs) → a protein-forward snack (handful of nuts, hard-boiled egg, jerky, hummus on celery). The crash you'd otherwise get from the cookies costs you the whole next hour. The protein snack costs you nothing.</p>
+
+  <h3>3. Plan the social re-entry around food you actually want to eat.</h3>
+  <p>Lucille's on the calendar. The jam. The catering work when it comes. The thing that wrecked Wednesday wasn't choosing to go to El Kallejón — it was that you were so hungry by the time you got there that ordering both specials felt fine. Eat something substantial 90 minutes before any social food situation. You walk in hungry-but-not-starving and your decisions get made by you, not by the dopamine deficit.</p>
 
   <div class="callout">
-    <div class="label">Today's nudge</div>
-    <p>You named The Cycle on Tuesday. That's the part most people skip their whole lives. This weekend, the goal isn't to break it forever — it's to interrupt it once. Pick one moment, between now and Sunday night, where you'd normally reach for sugar to fix tired. Insert the 10-minute timer. Drink water, eat protein, step outside. See what happens. If the sugar still wins after 10 minutes, you've lost nothing. If it doesn't, you have a new datapoint and the cycle has a crack in it.</p>
-    <p>And remember the 6/25 win. You already did this once this week.</p>
-    <div class="mantra">Mantra: <strong>Water, protein, light — then decide.</strong></div>
+    <span class="label">Today's nudge</span>
+    The Cycle isn't a character flaw — it's a feedback loop with biology behind it, and feedback loops break when you starve them of one ingredient for long enough. You don't have to fix everything today. You have to not feed it once, then not feed it again. Today's a long day with social things tomorrow. Get the protein in early, keep water on you, and when the 3 PM "I need sugar to function" voice shows up, name it: <em>that's the deficit talking, not me.</em> The energy you're chasing is on the other side of three weeks of not chasing it.
+    <div class="mantra">Mantra for today: <strong>"The energy I want is on the other side of the spike I'm refusing."</strong></div>
+  </div>
+
+  <p class="tags">Sources: <a href="https://www.npr.org/transcripts/1090009509" target="_blank" rel="noopener noreferrer">NPR Life Kit – Lembke on breaking the dopamine cycle</a> · <a href="https://dakmed.org/wp-content/uploads/2023/08/Dr-Anna-Lembke-Dopamine-Nation-Fargo-ND-2023.pdf" target="_blank" rel="noopener noreferrer">Lembke, <em>Dopamine Nation</em> talk (PDF)</a> · <a href="https://www.psychiatryadvisor.com/features/interview-author-dopamine-nation-finding-balance-age-of-indulgence/" target="_blank" rel="noopener noreferrer">Psychiatry Advisor interview with Lembke</a></p>
+</section>
+
+<section>
+  <h2 id="sat-2">SAT-2 · Labor &amp; Left-Wing Good News</h2>
+
+  <p>Wins from the past two weeks, ranked best-first. NYC is having a particularly loud moment.</p>
+
+  <div class="item">
+    <h3>Mamdani-backed democratic socialists sweep NYC congressional primaries</h3>
+    <div class="meta">June 23–24, 2026 · New York City</div>
+    <p>All three candidates endorsed by NYC Mayor Zohran Mamdani won their Democratic primaries on the same night. Darializa Avila Chevalier unseated five-term Rep. Adriano Espaillat in NY-13; Brad Lander beat Rep. Dan Goldman in NY-10; and state Assembly Member Claire Valdez took the open NY-7 seat succeeding the retiring Nydia Velázquez. <strong>Why it matters:</strong> a sitting democratic-socialist mayor flipped two incumbent Democrats and won an open seat in a single night. The DSA-aligned left is now a serious electoral force inside the national party, not a curiosity.</p>
+    <p><a href="https://www.npr.org/2026/06/23/nx-s1-5868676/mamdani-nyc-primaries-progressive-dsa" target="_blank" rel="noopener noreferrer">NPR – Mamdani-backed candidates win NYC primaries</a></p>
+  </div>
+
+  <div class="item">
+    <h3>NY DSA on track to add 6+ seats in the state legislature</h3>
+    <div class="meta">June 24, 2026 · New York State</div>
+    <p>Socialist candidates beat multiple incumbents in Assembly and Senate primaries: Samantha Kattan (AD-37), David Orkin (defeating Jennifer Rajkumar in AD-38), Christian Tate (defeating Erik Dilan in AD-54), Eon Huntley (defeating Stefani Zinerman in AD-56), Illapa Sairitupac (AD-65), and Aber Kawas (SD-12). <strong>Why it matters:</strong> roughly doubles the DSA's Albany delegation, giving the left real leverage on housing, tenant protections, and labor legislation in the nation's fourth-largest state.</p>
+    <p><a href="https://nysfocus.com/2026/06/24/ny-primary-election-results-dsa-state-legislature-2026" target="_blank" rel="noopener noreferrer">NY Focus – DSA state-legislature primary results</a></p>
+  </div>
+
+  <div class="item">
+    <h3>SoFi Stadium workers win major contract — including ICE-related strike rights</h3>
+    <div class="meta">June 9, 2026 · Inglewood, California</div>
+    <p>Roughly 2,000 food and beverage workers at SoFi Stadium reached a tentative agreement that includes premium pay for the World Cup and major events, across-the-board raises (cooks moving to roughly $38–$40/hr), and an unprecedented right to strike over safety issues including ICE presence at the workplace. Union spokesperson: "We won everything we asked for." <strong>Why it matters:</strong> the ICE-related clause is a first-of-its-kind contract protection as immigration enforcement escalates at worksites.</p>
+    <p><a href="https://laist.com/news/sofi-stadium-workers-reach-tentative-deal-with-employer-averting-world-cup-strike" target="_blank" rel="noopener noreferrer">LAist – SoFi Stadium tentative deal averts World Cup strike</a></p>
+  </div>
+
+  <div class="item">
+    <h3>NLRB orders Amazon to bargain with Teamsters at San Francisco delivery center</h3>
+    <div class="meta">June 25, 2026 · San Francisco</div>
+    <p>An NLRB judge ruled Amazon violated federal labor law by refusing to recognize the Teamsters after the union obtained majority support at a 2024 SF delivery center. The Board ordered Amazon to bargain — the second such order against the company in recent months (Staten Island was the first, in April). <strong>Why it matters:</strong> a second federal order forcing the country's second-largest private employer to the table is a meaningful crack in Amazon's anti-union wall and a tailwind for the broader Teamsters campaign.</p>
+    <p><a href="https://onlabor.org/june-25-2026/" target="_blank" rel="noopener noreferrer">OnLabor – June 25, 2026 roundup</a></p>
+  </div>
+
+  <div class="item">
+    <h3>32BJ averts NYC residential building workers' strike with tentative deal</h3>
+    <div class="meta">Mid-June 2026 · New York City</div>
+    <p>SEIU 32BJ and the Realty Advisory Board reached a tentative agreement for tens of thousands of doormen, porters, and supers in NYC residential buildings, averting a threatened strike. Both sides framed it as a "win-win" with wage and benefit gains. <strong>Why it matters:</strong> 32BJ is one of the most powerful service-sector unions in the country, and this contract sets a benchmark for building-services workers nationally.</p>
+    <p><a href="https://www.cbsnews.com/newyork/news/nyc-residential-building-workers-strike-32bj-negotiations/" target="_blank" rel="noopener noreferrer">CBS New York – 32BJ tentative agreement</a></p>
+  </div>
+
+  <div class="item">
+    <h3>Lambert Airport security officers ratify historic first union contract</h3>
+    <div class="meta">June 2026 · St. Louis, Missouri</div>
+    <p>More than 100 contracted security officers at St. Louis Lambert International Airport, represented by SEIU Local 1, voted to ratify their first union contract. The deal includes guaranteed wage protections, seniority-based raises, and improved paid time off. <strong>Why it matters:</strong> a first contract in a right-to-work state for frontline airport security workers shows SEIU's ability to deliver real gains in the South and Midwest, where union density is lowest.</p>
+    <p><a href="https://labortribune.com/lambert-airport-security-officers-ratify-historic-union-contract/" target="_blank" rel="noopener noreferrer">Labor Tribune – Lambert Airport ratification</a></p>
+  </div>
+
+  <div class="item">
+    <h3>Netflix feature production workers ratify first contract with 89% support</h3>
+    <div class="meta">June 4, 2026 · United States</div>
+    <p>Production workers at Netflix's feature film operation overwhelmingly ratified their first union contract — 89% yes. Covers wages, benefits, and working conditions for streaming production crews. <strong>Why it matters:</strong> a first contract at the streaming giant is a foothold for organized labor inside the new generation of tech-driven film production, where workers previously lacked the protections enjoyed by traditional Hollywood crews.</p>
+    <p><a href="https://aflcio.org/2026/6/4/worker-wins-clear-voice-they-achieved-those-goals" target="_blank" rel="noopener noreferrer">AFL-CIO – Worker Wins June 4, 2026</a></p>
   </div>
 </section>
 
-<section id="fri-2-section">
-  <h2 id="fri-2">FRI-2 · Recipes: Intermediate-Level, Interesting Chefs</h2>
+<section>
+  <h2 id="sat-3">SAT-3 · Book Chapter Summary</h2>
+  <p><strong>This week: William Blum, <em>Killing Hope: US Military and CIA Interventions Since World War II</em></strong></p>
 
-  <p>A day of meals from chefs working outside the mainstream blog circuit — West African, Chinese-Australian diaspora, Palestinian, Indian-American, Vietnamese-American. All low-sugar, veggie-heavy, protein-rich, slow-carb.</p>
+  <h3>Chapter: "Indonesia 1965 — Liquidating President Sukarno… and 500,000 others" (Ch. 31)</h3>
+  <p><strong>Country/region:</strong> Indonesia (with a coda on East Timor, 1975)<br>
+  <strong>Time period:</strong> 1965–1966 primarily, with consequences extending through Suharto's 32-year "New Order"</p>
 
-  <h3>Breakfast — Nigerian Egg Stew (Eggs in Ata Dindin)</h3>
-  <p class="meta-line">Yewande Komolafe · ~30 min · serves 2–3</p>
-  <p>Komolafe is the Nigerian-born NYT Cooking columnist and author of <em>My Everyday Lagos</em>. Ata dindin is the Yoruba bell-pepper-and-chili sauce that anchors her morning routine — bright, pepper-driven, and built around eggs.</p>
-  <details class="ingredients">
-    <summary>Ingredients</summary>
-    <ul>
-      <li>2 red bell peppers, roughly chopped</li>
-      <li>1 large beefsteak tomato (or 2 Romas), chopped</li>
-      <li>1 medium red onion, half blended, half diced</li>
-      <li>1–2 habanero or scotch bonnet peppers (to taste)</li>
-      <li>3 cloves garlic, 1-inch piece fresh ginger</li>
-      <li>3 tbsp extra-virgin olive oil</li>
-      <li>1 tsp ground crayfish or smoked paprika (optional)</li>
-      <li>½ tsp curry powder, ½ tsp dried thyme</li>
-      <li>Salt and black pepper</li>
-      <li>4–6 large eggs</li>
-      <li>Scallions or parsley to garnish</li>
-      <li>Serve with: dense seeded sourdough, boiled yam, or steel-cut oats (skip the Agege bread for slow-carb)</li>
-    </ul>
-  </details>
-  <p><a href="https://www.yewandekomolafe.com/nytrecipes" target="_blank" rel="noopener noreferrer">Recipe family — Yewande Komolafe's NYT collection &rarr;</a></p>
+  <h3>Main thesis</h3>
+  <p>Blum argues that having failed to topple the non-aligned nationalist Sukarno through the 1958 covert war in Sumatra and Sulawesi, the U.S. succeeded in 1965 by quietly enabling General Suharto and the Indonesian Army to seize power and physically annihilate the Indonesian Communist Party (PKI) — then the world's largest non-ruling communist party. The mass slaughter of 500,000 to 1 million suspected leftists was not a CIA-orchestrated coincidence but an outcome Washington actively encouraged, facilitated, and celebrated as a Cold War victory in Southeast Asia.</p>
 
-  <h3>Lunch — Rainbow Vegetable Bowl with Harissa-Roasted Carrots, Charred Broccoli &amp; Quinoa</h3>
-  <p class="meta-line">Hetty Lui McKinnon · ~35 min (mostly hands-off) · serves 4</p>
-  <p>McKinnon is a Chinese-Australian, Brooklyn-based cookbook author (<em>To Asia, With Love</em>; <em>Tenderheart</em>). Plant-forward, almost no sugar, generous on herbs and textural contrast.</p>
-  <details class="ingredients">
-    <summary>Ingredients</summary>
-    <ul>
-      <li>2 small heads broccoli (~20 oz), cut into florets</li>
-      <li>4 carrots (~14 oz), peeled and chunked</li>
-      <li>1 tsp harissa flakes (or 2 tsp harissa paste)</li>
-      <li>Extra-virgin olive oil, sea salt, black pepper</li>
-      <li>4 cups (~120g) kale leaves, torn</li>
-      <li>10 oz hummus (good store-bought or homemade)</li>
-      <li>½ cup mixed soft herbs — dill, mint, parsley, cilantro</li>
-      <li>1 lemon (zest + juice)</li>
-      <li>3–4 cups cooked quinoa, brown rice, black rice, or lentils</li>
-      <li>To finish: dukkah, furikake, toasted sesame, or chopped pistachios</li>
-      <li>Optional protein boost: chickpeas tossed with the carrots, or a soft-boiled egg per bowl</li>
-    </ul>
-  </details>
-  <p><a href="https://hettymckinnon.com/recipe/rainbow-vegetable-bowl/" target="_blank" rel="noopener noreferrer">Recipe — Hetty McKinnon &rarr;</a></p>
-
-  <h3>Dinner — Musakhan (Palestinian Sumac-Roasted Chicken with Caramelized Onions)</h3>
-  <p class="meta-line">Reem Kassis · ~70 min total · serves 4</p>
-  <p>Kassis is a Jerusalem-born Palestinian author (<em>The Palestinian Table</em>, <em>The Arabesque Table</em>) who trained at Wharton and the LSE before turning to food writing. Musakhan is the recipe she most associates with her grandmother Teta Fatima; it's the national dish of Palestine.</p>
-  <details class="ingredients">
-    <summary>Ingredients</summary>
-    <ul>
-      <li>4 bone-in, skin-on chicken thighs (or spatchcocked 3–4 lb whole chicken)</li>
-      <li>4 large red onions, thinly sliced</li>
-      <li>½ cup extra-virgin olive oil (heart of the dish — use a good one)</li>
-      <li>3 tbsp ground sumac, divided</li>
-      <li>1 tsp ground allspice, ½ tsp cinnamon, ½ tsp cumin, ½ tsp cardamom</li>
-      <li>Salt and black pepper</li>
-      <li>Juice of 1 lemon</li>
-      <li>3 tbsp pine nuts (or slivered almonds), toasted</li>
-      <li>¼ cup chopped flat-leaf parsley</li>
-      <li>Slow-carb serve: whole-wheat or sprouted-grain pita; cucumber-tomato-parsley salad with lemon and oil</li>
-    </ul>
-  </details>
-  <p><a href="https://www.saveur.com/palestinian-roast-chicken-with-sumac-and-red-onions-recipe/" target="_blank" rel="noopener noreferrer">Recipe — Saveur (Kassis-aligned) &rarr;</a></p>
-
-  <h3>Snack 1 — Indian-Spiced Crispy Roasted Chickpeas</h3>
-  <p class="meta-line">Nik Sharma · 5 min prep + 30–40 min roast · serves 2–3</p>
-  <p>Sharma is a Bombay-born, Oakland-based food scientist (<em>The Flavor Equation</em>, <em>Season</em>) who started as a molecular biologist. South Indian × American Southern with scientist's precision.</p>
-  <details class="ingredients">
-    <summary>Ingredients</summary>
-    <ul>
-      <li>1 (15 oz) can chickpeas, drained, rinsed, patted very dry</li>
-      <li>1 tbsp extra-virgin olive or avocado oil</li>
-      <li>½ tsp each: ground cumin, ground coriander, garam masala</li>
-      <li>¼ tsp ground turmeric</li>
-      <li>¼ tsp Kashmiri chili powder (or cayenne)</li>
-      <li>¼ tsp amchur (dried mango powder) — optional, for tang</li>
-      <li>½ tsp fine sea salt</li>
-      <li>Squeeze of fresh lime to finish</li>
-    </ul>
-  </details>
-  <p><a href="https://niksharmacooks.com/" target="_blank" rel="noopener noreferrer">Nik Sharma's blog (search "roasted chickpeas") &rarr;</a></p>
-
-  <h3>Snack 2 — Vietnamese Cucumber Salad with Spicy Candied Nuts (Gỏi Dưa Leo)</h3>
-  <p class="meta-line">Andrea Nguyen · 15–20 min · serves 2</p>
-  <p>Nguyen is a Vietnamese-American author of <em>Ever-Green Vietnamese</em> (James Beard winner) and <em>Vietnamese Food Any Day</em>. Rigorously tested recipes that reduce meat and lean into vegetables without losing Vietnamese flavor logic.</p>
-  <details class="ingredients">
-    <summary>Ingredients</summary>
-    <ul>
-      <li>2 Persian or Japanese cucumbers, sliced on the bias</li>
-      <li>1 small shallot, very thinly sliced</li>
-      <li>1 small carrot, julienned</li>
-      <li>1 Thai bird's-eye chili, thinly sliced (to taste)</li>
-      <li>¼ cup torn cilantro and/or Vietnamese mint</li>
-      <li>2 tbsp fish sauce (or Nguyen's vegan "fishless" version)</li>
-      <li>1 tbsp fresh lime juice</li>
-      <li>1 tsp honey or coconut sugar (minimal — for nuoc cham balance)</li>
-      <li>1 small garlic clove, grated</li>
-      <li>⅓ cup spicy candied peanuts or cashews</li>
-      <li>Optional protein: shredded poached chicken or pan-seared tofu</li>
-    </ul>
-  </details>
-  <p><a href="https://www.vietworldkitchen.com/" target="_blank" rel="noopener noreferrer">Andrea Nguyen's Viet World Kitchen &rarr;</a></p>
-
-  <h3>Shopping notes</h3>
+  <h3>Key events &amp; arguments</h3>
   <ul>
-    <li><strong>Spices to stock:</strong> sumac, allspice, garam masala, Kashmiri chili powder, harissa flakes, dukkah or furikake.</li>
-    <li><strong>One slow-carb base for the week:</strong> a big batch of quinoa or brown rice covers the lunch bowl and pairs with the dinner.</li>
-    <li><strong>Day's protein:</strong> ~100g+ across all five dishes.</li>
-    <li><strong>Caveat:</strong> The Komolafe and Kassis canonical versions live in print cookbooks; linked pages are the closest free, chef-aligned versions. If NYT Cooking access is around, search "Yewande Komolafe egg stew" directly.</li>
+    <li>The September 30, 1965 "Untung coup" — a murky kidnapping and killing of six army generals blamed on the PKI — gave Suharto's faction the pretext to crush the party. Blum and later declassified cables suggest U.S. officials knew the PKI link was thin but amplified it anyway.</li>
+    <li>The U.S. embassy under Ambassador Marshall Green supplied propaganda guidance ("spread the story of PKI's guilt, treachery, and brutality"). Per CIA officer Robert Martens, the embassy handed the Indonesian army lists of thousands of PKI cadres who were subsequently hunted down and killed.</li>
+    <li>Material support flowed via covert channels: communications equipment, small arms, medicine for the army, and continued military training relationships built up over years — even as overt aid to Sukarno was cut.</li>
+    <li>Long-running economic and diplomatic pressure (IMF/World Bank squeezes, withdrawn aid) plus cultivation of the officer class as a parallel power center set the structural stage for the takeover.</li>
+    <li>The bloodletting installed Suharto's "New Order," reopened Indonesia to Western oil, mining (Freeport), and timber capital. U.S. officials and media — <em>Time</em>, James Reston — repeatedly described it as "a gleam of light in Asia."</li>
+    <li>The chapter's coda on East Timor (1975): Ford and Kissinger gave Suharto a green light to invade the day before the assault, producing another ~200,000 deaths with U.S.-supplied weapons.</li>
   </ul>
+
+  <h3>Why it's relevant today</h3>
+  <p>The 2017 release of U.S. embassy cables by the National Security Archive vindicated much of Blum's argument, showing Washington tracked and welcomed the killings in real time — a reminder that "intelligence failure" framings often obscure deliberate policy. The episode is a template still visible in current U.S. behavior: backing friendly militaries against elected left-leaning governments, treating mass atrocities as acceptable costs of anti-leftist consolidation, and shielding successor regimes from accountability. Indonesia's unresolved 1965 reckoning — no truth commission, perpetrators still honored — mirrors impunity patterns the U.S. has tolerated from Guatemala to the Philippines. It also frames current debates about U.S. security assistance to authoritarian partners (Egypt, Saudi Arabia, the Philippines under Marcos Jr.), where the 1965 logic of "stability over democracy" persists.</p>
+
+  <p class="tags">Sources: <a href="https://nsarchive.gwu.edu/briefing-book/indonesia/2017-10-17/indonesia-mass-murder-1965-us-embassy-files" target="_blank" rel="noopener noreferrer">National Security Archive – Indonesia Mass Murder 1965, US Embassy Files</a> · <a href="https://en.wikipedia.org/wiki/CIA_activities_in_Indonesia" target="_blank" rel="noopener noreferrer">CIA activities in Indonesia (overview)</a> · <a href="https://www.tribunal1965.org/en/the-1965-mass-killings-in-indonesia-cia-blames-the-victims-for-being-murdered/" target="_blank" rel="noopener noreferrer">International People's Tribunal on 1965</a> · <a href="https://newint.org/features/web-exclusive/2010/12/15/suhartos-bloodiest-secrets" target="_blank" rel="noopener noreferrer">New Internationalist – Suharto's bloodiest secrets</a></p>
 </section>
 
-<section id="fri-3-section">
-  <h2 id="fri-3">FRI-3 · Weekend Music: NYC Performances (Free / Low-Cost)</h2>
-
-  <p>Confirmed-for-2026 events spanning the requested genre buckets. All free or under $25 unless flagged. Verify door price and venue status before heading out — Saint Vitus and a few smaller venues had reported closures that may or may not have reversed.</p>
-
-  <h3>Friday, June 26</h3>
-  <ul>
-    <li><strong>Laurie Anderson: "Republic of Love" with Sexmob</strong> · 6–8 PM · Central Park SummerStage (Rumsey Playfield, Manhattan) · Avant-garde / brass-jazz · <span class="tag">FREE</span> · <a href="https://www.centralpark.com/things-to-do/concerts/summerstage-festival/" target="_blank" rel="noopener noreferrer">Central Park SummerStage 2026</a></li>
-    <li><strong>Stardust Fest Night 1 — Taake (Norway), Fell Voices, Young and in the Way, Wolvhammer, Anicon</strong> · ~7 PM doors · Saint Vitus Bar, Greenpoint · Black metal / hardcore · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan — Stardust Fest 2026</a> <span class="caveat">(verify venue status — Saint Vitus was reported closed in 2024)</span></li>
-    <li><strong>TSQ LIVE Summer Friday: Strange Neighbors</strong> · 6 PM · Broadway &amp; 46th St, Times Square · Power pop / indie · <span class="tag">FREE</span> · <a href="https://www.timessquarenyc.org/events" target="_blank" rel="noopener noreferrer">Times Square NYC events</a></li>
-  </ul>
-
-  <h3>Saturday, June 27</h3>
-  <ul>
-    <li><strong>Valtinho Anastácio — Brazilian Percussion</strong> · 7:30 &amp; 9 PM sets · Zinc Bar, Greenwich Village · Brazilian / Latin percussion · $35 at door <span class="caveat">(over the $25 cap — flagged as the cleanest Brazilian option this weekend; cheaper online in advance)</span> · <a href="https://www.zincbar.com/calendar/" target="_blank" rel="noopener noreferrer">Zinc Bar calendar</a></li>
-    <li><strong>Stardust Fest Night 2 — Bethlehem (Germany), Tombs, Black Anvil, Inter Arma, Vorde</strong> · ~7 PM doors · Saint Vitus Bar · Black / doom metal · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan</a></li>
-  </ul>
-
-  <h3>Sunday, June 28</h3>
-  <ul>
-    <li><strong>Red Baraat</strong> · 10 PM · Barbès, Park Slope (376 9th St) · World music — Brooklyn Indian-American dhol &amp; brass fusing Punjabi bhangra with go-go funk, jazz, hip-hop · suggested donation typically $10–20 · <a href="https://www.barbesbrooklyn.com/events" target="_blank" rel="noopener noreferrer">Barbès Brooklyn</a></li>
-    <li><strong>Stardust Fest Night 3 — Bethlehem, Fell Voices, Svart Crown (France), Mutilation Rites, Anicon</strong> · ~7 PM doors · Saint Vitus Bar · Black / death metal · ~$25 · <a href="https://www.brooklynvegan.com/stardust-fest-r/" target="_blank" rel="noopener noreferrer">BrooklynVegan</a></li>
-    <li><strong>Dreamland: Pride in Central Park — Purple Disco Machine (Germany) / Kungs (France) / Dani Brasil (Brazil)</strong> · 3–10 PM · Central Park SummerStage · Electronic / house / disco / Brazilian dance · Pride benefit, tiered pricing — verify GA under $25 · <a href="https://www.centralpark.com/things-to-do/concerts/summerstage-festival/" target="_blank" rel="noopener noreferrer">SummerStage 2026</a></li>
-  </ul>
-
-  <h3>Gaps worth knowing about</h3>
-  <ul>
-    <li><strong>Drum &amp; bass:</strong> Nowadays (Ridgewood) and H0L0 (Bushwick) post their weekly schedules on their own sites — neither was fetchable. Check <a href="https://nowadays.nyc" target="_blank" rel="noopener noreferrer">nowadays.nyc</a> and <a href="https://h0l0.nyc/events" target="_blank" rel="noopener noreferrer">h0l0.nyc/events</a> directly.</li>
-    <li><strong>Trip-hop / neo soul / underground hip hop:</strong> SOB's had a 6/28 event teased but lineup/price weren't verifiable. Check <a href="https://sobs.com/calendar/" target="_blank" rel="noopener noreferrer">sobs.com/calendar</a> direct.</li>
-    <li><strong>Astoria local:</strong> Bohemian Hall has a rolling live-music calendar but nothing confirmed for 6/26-28 surfaced in search — check <a href="https://www.bohemianhall.com" target="_blank" rel="noopener noreferrer">bohemianhall.com</a>.</li>
-  </ul>
-</section>
-
-<section id="fri-4-section">
-  <h2 id="fri-4">FRI-4 · Weekend Art &amp; Installations: NYC</h2>
-
-  <p>Heads up — the major listing sites (Time Out, Artforum, GalleriesNow) all blocked automated fetching, so these come from search-result snippets that explicitly named June 26 openings. Confirm hours and current-day status on the linked pages before heading out.</p>
-
-  <ul>
-    <li><strong>"Illuminations" — curated by Angela Lane, feat. Megan Gabrielle Harris</strong> · Opens Fri June 26 (on view through summer) · Anate Bgi Gallery, 372 Broadway, Tribeca · <span class="tag">FREE</span> · Single-artist showcase in a small Tribeca gallery operating off the museum circuit — the kind of opening night where you meet the artist. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime NYC Gallery Openings 2026</a></li>
-
-    <li><strong>"Clay Pigeons" — Lzzy Barber</strong> · Opens June 26 · Charles Moffett Gallery, 394 Broadway, Tribeca · <span class="tag">FREE</span> · Moffett tends to program emerging painters with an off-kilter, narrative-figurative bent. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
-
-    <li><strong>"See You Tomorrow Under Other Skies" — group show</strong> · Opens June 26 · Andrew Kreps Gallery, 22 Cortlandt Alley + 394 Broadway, Tribeca · <span class="tag">FREE</span> · Two-venue install spilling into Cortlandt Alley (the alley that doubles as every NYC backdrop in film). · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
-
-    <li><strong>DDDD.pictures — new exhibition</strong> · Opens June 26 · 79 Leonard St, Tribeca · <span class="tag">FREE</span> · Experimental moving-image / photo-adjacent programming in a small Leonard St space — artist-run, not commercial. · <a href="https://www.clubfreetime.com/new-york-city-nyc/galleries-exhibition-openings" target="_blank" rel="noopener noreferrer">ClubFreeTime</a></li>
-
-    <li><strong>LEERFORM — "A Year of Magical Thinking"</strong> · On view June 2026 · LEERFORM, Bushwick · <span class="tag">FREE</span> · Labor-intensive, drawing-based works inside a working fabrication studio — the warehouse-loft hybrid you wanted. · <a href="https://bushwickdaily.com/music-and-nightlife/your-guide-to-events-in-bushwick-ridgewood-and-beyond-january-13-19-2026/" target="_blank" rel="noopener noreferrer">Bushwick Daily 2026</a></li>
-
-    <li><strong>Bronx Museum AIM Biennial 7 — "Forms of Connection"</strong> · Opened Jan 23, 2026; through summer 2026 · Bronx Museum, South Bronx · <span class="tag">FREE</span> · Artist-in-the-Marketplace cohort — emerging-artist biennial that's rougher and more experimental than its Manhattan cousins. · <a href="https://gothamist.com/arts-entertainment/8-must-see-2026-nyc-art-shows" target="_blank" rel="noopener noreferrer">Gothamist — 8 must-see 2026 NYC art shows</a></li>
-  </ul>
-
-  <p class="caveat">Couldn't verify within the tool budget: Bushwick Open Studios 2026 dates (historically June — check <a href="https://artsinbushwick.org/members-2/" target="_blank" rel="noopener noreferrer">artsinbushwick.org</a>), specific performance-art events for this weekend, and SVA/Pratt/Cooper thesis afterglow shows (main run wrapped April–May).</p>
-</section>
-
-<section id="fri-5-section">
-  <h2 id="fri-5">FRI-5 · Weekend Social: NYC Events with Activity</h2>
-
-  <p>Not "hang out at a bar." Each of these involves doing something — yoga, dancing, walking, improv, hosted games, marching. A few major event sites blocked direct fetch; verify time-of-day on the linked page before going.</p>
-
-  <ul>
-    <li><strong>Q.E.D. Astoria — Workshops, Trivia &amp; Games</strong> <span class="tag">Astoria</span> · Fri/Sat/Sun sessions all weekend · 27-16 23rd Ave, Astoria · ~$10–35 depending on workshop · The closest match to you — Q.E.D. runs craft and learning workshops, hosted trivia, and games most weekend nights. Their calendar lists specific 6/26–28 sessions. · <a href="https://qedastoria.com/apps/events/calendar" target="_blank" rel="noopener noreferrer">Q.E.D. calendar</a></li>
-
-    <li><strong>NYC Dyke March — Pride Weekend Group Walk</strong> · Saturday June 27, steps off 5 PM from Bryant Park · 5th Ave route, Midtown · <span class="tag">FREE</span> · Mass protest-march / social walk — collaborative, mild movement, very social. · <a href="https://helpnewyork.com/free-in-nyc-this-week-may-26-june-1-2026-photovilles-final-days-dumbo-drop-returns-bryant-park-yoga-reopens/" target="_blank" rel="noopener noreferrer">NYC 2026 events roundup</a></li>
-
-    <li><strong>Shape Up NYC — Dance Fitness, Prospect Park Boathouse</strong> · Saturday June 27, 10–11 AM · Prospect Park Boathouse, Brooklyn · <span class="tag">FREE</span> · Hosted, choreographed, beginner-welcome group dance-fitness class — recurring weekly through Nov 1. · <a href="https://www.nycgovparks.org/events/outdoor-fitness" target="_blank" rel="noopener noreferrer">NYC Parks 2026 outdoor fitness</a></li>
-
-    <li><strong>Morning Yoga at Brooklyn Bridge Park (Abhaya Yoga)</strong> · Saturday June 27, 9:30–10:30 AM · Brooklyn Bridge Park, Pier 1 · <span class="tag">FREE</span> · Outdoor group yoga with waterfront skyline. · <a href="https://www.nycforfree.co/free-outdoor-yoga" target="_blank" rel="noopener noreferrer">NYC For Free 2026</a></li>
-
-    <li><strong>UCB ASSSSCAT Improv</strong> · Saturday June 27 · UCB NY, 14th St, Manhattan · ~$10–15 · Longform improv jam — audience suggestions drive the scenes. Interactive and creative; arrive early for the stand-by line if you want to call out suggestions. · <a href="https://ucbcomedy.com/" target="_blank" rel="noopener noreferrer">UCB calendar</a></li>
-
-    <li><strong>Bryant Park Yoga</strong> · Multiple sessions weekly through summer · Bryant Park, 42nd &amp; 6th · <span class="tag">FREE</span> · Free outdoor mat-based vinyasa/hatha, all levels — confirm Saturday slot on the page. · <a href="https://bryantpark.org/activities/yoga" target="_blank" rel="noopener noreferrer">Bryant Park 2026</a></li>
-
-    <li><strong>Brooklyn Bridge Park Free Guided Walking Tour</strong> · Weekend tours through summer 2026 · Meet at Pier 1 · <span class="tag">FREE</span> · Docent-led waterfront walking tour covering the piers' design and history — 60–90 min, light movement, social. · <a href="https://www.nycforfree.co/events" target="_blank" rel="noopener noreferrer">NYC For Free 2026 events</a></li>
-  </ul>
-
-  <p class="caveat">Verification: 2, 3, 4, 5 had explicit 2026 date confirmation in search results. 1, 6, 7 are 2026-season pages whose specific slot you should confirm before heading out.</p>
-</section>
-
-<section id="fri-6-section">
-  <h2 id="fri-6">FRI-6 · Shirt Shopping: John's Size &amp; Style</h2>
-
-  <p>Targeting chest 47" / waist 50.5" (3XL–4XL depending on brand), boho aesthetic, breathable fabrics, button-downs and V-necks both. Several retailer product pages blocked direct fetch — entries below are sourced from search results plus brand knowledge, with size-availability confidence noted per item.</p>
-
-  <ol>
-    <li><strong>Men's Vintage Ethnic Boho Linen Shirt — Etsy independent seller</strong> · ~$55–$90 · Pure linen ethnic-cut button-down with a relaxed boho silhouette. Many Etsy linen sellers offer made-to-measure or extended sizes through 4XL — message the seller with your measurements (47"/50.5") before ordering. · <a href="https://www.etsy.com/listing/180527638/men-linen-shirt-vintage-ethnic-boho-men" target="_blank" rel="noopener noreferrer">Etsy listing</a></li>
-
-    <li><strong>Holy Clothing — Renaissance / Boho Shirts</strong> · ~$45–$75 · <strong>Brand standard is S–5X across their catalog</strong> — one of the few boho brands that genuinely carries 4X/5X. Renaissance/Celtic lace-up V-neck and pirate-shirt styles in cotton; loose, breathable, festival-ready. Highest-confidence size fit on this list. · <a href="https://holyclothing.com/" target="_blank" rel="noopener noreferrer">Holy Clothing</a></li>
-
-    <li><strong>Mexicali Blues — Men's Tops</strong> · ~$40–$70 · Maine B Corp, globally sourced since 1988. Cotton gauze, rayon, hemp-blend tunics and button-ups with global/ethnic patterns — hippie-modern aesthetic in spades. Sizing typically tops out at XXL/XXXL; for 47"/50.5", look specifically at kurta-cut and tunic styles, which run roomier than fitted button-downs. · <a href="https://www.mexicaliblues.com/collections/mens-tops/short" target="_blank" rel="noopener noreferrer">Mexicali Blues men's tops</a></li>
-
-    <li><strong>Etsy "Boho Mens V Neck Shirt" — handmade cotton gauze</strong> · ~$35–$65 · Crinkled cotton gauze V-necks — the canonical festival/hippie summer shirt. Extremely breathable, drapey, often earth tones or block prints. Many sellers list up to 4XL or offer custom sizing. · <a href="https://www.etsy.com/market/boho_mens_v_neck_shirt" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
-
-    <li><strong>Etsy "Bohemian Linen Shirt" — handmade button-down</strong> · ~$50–$95 · Pure linen, often unbleached or naturally dyed, with mandarin collars or open plackets. Many sellers offer made-to-measure — best route for a confirmed fit at 47"/50.5". · <a href="https://www.etsy.com/market/bohemian_linen_shirt" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
-
-    <li><strong>Etsy "Cotton Gauze Shirt Men"</strong> · ~$40–$70 · Double-gauze cotton — the lightest, most breathable summer weave. Indian and Thai artisan sellers in this category lean heavily into kaftan-influenced silhouettes and offer 3XL/4XL or made-to-measure as standard. · <a href="https://www.etsy.com/market/cotton_gauze_shirt_men" target="_blank" rel="noopener noreferrer">Etsy market</a></li>
-
-    <li><strong>Lucky Gent — Rayon V-Neck "Boho Chic"</strong> · ~$45–$60 · Silky drapey rayon V-neck explicitly marketed as boho chic. <strong>Caveat: brand typically runs S–XXL only.</strong> Confirm 3XL availability on the product page before counting on this one. · <a href="https://luckygent.com/menstops/mens-luxury-touch-v-neck-shirt-rayon-boho-chic" target="_blank" rel="noopener noreferrer">Lucky Gent</a></li>
-  </ol>
-
-  <h3>Recommendations</h3>
-  <ul>
-    <li><strong>Best guaranteed 4XL fit:</strong> Holy Clothing (S–5X is brand-standard) and Etsy made-to-measure linen sellers. These two reliably accommodate 47" chest / 50.5" waist.</li>
-    <li><strong>Highest aesthetic match:</strong> Mexicali Blues kurta/tunic styles — but verify size on each item.</li>
-    <li><strong>Skip unless confirmed:</strong> Lucky Gent — most "boho" brands cap at XXL.</li>
-    <li><strong>Before ordering on Etsy:</strong> message the seller with chest 47" and waist 50.5" — most independent sellers will confirm fit or offer custom sizing for a small upcharge.</li>
-  </ul>
-</section>
+<div class="footer">
+  Generated automatically for John. Tracker, calendar, and research synthesized this morning.
+</div>
 
 </body>
 </html>
