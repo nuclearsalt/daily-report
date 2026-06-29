@@ -3,456 +3,375 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>John's Daily Briefing — Sunday, June 28, 2026</title>
+<title>John's Daily Briefing — Monday, June 29, 2026</title>
 <style>
   :root {
     --bg: #0f0f0f;
-    --panel: #161616;
-    --panel-2: #1c1c1c;
-    --text: #e0e0e0;
-    --muted: #9a9a9a;
-    --rule: #262626;
+    --fg: #e0e0e0;
+    --muted: #8a8a8a;
+    --line: #222;
+    --card: #161616;
     --link: #9ecbff;
-    --accent-nudge: #f0a350;      /* warm orange for "Today's nudge" */
-    --accent-goals: #6fcf97;      /* green for goals reminder */
-    --accent-body: #c6a0ff;       /* soft purple for body-image callout */
-    --accent-toc: #4ea1ff;
+    --accent-nudge: #f0b56b;
+    --accent-positive: #7fc89f;
+    --accent-warn: #d97a7a;
   }
   * { box-sizing: border-box; }
   body {
     background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 1.75rem 1.25rem 4rem;
+    padding: 2rem 1.25rem 4rem;
     line-height: 1.6;
     font-size: 16px;
   }
-  header.briefing-header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.25rem; }
-  header h1 { margin: 0 0 .25rem; font-size: 1.7rem; font-weight: 600; }
-  header .date { color: var(--muted); font-size: 1rem; margin: 0; }
-  header .updated { color: var(--muted); font-size: .85rem; margin: .35rem 0 0; }
-
-  nav.toc, nav.archive-nav {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: .9rem 1rem;
-    margin: 0 0 .9rem;
-    font-size: .95rem;
-  }
-  nav.toc strong, nav.archive-nav strong {
-    display: block;
-    color: var(--accent-toc);
-    font-weight: 600;
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    margin-bottom: .55rem;
-  }
-  nav.toc ol { margin: 0; padding-left: 1.2rem; }
-  nav.toc ol li { margin: .15rem 0; }
-  nav.archive-nav ul {
-    list-style: none;
-    padding: 0; margin: 0;
-    display: flex; flex-wrap: wrap; gap: .4rem .65rem;
-  }
-  nav.archive-nav li { display: inline; }
-  nav.archive-nav a {
-    display: inline-block;
-    padding: .25rem .55rem;
-    background: var(--panel-2);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    text-decoration: none;
-    color: var(--link);
-    font-size: .9rem;
-  }
-  nav.archive-nav a:hover { border-color: var(--link); }
-
+  header { border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1rem; }
+  header h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  header .sub { color: var(--muted); font-size: .9rem; }
+  h2 { font-size: 1.2rem; margin: 2.25rem 0 .75rem; padding-bottom: .3rem; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 1.02rem; margin: 1.25rem 0 .4rem; color: #d0d0d0; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
-
-  section.briefing-section {
-    border-top: 1px solid var(--rule);
-    padding-top: 1.5rem;
-    margin-top: 2rem;
+  ul { padding-left: 1.25rem; }
+  li { margin-bottom: .35rem; }
+  p { margin: .5rem 0; }
+  .toc, .archive-nav {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: .75rem 1rem;
+    font-size: .9rem;
+    margin-bottom: 1rem;
   }
-  section.briefing-section:first-of-type { border-top: none; padding-top: .5rem; margin-top: 2rem; }
-  h2 { font-size: 1.25rem; margin: 0 0 .75rem; color: #fff; font-weight: 600; }
-  h3 { font-size: 1.05rem; margin: 1.25rem 0 .35rem; color: #ededed; font-weight: 600; }
-  h4 { font-size: .95rem; margin: 1rem 0 .25rem; color: #d8d8d8; font-weight: 600; }
-  p { margin: .55rem 0; }
-  ul, ol { margin: .35rem 0; padding-left: 1.3rem; }
-  li { margin: .25rem 0; }
-  .meta { color: var(--muted); font-size: .9rem; }
-
+  .toc strong, .archive-nav strong { color: #c8c8c8; font-weight: 600; display: block; margin-bottom: .35rem; }
+  .toc a, .archive-nav a { margin-right: .6rem; display: inline-block; padding: 2px 0; }
+  .archive-nav a { color: var(--muted); }
   .callout {
     border-left: 4px solid var(--accent-nudge);
-    background: rgba(240, 163, 80, 0.08);
-    padding: .9rem 1rem;
+    background: rgba(240, 181, 107, 0.06);
+    padding: .85rem 1rem;
     margin: 1rem 0;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
   }
-  .callout .callout-label {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: .08em;
+  .callout .label {
     font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
     color: var(--accent-nudge);
-    margin-bottom: .35rem;
     font-weight: 700;
-  }
-  .callout.goals {
-    border-left-color: var(--accent-goals);
-    background: rgba(111, 207, 151, 0.08);
-  }
-  .callout.goals .callout-label { color: var(--accent-goals); }
-
-  .callout.body-image {
-    border-left-color: var(--accent-body);
-    background: rgba(198, 160, 255, 0.07);
-  }
-  .callout.body-image .callout-label { color: var(--accent-body); }
-  .callout.body-image blockquote {
-    margin: .5rem 0;
-    padding-left: .8rem;
-    border-left: 2px solid rgba(198, 160, 255, 0.35);
-    font-style: italic;
-    color: #ededed;
-  }
-  .callout.body-image blockquote cite {
     display: block;
-    margin-top: .25rem;
-    font-style: normal;
-    color: var(--muted);
-    font-size: .85rem;
-  }
-
-  .recipe {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 1rem 1.1rem;
-    margin: 1rem 0;
-  }
-  .recipe h4 { margin-top: 0; color: #fff; }
-  .recipe .yield { color: var(--muted); font-size: .88rem; margin: .25rem 0 .5rem; }
-  .recipe details { margin-top: .5rem; }
-  .recipe details summary {
-    cursor: pointer;
-    color: var(--link);
-    font-size: .9rem;
-    padding: .25rem 0;
-  }
-  .recipe details ul { padding-left: 1.2rem; margin-top: .35rem; }
-  .recipe details li { font-size: .92rem; }
-
-  blockquote.tracker {
-    border-left: 3px solid var(--accent-toc);
-    background: rgba(78, 161, 255, 0.06);
-    margin: .75rem 0;
-    padding: .6rem .85rem;
-    border-radius: 3px;
-    font-size: .95rem;
-  }
-  blockquote.tracker .date {
-    display: block;
-    color: var(--muted);
-    font-size: .8rem;
     margin-bottom: .25rem;
   }
-
-  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; text-align: center; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .5rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .6rem .75rem;
+  }
+  .stat .label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .stat .value { font-size: 1.15rem; font-weight: 600; color: var(--fg); }
+  .stat .sub { font-size: .75rem; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: .6rem 0; }
+  th, td { text-align: left; padding: .35rem .4rem; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+  td.num { font-variant-numeric: tabular-nums; }
+  .job, .item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: .85rem 1rem;
+    margin: .8rem 0;
+  }
+  .job h3, .item h3 { margin-top: 0; }
+  .meta { font-size: .82rem; color: var(--muted); margin-bottom: .35rem; }
+  .pill { display: inline-block; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; padding: 2px 7px; border-radius: 10px; background: #1f1f1f; color: var(--muted); margin-right: .35rem; }
+  .pill.union { background: rgba(127, 200, 159, .15); color: var(--accent-positive); }
+  .pill.flag { background: rgba(217, 122, 122, .15); color: var(--accent-warn); }
+  blockquote {
+    border-left: 3px solid #444;
+    margin: .5rem 0;
+    padding-left: .9rem;
+    color: #bdbdbd;
+    font-style: italic;
+  }
+  .small { font-size: .85rem; color: var(--muted); }
+  .check { color: var(--accent-positive); }
+  .cross { color: var(--accent-warn); }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; text-align: center; }
 </style>
 </head>
 <body>
 
-<header class="briefing-header">
+<header>
   <h1>John's Daily Briefing</h1>
-  <p class="date">Sunday, June 28, 2026</p>
-  <p class="updated">Last updated: 8:00 AM ET</p>
+  <div class="sub">Monday · June 29, 2026 · Last updated: 08:05 ET</div>
 </header>
 
 <nav class="toc">
   <strong>On this page</strong>
-  <ol>
-    <li><a href="#sun-1">SUN-1 · Sugar Addiction Recovery</a></li>
-    <li><a href="#sun-2">SUN-2 · Week Ahead (Jun 29 – Jul 5)</a></li>
-    <li><a href="#sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</a></li>
-    <li><a href="#sun-4">SUN-4 · Recipes: Meal Prep</a></li>
-    <li><a href="#sun-5">SUN-5 · Body &amp; Self-Image: Weekly Wisdom</a></li>
-  </ol>
+  <a href="#mon-1">MON-1 · Tracker: Weekly Progress</a>
+  <a href="#mon-2">MON-2 · Mindful Eating & Exercise for ADHD</a>
+  <a href="#mon-3">MON-3 · Tech Jobs: IT + AI</a>
+  <a href="#mon-4">MON-4 · High-Pay Entry-Level Jobs</a>
+  <a href="#mon-5">MON-5 · Passive Income</a>
 </nav>
 
 <nav class="archive-nav">
   <strong>Past briefings</strong>
-  <ul>
-    <li><a href="archive/2026-06-27.html">Jun 27</a></li>
-    <li><a href="archive/2026-06-26.html">Jun 26</a></li>
-    <li><a href="archive/2026-06-25.html">Jun 25</a></li>
-    <li><a href="archive/2026-06-24.html">Jun 24</a></li>
-    <li><a href="archive/2026-06-23.html">Jun 23</a></li>
-    <li><a href="archive/index.html">All archives →</a></li>
-  </ul>
+  <a href="archive/2026-06-28.html">Jun 28</a>
+  <a href="archive/2026-06-27.html">Jun 27</a>
+  <a href="archive/2026-06-26.html">Jun 26</a>
+  <a href="archive/2026-06-25.html">Jun 25</a>
+  <a href="archive/2026-06-24.html">Jun 24</a>
+  <a href="archive/index.html">All archives →</a>
 </nav>
 
-<!-- ========== SUN-1 ========== -->
-<section class="briefing-section">
-  <h2 id="sun-1">SUN-1 · Sugar Addiction Recovery</h2>
+<!-- ============ MON-1 ============ -->
+<h2 id="mon-1">MON-1 · John's Tracker: Weekly Progress</h2>
 
-  <p>This week the tracker named the loop clearly — twice. From the 6/27 midday note: <em>"followed that up with the chocolate covered frozen cherries because I was convinced I wouldn't have the energy to go do social things later if I didn't."</em> From 6/28: <em>"the chocolate covered frozen cherries, which I ate thinking they would give me sufficient energy to feel like I could make it to the jam in Harlem. They didn't."</em> And from 6/22: <em>"I'm in a mood. I think it's the sugar. The fucking sugar."</em></p>
+<p class="small">Week of <strong>Jun 22 → Jun 29, 2026</strong> · 8 days logged</p>
 
-  <p>That's the loop the addiction-medicine literature describes: short dopamine + glucose spike → crash 60–90 min later → feeling more depleted than before → reach for the next quick hit. Dr. Anna Lembke (Stanford addiction medicine, <em>Dopamine Nation</em>) calls it the pleasure-pain balance: every spike is paid back by an equal dip on the other side, and the dip is what tells you to use again. The "I need energy to do the thing" thought is the cue. The cherries are the routine. The crash that follows is the reward your brain pre-registered — and it punishes the next decision.</p>
+<h3>Today's check-in (so far)</h3>
+<div class="stats-grid">
+  <div class="stat"><div class="label">Mood</div><div class="value">7</div><div class="sub">evening + quick</div></div>
+  <div class="stat"><div class="label">Energy</div><div class="value">4–5</div><div class="sub">low side</div></div>
+  <div class="stat"><div class="label">Anxiety</div><div class="value">3–6</div><div class="sub">mixed</div></div>
+  <div class="stat"><div class="label">Focus</div><div class="value">2</div><div class="sub">low</div></div>
+</div>
+<p class="small">Check-ins logged today: <strong>evening</strong>, <strong>quick</strong>. Morning + midday not yet recorded.
+Exercise today: <span class="check">✓</span> · Drums: <span class="cross">✗</span> · Sweets: <span class="cross">✗ (Depression)</span> · Cravings: Cannabis (avoided) <span class="check">✓</span></p>
 
-  <h3>Three things to try today (meal-prep Sunday version)</h3>
-  <ol>
-    <li><strong>Pre-decide the "low energy" snack before you need it.</strong> The cherries became the answer because no other answer was within arm's reach when the dip hit. Today, while you're prepping, batch the savory roasted chickpeas (SUN-4) and the chia jars. When 3pm fatigue arrives next Wednesday, the decision is already made — the jar is already in the fridge. The Lembke move is to design the environment so the easy option is also the right one.</li>
-    <li><strong>Name what the cherries are actually doing.</strong> Notice the cherries were never about going to the jam — they were about <em>not feeling the fatigue</em>. The jam was the cover story. Try the script out loud: "I'm reaching for sugar because I don't want to feel tired right now." That tiny narration breaks the automatic loop. You don't have to refuse the sugar — just notice the trade first.</li>
-    <li><strong>Protein + fat first, every meal-prepped lunch.</strong> Glucose stability is the actual lever. The chickpea-quinoa bowls and harissa-chicken sheet pan in SUN-4 are built around it: protein anchors a flat curve, slow carbs taper rather than spike, and the crash that drives the cycle never starts. The 6/25 evening note already saw it — <em>"keep going on sweets abstention, and have my energy level out."</em> The note is the hypothesis; the meal prep is the test.</li>
-  </ol>
+<h3>7-day summary</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Average</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Mood</td><td class="num">6.6</td><td>Range 5.5 (Sun) → 7.5 (Fri)</td></tr>
+    <tr><td>Energy</td><td class="num">5.1</td><td>Consistent low — chronic theme of the week</td></tr>
+    <tr><td>Anxiety</td><td class="num">4.6</td><td>Peaked midweek (insurance/labs/Eric decision)</td></tr>
+    <tr><td>Focus</td><td class="num">3.6</td><td>The lowest of the four — paired with low energy</td></tr>
+  </tbody>
+</table>
 
-  <div class="callout">
-    <span class="callout-label">Today's nudge</span>
-    <p style="margin:0;">The energy you were chasing with the cherries doesn't live in the cherries. It lives in the flat blood sugar curve you're about to set up for the week. Today's prep <em>is</em> the energy work — every jar you batch tonight is one less 3 PM moment where the cherries are the only answer in the fridge. You already named the loop in your own words on 6/22 and again on 6/27. You're not learning this; you're acting on something you already see.</p>
+<table>
+  <thead><tr><th>Activity / Med</th><th>Days</th><th>Read</th></tr></thead>
+  <tbody>
+    <tr><td>Fluoxetine (AM)</td><td class="num">7 / 7</td><td><span class="check">✓ Compliant every morning checkin</span></td></tr>
+    <tr><td>Ritalin (AM)</td><td class="num">7 / 7</td><td><span class="check">✓ Compliant every morning checkin</span></td></tr>
+    <tr><td>Ritalin (midday)</td><td class="num">0 / 7</td><td>Not used midday this week</td></tr>
+    <tr><td>Seroquel / sleep aid</td><td class="num">7 / 7</td><td><span class="check">✓</span> CPAP came off mid-night on 6/28 — flag</td></tr>
+    <tr><td>Drums practice</td><td class="num">4 / 8</td><td>6/22, 6/25, 6/26, 6/27</td></tr>
+    <tr><td>Drums (fun)</td><td class="num">4 / 8</td><td>Quality side improving</td></tr>
+    <tr><td>Bicycle</td><td class="num">0 / 8</td><td>Off the bike all week</td></tr>
+    <tr><td>Other exercise</td><td class="num">2 / 8</td><td>6/28 AM, 6/29 PM</td></tr>
+    <tr><td>Sweets</td><td class="num">6 / 8</td><td><span class="cross">Daily pattern.</span> Reasons: Low energy ×3, Depression, Craving, No reason</td></tr>
+    <tr><td>No alcohol</td><td class="num">7 / 7</td><td><span class="check">✓ Clean week</span></td></tr>
+    <tr><td>No cannabis</td><td class="num">7 / 7</td><td><span class="check">✓ Clean week</span> (cravings present but resisted)</td></tr>
+    <tr><td>Attended social</td><td class="num">0 / 8</td><td><span class="cross">Skipped every jam.</span> Bird In Hand, Comedy, Harlem all bypassed</td></tr>
+    <tr><td>Volunteered</td><td class="num">0 / 8</td><td>31OS / trash club not attended</td></tr>
+  </tbody>
+</table>
+
+<h3>What you wrote this week (your own words)</h3>
+<blockquote>"What you resist will persist." — the mantra you set for the week. You're already noticing it in sweets, exercise, tasks, and going to jams.</blockquote>
+<blockquote>"Every time I do this I scold myself. Maybe that's not working. Maybe that's adding to the response." (6/28) — you already named the loop.</blockquote>
+<blockquote>"I overate again though, so I have brain fog." (6/29 morning quick) — the cause-and-effect is clear; it's the actionable lever.</blockquote>
+
+<h3>Latest weekly insight (most recent on file: 2026-05-24)</h3>
+<p class="small"><em>This is the prior-month weekly insight that's still the latest in the table — your current week's insight hasn't been generated. The sugar/low-energy cycle it flagged is, unfortunately, still the dominant pattern.</em></p>
+
+<!-- ============ MON-2 ============ -->
+<h2 id="mon-2">MON-2 · Mindful Eating & Exercise for ADHD</h2>
+
+<p>Your week was loud on one pattern: <strong>sweets every evening</strong>, mostly logged as "Low energy" or — yesterday — "Depression." You named it explicitly on 6/22: <em>"I'm in a mood. I think it's the sugar."</em> And on 6/28 you flagged the shame loop yourself: <em>"Every time I do this I scold myself. Maybe that's not working. Maybe that's adding to the response."</em> That's the right diagnosis. ADHD-flavored dopamine-seeking + low energy + self-scolding is a closed circuit. Let's open it.</p>
+
+<h3>Three things to try today</h3>
+
+<p><strong>1. Treat the energy crash before it asks for sugar.</strong> Your check-ins show energy dipping into the 3-4 range every afternoon, and that's the moment sweets win — <em>"convinced I wouldn't have the energy to go do social things later if I didn't"</em> (6/27). ADHD brains under-produce dopamine and reach for the fastest hit available. Pre-empt it: at 2-3 PM, put a protein-forward snack (Greek yogurt, hard-boiled eggs, leftover tofu) and 16 oz water in front of you <em>before</em> you feel the dip. You said you cooked tofu and garlic for the week on 6/23 — that's the win. Lean on it.</p>
+
+<p><strong>2. Swap scolding for curiosity, just for today.</strong> When sweets happen, don't write a paragraph of self-criticism in the Tracker. Write one sentence answering: <em>"What time was it? What was happening 30 minutes before?"</em> That's it. You're collecting data on the loop, not litigating it. The shame is fuel for the next round — your own 6/28 note proves you already see this.</p>
+
+<p><strong>3. Don't try to add exercise today — defend what you already do.</strong> You exercised yesterday (the AM yoga + light weights idea, 6/28) and today (logged ✓). Drum practice was 4/8 days. That's not nothing. Today is Monday — the temptation will be to overhaul everything. Don't. Pick <em>one</em> 15-min movement window and put it on the calendar before noon. Body before brain.</p>
+
+<div class="callout">
+  <span class="label">Today's nudge</span>
+  Your energy was 4 at evening check-in and your sweets reason today was "Depression" — that's not a moral failure, that's a dopamine deficit that found the fastest patch available. You wrote "what you resist will persist." The opposite of resisting isn't permission — it's <em>noticing without scolding</em>. Try this once today: when the sweets impulse arrives, name it out loud ("there it is, the 3 PM crash"), set a 10-minute timer, and drink a glass of water. If it's still there at 10:01, you're allowed. Half the time it won't be. That's the experiment for the week — not the willpower contest you've been running.
+</div>
+
+<p class="small">Sources: ADDitude Magazine on dopamine-seeking and food, Dr. Russell Barkley's work on ADHD executive function, CBT/ACT framing on shame-as-fuel from Dr. Anna Lembke's <em>Dopamine Nation</em> (the book your earlier insight on file flagged as worth revisiting).</p>
+
+<!-- ============ MON-3 ============ -->
+<h2 id="mon-3">MON-3 · Tech Jobs: IT + AI / Modern Stack</h2>
+
+<p class="small">Modern-stack IT roles emphasizing AI tools, SaaS, IaC, and automation — explicitly filtering out pure Microsoft/AD/Exchange shops. Most listing-aggregator pages refused direct fetches today, so verify each link in a browser before applying.</p>
+
+<div class="job">
+  <h3>IT Systems Administrator · Supabase</h3>
+  <div class="meta">Remote (US, NYC-eligible) · Salary not in snippet</div>
+  <p>Cloud-native SaaS shop with no AD/Exchange burden. Stack: Okta SSO/MFA/lifecycle, Kandji/Jamf MDM, Bash/Python automation. You already use Supabase for the Tracker — domain familiarity is a leg up.</p>
+  <p><a href="https://jobgether.com/offer/6a3560d863c956434a7f27b7-it-systems-administrator" target="_blank" rel="noopener noreferrer">Listing on Jobgether</a> · also worth checking Supabase's own careers page directly.</p>
+</div>
+
+<div class="job">
+  <h3>IT Systems Administrator · NEON Rated</h3>
+  <div class="meta">New York, NY (on-site / hybrid) · Salary not in snippet</div>
+  <p>Apple-first stack with Kandji/Jamf/Intune, Google Workspace, Okta. Supports remote + on-site users. Listed as SaaS-first, not Microsoft-centric.</p>
+  <p><a href="https://www.glassdoor.com/job-listing/it-systems-administrator-neon-rated-JV_IC1132348_KO0,24_KE25,35.htm?jl=1010012471728" target="_blank" rel="noopener noreferrer">Listing on Glassdoor</a></p>
+</div>
+
+<div class="job">
+  <h3>Senior IT Engineer, IT Operations · Kandji</h3>
+  <div class="meta">Remote-friendly · NYC eligibility unconfirmed in snippet</div>
+  <p>Kandji literally builds modern Apple MDM. IT Ops there is automation-first and SaaS-native by design. Confirm NYC eligibility on Kandji's own careers page.</p>
+  <p><a href="https://startup.jobs/senior-it-engineer-it-operations-kandji-4020843" target="_blank" rel="noopener noreferrer">Listing on Startup.jobs</a></p>
+</div>
+
+<div class="job">
+  <h3>Hands-on Lead AI Workflow &amp; Automation Engineer · Perficient</h3>
+  <div class="meta">Remote / hybrid · Salary not in snippet</div>
+  <p>Designing and implementing AI-driven workflows and automations — the AI-augmented work direction you want. Leans toward workflow-platform / consulting work more than classic IT.</p>
+  <p><a href="https://www.builtinnyc.com/job/hands-lead-ai-workflow-and-automation-engineer/8781221" target="_blank" rel="noopener noreferrer">Listing on Built In NYC</a></p>
+</div>
+
+<div class="job">
+  <h3>Platform Engineer (Hybrid) · NYC-based employer (via Dice IaC search)</h3>
+  <div class="meta">New York City (hybrid) · Market range $107k–$163k for IaC/Terraform roles</div>
+  <p>GCP, Kubernetes, Terraform, CI/CD, GitHub Actions, Splunk. A stretch from generalist IT — flagged as such — but the cleanest "modern stack" entry on the list.</p>
+  <p><a href="https://www.dice.com/jobs/q-TERRAFORM-l-New+York,+NY-jobs" target="_blank" rel="noopener noreferrer">Dice NYC Terraform results</a></p>
+</div>
+
+<p class="small"><strong>Honest caveat:</strong> Glassdoor, Indeed, Built In, Jobgether, and Ashby all returned 403 to direct fetches today, so posting dates and full job descriptions couldn't be independently verified. Treat these as starting points — re-open each one in a normal browser to confirm date, salary, and full requirements before applying.</p>
+
+<!-- ============ MON-4 ============ -->
+<h2 id="mon-4">MON-4 · High-Pay Entry-Level Jobs ($35+/hr, Any Industry)</h2>
+
+<p class="small">Several premier NYC building-trades windows are <strong>actually open right now</strong>. Two close this month/early July — these are time-sensitive.</p>
+
+<div class="job">
+  <h3>Plumber Apprentice · UA Plumbers Local Union #1</h3>
+  <div class="meta">
+    <span class="pill union">Union · UA Local 1</span>
+    <span class="pill flag">CLOSES JUL 3</span>
+    Long Island City (37-11 47th Ave) · One neighborhood from Astoria
   </div>
-</section>
+  <p><strong>Pay:</strong> Year-1 apprentice ~$22-28/hr; journey-level ~$55+/hr base in NYC. Total year-1 package clears $70k with benefits.</p>
+  <p><strong>Path:</strong> Pick up application IN PERSON during the window <strong>June 8 – June 22, 2026</strong> (closed June 19), 8 AM-3 PM, Mon-Fri. Only 1,000 applications issued first-come, first-served. Return with $25 fee by <strong>July 3, 2026 at 5 PM</strong>. Then aptitude test + interview. 18+, HS/GED required.</p>
+  <p><a href="https://helpnewyork.com/nyc-apprenticeship-applications-open-june-8-plumbers-elevator-constructors-now-recruiting/" target="_blank" rel="noopener noreferrer">Source: Help New York</a></p>
+</div>
 
-<!-- ========== SUN-2 ========== -->
-<section class="briefing-section">
-  <h2 id="sun-2">SUN-2 · Week Ahead — Mon Jun 29 to Sun Jul 5</h2>
-
-  <p class="meta">Independence Day (Sat July 4) is the dominating event. July 4 falls on a Saturday, so the federal holiday is <strong>observed Friday July 3</strong> by most government offices and markets. Plan banking, government calls, and any errands needing a person on the other end by Thursday July 2.</p>
-
-  <h3>NYC Transit / MTA</h3>
-  <ul>
-    <li><strong>Sat July 4 service plan:</strong> Subways, buses, and Staten Island Railway on <strong>Saturday schedule</strong>; LIRR and Metro-North on <strong>Sunday schedule with off-peak fares all day</strong>. Late-night returns from catering gigs will be thinner than usual. <a href="https://apps.cio.ny.gov/apps/mediacontact/public/view.cfm?parm=B62F5A67-F8D8-0764-40A5F22929939EF6_A794EB19-FDAF-4706-2FD2C94C50E97538" target="_blank" rel="noopener noreferrer">MTA press notice</a></li>
-    <li><strong>Weekend changes (Sun Jun 28 rolling into Mon Jun 29):</strong> A-train running in two sections to JFK; no service Crown Hts-Utica → New Lots Av; no service Rockaway Blvd → Ozone Park-Lefferts Blvd. <a href="https://www.mta.info/article/mta-weekender-june-26-29-2026" target="_blank" rel="noopener noreferrer">MTA Weekender</a></li>
-    <li><strong>Live status:</strong> Check <a href="https://www.mta.info/alerts" target="_blank" rel="noopener noreferrer">mta.info/alerts</a> the night before — line-specific work for the July 3–5 weekend wasn't yet posted at search time.</li>
-  </ul>
-
-  <h3>Major NYC Events (commute impact)</h3>
-  <ul>
-    <li><strong>Macy's 4th of July Fireworks — Sat July 4, ~9 PM.</strong> 50th anniversary; barges on lower East River near the Seaport, lower Hudson, and around the Brooklyn Bridge itself. Expect heavy crush on N/W/7 trains out of Astoria toward LIC waterfront viewing. <a href="https://www.cbsnews.com/newyork/news/4th-of-july-in-nyc-means-nathans-hot-dog-eating-contest-followed-by-macys-fireworks/" target="_blank" rel="noopener noreferrer">CBS News preview</a></li>
-    <li><strong>100,000 free Macy's tickets</strong> released July 1 for premium spots (Brooklyn Bridge Park, etc.) per Mayor Mamdani's office. <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-announces-100-000-free-tickets-to-watch-macy-s-fou" target="_blank" rel="noopener noreferrer">City Hall release</a></li>
-    <li><strong>Nathan's Hot Dog Eating Contest — Sat July 4, Coney Island.</strong> Festivities 10 AM, competitions 11 AM and 12:30 PM. 1310 Surf Ave. <a href="https://www.cbsnews.com/newyork/news/4th-of-july-in-nyc-means-nathans-hot-dog-eating-contest-followed-by-macys-fireworks/" target="_blank" rel="noopener noreferrer">Details</a></li>
-    <li><strong>America250 / Sail4th 250 tall-ship parade</strong> in NY Harbor over the July 4 weekend (multi-day). <a href="https://www.audacy.com/1010wins/news/local/tall-ships-fireworks-and-the-times-square-ball-a-guide-to-essential-events-in-nyc-marking-america-250" target="_blank" rel="noopener noreferrer">Schedule overview</a></li>
-    <li><strong>NYC Pride March</strong> was Sunday Jun 28 (today) — expect Sunday-night/Monday morning recovery friction in Midtown and the Village.</li>
-    <li><strong>amNY July 4 roundup</strong> with more events. <a href="https://www.amny.com/entertainment/things-to-do/july-4-2026-new-york-city-events/" target="_blank" rel="noopener noreferrer">amny.com</a></li>
-  </ul>
-
-  <h3>Holidays</h3>
-  <ul>
-    <li><strong>Sat July 4:</strong> Independence Day (federal).</li>
-    <li><strong>Fri July 3:</strong> Observed for federal offices, federal courts, USPS, NYSE, Nasdaq, and most banks. <a href="https://www.shiftflow.app/blog/new-york-city-holidays-2026" target="_blank" rel="noopener noreferrer">2026 NYC holiday list</a></li>
-  </ul>
-
-  <h3>Street fairs / weekend disruptions</h3>
-  <ul>
-    <li><strong>W 54th St (6th–5th Ave)</strong> closed 8 AM–6 PM Sat / 9 AM–6 PM Sun through July 6 — crane operations, Midtown.</li>
-    <li><strong>Willoughby Ave (Bushwick Ave to Broadway)</strong> closed 6 AM–4 PM weekdays through July 3 — Brooklyn track repairs.</li>
-    <li><strong>Belt Parkway Bridge over 26th Ave</strong> — overnight lane closures (11 PM–5 AM) Mon Jun 29 through Fri Jul 24.</li>
-    <li>Day-of check: <a href="https://www.nyc.gov/html/dot/html/motorist/wkndtraf.shtml" target="_blank" rel="noopener noreferrer">NYC DOT weekend traffic advisory</a></li>
-    <li><em>Note:</em> No major NYC street-fair permits surfaced for July 4 weekend — most permits avoid the holiday. Verify Thursday.</li>
-  </ul>
-
-  <h3>Astoria / Queens flags (catering + musician)</h3>
-  <ul>
-    <li><strong>Astoria Park fireworks</strong> were Thu Jun 25 — already passed. <a href="http://www.astoriaparkalliance.org/events" target="_blank" rel="noopener noreferrer">Astoria Park Alliance</a></li>
-    <li><strong>Lost in Paradise (LIC, 11-01 43rd Ave)</strong> — fireworks viewing party 6 PM Sat July 4.</li>
-    <li><strong>Bohemian Beer Garden (Astoria)</strong> — "Dance for the Red, White and Blue" after-party 9 PM Sat July 4. <a href="https://allevents.in/queens/astoria" target="_blank" rel="noopener noreferrer">Astoria events listing</a></li>
-    <li><strong>Best free Queens viewing for Macy's:</strong> Gantry Plaza State Park and Hunters Point South Park (LIC waterfront). Expect very heavy crowds and N/W/7 train crush Saturday evening.</li>
-    <li><strong>Jam / venue note:</strong> Most NYC jazz rooms keep holiday-weekend programming but cancel weekly jams on July 4 itself. Confirm directly with venues before heading out.</li>
-  </ul>
-
-  <h3>Personal context</h3>
-  <p class="meta">Calendar / Trello sync was unavailable this run (Google token expired on the edge function). From this week's notes, tomorrow (Mon Jun 29) you said you'd do <em>volunteering, 31OS, and trash club</em>, plus a morning routine of <em>light yoga, weights, meds, breakfast — in that order</em>. The pattern that needs disrupting this week is the jam-skip: zero jams attended Sun Jun 21 – Sat Jun 27. See SUN-3 for the full list of intentions you set down this week.</p>
-
-  <p><strong>Week framing:</strong> This is a short-feel week with a long holiday weekend in the middle — Monday and Tuesday are the only "normal" workdays before the federal observance breaks the rhythm. Use the front of the week for anything that needs phone-call follow-through (insurance, PCP, labs), because nothing on the government or healthcare side will pick up between Thursday afternoon and Monday morning.</p>
-</section>
-
-<!-- ========== SUN-3 ========== -->
-<section class="briefing-section">
-  <h2 id="sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</h2>
-  <p>Things you said you'd do this week. Some moved, most didn't. Listed without judgment — just so they don't quietly evaporate.</p>
-
-  <blockquote class="tracker">
-    <span class="date">Mon Jun 22, evening</span>
-    "Tomorrow I also need to <strong>unpack the fucking boxes!</strong> And get my cymbals from the storage unit. I have nothing planned for tomorrow so I can do this." <br>
-    <em>Status: cymbals got mentioned again 6/22 (forgot keys), keys attached to keychain that evening. Boxes mentioned again 6/25 ("Living room is still incredibly cluttered") and 6/27 ("I didn't unpack boxes. I need to do a little of that tomorrow"). Still open.</em>
-  </blockquote>
-
-  <blockquote class="tracker">
-    <span class="date">Mon Jun 22, evening</span>
-    "I should get a <strong>gym membership</strong> now, actually, but all the gyms in Astoria are garbage." <br>
-    <em>Status: still open. The thought trailed off into "LIC maybe?" with no decision. Worth either making the decision or formally tabling it.</em>
-  </blockquote>
-
-  <blockquote class="tracker">
-    <span class="date">Mon Jun 22, quick</span>
-    "I also need to make a decision about <strong>Eric</strong>. He asked me to be the best man… I am going to ask some trusted friends for advice. Because this is really digging at me." <br>
-    <em>Status: open. You set the action (ask trusted friends) but no follow-up note this week says you did. This one keeps energy locked up until it gets resolved one way or the other.</em>
-  </blockquote>
-
-  <blockquote class="tracker">
-    <span class="date">Wed Jun 24 → Thu Jun 26</span>
-    "I need to figure out my labs asap… Barbara sent me a link for Dirt Cheap Labs… I think I will do that for the bloodwork. Now I need EKG." <br>
-    <em>Status: partial. 6/26 update says state insurance came through — "I will get a new PCP and a new physical exam and new labs." Concrete next step: pick a PCP this week and book the visit. The insurance breakthrough only matters if a calendar invite comes out of it.</em>
-  </blockquote>
-
-  <blockquote class="tracker">
-    <span class="date">Sun Jun 28, evening (today)</span>
-    "I'm planning to do some <strong>light exercise in the morning in the bedroom</strong>. Bathroom first. Light yoga, and some weights, then meds and breakfast. Good order of operations. Let's see to it." <br>
-    <em>Status: fresh. This one is for tomorrow morning, not this week. The order is the plan — that's the whole intervention. Don't redesign it at 7 AM.</em>
-  </blockquote>
-
-  <p class="meta">Common thread: every one of these had a specific next step embedded in the note itself. The intentions aren't vague — they got specific and then sat. Pick the smallest one and close it this week (gym decision, or one phone call for PCP). The pile shrinks faster from the bottom than from the top.</p>
-</section>
-
-<!-- ========== SUN-4 ========== -->
-<section class="briefing-section">
-  <h2 id="sun-4">SUN-4 · Recipes: Meal Prep</h2>
-  <p>One cook session, multiple meals. Built around flat blood sugar (slow carbs, protein anchors), warm spice, and zero added sugar — see SUN-1 for why that matters this week.</p>
-
-  <div class="recipe">
-    <h4>Breakfast · Healthy Baked Egg Muffin Cups</h4>
-    <p class="yield">Serves 6 (12 muffins, 2 per serving) · holds 4 days</p>
-    <p>Whole eggs + sautéed veg + heat. Pre-cooking the veg keeps them from weeping into the eggs.</p>
-    <p><a href="https://www.eatingbirdfood.com/healthy-baked-egg-cups/" target="_blank" rel="noopener noreferrer">eatingbirdfood.com →</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>10 large eggs</li>
-        <li>¼ cup unsweetened milk (almond or dairy)</li>
-        <li>½ tsp sea salt, ¼ tsp black pepper</li>
-        <li>1 tsp avocado oil</li>
-        <li>1 small red bell pepper, diced</li>
-        <li>½ yellow onion (or 3 green onions), diced</li>
-        <li>2 cups baby spinach, chopped</li>
-        <li>½ tsp garlic powder</li>
-        <li>Pinch cayenne + dashes of hot sauce</li>
-        <li>Optional: ¼ cup crumbled feta</li>
-      </ul>
-    </details>
+<div class="job">
+  <h3>Elevator Constructor Apprentice · IUEC Local 1</h3>
+  <div class="meta">
+    <span class="pill union">Union · IUEC Local 1</span>
+    <span class="pill">~50 apprentices</span>
+    NYC
   </div>
+  <p><strong>Pay:</strong> Year-1 apprentices typically clear $70k+ with benefits. Journey ~$60+/hr base. Mechanics earn $130k-180k+ total package. Highest-ceiling trade in NYC.</p>
+  <p><strong>Path:</strong> 18+, HS/GED, driver's license, aptitude test, physical. Window opened June 8, 2026 — confirm pickup location/hours and final deadline directly with Local 1 IUEC.</p>
+  <p><a href="https://helpnewyork.com/nyc-apprenticeship-applications-open-june-8-plumbers-elevator-constructors-now-recruiting/" target="_blank" rel="noopener noreferrer">Source: Help New York</a></p>
+</div>
 
-  <div class="recipe">
-    <h4>Lunch · Spicy Chickpea Quinoa Bowls</h4>
-    <p class="yield">Serves 4 · holds 4–5 days</p>
-    <p>Plant protein + slow-carb quinoa. Cumin and red pepper flakes carry it. 20-minute cook.</p>
-    <p><a href="https://www.eatyourselfskinny.com/spicy-chickpea-quinoa-bowl/" target="_blank" rel="noopener noreferrer">eatyourselfskinny.com →</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>1 cup uncooked quinoa, cooked in 2 cups low-sodium veg broth</li>
-        <li>1 tbsp olive oil</li>
-        <li>½ yellow onion, diced</li>
-        <li>3 cloves garlic, minced</li>
-        <li>2 (15 oz) cans chickpeas, drained and rinsed</li>
-        <li>1 (14.5 oz) can fire-roasted diced tomatoes</li>
-        <li>1 tsp ground cumin</li>
-        <li>½–1 tsp red pepper flakes</li>
-        <li>½ tsp smoked paprika</li>
-        <li>Salt + pepper to taste</li>
-        <li>¼ cup chopped fresh cilantro</li>
-        <li>To serve: lemon wedges, sliced avocado, baby spinach</li>
-      </ul>
-    </details>
+<div class="job">
+  <h3>MTA NYCT Conductor (Exam No. 6626) · MTA New York City Transit</h3>
+  <div class="meta">
+    <span class="pill union">Union · TWU Local 100</span>
+    <span class="pill flag">CLOSES JUN 30</span>
+    NYC
   </div>
+  <p><strong>Pay:</strong> Tops out at $38.15/hr (~$79k base) by year 6, with night/weekend differentials, pension, healthcare, paid leave. Top earners with OT exceed $100k.</p>
+  <p><strong>Path:</strong> File application <strong>June 1 – June 30, 2026</strong> via MTA OASys. ~$68 exam fee (fee-waiver docs due July 14). No CDL or prior transit experience required. HS/GED, US work eligibility, pass medical/drug screen. Astoria has direct N/W access to MTA crew facilities.</p>
+  <p><a href="https://www.mta.info/document/209271" target="_blank" rel="noopener noreferrer">MTA Exam 6626 notice</a></p>
+</div>
 
-  <div class="recipe">
-    <h4>Dinner · Sheet Pan Harissa Chicken with Chickpeas &amp; Sweet Potatoes</h4>
-    <p class="yield">Serves 4–6 · one pan, ~40 min</p>
-    <p>Harissa heat, chicken thighs (more forgiving than breast for reheating), chickpea + sweet potato for slow carb + fiber. Eats well cold over greens on Day 3.</p>
-    <p><a href="https://www.halfbakedharvest.com/sheet-pan-harissa-chicken-with-chickpeas-and-sweet-potatoes/" target="_blank" rel="noopener noreferrer">halfbakedharvest.com →</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>1.5–2 lbs boneless skinless chicken thighs</li>
-        <li>2 medium sweet potatoes, cubed</li>
-        <li>1 (15 oz) can chickpeas, drained</li>
-        <li>1 red onion, cut into wedges</li>
-        <li>3 tbsp harissa paste (or 2 tbsp harissa seasoning)</li>
-        <li>3 tbsp olive oil</li>
-        <li>Zest + juice of 1 lemon</li>
-        <li>1 tsp honey — <em>omit for no added sugar</em></li>
-        <li>1 tsp smoked paprika, 1 tsp cumin</li>
-        <li>Salt + pepper</li>
-        <li>To serve: plain Greek yogurt, fresh mint or cilantro, olives</li>
-      </ul>
-    </details>
+<div class="job">
+  <h3>MTA NYCT Bus Operator (Exam No. 6614) · MTA</h3>
+  <div class="meta">
+    <span class="pill union">Union · TWU Local 100 / ATU</span>
+    NYC · Confirm current filing window
   </div>
+  <p><strong>Pay:</strong> Starts $26.19/hr (~$56k) and rises to $39.70/hr (~$82.5k base) by year 6. With OT, top 10% clear $148k. Pension, healthcare, transit pass.</p>
+  <p><strong>Path:</strong> NYS CDL Class A or B <em>OR</em> a CDL Class A/B learner permit (MTA trains you to the road test). Age 21+, HS/GED, clean driving record. Exam 6614 filing began 1/1/2026 — confirm live status before applying.</p>
+  <p><a href="https://www.mta.info/careers/mta-exams/exam-schedule" target="_blank" rel="noopener noreferrer">MTA exam schedule</a></p>
+</div>
 
-  <div class="recipe">
-    <h4>Snack 1 (savory) · Crispy Spicy Roasted Chickpeas</h4>
-    <p class="yield">~4 servings (~1.5 cups) · keeps up to 2 weeks</p>
-    <p>~11g protein per serving. Shelf-stable, customizable spice level. The "instead of cherries" snack from SUN-1.</p>
-    <p><a href="https://www.loveandlemons.com/roasted-chickpeas/" target="_blank" rel="noopener noreferrer">loveandlemons.com →</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>2 (15 oz) cans chickpeas, drained, rinsed, patted <em>very</em> dry</li>
-        <li>1.5 tbsp extra-virgin olive oil</li>
-        <li>½ tsp sea salt</li>
-        <li>1 tsp smoked paprika</li>
-        <li>1 tsp ground cumin</li>
-        <li>½ tsp garlic powder</li>
-        <li>¼–½ tsp cayenne (to taste)</li>
-        <li>Optional: 1 tsp chipotle in adobo, puréed</li>
-        <li>Roast 400°F for 25–30 min, toss spices on while warm</li>
-      </ul>
-    </details>
+<div class="job">
+  <h3>Skilled Construction Craft Laborer Apprentice · LIUNA Local 79</h3>
+  <div class="meta">
+    <span class="pill union">Union · LIUNA Local 79</span>
+    <span class="pill">Window opens Jul 10</span>
+    NYC · 200 apprentices
   </div>
+  <p><strong>Pay:</strong> Year-1 apprentice ~$22.35/hr base (Building work, prevailing wage). On public-works dispatch (schools/hospitals/transit), full benefit package easily pushes total above $70k year 1. Journey laborers earn $40-50+/hr base.</p>
+  <p><strong>Path:</strong> 18+ at program start, HS/GED. Limited recruitment <strong>July 10 – July 23, 2026</strong> — all apps must be received by July 24. Watch the link below for pickup details.</p>
+  <p><a href="https://www.local79.org/apprenticeship/" target="_blank" rel="noopener noreferrer">Local 79 Apprenticeship</a></p>
+</div>
 
-  <div class="recipe">
-    <h4>Snack 2 (sweet, no added sugar) · Vanilla Berry Chia Pudding Jars</h4>
-    <p class="yield">4 jars · sets overnight, holds 5 days</p>
-    <p>Frozen berries thaw into the pudding and sweeten it naturally — no maple or honey. Protein from chia and soy milk.</p>
-    <p><a href="https://www.pickuplimes.com/recipe/vanilla-berry-chia-seed-pudding-242" target="_blank" rel="noopener noreferrer">pickuplimes.com →</a></p>
-    <details>
-      <summary>Ingredients</summary>
-      <ul>
-        <li>2 cups unsweetened soy or almond milk (soy = more protein)</li>
-        <li>½ cup chia seeds</li>
-        <li>1 tsp vanilla extract</li>
-        <li>Pinch sea salt</li>
-        <li>1.5 cups mixed frozen berries (strawberry, blueberry, raspberry)</li>
-        <li>Optional toppings: sliced almonds, unsweetened coconut, 1 tbsp nut butter per jar</li>
-        <li>Ratio per jar: 2 tbsp chia + ½ cup milk. Refrigerate 8+ hrs.</li>
-      </ul>
-    </details>
+<div class="job">
+  <h3>NYC DSNY Sanitation Worker · NYC Department of Sanitation</h3>
+  <div class="meta">
+    <span class="pill union">Union · USA Local 831 (IBT)</span>
+    <span class="pill flag">Start pay below $35/hr</span>
+    NYC
   </div>
-</section>
+  <p><strong>Pay:</strong> Starts $47,752/yr (~$22.54/hr) — below your $35 threshold — but rises to $95,316/yr at 5.5 years. Average total comp with OT around $117k. Pension included.</p>
+  <p><strong>Path:</strong> Open civil-service exam through DCAS. Needs NYS Class B CDL with airbrake by appointment (not at filing). HS/GED, age 17.5-29 (military/veteran extensions apply). Filing windows are periodic — check the link.</p>
+  <p><a href="https://www.nyc.gov/site/dsny/careers/sanitation-workers/salary-benefits.page" target="_blank" rel="noopener noreferrer">DSNY salary &amp; benefits</a></p>
+</div>
 
-<!-- ========== SUN-5 ========== -->
-<section class="briefing-section">
-  <h2 id="sun-5">SUN-5 · Body &amp; Self-Image: Weekly Wisdom</h2>
+<p class="small"><strong>Excluded (closed or unverified):</strong> IBEW Local 3 (opens October 2026), IUOE Local 30 stationary engineers (closed for cycle), IATSE Local 52 (no current entry window verified). For HVAC specifically, track <a href="https://dol.ny.gov/apprenticeship/apprenticeship-announcements" target="_blank" rel="noopener noreferrer">NYS DOL apprenticeship announcements</a> or the SBS ApprenticeNYC HVAC pipeline.</p>
 
-  <div class="callout body-image">
-    <span class="callout-label">Weekly wisdom</span>
-    <p>This week the tracker named a small win that's easy to miss. On 6/25 evening: <em>"keep going on sweets abstention, and have my energy level out, and then have the energy to unclutter the room."</em> You wrote down the chain — sugar out, energy stable, capacity returns — in your own words. The work isn't about how this body looks in a mirror this week. It's about whether the man inside it has enough fuel to write a song, play drums, and unpack a box on the same day. (You did the first two on 6/28. The third is waiting.)</p>
+<!-- ============ MON-5 ============ -->
+<h2 id="mon-5">MON-5 · Passive Income — Honestly Vetted</h2>
 
-    <p>Two cognitive patterns to watch for this week:</p>
-    <ul>
-      <li><strong>Emotional reasoning:</strong> "I feel tired and unhealthy, so I must be failing." Fatigue is data about your blood sugar curve and your sleep, not a verdict on you.</li>
-      <li><strong>Mind-reading-as-motivator:</strong> the assumption that shame is what will finally make change stick. The research consistently shows the opposite.</li>
-    </ul>
+<p class="small">None of these are truly "passive" in year 1. All are part-time jobs that <em>may</em> become semi-passive in years 2-3. The unifying 2025-2026 catch across all four: AI-generated competition is flooding every market below.</p>
 
-    <blockquote>
-      "Self-acceptance trumps self-esteem."
-      <cite>— Dr. Russ Harris, MD, ACT therapist, <em>The Happiness Trap</em>. The Struggle Switch: fighting how your body feels right now amplifies the feeling. Accepting it frees the energy for the next values-aligned action.</cite>
-    </blockquote>
+<div class="item">
+  <h3>1. Drum sample packs &amp; loop libraries</h3>
+  <p><strong>Why it fits you specifically:</strong> 20 years of drumming is the rare ingredient. A real drummer's one-shots, fills, and grooves are something bedroom producers can't replicate. iOS/RN skills let you self-host on Gumroad/Stripe with automated delivery.</p>
+  <p><strong>Setup:</strong> 1 pack = 2-4 weekends of recording + editing (50-100 sounds, key/tempo tagged). 6-12 months to get 3-5 packs live across platforms.</p>
+  <p><strong>Realistic income:</strong> A well-marketed kit earns $500-$5,000 in month 1, then $50-$200/month tail. A producer with 5-10 packs across platforms: ~$200-$2,000/month after the catalog matures. Splice anecdotally ~$0.10-$0.50/download.</p>
+  <p><strong>The catch:</strong> "Well-marketed" is doing huge lifting in those numbers. Most packs without social/YouTube promotion earn under $100 lifetime. Drums are the most saturated category — every producer needs them, every drummer sells them. Splice payouts have trended down as the subscriber pool grew faster than the payout pool. AI sample generators are accelerating the squeeze.</p>
+  <p><a href="https://blog.beatpass.ca/passive-income-for-music-producers/" target="_blank" rel="noopener noreferrer">Producer-side breakdown · BeatPass</a></p>
+</div>
 
-    <blockquote>
-      "Self-compassion taps into your inner desire to be healthy and happy, and if you care about yourself, you'll do what you need to do in order to learn and grow."
-      <cite>— Dr. Kristin Neff, PhD, University of Texas at Austin, <em>Self-Compassion: The Proven Power of Being Kind to Yourself</em>. Self-kindness, not self-flagellation, sustains behavior change. Reframes the eating and sobriety work as care for the man who has to live and think inside this body today — not punishment for how it looks.</cite>
-    </blockquote>
-  </div>
-</section>
+<div class="item">
+  <h3>2. Niche indie iOS app portfolio ($2-10/mo subscriptions)</h3>
+  <p><strong>Why it fits you specifically:</strong> You already have RN/Expo skills and a shipped app. The 2025-2026 indie iOS playbook isn't big swings — it's small, focused B2B-leaning utilities (network tools, monitoring dashboards, log readers, on-call helpers) where your IT background gives you domain insight consumer-app builders lack.</p>
+  <p><strong>Setup:</strong> 2-4 months per app. Realistic strategy: ship 3-5 small apps over 12-18 months, kill the ones that don't get traction, double down on what sticks. $99/yr Apple dev fee is the only hard cost.</p>
+  <p><strong>Realistic income:</strong> Median indie iOS app earns under $100/month. The viral "$602k from a portfolio" stories are top-1% outliers. Competent solo dev shipping 3-5 apps and iterating: $200-$3,000 MRR in 18 months; $5-10K MRR achievable if one hits.</p>
+  <p><strong>The catch:</strong> Not passive — apps need OS-update maintenance every 6-12 months (iOS deprecations, Expo SDK upgrades), customer support, ongoing ASO tweaks. Subscription churn is brutal in consumer; B2B is more stable but smaller TAM. AI app builders are flooding the App Store with low-quality clones, killing discovery.</p>
+  <p><a href="https://www.buildmvpfast.com/blog/602k-revenue-solo-indie-hacker-app-portfolio-breakdown-2026" target="_blank" rel="noopener noreferrer">Portfolio breakdown · BuildMVPFast</a></p>
+</div>
+
+<div class="item">
+  <h3>3. Self-published technical content (short ebook or paid newsletter)</h3>
+  <p><strong>Why it fits you specifically:</strong> 12 years enterprise IT + indie iOS dev = hard-won expertise in narrow niches ("Expo for ex-native devs," "Enterprise SSO patterns," "React Native + corp MDM"). A $30-50 PDF on Gumroad or $10/mo newsletter on Beehiiv leverages writing more than course production.</p>
+  <p><strong>Setup:</strong> 1-3 months to write a focused 60-100 page guide or seed a newsletter with 20 issues. Marketing is the real job — audience building on Twitter/HN/dev.to/subreddits over 6-12 months.</p>
+  <p><strong>Realistic income:</strong> $0-$500/month for niche tech ebook with small audience; $500-$3,000/month with active promotion and real audience. Paid newsletter at 200-500 subs at $10/mo = $2-5K/mo gross.</p>
+  <p><strong>The catch:</strong> Not passive — continuous audience building IS the job. Content goes stale fast in iOS/RN (an Expo guide is partly obsolete in 12 months). Avoid the "courses about making courses" trap. AI-generated technical content is also flooding this space.</p>
+  <p><a href="https://www.collabhouse.com/blog/every-way-artists-make-money-from-music-2026" target="_blank" rel="noopener noreferrer">Creator-economy overview · CollabHouse</a></p>
+</div>
+
+<div class="item">
+  <h3>4. Stock / sync music licensing</h3>
+  <p><strong>Why it fits you specifically:</strong> Drumming chops let you record live drum stems and short cues (intros, transitions, percussion beds). iOS dev background means metadata workflows and spreadsheet hygiene are non-issues. Live performance returns also generate raw material you can repurpose.</p>
+  <p><strong>Setup:</strong> 3-6 months to build an initial catalog of 30-60 tracks (industry guidance: 2-4 tracks/month consistently). Need a treated room/DI setup, DAW workflow, ASCAP or BMI registration, and a publishing admin. Real "passive" income doesn't start until year 2-3.</p>
+  <p><strong>Realistic income:</strong> Part-time composer with non-exclusive catalog of ~100 tracks: $50-$500/month after 18-24 months. Full-time composers with 500+ tracks earn $1-5K/month. Outliers higher but not representative.</p>
+  <p><strong>The catch:</strong> Not passive for the first 2 years — it's a part-time job. Non-exclusive libraries pay 35-50% and AI-generated music is flooding marketplaces (a major 2026 shift). Drums-only stems are a niche — most placements want full cues, so you'd need to learn basic composition/arrangement, not just play drums.</p>
+  <p><a href="https://www.chartlex.com/blog/money/how-musicians-make-money-2026" target="_blank" rel="noopener noreferrer">Musician income breakdown · Chartlex</a></p>
+</div>
+
+<p class="small"><strong>Honest ranking for you specifically:</strong> Drum sample packs has the cleanest skill-to-output ratio (your drumming is the rare ingredient). iOS app portfolio has the highest ceiling but worst median. Self-published technical content is the lowest-effort start and reuses skills you already have. Stock music licensing has the longest payoff curve.</p>
 
 <footer>
-  John's Daily Briefing · generated Sun Jun 28, 2026 · <a href="archive/index.html">archive</a>
+  Generated by your scheduled briefing routine · jtyler203@gmail.com · 2026-06-29
 </footer>
 
 </body>
