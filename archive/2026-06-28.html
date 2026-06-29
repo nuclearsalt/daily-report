@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>John's Daily Briefing — Sunday, June 28, 2026</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --panel: #161616;
+    --panel-2: #1c1c1c;
+    --text: #e0e0e0;
+    --muted: #9a9a9a;
+    --rule: #262626;
+    --link: #9ecbff;
+    --accent-nudge: #f0a350;      /* warm orange for "Today's nudge" */
+    --accent-goals: #6fcf97;      /* green for goals reminder */
+    --accent-body: #c6a0ff;       /* soft purple for body-image callout */
+    --accent-toc: #4ea1ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem 4rem;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  header.briefing-header { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1.25rem; }
+  header h1 { margin: 0 0 .25rem; font-size: 1.7rem; font-weight: 600; }
+  header .date { color: var(--muted); font-size: 1rem; margin: 0; }
+  header .updated { color: var(--muted); font-size: .85rem; margin: .35rem 0 0; }
+
+  nav.toc, nav.archive-nav {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: .9rem 1rem;
+    margin: 0 0 .9rem;
+    font-size: .95rem;
+  }
+  nav.toc strong, nav.archive-nav strong {
+    display: block;
+    color: var(--accent-toc);
+    font-weight: 600;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .55rem;
+  }
+  nav.toc ol { margin: 0; padding-left: 1.2rem; }
+  nav.toc ol li { margin: .15rem 0; }
+  nav.archive-nav ul {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: .4rem .65rem;
+  }
+  nav.archive-nav li { display: inline; }
+  nav.archive-nav a {
+    display: inline-block;
+    padding: .25rem .55rem;
+    background: var(--panel-2);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--link);
+    font-size: .9rem;
+  }
+  nav.archive-nav a:hover { border-color: var(--link); }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  section.briefing-section {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+  }
+  section.briefing-section:first-of-type { border-top: none; padding-top: .5rem; margin-top: 2rem; }
+  h2 { font-size: 1.25rem; margin: 0 0 .75rem; color: #fff; font-weight: 600; }
+  h3 { font-size: 1.05rem; margin: 1.25rem 0 .35rem; color: #ededed; font-weight: 600; }
+  h4 { font-size: .95rem; margin: 1rem 0 .25rem; color: #d8d8d8; font-weight: 600; }
+  p { margin: .55rem 0; }
+  ul, ol { margin: .35rem 0; padding-left: 1.3rem; }
+  li { margin: .25rem 0; }
+  .meta { color: var(--muted); font-size: .9rem; }
+
+  .callout {
+    border-left: 4px solid var(--accent-nudge);
+    background: rgba(240, 163, 80, 0.08);
+    padding: .9rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+  .callout .callout-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .75rem;
+    color: var(--accent-nudge);
+    margin-bottom: .35rem;
+    font-weight: 700;
+  }
+  .callout.goals {
+    border-left-color: var(--accent-goals);
+    background: rgba(111, 207, 151, 0.08);
+  }
+  .callout.goals .callout-label { color: var(--accent-goals); }
+
+  .callout.body-image {
+    border-left-color: var(--accent-body);
+    background: rgba(198, 160, 255, 0.07);
+  }
+  .callout.body-image .callout-label { color: var(--accent-body); }
+  .callout.body-image blockquote {
+    margin: .5rem 0;
+    padding-left: .8rem;
+    border-left: 2px solid rgba(198, 160, 255, 0.35);
+    font-style: italic;
+    color: #ededed;
+  }
+  .callout.body-image blockquote cite {
+    display: block;
+    margin-top: .25rem;
+    font-style: normal;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+
+  .recipe {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .recipe h4 { margin-top: 0; color: #fff; }
+  .recipe .yield { color: var(--muted); font-size: .88rem; margin: .25rem 0 .5rem; }
+  .recipe details { margin-top: .5rem; }
+  .recipe details summary {
+    cursor: pointer;
+    color: var(--link);
+    font-size: .9rem;
+    padding: .25rem 0;
+  }
+  .recipe details ul { padding-left: 1.2rem; margin-top: .35rem; }
+  .recipe details li { font-size: .92rem; }
+
+  blockquote.tracker {
+    border-left: 3px solid var(--accent-toc);
+    background: rgba(78, 161, 255, 0.06);
+    margin: .75rem 0;
+    padding: .6rem .85rem;
+    border-radius: 3px;
+    font-size: .95rem;
+  }
+  blockquote.tracker .date {
+    display: block;
+    color: var(--muted);
+    font-size: .8rem;
+    margin-bottom: .25rem;
+  }
+
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="briefing-header">
+  <h1>John's Daily Briefing</h1>
+  <p class="date">Sunday, June 28, 2026</p>
+  <p class="updated">Last updated: 8:00 AM ET</p>
+</header>
+
+<nav class="toc">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#sun-1">SUN-1 · Sugar Addiction Recovery</a></li>
+    <li><a href="#sun-2">SUN-2 · Week Ahead (Jun 29 – Jul 5)</a></li>
+    <li><a href="#sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</a></li>
+    <li><a href="#sun-4">SUN-4 · Recipes: Meal Prep</a></li>
+    <li><a href="#sun-5">SUN-5 · Body &amp; Self-Image: Weekly Wisdom</a></li>
+  </ol>
+</nav>
+
+<nav class="archive-nav">
+  <strong>Past briefings</strong>
+  <ul>
+    <li><a href="archive/2026-06-27.html">Jun 27</a></li>
+    <li><a href="archive/2026-06-26.html">Jun 26</a></li>
+    <li><a href="archive/2026-06-25.html">Jun 25</a></li>
+    <li><a href="archive/2026-06-24.html">Jun 24</a></li>
+    <li><a href="archive/2026-06-23.html">Jun 23</a></li>
+    <li><a href="archive/index.html">All archives →</a></li>
+  </ul>
+</nav>
+
+<!-- ========== SUN-1 ========== -->
+<section class="briefing-section">
+  <h2 id="sun-1">SUN-1 · Sugar Addiction Recovery</h2>
+
+  <p>This week the tracker named the loop clearly — twice. From the 6/27 midday note: <em>"followed that up with the chocolate covered frozen cherries because I was convinced I wouldn't have the energy to go do social things later if I didn't."</em> From 6/28: <em>"the chocolate covered frozen cherries, which I ate thinking they would give me sufficient energy to feel like I could make it to the jam in Harlem. They didn't."</em> And from 6/22: <em>"I'm in a mood. I think it's the sugar. The fucking sugar."</em></p>
+
+  <p>That's the loop the addiction-medicine literature describes: short dopamine + glucose spike → crash 60–90 min later → feeling more depleted than before → reach for the next quick hit. Dr. Anna Lembke (Stanford addiction medicine, <em>Dopamine Nation</em>) calls it the pleasure-pain balance: every spike is paid back by an equal dip on the other side, and the dip is what tells you to use again. The "I need energy to do the thing" thought is the cue. The cherries are the routine. The crash that follows is the reward your brain pre-registered — and it punishes the next decision.</p>
+
+  <h3>Three things to try today (meal-prep Sunday version)</h3>
+  <ol>
+    <li><strong>Pre-decide the "low energy" snack before you need it.</strong> The cherries became the answer because no other answer was within arm's reach when the dip hit. Today, while you're prepping, batch the savory roasted chickpeas (SUN-4) and the chia jars. When 3pm fatigue arrives next Wednesday, the decision is already made — the jar is already in the fridge. The Lembke move is to design the environment so the easy option is also the right one.</li>
+    <li><strong>Name what the cherries are actually doing.</strong> Notice the cherries were never about going to the jam — they were about <em>not feeling the fatigue</em>. The jam was the cover story. Try the script out loud: "I'm reaching for sugar because I don't want to feel tired right now." That tiny narration breaks the automatic loop. You don't have to refuse the sugar — just notice the trade first.</li>
+    <li><strong>Protein + fat first, every meal-prepped lunch.</strong> Glucose stability is the actual lever. The chickpea-quinoa bowls and harissa-chicken sheet pan in SUN-4 are built around it: protein anchors a flat curve, slow carbs taper rather than spike, and the crash that drives the cycle never starts. The 6/25 evening note already saw it — <em>"keep going on sweets abstention, and have my energy level out."</em> The note is the hypothesis; the meal prep is the test.</li>
+  </ol>
+
+  <div class="callout">
+    <span class="callout-label">Today's nudge</span>
+    <p style="margin:0;">The energy you were chasing with the cherries doesn't live in the cherries. It lives in the flat blood sugar curve you're about to set up for the week. Today's prep <em>is</em> the energy work — every jar you batch tonight is one less 3 PM moment where the cherries are the only answer in the fridge. You already named the loop in your own words on 6/22 and again on 6/27. You're not learning this; you're acting on something you already see.</p>
+  </div>
+</section>
+
+<!-- ========== SUN-2 ========== -->
+<section class="briefing-section">
+  <h2 id="sun-2">SUN-2 · Week Ahead — Mon Jun 29 to Sun Jul 5</h2>
+
+  <p class="meta">Independence Day (Sat July 4) is the dominating event. July 4 falls on a Saturday, so the federal holiday is <strong>observed Friday July 3</strong> by most government offices and markets. Plan banking, government calls, and any errands needing a person on the other end by Thursday July 2.</p>
+
+  <h3>NYC Transit / MTA</h3>
+  <ul>
+    <li><strong>Sat July 4 service plan:</strong> Subways, buses, and Staten Island Railway on <strong>Saturday schedule</strong>; LIRR and Metro-North on <strong>Sunday schedule with off-peak fares all day</strong>. Late-night returns from catering gigs will be thinner than usual. <a href="https://apps.cio.ny.gov/apps/mediacontact/public/view.cfm?parm=B62F5A67-F8D8-0764-40A5F22929939EF6_A794EB19-FDAF-4706-2FD2C94C50E97538" target="_blank" rel="noopener noreferrer">MTA press notice</a></li>
+    <li><strong>Weekend changes (Sun Jun 28 rolling into Mon Jun 29):</strong> A-train running in two sections to JFK; no service Crown Hts-Utica → New Lots Av; no service Rockaway Blvd → Ozone Park-Lefferts Blvd. <a href="https://www.mta.info/article/mta-weekender-june-26-29-2026" target="_blank" rel="noopener noreferrer">MTA Weekender</a></li>
+    <li><strong>Live status:</strong> Check <a href="https://www.mta.info/alerts" target="_blank" rel="noopener noreferrer">mta.info/alerts</a> the night before — line-specific work for the July 3–5 weekend wasn't yet posted at search time.</li>
+  </ul>
+
+  <h3>Major NYC Events (commute impact)</h3>
+  <ul>
+    <li><strong>Macy's 4th of July Fireworks — Sat July 4, ~9 PM.</strong> 50th anniversary; barges on lower East River near the Seaport, lower Hudson, and around the Brooklyn Bridge itself. Expect heavy crush on N/W/7 trains out of Astoria toward LIC waterfront viewing. <a href="https://www.cbsnews.com/newyork/news/4th-of-july-in-nyc-means-nathans-hot-dog-eating-contest-followed-by-macys-fireworks/" target="_blank" rel="noopener noreferrer">CBS News preview</a></li>
+    <li><strong>100,000 free Macy's tickets</strong> released July 1 for premium spots (Brooklyn Bridge Park, etc.) per Mayor Mamdani's office. <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-announces-100-000-free-tickets-to-watch-macy-s-fou" target="_blank" rel="noopener noreferrer">City Hall release</a></li>
+    <li><strong>Nathan's Hot Dog Eating Contest — Sat July 4, Coney Island.</strong> Festivities 10 AM, competitions 11 AM and 12:30 PM. 1310 Surf Ave. <a href="https://www.cbsnews.com/newyork/news/4th-of-july-in-nyc-means-nathans-hot-dog-eating-contest-followed-by-macys-fireworks/" target="_blank" rel="noopener noreferrer">Details</a></li>
+    <li><strong>America250 / Sail4th 250 tall-ship parade</strong> in NY Harbor over the July 4 weekend (multi-day). <a href="https://www.audacy.com/1010wins/news/local/tall-ships-fireworks-and-the-times-square-ball-a-guide-to-essential-events-in-nyc-marking-america-250" target="_blank" rel="noopener noreferrer">Schedule overview</a></li>
+    <li><strong>NYC Pride March</strong> was Sunday Jun 28 (today) — expect Sunday-night/Monday morning recovery friction in Midtown and the Village.</li>
+    <li><strong>amNY July 4 roundup</strong> with more events. <a href="https://www.amny.com/entertainment/things-to-do/july-4-2026-new-york-city-events/" target="_blank" rel="noopener noreferrer">amny.com</a></li>
+  </ul>
+
+  <h3>Holidays</h3>
+  <ul>
+    <li><strong>Sat July 4:</strong> Independence Day (federal).</li>
+    <li><strong>Fri July 3:</strong> Observed for federal offices, federal courts, USPS, NYSE, Nasdaq, and most banks. <a href="https://www.shiftflow.app/blog/new-york-city-holidays-2026" target="_blank" rel="noopener noreferrer">2026 NYC holiday list</a></li>
+  </ul>
+
+  <h3>Street fairs / weekend disruptions</h3>
+  <ul>
+    <li><strong>W 54th St (6th–5th Ave)</strong> closed 8 AM–6 PM Sat / 9 AM–6 PM Sun through July 6 — crane operations, Midtown.</li>
+    <li><strong>Willoughby Ave (Bushwick Ave to Broadway)</strong> closed 6 AM–4 PM weekdays through July 3 — Brooklyn track repairs.</li>
+    <li><strong>Belt Parkway Bridge over 26th Ave</strong> — overnight lane closures (11 PM–5 AM) Mon Jun 29 through Fri Jul 24.</li>
+    <li>Day-of check: <a href="https://www.nyc.gov/html/dot/html/motorist/wkndtraf.shtml" target="_blank" rel="noopener noreferrer">NYC DOT weekend traffic advisory</a></li>
+    <li><em>Note:</em> No major NYC street-fair permits surfaced for July 4 weekend — most permits avoid the holiday. Verify Thursday.</li>
+  </ul>
+
+  <h3>Astoria / Queens flags (catering + musician)</h3>
+  <ul>
+    <li><strong>Astoria Park fireworks</strong> were Thu Jun 25 — already passed. <a href="http://www.astoriaparkalliance.org/events" target="_blank" rel="noopener noreferrer">Astoria Park Alliance</a></li>
+    <li><strong>Lost in Paradise (LIC, 11-01 43rd Ave)</strong> — fireworks viewing party 6 PM Sat July 4.</li>
+    <li><strong>Bohemian Beer Garden (Astoria)</strong> — "Dance for the Red, White and Blue" after-party 9 PM Sat July 4. <a href="https://allevents.in/queens/astoria" target="_blank" rel="noopener noreferrer">Astoria events listing</a></li>
+    <li><strong>Best free Queens viewing for Macy's:</strong> Gantry Plaza State Park and Hunters Point South Park (LIC waterfront). Expect very heavy crowds and N/W/7 train crush Saturday evening.</li>
+    <li><strong>Jam / venue note:</strong> Most NYC jazz rooms keep holiday-weekend programming but cancel weekly jams on July 4 itself. Confirm directly with venues before heading out.</li>
+  </ul>
+
+  <h3>Personal context</h3>
+  <p class="meta">Calendar / Trello sync was unavailable this run (Google token expired on the edge function). From this week's notes, tomorrow (Mon Jun 29) you said you'd do <em>volunteering, 31OS, and trash club</em>, plus a morning routine of <em>light yoga, weights, meds, breakfast — in that order</em>. The pattern that needs disrupting this week is the jam-skip: zero jams attended Sun Jun 21 – Sat Jun 27. See SUN-3 for the full list of intentions you set down this week.</p>
+
+  <p><strong>Week framing:</strong> This is a short-feel week with a long holiday weekend in the middle — Monday and Tuesday are the only "normal" workdays before the federal observance breaks the rhythm. Use the front of the week for anything that needs phone-call follow-through (insurance, PCP, labs), because nothing on the government or healthcare side will pick up between Thursday afternoon and Monday morning.</p>
+</section>
+
+<!-- ========== SUN-3 ========== -->
+<section class="briefing-section">
+  <h2 id="sun-3">SUN-3 · Tracker Notes: Forgotten Intentions</h2>
+  <p>Things you said you'd do this week. Some moved, most didn't. Listed without judgment — just so they don't quietly evaporate.</p>
+
+  <blockquote class="tracker">
+    <span class="date">Mon Jun 22, evening</span>
+    "Tomorrow I also need to <strong>unpack the fucking boxes!</strong> And get my cymbals from the storage unit. I have nothing planned for tomorrow so I can do this." <br>
+    <em>Status: cymbals got mentioned again 6/22 (forgot keys), keys attached to keychain that evening. Boxes mentioned again 6/25 ("Living room is still incredibly cluttered") and 6/27 ("I didn't unpack boxes. I need to do a little of that tomorrow"). Still open.</em>
+  </blockquote>
+
+  <blockquote class="tracker">
+    <span class="date">Mon Jun 22, evening</span>
+    "I should get a <strong>gym membership</strong> now, actually, but all the gyms in Astoria are garbage." <br>
+    <em>Status: still open. The thought trailed off into "LIC maybe?" with no decision. Worth either making the decision or formally tabling it.</em>
+  </blockquote>
+
+  <blockquote class="tracker">
+    <span class="date">Mon Jun 22, quick</span>
+    "I also need to make a decision about <strong>Eric</strong>. He asked me to be the best man… I am going to ask some trusted friends for advice. Because this is really digging at me." <br>
+    <em>Status: open. You set the action (ask trusted friends) but no follow-up note this week says you did. This one keeps energy locked up until it gets resolved one way or the other.</em>
+  </blockquote>
+
+  <blockquote class="tracker">
+    <span class="date">Wed Jun 24 → Thu Jun 26</span>
+    "I need to figure out my labs asap… Barbara sent me a link for Dirt Cheap Labs… I think I will do that for the bloodwork. Now I need EKG." <br>
+    <em>Status: partial. 6/26 update says state insurance came through — "I will get a new PCP and a new physical exam and new labs." Concrete next step: pick a PCP this week and book the visit. The insurance breakthrough only matters if a calendar invite comes out of it.</em>
+  </blockquote>
+
+  <blockquote class="tracker">
+    <span class="date">Sun Jun 28, evening (today)</span>
+    "I'm planning to do some <strong>light exercise in the morning in the bedroom</strong>. Bathroom first. Light yoga, and some weights, then meds and breakfast. Good order of operations. Let's see to it." <br>
+    <em>Status: fresh. This one is for tomorrow morning, not this week. The order is the plan — that's the whole intervention. Don't redesign it at 7 AM.</em>
+  </blockquote>
+
+  <p class="meta">Common thread: every one of these had a specific next step embedded in the note itself. The intentions aren't vague — they got specific and then sat. Pick the smallest one and close it this week (gym decision, or one phone call for PCP). The pile shrinks faster from the bottom than from the top.</p>
+</section>
+
+<!-- ========== SUN-4 ========== -->
+<section class="briefing-section">
+  <h2 id="sun-4">SUN-4 · Recipes: Meal Prep</h2>
+  <p>One cook session, multiple meals. Built around flat blood sugar (slow carbs, protein anchors), warm spice, and zero added sugar — see SUN-1 for why that matters this week.</p>
+
+  <div class="recipe">
+    <h4>Breakfast · Healthy Baked Egg Muffin Cups</h4>
+    <p class="yield">Serves 6 (12 muffins, 2 per serving) · holds 4 days</p>
+    <p>Whole eggs + sautéed veg + heat. Pre-cooking the veg keeps them from weeping into the eggs.</p>
+    <p><a href="https://www.eatingbirdfood.com/healthy-baked-egg-cups/" target="_blank" rel="noopener noreferrer">eatingbirdfood.com →</a></p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>10 large eggs</li>
+        <li>¼ cup unsweetened milk (almond or dairy)</li>
+        <li>½ tsp sea salt, ¼ tsp black pepper</li>
+        <li>1 tsp avocado oil</li>
+        <li>1 small red bell pepper, diced</li>
+        <li>½ yellow onion (or 3 green onions), diced</li>
+        <li>2 cups baby spinach, chopped</li>
+        <li>½ tsp garlic powder</li>
+        <li>Pinch cayenne + dashes of hot sauce</li>
+        <li>Optional: ¼ cup crumbled feta</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <h4>Lunch · Spicy Chickpea Quinoa Bowls</h4>
+    <p class="yield">Serves 4 · holds 4–5 days</p>
+    <p>Plant protein + slow-carb quinoa. Cumin and red pepper flakes carry it. 20-minute cook.</p>
+    <p><a href="https://www.eatyourselfskinny.com/spicy-chickpea-quinoa-bowl/" target="_blank" rel="noopener noreferrer">eatyourselfskinny.com →</a></p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>1 cup uncooked quinoa, cooked in 2 cups low-sodium veg broth</li>
+        <li>1 tbsp olive oil</li>
+        <li>½ yellow onion, diced</li>
+        <li>3 cloves garlic, minced</li>
+        <li>2 (15 oz) cans chickpeas, drained and rinsed</li>
+        <li>1 (14.5 oz) can fire-roasted diced tomatoes</li>
+        <li>1 tsp ground cumin</li>
+        <li>½–1 tsp red pepper flakes</li>
+        <li>½ tsp smoked paprika</li>
+        <li>Salt + pepper to taste</li>
+        <li>¼ cup chopped fresh cilantro</li>
+        <li>To serve: lemon wedges, sliced avocado, baby spinach</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <h4>Dinner · Sheet Pan Harissa Chicken with Chickpeas &amp; Sweet Potatoes</h4>
+    <p class="yield">Serves 4–6 · one pan, ~40 min</p>
+    <p>Harissa heat, chicken thighs (more forgiving than breast for reheating), chickpea + sweet potato for slow carb + fiber. Eats well cold over greens on Day 3.</p>
+    <p><a href="https://www.halfbakedharvest.com/sheet-pan-harissa-chicken-with-chickpeas-and-sweet-potatoes/" target="_blank" rel="noopener noreferrer">halfbakedharvest.com →</a></p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>1.5–2 lbs boneless skinless chicken thighs</li>
+        <li>2 medium sweet potatoes, cubed</li>
+        <li>1 (15 oz) can chickpeas, drained</li>
+        <li>1 red onion, cut into wedges</li>
+        <li>3 tbsp harissa paste (or 2 tbsp harissa seasoning)</li>
+        <li>3 tbsp olive oil</li>
+        <li>Zest + juice of 1 lemon</li>
+        <li>1 tsp honey — <em>omit for no added sugar</em></li>
+        <li>1 tsp smoked paprika, 1 tsp cumin</li>
+        <li>Salt + pepper</li>
+        <li>To serve: plain Greek yogurt, fresh mint or cilantro, olives</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <h4>Snack 1 (savory) · Crispy Spicy Roasted Chickpeas</h4>
+    <p class="yield">~4 servings (~1.5 cups) · keeps up to 2 weeks</p>
+    <p>~11g protein per serving. Shelf-stable, customizable spice level. The "instead of cherries" snack from SUN-1.</p>
+    <p><a href="https://www.loveandlemons.com/roasted-chickpeas/" target="_blank" rel="noopener noreferrer">loveandlemons.com →</a></p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>2 (15 oz) cans chickpeas, drained, rinsed, patted <em>very</em> dry</li>
+        <li>1.5 tbsp extra-virgin olive oil</li>
+        <li>½ tsp sea salt</li>
+        <li>1 tsp smoked paprika</li>
+        <li>1 tsp ground cumin</li>
+        <li>½ tsp garlic powder</li>
+        <li>¼–½ tsp cayenne (to taste)</li>
+        <li>Optional: 1 tsp chipotle in adobo, puréed</li>
+        <li>Roast 400°F for 25–30 min, toss spices on while warm</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="recipe">
+    <h4>Snack 2 (sweet, no added sugar) · Vanilla Berry Chia Pudding Jars</h4>
+    <p class="yield">4 jars · sets overnight, holds 5 days</p>
+    <p>Frozen berries thaw into the pudding and sweeten it naturally — no maple or honey. Protein from chia and soy milk.</p>
+    <p><a href="https://www.pickuplimes.com/recipe/vanilla-berry-chia-seed-pudding-242" target="_blank" rel="noopener noreferrer">pickuplimes.com →</a></p>
+    <details>
+      <summary>Ingredients</summary>
+      <ul>
+        <li>2 cups unsweetened soy or almond milk (soy = more protein)</li>
+        <li>½ cup chia seeds</li>
+        <li>1 tsp vanilla extract</li>
+        <li>Pinch sea salt</li>
+        <li>1.5 cups mixed frozen berries (strawberry, blueberry, raspberry)</li>
+        <li>Optional toppings: sliced almonds, unsweetened coconut, 1 tbsp nut butter per jar</li>
+        <li>Ratio per jar: 2 tbsp chia + ½ cup milk. Refrigerate 8+ hrs.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<!-- ========== SUN-5 ========== -->
+<section class="briefing-section">
+  <h2 id="sun-5">SUN-5 · Body &amp; Self-Image: Weekly Wisdom</h2>
+
+  <div class="callout body-image">
+    <span class="callout-label">Weekly wisdom</span>
+    <p>This week the tracker named a small win that's easy to miss. On 6/25 evening: <em>"keep going on sweets abstention, and have my energy level out, and then have the energy to unclutter the room."</em> You wrote down the chain — sugar out, energy stable, capacity returns — in your own words. The work isn't about how this body looks in a mirror this week. It's about whether the man inside it has enough fuel to write a song, play drums, and unpack a box on the same day. (You did the first two on 6/28. The third is waiting.)</p>
+
+    <p>Two cognitive patterns to watch for this week:</p>
+    <ul>
+      <li><strong>Emotional reasoning:</strong> "I feel tired and unhealthy, so I must be failing." Fatigue is data about your blood sugar curve and your sleep, not a verdict on you.</li>
+      <li><strong>Mind-reading-as-motivator:</strong> the assumption that shame is what will finally make change stick. The research consistently shows the opposite.</li>
+    </ul>
+
+    <blockquote>
+      "Self-acceptance trumps self-esteem."
+      <cite>— Dr. Russ Harris, MD, ACT therapist, <em>The Happiness Trap</em>. The Struggle Switch: fighting how your body feels right now amplifies the feeling. Accepting it frees the energy for the next values-aligned action.</cite>
+    </blockquote>
+
+    <blockquote>
+      "Self-compassion taps into your inner desire to be healthy and happy, and if you care about yourself, you'll do what you need to do in order to learn and grow."
+      <cite>— Dr. Kristin Neff, PhD, University of Texas at Austin, <em>Self-Compassion: The Proven Power of Being Kind to Yourself</em>. Self-kindness, not self-flagellation, sustains behavior change. Reframes the eating and sobriety work as care for the man who has to live and think inside this body today — not punishment for how it looks.</cite>
+    </blockquote>
+  </div>
+</section>
+
+<footer>
+  John's Daily Briefing · generated Sun Jun 28, 2026 · <a href="archive/index.html">archive</a>
+</footer>
+
+</body>
+</html>
