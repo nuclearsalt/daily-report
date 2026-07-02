@@ -3,237 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John's Daily Briefing — Wed, July 1, 2026</title>
+<title>John's Briefing — Thursday, July 2, 2026</title>
 <style>
   :root{
-    --bg:#0f0f0f; --card:#1a1a1a; --text:#e0e0e0; --muted:#9a9a9a;
-    --line:#2a2a2a; --link:#6db3f2; --accent:#4fd1c5;
-    --nudge:#f6ad55; --goal:#b794f4; --soft:#68d391;
+    --bg:#0f0f0f; --fg:#e0e0e0; --muted:#9a9a9a; --card:#181818;
+    --border:#2a2a2a; --accent:#6db3f2; --link:#7fc4ff;
+    --nudge:#e0a458; --goal:#7ecb8f; --soft:#b89cd6;
   }
   *{box-sizing:border-box}
-  body{
-    background:var(--bg); color:var(--text); margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6; font-size:17px;
-  }
-  .wrap{max-width:800px; margin:0 auto; padding:24px 18px 80px;}
-  header{border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:8px;}
-  header h1{font-size:1.5rem; margin:0 0 6px;}
-  header .date{color:var(--muted); font-size:1rem;}
-  header .updated{color:var(--muted); font-size:.85rem; margin-top:4px;}
-  h2{font-size:1.25rem; margin:38px 0 6px; padding-top:14px; border-top:1px solid var(--line); scroll-margin-top:14px;}
-  h3{font-size:1.05rem; margin:22px 0 4px; color:#fff;}
-  h4{font-size:.98rem; margin:16px 0 2px; color:#cfcfcf;}
-  a{color:var(--link); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  p{margin:8px 0;}
-  ul{margin:8px 0; padding-left:22px;}
-  li{margin:6px 0;}
-  .muted{color:var(--muted);}
-  small{color:var(--muted);}
-  .nav-zone{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:16px 0 8px;}
-  .toc strong, .archive-nav strong{display:block; color:#fff; margin-bottom:6px; font-size:.95rem;}
-  .toc ol{margin:0; padding-left:20px;}
-  .toc li{margin:3px 0;}
-  .archive-nav{margin-top:12px; padding-top:12px; border-top:1px solid var(--line);}
-  .archive-nav a{margin-right:6px; display:inline-block;}
-  .callout{border-radius:10px; padding:14px 16px; margin:16px 0; background:#161616;}
-  .nudge{border-left:4px solid var(--nudge); background:#1e1912;}
-  .nudge strong{color:var(--nudge);}
-  .goal{border-left:4px solid var(--goal); background:#1a1620;}
-  .goal strong{color:var(--goal);}
-  .soft{border-left:4px solid var(--soft); background:#141c16;}
-  .soft strong{color:var(--soft);}
-  blockquote{margin:10px 0; padding:8px 14px; border-left:3px solid var(--accent); background:#141414; color:#e8e8e8; font-style:italic;}
-  .src{font-size:.82rem; color:var(--muted);}
-  .item{margin:14px 0; padding-bottom:6px; border-bottom:1px dotted #262626;}
-  .tag{display:inline-block; font-size:.72rem; background:#232323; color:#bdbdbd; border:1px solid #333; border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:middle;}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;margin:0;padding:0}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 18px 80px}
+  header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:8px}
+  header h1{margin:0 0 4px;font-size:1.5rem}
+  header .date{color:var(--muted);font-size:1rem}
+  header .updated{color:var(--muted);font-size:.82rem;margin-top:6px}
+  .navzone{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:18px 0 28px}
+  .toc strong,.archive-nav strong{color:var(--accent);display:block;margin-bottom:6px;font-size:.95rem}
+  .toc ol{margin:0 0 4px;padding-left:20px}
+  .toc li{margin:2px 0}
+  .archive-nav{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+  .archive-nav a{margin-right:12px;display:inline-block}
+  a{color:var(--link);text-decoration:none}
+  a:hover{text-decoration:underline}
+  section{margin:0 0 40px}
+  h2{font-size:1.22rem;border-left:3px solid var(--accent);padding-left:10px;margin:34px 0 14px;scroll-margin-top:12px}
+  h3{font-size:1.02rem;color:#cfe6ff;margin:20px 0 6px}
+  .item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin:10px 0}
+  .item .meta{color:var(--muted);font-size:.85rem;margin-top:4px}
+  .callout{border-radius:8px;padding:14px 16px;margin:16px 0;background:#1c1710;border:1px solid var(--nudge);border-left:4px solid var(--nudge)}
+  .callout.goal{background:#101c13;border-color:var(--goal);border-left-color:var(--goal)}
+  .callout.soft{background:#181425;border-color:var(--soft);border-left-color:var(--soft)}
+  .callout strong{color:#fff}
+  .callout .label{text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;font-weight:700;display:block;margin-bottom:6px}
+  .callout .label.nudge{color:var(--nudge)}
+  .callout .label.goal{color:var(--goal)}
+  .callout .label.soft{color:var(--soft)}
+  details{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:6px 12px;margin:8px 0}
+  details summary{cursor:pointer;color:#cfe6ff;font-weight:600}
+  details ul{margin:8px 0 4px}
+  blockquote{border-left:3px solid var(--muted);margin:8px 0;padding:2px 0 2px 14px;color:#d6d6d6;font-style:italic}
+  .tag{display:inline-block;background:#242424;border:1px solid var(--border);border-radius:4px;padding:1px 7px;font-size:.74rem;color:var(--muted);margin-right:6px}
+  .note{color:var(--muted);font-size:.86rem}
+  ul{padding-left:20px}
+  hr{border:none;border-top:1px solid var(--border);margin:30px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <h1>John's Daily Briefing</h1>
-  <div class="date">Wednesday · July 1, 2026</div>
-  <div class="updated">Last updated: 10:43 PM ET</div>
+  <div class="date">Thursday · July 2, 2026</div>
+  <div class="updated">Last updated: 10:35 AM ET</div>
 </header>
 
-<div class="nav-zone">
+<div class="navzone">
   <nav class="toc">
     <strong>On this page</strong>
     <ol>
-      <li><a href="#wed-1">WED-1 · Mindful Eating &amp; Exercise for ADHD</a></li>
-      <li><a href="#wed-2">WED-2 · NYC Urban Planning &amp; Global Urbanism</a></li>
-      <li><a href="#wed-3">WED-3 · Radical Thinkers: Quotes &amp; Summaries</a></li>
-      <li><a href="#wed-4">WED-4 · NYC Local Politics Digest</a></li>
-      <li><a href="#wed-5">WED-5 · NYC Direct Actions: Upcoming Events</a></li>
+      <li><a href="#thu-1">THU-1 · Sugar Addiction Recovery</a></li>
+      <li><a href="#thu-2">THU-2 · Tips from World-Class Drummers</a></li>
+      <li><a href="#thu-3">THU-3 · Weekend Music: NYC (Free/Low-Cost)</a></li>
+      <li><a href="#thu-4">THU-4 · Weekend Art &amp; Installations: NYC</a></li>
+      <li><a href="#thu-5">THU-5 · Weekend Social: NYC Events with Activity</a></li>
     </ol>
   </nav>
   <nav class="archive-nav">
     <strong>Past briefings</strong>
+    <a href="archive/2026-07-01.html">Jul 1</a>
     <a href="archive/2026-06-28.html">Jun 28</a>
     <a href="archive/2026-06-27.html">Jun 27</a>
     <a href="archive/2026-06-26.html">Jun 26</a>
     <a href="archive/2026-06-25.html">Jun 25</a>
-    <a href="archive/2026-06-24.html">Jun 24</a>
     <a href="archive/index.html">All archives →</a>
   </nav>
 </div>
 
-<!-- ============ WED-1 ============ -->
-<h2 id="wed-1">WED-1 · Mindful Eating &amp; Exercise for ADHD</h2>
+<!-- ============ THU-1 ============ -->
+<section>
+<h2 id="thu-1">THU-1 · Sugar Addiction Recovery</h2>
+<p>Reading back through this week's check-ins, the loop is easy to trace — and it's not a willpower problem. It's a <strong>dopamine problem wearing a sugar costume</strong>.</p>
 
-<p>This week the data tells one clear story, and it's not about willpower. Energy sat low almost every day (mostly 3–5 out of 10), and the sweets showed up right alongside it — with <em>"Low energy"</em> logged as the reason on June 26, June 28, and again July 1. That's the loop, named plainly:</p>
+<p>Last night (July 2) you nailed the mechanism yourself: <em>"Today I let myself have social media while having breakfast and wasted about three hours on Instagram… Drained the dopamine early. Made the rest of the day's tasks a little bit harder. Probably accounts for the sugar craving."</em> That's a genuinely sharp observation. Then the store trip, the whole guava/dulce-de-leche brick, reason logged: <span class="tag">Low energy</span>. On June 30 the same shape: <em>"Floodgates for sugar opened up… Was it a reward for actually doing things today?"</em> And June 28: <em>"Every time I do this I scold myself. Maybe that's adding to the response… I'm maybe eating in response to the scolding."</em></p>
 
-<p class="muted"><strong>low energy → grab something sweet for a quick lift → short spike → crash → feeling like you can't do the thing → reach for the quick fix again.</strong></p>
+<p>Here's the addiction-science version of what you're already noticing:</p>
 
-<p>Your June 30 note put it perfectly: <em>"All I need to do is remove the sweets. Then we're golden. 'All I need to do.' As if it's just easy peasy lemon squeezy."</em> Right — for an ADHD brain, "just remove it" isn't a plan, it's a wish. The brain reaching for sugar is doing exactly what it's wired to do: chase fast dopamine and fast glucose when the tank feels empty. So the strategies below aren't about resisting harder. They're about lowering the executive load so the better choice needs less brainpower to make.</p>
+<p><strong>The pleasure-pain balance (Dr. Anna Lembke, <em>Dopamine Nation</em>).</strong> Every hit of a fast dopamine source — Instagram at breakfast, then sugar — is a "press on the pleasure side" of a see-saw the brain always tries to level. To level it, the brain tips you into a matching dip: the crash, the fog, the "I can't do the tasks" feeling. That low is <em>not</em> a fact about your energy. It's the comedown from the earlier spike. You drained it early, so the tank read empty by afternoon, so sugar looked like the only refill. It wasn't restoring energy — it was chasing the balance the morning scroll knocked over.</p>
 
-<h3>Three things that actually work with an ADHD brain</h3>
+<p><strong>The loop is a habit, not a flaw (cue → routine → reward).</strong> The cue is a low/foggy feeling. The routine is fast sugar. The reward is 20 minutes of "okay-ness," then another dip. The self-scolding you flagged on June 28 is doing real damage here: shame is itself a painful state, which the brain wants to soothe — with the exact quick fix that caused it. You correctly guessed you're "eating in response to the scolding." You are. Drop the scolding and you remove one of the loop's fuel sources.</p>
 
-<h4>1. Sequence beats motivation — and you already proved it this week</h4>
-<p>June 29 morning you ran a fixed order of operations: <em>light yoga/weights → meds → breakfast → no coffee, no phone.</em> The result, in your own words: <em>"decluttered much of the living room, vacuumed, dishes… Didn't feel like a ton of effort… got more done than in the past few weeks. Just by taking my morning seriously."</em> That wasn't a high-energy day — energy was a 5. Movement <em>first</em>, before decisions and before the phone, is what generated the capability. ADHD responds to <em>structure and sequence</em>, not to waiting until you feel like it. Rebuild that exact order tomorrow morning; it's a proven local win, dated and yours.</p>
+<h3>Three things you can do today</h3>
+<ul>
+  <li><strong>Protect the morning dopamine, exactly as you wrote it.</strong> Your own plan for tomorrow — bathroom → light yoga/weights → meds → breakfast with <em>no social media</em> — is the highest-leverage move on this page. The rule isn't "have more discipline," it's "don't spend the day's dopamine before 9am." Put the phone in the other room during breakfast (the Brick you've used before works). If the morning tank stays full, the afternoon sugar cue never fully fires.</li>
+  <li><strong>Insert a 10-minute delay, not a "no."</strong> When the craving hits, you don't have to refuse it — refusing is what builds the dam that later bursts (your "what you resist will persist" week said this). Instead: set a timer for 10 minutes and drink water or the tart-cherry/blueberry juice first. Cravings are waves; most crest and fall inside 10–20 minutes. You're not forbidding, you're outlasting.</li>
+  <li><strong>Swap the reward, keep the ritual.</strong> When the cue is "I did a hard thing, I deserve something," the ritual of a reward is healthy — it's the payload that's the problem. Pre-decide a non-sugar reward for finishing a task: 15 minutes of drums (you logged 60 min and "drums = fun" yesterday — a real dopamine source that <em>doesn't</em> crash you), a walk in the sun, an episode of something.</li>
+</ul>
 
-<h4>2. Pre-decide at the door, because the moment always wins otherwise</h4>
-<p>You wrote tonight: <em>"I will be going to the market before they close… and I will have to keep myself honest."</em> The honest truth about ADHD is that in-the-moment decisions lose to the dopamine pull almost every time — so don't leave the call for the moment. Make an <strong>implementation intention</strong> before you walk in: "protein and produce go in the basket first; I walk the perimeter, not the candy aisle." A decision made in advance is a decision your tired brain doesn't have to re-litigate under fluorescent lights at closing time. (Understood.org and ADDitude both lean hard on this — pre-commitment offloads the executive function you don't have to spare.)</p>
-
-<h4>3. Add protein <em>before</em> you subtract sugar</h4>
-<p>"Remove the sweets" is a subtraction task, and subtraction requires sustained restraint — the exact thing that's in short supply. Flip it to an <em>addition</em> task, which ADHD brains do better with: front-load protein and slow carbs (eggs, Greek yogurt, beans, chicken) <em>before</em> the craving window hits, usually mid-afternoon when energy craters. A fuller, slower-burning tank means the crash is smaller, which means the 4pm reach for sugar is quieter. You're not white-knuckling the candy away — you're making the craving show up smaller in the first place. Bonus, given the gout you flagged June 30: steadier blood sugar is also less fuel for a flare.</p>
-
-<div class="callout nudge">
-  <strong>Today's nudge</strong>
-  <p style="margin-bottom:0">You've had <em>no sweets so far today</em> — that's a real streak, not nothing. The market run tonight is the one pressure point, and you already saw it coming, which is half the battle. Before you leave: decide right now what goes in the basket, and eat something with protein <em>before</em> you go so you're not shopping on an empty, brain-foggy tank. You're not trying to be perfect at the market. You're trying to walk in with the decision already made, so the tired-brain version of you doesn't have to make it. More steady energy tomorrow = more capacity to knock out those audition songs. That's the trade, and it's worth it.</p>
+<div class="callout">
+  <span class="label nudge">Today's nudge</span>
+  You already diagnosed it in writing last night: the Instagram breakfast drained the tank, and the sugar was you trying to refill it. So today, run the experiment you set for yourself — phone away until after breakfast, and when the mid-afternoon fog rolls in, treat it as the <em>comedown</em> it is, not as proof you're incapable. Ten minutes, water, drums. The gout you can feel coming isn't a reason to scold yourself; it's just data telling you the see-saw's been working overtime. Level it gently, not with a fight.
 </div>
+<p class="note">Framing drawn from Dr. Anna Lembke's <em>Dopamine Nation</em> (pleasure-pain balance) and standard CBT habit-loop / urge-surfing practice. Not medical advice — energy, clarity, and less anxiety are the goal, not weight or appearance.</p>
+</section>
 
-<!-- ============ WED-2 ============ -->
-<h2 id="wed-2">WED-2 · NYC Urban Planning &amp; Global Urbanism</h2>
-
-<h3>NYC</h3>
+<!-- ============ THU-2 ============ -->
+<section>
+<h2 id="thu-2">THU-2 · Tips from World-Class Drummers</h2>
+<p>Five practice ideas from named pros — weighted toward getting gig-ready efficiently, since you're learning songs for the metal audition on Saturday the 11th.</p>
 
 <div class="item">
-  <h4>Mayor Mamdani's "Block by Block" housing plan <span class="tag">May 2026</span></h4>
-  <p>A decade-long roadmap to build 200,000 new affordable homes and preserve 200,000 existing affordable units, paired with roughly $5B over two years for new rent-stabilized housing (with senior and supportive-housing carve-outs) and a $22B five-year capital housing commitment. It also folds in tenant protections and a Construction Justice Act setting a $40/hr minimum plus benefits for workers on City-financed projects.</p>
-  <p><strong>Who:</strong> Mayor Zohran Mamdani's administration. <strong>Impact:</strong> The broadest citywide affordability push in years — aimed at low-income renters and at raising labor standards on public construction.</p>
-  <p class="src"><a href="https://www.nyc.gov/mayors-office/news/2026/05/mayor-mamdani-releases--block-by-block--the-housing-plan-for-a-n" target="_blank" rel="noopener noreferrer">nyc.gov — Block by Block announcement</a></p>
-</div>
-
-<div class="item">
-  <h4>Monitor Point — transit-oriented waterfront redevelopment, Greenpoint <span class="tag">Jun 2026</span></h4>
-  <p>A public-private deal converting an MTA depot on Quay Street (Greenpoint waterfront) into ~1,150 homes — 40% permanently affordable, most at 40–60% AMI — plus open space and community facilities. The developer funds a replacement MTA facility in East Williamsburg at no public cost and pays 100 years of rent to the MTA, money earmarked for signals, stations, and switch upgrades. The City Council <strong>approved the Monitor Point rezoning on June 25</strong> (see WED-4).</p>
-  <p><strong>Who:</strong> Gotham Organization (developer), MTA (landowner), local community board, City Planning Commission. <strong>Impact:</strong> Held up as a model of transit-oriented development that reinvests directly in the transit system rather than just building near it.</p>
-  <p class="src"><a href="https://nyc.streetsblog.org/2026/06/09/opinion-transit-oriented-development-housing-means-actually-investing-in-transit" target="_blank" rel="noopener noreferrer">Streetsblog NYC — Monitor Point TOD (Jun 9, 2026)</a></p>
+  <h3>Benny Greb — "The Whale Method"</h3>
+  <span class="tag">jazz / fusion</span>
+  Break a hard groove or fill into single beats. Loop the bar but play only beat 1; once it's solid, add beat 2, then both, resting the remainder — building up beat-by-beat while keeping the part in its rhythmic context.
+  <div class="meta"><strong>Why it helps:</strong> isolates the exact spot tripping you up instead of grinding the whole part, so the audition set locks in with fewer reps. · <a href="https://nathandavidphelps.medium.com/9-lessons-from-effective-practicing-for-musicians-by-benny-greb-5e3bab5c0bea" target="_blank" rel="noopener noreferrer">Source</a></div>
 </div>
 
 <div class="item">
-  <h4>MTA / Hochul RFP: ~300 homes on underused MTA land, Crown Heights <span class="tag">Mar 2026 — date flag</span></h4>
-  <p>An RFP to build ~300 units (≥75 permanently affordable via Mandatory Inclusionary Housing) at 1119 Pacific Street on state-owned MTA land, with transit-access improvements and public art along the Franklin Shuttle wall. <span class="muted">Note: the press release is dated March 24, 2026 — older than the usual 14-day window; included because the proposal deadline was May 2026, so it may still be live news.</span></p>
-  <p><strong>Who:</strong> MTA with Gov. Hochul, Empire State Development, and NYS Homes &amp; Community Renewal. <strong>Impact:</strong> Monetizes underused state land for housing near transit; sale revenue funds system-wide infrastructure.</p>
-  <p class="src"><a href="https://hcr.ny.gov/news/governor-hochul-announces-rfp-build-300-homes-underutilized-mta-property-brooklyn" target="_blank" rel="noopener noreferrer">NYS HCR — Crown Heights MTA RFP</a></p>
+  <h3>Benny Greb — Separate "practicing" from "playing," and record yourself</h3>
+  <span class="tag">jazz / fusion</span>
+  Practicing is a deliberate loop of execute → evaluate → adjust; playing is for flow and fun. Audio-record at least one practice hour, and only move a section forward once you can nail it 3–5 times in a row (the "feel-good" test).
+  <div class="meta"><strong>Why it helps:</strong> after a 6-year break, every minute counts — recording exposes timing gaps you can't hear in the moment. · <a href="https://www.drumeo.com/beat/benny-greb-interview-effective-practicing-1-drumeo-gab-podcast-197/" target="_blank" rel="noopener noreferrer">Source</a></div>
 </div>
-
-<h3>Global / National</h3>
 
 <div class="item">
-  <h4>FTA FY2026 Transit-Oriented Development Planning Pilot <span class="tag">May–Jun 2026</span></h4>
-  <p>Roughly $28.5M in federal funding for planning dense, mixed-use, walkable neighborhoods around transit, with a program webinar held June 10, 2026 covering eligibility and evaluation criteria. It seeds car-optional TOD nationwide and shapes how U.S. cities compete for federal planning dollars.</p>
-  <p class="src"><a href="https://www.transit.dot.gov/TOD" target="_blank" rel="noopener noreferrer">Federal Transit Administration — TOD program</a></p>
+  <h3>Jojo Mayer — "Practice what you can't play"</h3>
+  <span class="tag">drum &amp; bass / hybrid</span>
+  "If you sound good while practicing, you're not getting any better." Spend practice time deliberately at the edge of your ability, not on the stuff you already own.
+  <div class="meta"><strong>Why it helps:</strong> a 20-year vet can coast on old chops — this forces the discomfort that rebuilds speed for the faster metal parts. · <a href="https://www.drummersresource.com/jojo-mayer-interview/" target="_blank" rel="noopener noreferrer">Source</a></div>
 </div>
 
-<p class="muted"><small>Coverage note: dedicated searches for recent international urbanism (15-minute cities, superblocks, walkability launches) returned only stale, pre-2026 material this week, so nothing global was strong enough to include beyond the FTA program above.</small></p>
+<div class="item">
+  <h3>Benny Greb — Use the metronome as a tool, including "gap clicks"</h3>
+  <span class="tag">jazz / fusion</span>
+  Set the click to 16ths when you want more reference points for stroke accuracy; use sparse clicks — or a gap click that drops out for whole bars — to test and strengthen your internal clock.
+  <div class="meta"><strong>Why it helps:</strong> metal auditions live and die on rock-solid time; gap-click practice keeps tempo steady when the click (or a live cue) isn't there. · <a href="https://www.drumeo.com/beat/benny-greb-interview-effective-practicing-1-drumeo-gab-podcast-197/" target="_blank" rel="noopener noreferrer">Source</a></div>
+</div>
 
-<!-- ============ WED-3 ============ -->
-<h2 id="wed-3">WED-3 · Radical Thinkers: Quotes &amp; Summaries</h2>
+<div class="item">
+  <h3>Nate Smith — Build the pocket first, variations second</h3>
+  <span class="tag">modern jazz / pocket</span>
+  Treat practice as developing ideas <em>within</em> a repeating groove context — nail a deep, repeatable pocket, then add variation as a storytelling arc rather than random fills.
+  <div class="meta"><strong>Why it helps:</strong> bands (metal included) hire the drummer who locks the groove and serves the song — pocket over flash makes you the reliable pick at the audition. · <a href="http://www.drummerworld.com/drummers/Nate_Smith.html" target="_blank" rel="noopener noreferrer">Source</a></div>
+</div>
+</section>
 
-<h3>Rosa Luxemburg</h3>
-<blockquote>"Freedom only for the supporters of the government, only for the members of one party — however numerous they may be — is no freedom at all. Freedom is always the freedom of the one who thinks differently."</blockquote>
-<p><span class="muted"><em>The Russian Revolution</em> (written 1918, published posthumously 1922).</span> Writing from prison, Luxemburg critiqued the Bolsheviks' suppression of political dissent, warning that a revolution which extinguishes free debate hollows out its own emancipatory promise. It endures as a left critique of authoritarianism <em>from within</em> the socialist tradition — liberty is meaningless unless it protects the person who disagrees.</p>
-<p class="src"><a href="https://explaininghistory.org/lives/thinkers-and-writers/rosa-luxemburg/" target="_blank" rel="noopener noreferrer">Source</a></p>
+<!-- ============ THU-3 ============ -->
+<section>
+<h2 id="thu-3">THU-3 · Weekend Music: NYC Performances (Free / Low-Cost)</h2>
+<p>Fri July 3 – Sun July 5. Heads-up: July 4 is Independence Day, and most of the big free outdoor series (Celebrate Brooklyn!, Live at the Gantries, SummerStage's free run) don't start until July 7–12 — so this specific weekend is thinner than usual. Here's what's confirmed for 2026 with working links.</p>
 
-<h3>Frantz Fanon</h3>
-<blockquote>"Colonialism is not satisfied merely with holding a people in its grip and emptying the native's brain of all form and content. By a kind of perverted logic, it turns to the past of the oppressed people, and distorts, disfigures, and destroys it."</blockquote>
-<p><span class="muted"><em>The Wretched of the Earth</em> (1961), from the chapter on national culture.</span> Fanon argues colonial domination is not only economic and physical but psychological — an attempt to erase a people's history and sense of self. The passage remains central to postcolonial and decolonial thought about cultural reclamation.</p>
-<p class="src"><a href="https://abahlali.org/wp-content/uploads/2011/04/Frantz-Fanon-The-Wretched-of-the-Earth-1965.pdf" target="_blank" rel="noopener noreferrer">Source (full text)</a></p>
+<div class="item">
+  <h3>The Knights — Bryant Park Picnic Performances</h3>
+  <span class="tag">classical / adventurous chamber</span><span class="tag">FREE</span>
+  Genre-bending indie-classical collective under the trees in Midtown.
+  <div class="meta">Fri July 3, 8:00 PM · Bryant Park (Midtown) · Free · <a href="https://bryantpark.org/activities/picnic-performances" target="_blank" rel="noopener noreferrer">bryantpark.org</a></div>
+</div>
 
-<h3>Michael Parenti</h3>
-<blockquote>"In order that a select few might live in great opulence, millions of people have laboured all the days of their lives to make a bare living for themselves and often not even that."</blockquote>
-<p><span class="muted"><em>Blackshirts and Reds</em> (1997).</span> Parenti condenses his materialist critique of capitalism: concentrated wealth isn't incidental to mass hardship but structurally dependent on it. The line is widely cited for compressing a systemic argument into a single moral indictment.</p>
-<p class="src"><a href="https://en.wikiquote.org/wiki/Michael_Parenti" target="_blank" rel="noopener noreferrer">Source</a></p>
+<div class="item">
+  <h3>Tribute to Latin Music Giants with Jimmy Bosch — Lincoln Center "Summer for the City"</h3>
+  <span class="tag">salsa / Latin</span><span class="tag">FREE</span>
+  Trombonist Jimmy Bosch leading a tribute honoring Willie Colón and Eddie Palmieri, on the outdoor Dance Floor (dance encouraged — doubles as a social night, see THU-5).
+  <div class="meta">Fri July 3, 7:00 PM · Lincoln Center (UWS) · Free · <a href="https://www.lincolncenter.org/series/summer-for-the-city/s/Social%20Dance" target="_blank" rel="noopener noreferrer">lincolncenter.org</a></div>
+</div>
 
-<h3>Fred Hampton</h3>
-<blockquote>"You can jail a revolutionary, but you can't jail the revolution. You can lock up a freedom fighter like Huey P. Newton, but you can't lock up freedom fighting."</blockquote>
-<p><span class="muted">Speech, 1969.</span> Hampton, the young Chicago Black Panther leader, delivered this shortly before he was killed by police, framing individual repression as powerless against a broader movement. It endures as a statement about the durability of collective struggle beyond any single leader.</p>
-<p class="src"><a href="https://en.wikiquote.org/wiki/Fred_Hampton" target="_blank" rel="noopener noreferrer">Source</a></p>
+<div class="item">
+  <h3>Smalls Jazz Club — nightly sets</h3>
+  <span class="tag">jazz</span><span class="tag">~$10 cover</span>
+  Three-plus bands nightly, up to 12 hours of jazz on Fri/Sat/Sun. Reliable low-cost fallback all weekend — check the site for each night's exact lineup.
+  <div class="meta">Fri–Sun, from ~7:30 PM (late sets run overnight) · 183 W 10th St (West Village) · ~$10 · <a href="https://www.smallslive.com/" target="_blank" rel="noopener noreferrer">smallslive.com</a></div>
+</div>
 
-<h3>James Baldwin</h3>
-<blockquote>"Not everything that is faced can be changed, but nothing can be changed until it is faced."</blockquote>
-<p><span class="muted">"As Much Truth As One Can Bear," <em>New York Times Book Review</em> (January 14, 1962).</span> Baldwin wrote this in an essay on the writer's obligation to confront hard realities rather than flatter the reader. Often misattributed to <em>The Fire Next Time</em>, it has become a touchstone for the idea that honest reckoning is the precondition for any real change.</p>
-<p class="src"><a href="https://blog.pmpress.org/2024/08/23/not-everything-that-is-faced-can-be-changed/" target="_blank" rel="noopener noreferrer">Source</a></p>
+<div class="item">
+  <h3>Zinc Bar — jazz &amp; global sets</h3>
+  <span class="tag">jazz / Brazilian / world</span><span class="tag">~$5 cover</span>
+  Intimate West Village room with a rotating jazz and Brazilian/Latin lineup; low cover, one-drink minimum. Confirm the night's act on their calendar.
+  <div class="meta">Fri–Sun evenings · 82 W 3rd St (West Village) · ~$5 + 1 drink · <a href="https://www.ny.com/clubs/jazz/" target="_blank" rel="noopener noreferrer">venue info</a></div>
+</div>
 
-<!-- ============ WED-4 ============ -->
-<h2 id="wed-4">WED-4 · NYC Local Politics Digest</h2>
-<p class="muted"><small>Presented factually. Sources within ~30 days unless noted.</small></p>
+<div class="item">
+  <h3>Odd Mob — SummerStage, Central Park <span class="note">(ticketed — flagged)</span></h3>
+  <span class="tag">electronic / house</span><span class="tag">benefit / paid</span>
+  Australian house/electronic act at Rumsey Playfield. This is a <strong>benefit (ticketed)</strong> show, likely over $25 — included only because it's the one dated concert on July 3; verify price before committing.
+  <div class="meta">Fri July 3, 5:00 PM · Rumsey Playfield, Central Park · Paid (check price) · <a href="https://cityparksfoundation.org/summerstage/" target="_blank" rel="noopener noreferrer">cityparksfoundation.org</a></div>
+</div>
+<p class="note">Thin-window note: I held the strict 2026-source + working-link rule, which cut several club listings (Nublu, Brooklyn Bowl) whose per-show 2026 pages couldn't be confirmed in budget. Smalls and Zinc are your safest walk-up bets for Sat July 4 / Sun July 5.</p>
+</section>
 
-<h3>1. Sitting Mayor: Zohran Mamdani (D)</h3>
-<p>Mamdani won the November 2025 mayoral election and is the current sitting mayor.</p>
-<ul>
-  <li><strong>June 30 — FY27 budget handshake.</strong> Mamdani and Council Speaker Julie Menin reached a handshake deal on a <strong>$125.8 billion</strong> FY27 budget, described as preserving essential services and partially restoring next year's general reserve. <a href="https://comptroller.nyc.gov/newsroom/press-releases/new-york-city-comptroller-levine-statement-on-handshake-agreement-to-pass-fy27-budget/" target="_blank" rel="noopener noreferrer">Comptroller statement</a></li>
-  <li><strong>June 30 — Housing voucher expansion.</strong> Agreement with the Council on a new rental-assistance program (CM Pierina Sanchez) for New Yorkers facing eviction/in shelter who are ineligible for existing CityFHEPS — funded at <strong>$175M in FY27</strong>. <a href="https://council.nyc.gov/press/2026/06/30/3155/" target="_blank" rel="noopener noreferrer">Council press</a></li>
-  <li><strong>June 22 — Extreme-heat worker EO.</strong> Signed an executive order directing a whole-of-government response to protect ~1.4 million outdoor workers, described as first-of-its-kind for NYC. <a href="https://www.nyc.gov/mayors-office/news/2026/06/mayor-mamdani-signs-executive-order-protecting-workers-from-extr" target="_blank" rel="noopener noreferrer">Mayor's Office</a></li>
-  <li><strong>Tension point:</strong> The administration is appealing to overturn the CityFHEPS Reform Laws; the Council responded June 24. <a href="https://council.nyc.gov/press/" target="_blank" rel="noopener noreferrer">Council press index</a></li>
-</ul>
+<!-- ============ THU-4 ============ -->
+<section>
+<h2 id="thu-4">THU-4 · Weekend Art &amp; Installations: NYC</h2>
+<p>Three genuinely odd, underground shows on view across July 3–5 — kept off the blockbuster-museum track.</p>
 
-<h3>2. Next Ballot — November 3, 2026 General Election</h3>
-<p>NYC municipal offices (Mayor, Council, Borough Presidents) were elected in 2025 and are <strong>not</strong> on the 2026 ballot. The 2026 ballot is federal/state:</p>
-<ul>
-  <li><strong>Governor / Lt. Gov:</strong> Kathy Hochul (D) with running mate Adrienne Adams (former Council Speaker) vs. <strong>Bruce Blakeman (R/Conservative)</strong>, Nassau County Executive, with Todd Hood; plus Larry Sharpe (Green/other) and Amy S. Taylor (Working Families). <a href="https://ballotpedia.org/New_York_gubernatorial_and_lieutenant_gubernatorial_election,_2026" target="_blank" rel="noopener noreferrer">Ballotpedia</a></li>
-  <li><strong>Also on the ballot:</strong> Attorney General, Comptroller, all 26 US House seats, State Senate, State Assembly. <a href="https://www.nycvotes.org/whats-on-the-ballot/" target="_blank" rel="noopener noreferrer">NYC Votes</a></li>
-</ul>
+<div class="item">
+  <h3>Yehwan Song — "The Other Internet"</h3>
+  <span class="tag">kinetic / interactive</span>
+  Water pressure and moving valves fire jets of water at smartphone screens, triggering text responses in competing languages — a physical, mechanical dramatization of which cultures dominate the internet. Strange and conceptually sharp.
+  <div class="meta">Thru Aug 23, 2026 · open Thu–Sun 11:30am–6pm (open all three days) · SUBTITLED, Greenpoint, Brooklyn · Free (typical gallery admission) · <a href="https://www.artrabbit.com/events/yehwan-song-the-other-internet" target="_blank" rel="noopener noreferrer">Details</a></div>
+</div>
 
-<h3>3. Recent City Council Votes / Decisions (last 14 days)</h3>
-<ul>
-  <li><strong>June 30</strong> — Housing voucher expansion agreement (above).</li>
-  <li><strong>June 25</strong> — Council approved the <strong>Monitor Point rezoning</strong> (Greenpoint waterfront TOD; see WED-2).</li>
-  <li><strong>June 24</strong> — Council responded to the administration's CityFHEPS appeal.</li>
-  <li><strong>June 17</strong> — Hearing on legislation targeting dynamic/surveillance pricing.</li>
-  <li>Tracking: <a href="https://legistar.council.nyc.gov/Legislation.aspx" target="_blank" rel="noopener noreferrer">NYC Council Legistar</a></li>
-</ul>
+<div class="item">
+  <h3>Ada Friedman — "Echo Arts"</h3>
+  <span class="tag">participatory / process</span>
+  A process-driven "embodied research" show that runs the gallery as a living experiment — a summer-camp ethos of collectivity ("the slowest camper leads the hike") translated into the art space.
+  <div class="meta">Thru Aug 17, 2026 · Sat–Sun 12–6pm (walk-in July 4 &amp; 5; July 3 by appt) · KAJE, 74 15th St, Gowanus, Brooklyn · Free (typical gallery admission) · <a href="https://www.artrabbit.com/events/ada-friedman-echo-arts" target="_blank" rel="noopener noreferrer">Details</a></div>
+</div>
 
-<h3>4. Astoria / Queens — June 23 Primary Results</h3>
-<p>The June 23 primary already ran; winners advance to Nov 3. Totals are <em>unofficial</em> (~95% of scanners reported).</p>
-<ul>
-  <li><strong>State Senate District 12</strong> (succeeding retiring Sen. Michael Gianaris): <strong>Aber Kawas (D) won</strong>, 60% vs. Steven Raga 39%.</li>
-  <li><strong>Assembly District 36</strong> (western/central Astoria, Ditmars, Astoria Heights, northern LIC): <strong>Diana C. Moreno (D, incumbent) won</strong>, 79%.</li>
-  <li><strong>Assembly District 34</strong> (Jackson Heights/Elmhurst/parts of Astoria; open seat): <strong>Brian Romero (D) won</strong>, 67%.</li>
-  <li><strong>Assembly District 30</strong> (open seat): <strong>Patrick Martinez (D) leading</strong>, 46% vs. Shamsul Haque 42%.</li>
-  <li>Broader trend: reporting notes DSA-aligned candidates winning while some incumbents fell in Queens. <a href="https://qns.com/2026/06/polls-close-voting-complete-local-queens-primaries/" target="_blank" rel="noopener noreferrer">QNS</a> · <a href="https://www.cityandstateny.com/politics/2026/06/2026-state-legislative-primary-races-watch/413716/" target="_blank" rel="noopener noreferrer">City &amp; State</a></li>
-  <li class="muted"><strong>Could not confirm within budget:</strong> the NY-14 (US House) primary field/results, and NYC Council District 22/26/36 races — the latter consistent with Council <em>not</em> being on the 2026 ballot. Not fabricated.</li>
-</ul>
+<div class="item">
+  <h3>Wilson Miller &amp; Sebastian Maseri — "Laurentia by Morning"</h3>
+  <span class="tag">collaborative / landscape</span>
+  A brand-new two-artist collaborative show at a small independent Brooklyn gallery, exploring landscape through partnership. Opened July 2, so it's fresh.
+  <div class="meta">July 2 – Sept 8, 2026 · Turquoise, Brooklyn · Free (typical gallery admission) · <a href="https://www.artrabbit.com/events/wilson-miller-and-sebastian-maseri-laurentia-by-morning" target="_blank" rel="noopener noreferrer">Details</a> <span class="note">— confirm exact weekend hours on the page</span></div>
+</div>
+<p class="note">Admission wasn't explicitly stated on these independent-gallery pages; entry to spaces like these is standardly free, but worth a quick check before you trek out.</p>
+</section>
 
-<h3>5. Charter Revision / Ballot Measures</h3>
-<ul>
-  <li><strong>Active (2026):</strong> A <strong>Charter Revision Commission on Government Efficiency</strong> is working on an amendment to formalize the Rainy Day Fund funding structure — backed June 17 by Mamdani and Comptroller Levine. <a href="https://comptroller.nyc.gov/newsroom/press-releases/comptroller-levine-and-mayor-mamdani-released-the-following-statement-regarding-amending-the-city-charter-to-strengthen-new-york-citys-rainy-day-fund/" target="_blank" rel="noopener noreferrer">Statement</a></li>
-  <li class="muted">The five housing/even-year charter measures widely discussed were on the <strong>November 2025</strong> ballot and have already been voted on — not pending 2026 measures.</li>
-</ul>
+<!-- ============ THU-5 ============ -->
+<section>
+<h2 id="thu-5">THU-5 · Weekend Social: NYC Events with Activity</h2>
+<p>Things to <em>do</em> — not just stand at a bar — across the holiday weekend, with a July 4th flavor.</p>
 
-<h3>6. Dates to Flag</h3>
-<ul>
-  <li><strong>Nov 3, 2026 — General Election</strong> (Governor, AG, Comptroller, US House, State Senate, Assembly).</li>
-  <li><strong>June 23, 2026 primary — completed.</strong> Winners above advance to November.</li>
-</ul>
+<div class="item">
+  <h3>Free Social Dance — Jimmy Bosch salsa night (Lincoln Center)</h3>
+  <span class="tag">social dance</span><span class="tag">FREE</span>
+  Instructor-led social dancing on the outdoor Dance Floor with a live salsa band. Low-pressure, drop-in, and exactly the kind of "show up and move" night that beats another night home.
+  <div class="meta">Fri July 3, 7:00 PM · Lincoln Center (UWS) · Free · <a href="https://www.lincolncenter.org/series/summer-for-the-city/s/Social%20Dance" target="_blank" rel="noopener noreferrer">lincolncenter.org</a></div>
+</div>
 
-<!-- ============ WED-5 ============ -->
-<h2 id="wed-5">WED-5 · NYC Direct Actions: Upcoming Events</h2>
-<p><strong>No events met the inclusion bar this week</strong> — the rule is a confirmed specific date <em>and</em> a direct working link, and nothing cleared both. Rather than list anything unverified, here's the honest picture and where the dated info actually lives.</p>
-<ul>
-  <li><strong>NYC DSA</strong> — the chapter's public calendar is the most likely home for dated July actions, but it's JavaScript-rendered and returned no machine-readable listings. Check it directly: <a href="https://calendar.socialists.nyc/" target="_blank" rel="noopener noreferrer">calendar.socialists.nyc</a> · <a href="https://twitter.com/nycDSA" target="_blank" rel="noopener noreferrer">@nycDSA</a></li>
-  <li><strong>JVP NYC</strong> — national <a href="https://www.jewishvoiceforpeace.org/action-alerts/" target="_blank" rel="noopener noreferrer">Action Alerts</a> showed only online call/email campaigns, no confirmed in-person NYC event with a July 1–15 date. Chapter: <a href="https://www.jvpnyc.org/who-we-are" target="_blank" rel="noopener noreferrer">jvpnyc.org</a></li>
-  <li><strong>Palestinian Youth Movement (PYM NYC)</strong> — no confirmable July 2026 date found; their <a href="https://www.instagram.com/nycpym/" target="_blank" rel="noopener noreferrer">Instagram</a> (auth-gated) is where announcements land.</li>
-  <li><strong>Within Our Lifetime</strong> — organizes frequent NYC actions but posts dates to <a href="https://x.com/wolpalestine" target="_blank" rel="noopener noreferrer">@WOLPalestine</a> / <a href="https://wolpalestine.com/" target="_blank" rel="noopener noreferrer">wolpalestine.com</a>; nothing with a confirmed July 1–15 date was indexed.</li>
-</ul>
-<p class="muted"><small>The events almost certainly exist — they live on JS-rendered calendars and login-gated social feeds that the research tools can't render into text. Best move: open the DSA calendar and the org Instagram/X feeds in a browser to catch this week's confirmed dates.</small></p>
+<div class="item">
+  <h3>Sail4th 250 — free tall-ship tours</h3>
+  <span class="tag">walkable / participatory</span><span class="tag">FREE</span>
+  Over 50 tall ships from 30 nations dock across the harbor for the America 250 celebration; free public deck tours run July 5–7 at Brooklyn Bridge Park, South Street Seaport, and Stapleton Park (SI). Reserve online to skip the lines.
+  <div class="meta">Sun July 5 (tours July 5–7) · multiple piers · Free (reservation recommended) · <a href="https://sail4th.org/whats-happening" target="_blank" rel="noopener noreferrer">sail4th.org</a></div>
+</div>
 
-<p class="muted" style="margin-top:40px; border-top:1px solid var(--line); padding-top:14px;"><small>Generated for John · Wednesday, July 1, 2026. Health guidance here is informational and shaped by your own Tracker notes — not a substitute for your care team. Political and event items link to their sources; verify dates before you travel to anything.</small></p>
+<div class="item">
+  <h3>Hands-on craft workshops (this-weekend filter)</h3>
+  <span class="tag">craft / creative</span><span class="tag">varies</span>
+  Eventbrite's live "this weekend" workshop feed — Kintsugi (gold-repair pottery), water marbling, dried-flower resin, intro oil painting in LIC, and more. Browse and book one that fits July 3–5.
+  <div class="meta">Fri–Sun · various neighborhoods · varies (many $30–60) · <a href="https://www.eventbrite.com/d/ny--new-york/classes--this-weekend/workshops/" target="_blank" rel="noopener noreferrer">Browse workshops</a></div>
+</div>
+
+<div class="item">
+  <h3>Trivia nights (this-weekend filter)</h3>
+  <span class="tag">games / social</span><span class="tag">low-cost</span>
+  Themed trivia around the city this weekend (movies, TV, pop culture). <span class="note">Astoria-local note: NYC Trivia League's next 31st Ave Open Street game is July 11 at 5pm — beyond this weekend, but on your block.</span>
+  <div class="meta">Fri–Sun · various venues · usually free–$10 · <a href="https://www.eventbrite.com/d/ny--new-york/events--this-weekend/trivia/" target="_blank" rel="noopener noreferrer">Browse trivia</a> · <a href="https://nyctrivialeague.com/" target="_blank" rel="noopener noreferrer">NYC Trivia League</a></div>
+</div>
+<p class="note">The two dated, confirmed activities this weekend are the Lincoln Center social dance (Fri) and the free tall-ship tours (Sun). The workshop/trivia links are live "this-weekend" browse feeds rather than a single fixed event — pick one and lock it in so it's a plan, not a maybe.</p>
+</section>
 
 </div>
 </body>
