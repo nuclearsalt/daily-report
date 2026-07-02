@@ -1,0 +1,52 @@
+name: Daily Briefing
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Archive yesterday's briefing
+        run: python3 scripts/archive.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate today's briefing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SVC_KEY: ${{ secrets.SUPABASE_SVC_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_AUTH_EMAIL: ${{ secrets.SUPABASE_AUTH_EMAIL }}
+          SUPABASE_AUTH_PASSWORD: ${{ secrets.SUPABASE_AUTH_PASSWORD }}
+        run: python3 scripts/run-briefing.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "Daily Briefing Bot"
+          git config user.email "jtyler203@gmail.com"
+          git add index.html archive/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          TODAY=$(TZ=America/New_York date +%Y-%m-%d)
+          DAYNAME=$(TZ=America/New_York date +%A)
+          git commit -m "Briefing — $DAYNAME $TODAY"
+          git push
